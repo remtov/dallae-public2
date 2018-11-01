@@ -11,8 +11,11 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.auction.dallae">
-		<level value="info" />
+	<logger name="com.auction.dallae">   
+		<level value="debug" /> 
+	</logger>
+	<logger name="jdbc.sqlonly">   
+		<level value="debug" /> 
 	</logger>
 	
 	<!-- 3rdparty Loggers -->

@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>search-bar</title>
+<style>
+#searchLine {
+	z-index: 1;
+}
+
+.row {
+	margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+
+
+
+	<!-- 검색창영역 -->
+
+	<div class="row">
+		<div class="col-md-3">
+			<select class="form-control input" id="serch">
+				<option value="signupNum">선택하세요</option>
+				<option value="signupNum">test</option>
+				<option value="signupNum">test</option>
+				<option value="signupNum">test</option>
+			</select>
+		</div>
+
+		<div class="col-md-7">
+			<input class="form-control input" type="text" id="serchEx">
+		</div>
+
+
+		<div class="col-md-2">
+			<button class="btn btn-info btn btn-block" type="button"
+				onclick="search()">검색</button>
+		</div>
+	</div>
+	<!-- 검색창영역 -->
+
+
+	<script>
+function search(){
+	 
+	var ser =document.querySelector('#serch').value;	
+	var tex = document.querySelector('#serchEx').value;
+	var params = ser + '=' + tex;
+
+	var conf = {
+	param : params,
+	url : '/SignUp',
+	success : function(res){
+		res = JSON.parse(res);
+		document.querySelector('#liBody').innerHTML = '';
+		var html = '';
+		for(var su of res){
+			html += '<tr onclick="location.href=\'/SignUpView/'+ su.signupNum +'\'">';
+			html += '<td>' + su.signupNum + '</td>';
+			html += '<td>' +su.signupName+ '</td>';
+			html += '<td>' +su.signupId+ '</td>';
+			html += '<td>' +su.signupPassword+ '</td>';
+			html += '<td>' +su.signupEmail+ '</td>';
+			html += '<td>' +su.signupNickName+ '</td>';
+			html += '<td>' +su.signupDate+ '</td>';
+			html += '<td>' +su.signupConcern+ '</td>';
+			html += '<td>' +su.signupPersonallity+ '</td>';
+			html += '<td>' +su.signupPhone+ '</td>';
+			html += '</tr>';
+
+		
+		} 
+		document.querySelector('#liBody').insertAdjacentHTML('afterbegin',html);
+	}
+}
+		
+	
+var au = new AjaxUtil(conf);
+au.send();
+}
+
+
+
+window.addEventListener('load',search);
+
+</script>
+</body>
+</html>

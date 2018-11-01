@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<li><a href="#">대시 보드</a></li>
+	<li><a href="#">달래톡 목록</a></li>
+
+	<li><a href="/url/bproduct:insert">경매등록</a></li>
+	<li><a href="/url/bproduct:list">경매관리</a></li>
+
+
+	<li><a href="#">입찰관리</a></li>
+
+	<li><a href="#">달래페이 정산</a></li>
+	<li><a href="#">달래 오류/제안</a></li>
+
+
+	<li><a href="#">배송관리</a></li>
+	<li><a href="#">반품교환 관리</a></li>
+
+	<li><a href="#">탈퇴하러가기</a></li>
+
+</body>
+</html>
