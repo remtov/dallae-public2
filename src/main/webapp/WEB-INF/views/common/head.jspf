@@ -73,63 +73,60 @@
 <body>
 	<!-- 상단고정바 -->
 	<div id="navi">
-
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
 
-
-				<!-- 로고영역 -->
+				<!-- 모바일일때 헤더만 출력된다 로고와 햄버거버튼 -->
 				<div class="navbar-header">
 
+
+
+					<!-- 줄어들면 햄버거버튼되는부분 -->
 					<button type="button" class="navbar-toggle collapsed"
 						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-
 						<span class="sr-only">Toggle navigation</span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
+					<!-- 줄어들면 햄버거버튼되는부분 -->
+
 
 					<!-- 여기에 이미지 넣으면 로고된다 -->
 					<a class="navbar-brand" href="/"> <img alt="Brand"
 						src="/img/logo.png"></a>
-					<!-- 여기에 이미지 넣으면 로고된다 글 넣으면 글 되고 -->
+					<!-- 여기에 이미지 넣으면 로고된다 글 넣으면 text 로고된다. -->
+
+
 				</div>
-				<!-- 로고영역 -->
+				<!-- 모바일일때 헤더만 출력된다 로고와 햄버거버튼 -->
 
 
 
 
-				<!-- 줄어들명 몽땅 아이콘되는영역 -->
-
-
+				<!-- 데스크탑일경우 출력되고 모바일경우 햄버거 버튼안에 담겨질 요소들 -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 
+					<ul class="nav navbar-nav">
 
+						<li><a href="/url/bproduct:insert">경매 등록</a></li>
+						<li><a href="/url/bproduct:list">경매 보기</a></li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">검색</button>
+					</form>
 
-
-
-					<!-- 오른쪽정렬메뉴들 -->
-
-					<!-- 영찬이코드  -->
 					<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
 					<c:choose>
 						<c:when test="${not empty sessionScope.userLoginInfo}">
-							<!-- 세션이있는 모든사람들에게 보이는 메뉴 -->
+							<!-- 세션이 있는사람들만 볼 수 있는 영역-->
+
 
 
 							<ul class="nav navbar-nav navbar-right">
-
-								<li><a href="/url/bproduct:insert">경매 등록</a></li>
-								<li><a href="/url/bproduct:list">경매 보기</a></li>
-
-
-
-
-
-
-
 
 
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -141,8 +138,8 @@
 									<ul class="dropdown-menu" role="menu">
 										<li><a href="/url/SignUp:MyPage">계정설정</a></li>
 										<!-- 마이페이지역할에해당 -->
-
 										<li><a onclick="logout()">로그아웃</a></li>
+
 
 										<!-- 관리자에 해당하는 내용분기점 -->
 										<c:if test="${userLoginInfo.signupId =='관리자'}">
@@ -150,52 +147,33 @@
 										</c:if>
 										<!-- 관리자에 해당하는 내용분기점 -->
 
+
 									</ul></li>
-
-
-
 							</ul>
-
-							<!-- 여기까지 세션이있는사람에대한 화면내용 -->
+							<!-- 세션이 있는사람들만 볼 수 있는 영역-->
 						</c:when>
 
 
 
+
 						<c:otherwise>
+							<!-- 세션이 없는 사람들이 볼 수 있는 내용 -->
 
-
-
-							<!-- 여기는 세션이 없는 사람에대한 내용 -->
 							<ul class="nav navbar-nav navbar-right">
 								<!-- <li><a href="/url/bproduct:list">오늘의 추천거래</a></li> -->
 								<li><a href="/url/bproduct:insert">경매 올리기</a></li>
 								<li><a href="/url/bproduct:list">경매 보기</a></li>
 
-
 								<li><a href="/url/SignUp:login">로그인</a></li>
-
 								<li><a href="/url/SignUp:SignUp">가입</a></li>
-
-
-
 							</ul>
-							<!-- 여기는 세션이 없는 사람에대한 내용 -->
-
+							<!-- 세션이 없는 사람들이 볼 수 있는 내용 -->
 						</c:otherwise>
 					</c:choose>
-
-
-					<!-- 오른쪽정렬메뉴들 -->
-
-
 				</div>
-
-				<!-- 줄어들명 몽땅 아이콘되는영역 -->
-				<!-- /.navbar-collapse -->
+				<!-- 데스크탑일경우 출력되고 모바일경우 햄버거 버튼안에 담겨질 요소들 -->
 			</div>
-			<!-- /.container-fluid -->
 		</nav>
-
 	</div>
 
 	<script>

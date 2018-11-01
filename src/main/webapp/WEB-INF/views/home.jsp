@@ -1,3 +1,12 @@
+<!-- 백엔드
+-상단에 검색창에서 검색하면 하단에 원하는내용 AJAX비동기로 조회되는 것 (가능하면)
+-마감임박시간 구현
+
+프론트엔드
+- 검색창 DIV 버튼부분 해상도깨짐 수정
+- 모바일환경에서 해상도 깨짐 수정
+- 경매보기 화면에서 디비가 실제적 데이터로 바꿔준후 홈화면에 가짜데이터 진짜로바꿀것
+ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -165,13 +174,13 @@
 	<div id="home_container">
 		<div class="container">
 
-			<!-- 두번째 검색창라인 -->
-			<%@ include file="/WEB-INF/views/common/search-bar.jspf"%>
-			<!-- 검색창영역 -->
-
+			
+				<h2>경매 마감임박 상품</h2>
+				
+			
 
 			<%@ include file="/WEB-INF/views/common/home_img-slide.jspf"%>
-			<!-- 카테고리드랍다운메뉴 -->
+
 
 			<!-- 이미지슬라이드 -->
 			<!-- 두번째 검색라인 -->

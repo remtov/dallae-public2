@@ -1,3 +1,13 @@
+<!-- 백엔드
+-올라온 게시물이 누가 인서트했는지
+띄울 수 있는 컬럼이 필요함 
+아마도 회원테이블과 제품테이블에 트리거로 연결해서 구현해야할듯 잘모르겠지만
+특정회원의 세션을 가지고 있는 사람이 인서트했을때
+제품 튜플에 특정 아이디가 찍히도록
+
+프론트엔드
+- -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,46 +34,46 @@ div { /* border: 3px solid red; */
 					function() {
 						var au = new AjaxUtil(
 								{
+
 									url : '/BProductInfo',
 									success : function(res) {
 										res = JSON.parse(res);
-
 										var plus = 0;
 										var html = '';
+
 										if (res.length % 4 != 0) {
 											plus = 1;
 										}
 
 										for (var i = 0; i < (res.length / 4)
-												+ plus; i++) {
+												+ plus;
+
+										i++) {
 											html = '<div class="row">';
-											for (var j = 0; j < 4; j++) {
+											for (var j = 0; j < 4;
+
+											j++) {
 												if (j + (i * 4) == res.length) {
 													break;
 												}
+
 												html += '<div class="col-sm-6 col-md-3">';
-
 												html += '<div class="thumbnail">';
-
-												html += '<img style="width:100%;" alt="/resources/img/icon-img.png" src="/resources/img/product/'
+												html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/'
 														+ res[j + (i * 4)].productImage
 														+ '" onclick="goPage('
 														+ res[j + (i * 4)].productNumber
 														+ ')">';
-
 												html += '<div class="caption">';
-
 												html += '<h3>'
 														+ res[j + (i * 4)].productName
 														+ '</h3>';
-
 												html += '<h4>시작가격 : '
 														+ res[j + (i * 4)].productLowestPrice
 														+ ' 원</h4>';
 												html += '<h4>현재가격 : '
 														+ res[j + (i * 4)].productHopefulPrice
 														+ ' 원</h4>';
-
 												html += '<p>제품브랜드 : '
 														+ res[j + (i * 4)].productBrand
 														+ ' | 제품수량 : '
@@ -71,37 +81,37 @@ div { /* border: 3px solid red; */
 														+ ' | 등록일 : '
 														+ res[j + (i * 4)].productDate
 														+ '</p>';
-
 												html += '<div style="height:50px;overflow:hidden;">'
 												html += '<p>'
 														+ res[j + (i * 4)].productCondition
 														+ '</p>';
 												html += '</div>'
-
 												html += '<div style="height:50px;overflow:hidden;">'
 												html += '<p>'
 														+ res[j + (i * 4)].productDesc
 														+ '</p>';
 												html += '</div>'
-
 												html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
-												html += '<a style="margin-right:10px;" href="#" class="btn btn-default" role="button" onclick="goPage('
+												html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage('
 														+ res[j + (i * 4)].productNumber
 														+ ')">더보기</a></p>';
-
 												html += '</div></div></div>';
 											}
+
 											html += '</div>';
 											document.querySelector(
 													'#ATProductBody')
 													.insertAdjacentHTML(
 															'beforeend', html);
 										}
-
 									}
-								});
+								}
+
+						);
 						au.send();
-					});
+					}
+
+			);
 	/* 테이블바디형 로직 
 	 html += '<td>'+ product.productNumber+'</td>';
 	 html += '<td>'+ product.productName + '</td>';
@@ -142,7 +152,7 @@ div { /* border: 3px solid red; */
 					</h3>
 
 
-					<%@ include file="/WEB-INF/views/common/search-bar.jspf"%>
+					
 
 					<div style="width: 100%;">
 						<hr>

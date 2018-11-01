@@ -1,5 +1,13 @@
-<!-- 수정할것: 프로덕트 즉시구매 컬럼 삭제 예정 --> 
-<!-- 작업중 -->
+<!-- 백엔드
+-회원테이블에 레벨컬럼 제작하여 판매자 인증 후 레벨상승되며
+레벨에 따라 경매올리기가 가능하도록 하기
+-프로덕트테이블에 즉시구매 컬럼 삭제하고 입찰가가 회원들이 입찰버튼누를 때마다 상승되고
+마지막에 누른 회원의 이름이 출력되도록 구현
+-여러장의 사진을 인서트하고 셀렉트 할 수 있도록 구조나 스크립트 기술이 필요
+ 
+
+프론트엔드
+-판매자인증하러가기 페이지나 모달창구현 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -113,22 +121,6 @@ h4 {
 
 									</select>
 								</div>
-								<div class="col-md-3">
-									<select id="productCategory2" class="form-control"
-										name="productCategory2">
-										<option value="none">중분류</option>
-										<option value="test1">test1</option>
-										<option value="test2">test2</option>
-									</select>
-								</div>
-								<div class="col-md-3">
-									<select id="productCategory3" class="form-control"
-										name="productCategory3">
-										<option value="none">소분류</option>
-										<option value="test3">test3</option>
-										<option value="test4">test4</option>
-									</select>
-								</div>
 							</div>
 
 
@@ -187,8 +179,10 @@ h4 {
 									<table style="width: 100%;">
 
 										<tr>
-											<td colspan="3"><input class="form-control" required
-												type="file" id="productImage" name="productImage"></td>
+											<td><input required type="file" id="productImage"
+												name="productImage"></td>
+											<td><input type="file" id="productImage2"></td>
+											<td><input type="file" id="productImage3"></td>
 										</tr>
 
 										<tr style="height: auto;">
@@ -202,6 +196,12 @@ h4 {
 
 										</tr>
 
+										<tr>
+											<td><input type="file" id="productImage4"></td>
+											<td><input type="file" id="productImage5"></td>
+											<td><input type="file" id="productImage6"></td>
+										</tr>
+
 										<tr style="height: auto;">
 
 											<td><img style="width: 100%" src="/img/icon-img.png"
@@ -211,6 +211,12 @@ h4 {
 											<td><img style="width: 100%" src="/img/icon-img.png"
 												id="preview6"></td>
 
+										</tr>
+
+										<tr>
+											<td><input type="file" id="productImage7"></td>
+											<td><input type="file" id="productImage8"></td>
+											<td><input type="file" id="productImage9"></td>
 										</tr>
 
 										<tr style="height: auto;">
@@ -274,7 +280,7 @@ h4 {
 
 								<div class="col-md-4">
 									<input required type="number" class="form-control"
-	         									id="productLowestPrice" name="productLowestPrice"
+										id="productLowestPrice" name="productLowestPrice"
 										placeholder="제품의 최저가" data-vc="1,10">
 								</div>
 								<div class="col-md-1">
@@ -351,25 +357,115 @@ h4 {
 			<!-- 우측컨텐츠 -->
 
 			<script>
-				var fileInput = document.querySelector('input[type="file"]');
+				/* 				var fileInput = document.querySelector('input[type="file"]'); */
+
+				var fileInput = document.getElementById('productImage');
+				var fileInput2 = document.getElementById('productImage2');
+				var fileInput3 = document.getElementById('productImage3');
+				var fileInput4 = document.getElementById('productImage4');
+				var fileInput5 = document.getElementById('productImage5');
+				var fileInput6 = document.getElementById('productImage6');
+				var fileInput7 = document.getElementById('productImage7');
+				var fileInput8 = document.getElementById('productImage8');
+				var fileInput9 = document.getElementById('productImage9');
+
 				var preview = document.getElementById('preview');
+				var preview2 = document.getElementById('preview2');
+				var preview3 = document.getElementById('preview3');
+				var preview4 = document.getElementById('preview4');
+				var preview5 = document.getElementById('preview5');
+				var preview6 = document.getElementById('preview6');
+				var preview7 = document.getElementById('preview7');
+				var preview8 = document.getElementById('preview8');
+				var preview9 = document.getElementById('preview9');
+
 				fileInput.addEventListener('change', function(e) {
 					var url = URL.createObjectURL(e.target.files[0]);
 					preview.setAttribute('src', url);
 				});
+
+				fileInput2.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview2.setAttribute('src', url);
+				});
+
+				fileInput3.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview3.setAttribute('src', url);
+				});
+
+				fileInput4.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview4.setAttribute('src', url);
+				});
+
+				fileInput5.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview5.setAttribute('src', url);
+				});
+
+				fileInput6.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview6.setAttribute('src', url);
+				});
+
+				fileInput7.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview7.setAttribute('src', url);
+				});
+
+				fileInput8.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview8.setAttribute('src', url);
+				});
+
+				fileInput9.addEventListener('change', function(e) {
+					var url = URL.createObjectURL(e.target.files[0]);
+					preview9.setAttribute('src', url);
+				});
+
 				function imgvali() {
-					var img = document.querySelector('input[type="file"]');
+					/* var img = document.querySelector('input[type="file"]'); */
+
+					var img = document.getElementById('productImage');
+					var img2 = document.getElementById('productImage2');
+					var img3 = document.getElementById('productImage3');
+					var img4 = document.getElementById('productImage4');
 
 					img = img.value.substring(img.value.lastIndexOf('.') + 1);
+					img2 = img2.value
+							.substring(img2.value.lastIndexOf('.') + 1);
+					img3 = img3.value
+							.substring(img3.value.lastIndexOf('.') + 1);
+					img4 = img4.value
+							.substring(img4.value.lastIndexOf('.') + 1);
+
 					if (img.toUpperCase() != 'JPG'
 							&& img.toUpperCase() != 'PNG') {
-						alert("jpg 나 png파일을 넣어주세요");
+						alert("1 번째 사진에 jpg 나 png파일을 넣어주세요");
 						return false;
 					}
+					if (img2.toUpperCase() != 'JPG'
+							&& img2.toUpperCase() != 'PNG') {
+						alert("2 번째 사진에 jpg 나 png파일을 넣어주세요");
+						return false;
+					}
+					if (img3.toUpperCase() != 'JPG'
+							&& img3.toUpperCase() != 'PNG') {
+						alert("3 번째 사진에 jpg 나 png파일을 넣어주세요");
+						return false;
+					}
+					if (img4.toUpperCase() != 'JPG'
+							&& img4.toUpperCase() != 'PNG') {
+						alert("4 번째 사진에 jpg 나 png파일을 넣어주세요");
+						return false;
+					}
+
 					return true;
 				}
 
 				function insert() {
+
 					var form = document.querySelector('#myform');
 					var formData = new FormData(form);
 
@@ -417,4 +513,27 @@ h4 {
 </body>
 </html>
 
-
+<!-- 	var productImage = productImage + ',' + productImage2 + ','
+							+ productImage3 + ',' + productImage4 + ','
+							+ productImage5 + ',' + productImage6 + ','
+							+ productImage7 + ',' + productImage8 + ','
+							+ productImage9
+				/* var productImage = document
+							.getElementByName('productImage');
+					var productImage2 = document
+							.getElementByName('productImage2');
+					var productImage3 = document
+							.getElementByName('productImage3');
+					var productImage4 = document
+							.getElementByName('productImage4');
+					var productImage5 = document
+							.getElementByName('productImage5');
+					var productImage6 = document
+							.getElementByName('productImage6');
+					var productImage7 = document
+							.getElementByName('productImage7');
+					var productImage8 = document
+							.getElementByName('productImage8');
+					var productImage9 = document
+							.getElementByName('productImage9');
+ */ -->
