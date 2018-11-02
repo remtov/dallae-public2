@@ -248,7 +248,7 @@ body {
 .contentLeft {
 	margin-top: 20px;
 	margin-bottom: 30px;
-	width: 560px;
+	width: 100%;
 	height: 500px;
 	padding: 0px;
 	float: left;
@@ -262,7 +262,7 @@ body {
 .contentRight {
 	margin-top: 20px;
 	margin-bottom: 30px;
-	width: 560px;
+	width: 100%;
 	height: 500px;
 	padding: 0px;
 	float: right;

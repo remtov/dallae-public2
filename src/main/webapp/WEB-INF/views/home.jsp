@@ -61,25 +61,6 @@
 	z-index: 3;
 }
 
-.home_img-slide {
-	z-index: 1;
-}
-
-#home-img-slide_alert--right-top {
-	width: 300px;
-	position: absolute;
-	top: 20px;
-	right: 20px;
-}
-
-#home-img-slide_button span {
-	font-size: 3em;
-}
-
-#home-img-slide_button p {
-	margin-top: 250px;
-}
-
 #home-content_title-line {
 	margin-top: 60px;
 }
@@ -164,6 +145,10 @@
 	right: 0px;
 	border: 3px solid #f6f6f6;
 }
+
+div {
+	border: 1px solid red;
+}
 </style>
 
 </head>
@@ -174,27 +159,53 @@
 	<div id="home_container">
 		<div class="container">
 
-			
-				<h2>경매 마감임박 상품</h2>
-				
-			
-
 			<%@ include file="/WEB-INF/views/common/home_img-slide.jspf"%>
-
-
 			<!-- 이미지슬라이드 -->
-			<!-- 두번째 검색라인 -->
+
+
+			<div class="row">
+
+
+				<div class="col-md-6">
+					<ol class="breadcrumb2">
+						<li><a href="#">홈</a></li>
+						<li><a href="#">전자</a></li>
+						<li class="active">카메라</li>
+					</ol>
+					<div class="row">
+						<div class="col-md-9">
+
+							<img style="width:100%" src="/img/rail-camera-01.jpg">
+						</div>
+						<div class="col-md-3">
+						<img style="width:100%" src="/img/rail-camera-02.jpg">
+						<img style="width:100%" src="/img/rail-camera-03.jpg">
+						<img style="width:100%" src="/img/rail-camera-04.jpg">
+						
+						
+						</div>
+
+					</div>
+
+
+				</div>
+				<div class="col-md-6">
+					<ol class="breadcrumb2">
+						<li><a href="#">홈</a></li>
+						<li><a href="#">전자</a></li>
+						<li class="active">카메라</li>
+					</ol>
 
 
 
 
-
-
-
-			<div id="home-content_title-line">
-				<h2>최고 입찰상품</h2>
-				<hr>
+				</div>
 			</div>
+
+
+
+
+
 
 
 			<!-- 왼쪽컨텐츠 1열 -->
@@ -204,13 +215,7 @@
 
 					<tr>
 						<!-- 카테고리로직 영역 -->
-						<td colspan="2">
-							<ol class="breadcrumb2">
-								<li><a href="#">홈</a></li>
-								<li><a href="#">전자</a></li>
-								<li class="active">카메라</li>
-							</ol>
-						</td>
+						<td colspan="2"></td>
 						<!-- 카테고리로직 영역 -->
 					</tr>
 
@@ -218,7 +223,7 @@
 					<tr id="home-content_left-img--tr01">
 						<!-- 첫번째사진영역 -->
 						<td id="home-content_left-img--td01" rowspan="3"><div>
-								<img src="/img/rail-camera-01.jpg">
+
 							</div></td>
 						<!-- 첫번째사진영역 -->
 
@@ -521,7 +526,6 @@
 
 	</div>
 	<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-
 </body>
 </html>
 

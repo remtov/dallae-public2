@@ -41,6 +41,8 @@ h4 {
 	})
 
 	$('#example').popover(options)
+	
+	
 </script>
 
 </head>

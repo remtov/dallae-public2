@@ -7,7 +7,32 @@
 <title>이미지 슬라이더</title>
 
 <style>
+.home_img-slide {
+	z-index: 1;
+}
+
+#home-img-slide_button span {
+	font-size: 3em;
+}
+
+#home-img-slide_button p {
+	/* margin-top: 250px; */
+	
+}
+
+#home-title_end-message {
+	position: absolute;
+	top: 0px;
+	left: 20px;
+}
+
+#home-title_end-message span {
+	opacity: 0.7;
+	background-color: white;
+}
+
 div {
+	/* 	border: 1px solid red; */
 	
 }
 </style>
@@ -27,229 +52,65 @@ div {
 	<!-- 이미지슬라이더 -->
 	<div id="dropDown-img" class="home_img-slide">
 
-		<div class="carousel slide" data-ride="carousel">
+		<div id="carousel-example-generic" class="carousel slide"
+			data-ride="carousel">
 
-			<!-- Indicators -->
+			<!-- j<n설정으로 슬라이더 장수를 설정-->
 			<ol class="carousel-indicators">
-				<li data-slide-to="0" class="active"></li>
-				<li data-slide-to="1"></li>
-				<li data-slide-to="2"></li>
-				<li data-slide-to="3"></li>
-				<li data-slide-to="4"></li>
-				<li data-slide-to="5"></li>
-				<li data-slide-to="6"></li>
-				<li data-slide-to="7"></li>
-
-
+				<%
+					for (int j = 0; j < 8; j++) {
+				%>
+				<li data-slide-to="<%=j%>"></li>
+				<%
+					}
+				%>
 			</ol>
-
-
+			<!-- j<n설정으로 슬라이더 장수를 설정-->
+			<!-- i<n 설정을 띄울 사진수에 맞추면 슬라이더 장수가 세팅됨 -->
 			<div class="carousel-inner" role="listbox">
+				<%
+					for (int i = 1; i < 9; i++) {
+				%>
+				<div class="item <%if (i == 1) {%>active<%}%>">
 
-				<div class="item active">
-					<img src="/img/mainSlide01.jpg" alt="first slide">
-
-					<!-- 마감임박상품 시간 -->
-					<div class="carousel-caption">
-
-						<span class="label label-danger">2분 뒤에 경매 종료됩니다. 입찰하러 가기 </span> <span
-							class="label label-danger" style="padding-top: -100px;">MainSlide
-							Title 01 | 5454600원 | 입찰수 : 4656</span>
-
-
-
-
+					<div style="position: relative;">
+						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
+						<div id="home-title_end-message">
+							<h3>
+								<span> <b>2분</b> 뒤에 경매 종료됩니다.
+								</span>
+							</h3>
+							<p>
+								<span>MainSlide Title 01 | <b>5454600원</b> | 입찰수 : 4656
+								</span>
+							</p>
+							<button class="btn btn-danger" onclick="location.href='#'">입찰하러
+								가기</button>
+						</div>
 
 					</div>
-					<!-- 마감임박상품 시간 -->
-
 
 				</div>
-
-
-
-				<div class="item">
-					<img src="/img/mainSlide02.jpg" alt="second slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지:5분</span>
-						</h3>
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 543495000원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-				<div class="item">
-					<img src="/img/mainSlide03.jpg" alt="third slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지: 8분</span>
-						</h3>
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 122354원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-				<div class="item">
-					<img src="/img/mainSlide04.jpg" alt="fored slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지: 15분</span>
-						</h3>
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 3121495000원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-				<div class="item">
-					<img src="/img/mainSlide05.jpg" alt="fived slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지:19분</span>
-						</h3>
-					</div>
-
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 343495000원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-				<div class="item">
-					<img src="/img/mainSlide06.jpg" alt="sixed slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지:25분</span>
-						</h3>
-					</div>
-
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 349500650원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-				<div class="item">
-					<img src="/img/mainSlide07.jpg" alt="sevened slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지:47분</span>
-						</h3>
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 3495000원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-
-
-				<div class="item">
-					<img src="/img/mainSlide08.jpg" alt="sevened slide">
-					<div class="carousel-caption">
-						<h3>
-							<span class="label label-danger">마감임박상품 | 경매종료까지:78분</span>
-						</h3>
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-					<div class="alert alert-danger" role="alert"
-						id="home-img-slide_alert--right-top">
-						<h3>MainSlide Title</h3>
-						<p>fdsfse fesd fsdf sdf ef sefsfsedfsdfs fefsfesfsd fds fsdf
-							sd fsdfefsfd fsd fsd</p>
-						<p>입찰자수:46456</p>
-						<p>현재가격: 124500원</p>
-						<br>
-						<button type="button" class="btn btn-default">바로경매하기</button>
-
-					</div>
-					<!-- 오른쪽 위 경매하기 창 -->
-				</div>
-
-
-
-
-
-
-
-
+				<%
+					}
+				%>
 			</div>
-			<div id="home-img-slide_button">
-				<!-- Controls -->
+			<!-- i<n 설정을 띄울 사진수에 맞추면 슬라이더 장수가 세팅됨 -->
+			<!-- 이미지슬라이더 - 화살표 -->
+			<div>
 				<a class="left carousel-control" href="#carousel-example-generic"
 					role="button" data-slide="prev"> <!-- 왼쪽 화살표로직 --> <span
 					aria-hidden="true">
-						<p>&lt;</p>
+						<p style="padding-top: 200px; font-size: 1.8em;">&lt;</p>
 				</span> <!-- 왼쪽 화살표로직 -->
 				</a> <a class="right carousel-control" href="#carousel-example-generic"
 					role="button" data-slide="next"> <!-- 오른쪽 화살표로직 --> <span
 					aria-hidden="true">
-						<p>&gt;</p>
+						<p style="padding-top: 200px; font-size: 1.8em;">&gt;</p>
 				</span> <!-- 오른쪽 화살표로직 -->
 				</a>
-
 			</div>
-
+			<!-- 이미지슬라이더 - 화살표 -->
 		</div>
 
 	</div>
