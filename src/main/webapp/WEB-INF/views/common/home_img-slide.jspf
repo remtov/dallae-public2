@@ -11,24 +11,18 @@
 	z-index: 1;
 }
 
-#home-img-slide_button span {
-	font-size: 3em;
-}
-
-#home-img-slide_button p {
-	/* margin-top: 250px; */
-	
-}
-
 #home-title_end-message {
-	position: absolute;
-	top: 0px;
-	left: 20px;
+	/* position: absolute;
+	top: 0px;*/
+	text-align: center;
 }
 
-#home-title_end-message span {
-	opacity: 0.7;
-	background-color: white;
+#home-title_end-message img {
+	margin-top: 30px;
+}
+
+#home-title_end-message button {
+	margin-bottom: 30px;
 }
 
 div {
@@ -38,15 +32,6 @@ div {
 </style>
 </head>
 <body>
-
-
-
-	<!-- 			<!-- 35px 카테고리드랍다운메뉴들 -->
-
-	<!-- 35px 카테고리드랍다운메뉴들 -->
-
-
-
 
 
 	<!-- 이미지슬라이더 -->
@@ -73,20 +58,21 @@ div {
 				%>
 				<div class="item <%if (i == 1) {%>active<%}%>">
 
-					<div style="position: relative;">
-						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
+					<div style="">
 						<div id="home-title_end-message">
 							<h3>
-								<span> <b>2분</b> 뒤에 경매 종료됩니다.
-								</span>
+								<b>2분</b> 뒤에 경매 종료됩니다.
+
 							</h3>
 							<p>
-								<span>MainSlide Title 01 | <b>5454600원</b> | 입찰수 : 4656
-								</span>
+								MainSlide Title 01 | <b>5454600원</b> | 입찰수 : 4656
+
 							</p>
-							<button class="btn btn-danger" onclick="location.href='#'">입찰하러
-								가기</button>
+							<button class="btn btn-danger" onclick="location.href='#'">입찰</button>
+							<button class="btn btn-default" onclick="location.href='#'">더보기</button>
 						</div>
+						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
+
 
 					</div>
 
@@ -101,12 +87,12 @@ div {
 				<a class="left carousel-control" href="#carousel-example-generic"
 					role="button" data-slide="prev"> <!-- 왼쪽 화살표로직 --> <span
 					aria-hidden="true">
-						<p style="padding-top: 200px; font-size: 1.8em;">&lt;</p>
+						<p style="padding-top: 200px; font-size: 1.5em;">&lt;</p>
 				</span> <!-- 왼쪽 화살표로직 -->
 				</a> <a class="right carousel-control" href="#carousel-example-generic"
 					role="button" data-slide="next"> <!-- 오른쪽 화살표로직 --> <span
 					aria-hidden="true">
-						<p style="padding-top: 200px; font-size: 1.8em;">&gt;</p>
+						<p style="padding-top: 200px; font-size: 1.5em;">&gt;</p>
 				</span> <!-- 오른쪽 화살표로직 -->
 				</a>
 			</div>

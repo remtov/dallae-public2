@@ -146,8 +146,15 @@
 	border: 3px solid #f6f6f6;
 }
 
+.common_middle-img {
+	max-width: 100%;
+	margin: auto;
+	display: block;
+}
+
 div {
-	border: 1px solid red;
+	/* border: 1px solid red; */
+	
 }
 </style>
 
@@ -163,352 +170,88 @@ div {
 			<!-- 이미지슬라이드 -->
 
 
+
+
 			<div class="row">
-
+				<%
+					for (int i = 1; i < 17; i += 4) {
+				%>
 
 				<div class="col-md-6">
+					<!-- 카테고리영역 -->
 					<ol class="breadcrumb2">
 						<li><a href="#">홈</a></li>
-						<li><a href="#">전자</a></li>
-						<li class="active">카메라</li>
+						<li><a href="#">대분류</a></li>
+						<li class="active">중분류</li>
 					</ol>
-					<div class="row">
+					<!-- 카테고리영역 -->
+
+
+					<!-- 사진들 -->
+					<div class="row" style="height: 250px; overflow: hidden;">
+						<!-- 큰사진 -->
 						<div class="col-md-9">
-
-							<img style="width:100%" src="/img/rail-camera-01.jpg">
+							<img class="common_middle-img" src="/img/middle-img-<%=i%>.jpg">
 						</div>
+						<!-- 큰사진 -->
+
+
+						<!-- 작은사진 세개 -->
 						<div class="col-md-3">
-						<img style="width:100%" src="/img/rail-camera-02.jpg">
-						<img style="width:100%" src="/img/rail-camera-03.jpg">
-						<img style="width:100%" src="/img/rail-camera-04.jpg">
-						
-						
+							<div style="height: 83px;">
+								<img class="common_middle-img"
+									src="/img/middle-img-<%=i + 1%>.jpg">
+							</div>
+							<div style="height: 83px;">
+								<img class="common_middle-img"
+									src="/img/middle-img-<%=i + 2%>.jpg">
+							</div>
+							<div style="height: 83px;">
+								<img class="common_middle-img"
+									src="/img/middle-img-<%=i + 3%>.jpg">
+							</div>
+
+
+
 						</div>
-
+						<!-- 작은사진 세개 -->
 					</div>
+					<!-- 사진들 -->
 
+					<!-- 문장들-제목,내용,버튼 -->
+					<div style="height: 200px; overflow: hidden;">
+						<h3>Product Title</h3>
+						<h5>입찰자수:345343534 | 현재가격:8152000원</h5>
+						<p>글wefwefdsf wfwdfw fdwf wdfwfwdfwdf wdfwdfwd fwdfwfdw
+							jsdhfjkds fsdjf sjdf hsdjfh skdjfhsjdfhskdj sadf sadf
+							asdfhsdjfhsf sdf sda faskjdfhksjdhfjsdf sdf sdf dsf af sadf sdaf
+							sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf sdaf asdf sad
+							fdhfjksdhfskdjfhsd gwergwer gwergwer ger gwer g ergwer g wergwer
+							g wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
+						<p>글wefwefddfwd fwdfwfdw jsdhfjkds fsdjf sjdf hsdjfh
+							skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf sdf sda faskjdfhksjdhfjsdf
+							sdf sdf dsf af sadf sdaf sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf
+							sdaf asdf sad fdhfjksdhfskdjfhsd gwergwer gwergwer ger gw g
+							wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
+					</div>
+					<!-- 더보기 스판버튼-->
+					<div class="home-content_more-button">
+						<h4>
+							<a href="#"><span class="label label-default">더보기</span> </a>
+						</h4>
+					</div>
+					<!-- 더보기 스판버튼-->
 
+					<!-- 문장들-제목,내용,버튼 -->
 				</div>
-				<div class="col-md-6">
-					<ol class="breadcrumb2">
-						<li><a href="#">홈</a></li>
-						<li><a href="#">전자</a></li>
-						<li class="active">카메라</li>
-					</ol>
-
-
-
-
-				</div>
+				<%
+					}
+				%>
 			</div>
 
 
 
 
-
-
-
-			<!-- 왼쪽컨텐츠 1열 -->
-			<div class="contentLeft">
-
-				<table class="contentRigntLeftBoxTable">
-
-					<tr>
-						<!-- 카테고리로직 영역 -->
-						<td colspan="2"></td>
-						<!-- 카테고리로직 영역 -->
-					</tr>
-
-
-					<tr id="home-content_left-img--tr01">
-						<!-- 첫번째사진영역 -->
-						<td id="home-content_left-img--td01" rowspan="3"><div>
-
-							</div></td>
-						<!-- 첫번째사진영역 -->
-
-						<!-- 두번째사진영역 -->
-						<td id="home-content_left-img--td02"><div>
-								<img src="/img/rail-camera-02.jpg">
-							</div></td>
-						<!-- 두번째사진영역 -->
-					</tr>
-					<!-- 세번째사진영역 -->
-					<tr id="home-content_left-img--tr02">
-						<td><div>
-								<img src="/img/rail-camera-03.jpg">
-							</div></td>
-					</tr>
-					<!-- 세번째사진영역 -->
-					<!-- 네번째사진영역 -->
-					<tr id="home-content_left-img--tr03">
-						<td><div>
-								<img id="margin-top_-40px" src="/img/rail-camera-04.jpg">
-							</div></td>
-					</tr>
-					<!-- 네번째사진영역 -->
-
-				</table>
-
-
-
-				<h3>Product Title</h3>
-				<h5>입찰자수:345343534 | 현재가격:8152000원</h5>
-				<p>글wefwefdsf wfwdfw fdwf wdfwfwdfwdf wdfwdfwd fwdfwfdw
-					jsdhfjkds fsdjf sjdf hsdjfh skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf
-					sdf sda faskjdfhksjdhfjsdf sdf sdf dsf af sadf sdaf
-					sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf sdaf asdf sad
-					fdhfjksdhfskdjfhsd gwergwer gwergwer ger gwer g ergwer g wergwer g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-				<p>글wefwefddfwd fwdfwfdw jsdhfjkds fsdjf sjdf hsdjfh
-					skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf sdf sda faskjdfhksjdhfjsdf
-					sdf sdf dsf af sadf sdaf sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf
-					sdaf asdf sad fdhfjksdhfskdjfhsd gwergwer gwergwer ger gw g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-
-				<!-- 더보기 스판버튼-->
-				<div class="home-content_more-button">
-					<h4>
-						<a href="#"><span class="label label-default">더보기</span> </a>
-					</h4>
-				</div>
-				<!-- 더보기 스판버튼-->
-
-
-			</div>
-			<!-- 왼쪽컨텐츠 1열 -->
-
-
-
-			<!-- 오른쪽컨텐츠 1열 -->
-			<div class="contentRight">
-				<table class="contentRigntLeftBoxTable">
-
-					<tr>
-						<!-- 카테고리로직 영역 -->
-						<td colspan="2">
-							<ol class="breadcrumb2">
-								<li><a href="#">홈</a></li>
-								<li><a href="#">모터</a></li>
-								<li class="active">바이크</li>
-							</ol>
-						</td>
-						<!-- 카테고리로직 영역 -->
-					</tr>
-
-
-					<tr id="home-content_left-img--tr01">
-						<!-- 첫번째사진영역 -->
-						<td id="home-content_left-img--td01" rowspan="3"><div>
-								<img src="/img/motor-bike-01.jpg">
-							</div></td>
-						<!-- 첫번째사진영역 -->
-
-						<!-- 두번째사진영역 -->
-						<td id="home-content_left-img--td02"><div>
-								<img src="/img/motor-bike-02.jpg">
-							</div></td>
-						<!-- 두번째사진영역 -->
-					</tr>
-					<!-- 세번째사진영역 -->
-					<tr id="home-content_left-img--tr02">
-						<td><div>
-								<img src="/img/motor-bike-03.jpg">
-							</div></td>
-					</tr>
-					<!-- 세번째사진영역 -->
-					<!-- 네번째사진영역 -->
-					<tr id="home-content_left-img--tr03">
-						<td><div>
-								<img src="/img/motor-bike-04.jpg">
-							</div></td>
-					</tr>
-					<!-- 네번째사진영역 -->
-
-				</table>
-
-
-
-				<h3>Product Title</h3>
-				<h5>입찰자수:345343534 | 현재가격:8152000원</h5>
-				<p>글wefwefdsf wfwdfw fdwf wdfwfwdfwdf wdfwdfwd fwdfwfdw
-					jsdhfjkds fsdjf sjdf hsdjfh skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf
-					sdf sda faskjdfhksjdhfjsdf sdf sdf dsf af sadf sdaf
-					sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf sdaf asdf sad
-					fdhfjksdhfskdjfhsd gwergwer gwergwer ger gwer g ergwer g wergwer g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-				<p>글wefwefddfwd fwdfwfdw jsdhfjkds fsdjf sjdf hsdjfh
-					skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf sdf sda faskjdfhksjdhfjsdf
-					sdf sdf dsf af sadf sdaf sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf
-					sdaf asdf sad fdhfjksdhfskdjfhsd gwergwer gwergwer ger gw g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-
-				<!-- 더보기 스판버튼-->
-				<div class="home-content_more-button">
-					<h4>
-						<a href="#"><span class="label label-default">더보기</span> </a>
-					</h4>
-				</div>
-				<!-- 더보기 스판버튼-->
-
-			</div>
-			<!-- 오른쪽컨텐츠 1열 -->
-
-
-
-
-
-
-
-			<!-- 왼쪽컨텐츠 2열 -->
-			<div class="contentLeft">
-
-				<table class="contentRigntLeftBoxTable">
-
-					<tr>
-						<!-- 카테고리로직 영역 -->
-						<td colspan="2">
-							<ol class="breadcrumb2">
-								<li><a href="#">홈</a></li>
-								<li><a href="#">의류</a></li>
-								<li class="active">신발</li>
-							</ol>
-						</td>
-						<!-- 카테고리로직 영역 -->
-					</tr>
-
-
-					<tr id="home-content_left-img--tr01">
-						<!-- 첫번째사진영역 -->
-						<td id="home-content_left-img--td01" rowspan="3"><div>
-								<img src="/img/nike-01.jpg">
-							</div></td>
-						<!-- 첫번째사진영역 -->
-
-						<!-- 두번째사진영역 -->
-						<td id="home-content_left-img--td02"><div>
-								<img src="/img/nike-02.jpg">
-							</div></td>
-						<!-- 두번째사진영역 -->
-					</tr>
-					<!-- 세번째사진영역 -->
-					<tr id="home-content_left-img--tr02">
-						<td><div>
-								<img src="/img/nike-03.jpg">
-							</div></td>
-					</tr>
-					<!-- 세번째사진영역 -->
-					<!-- 네번째사진영역 -->
-					<tr id="home-content_left-img--tr03">
-						<td><div>
-								<img src="/img/nike-04.jpg">
-							</div></td>
-					</tr>
-					<!-- 네번째사진영역 -->
-
-				</table>
-
-
-
-				<h3>Product Title3</h3>
-				<h5>입찰자수:34534534 | 현재가격:81523000원</h5>
-				<p>글wefwefdsf wfwdfw fdwf wdfwfwdfwdf wdfwdfwd fwdfwfdw
-					jsdhfjkds fsdjf sjdf hsdjfh skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf
-					sdf sda faskjdfhksjdhfjsdf sdf sdf dsf af sadf sdaf
-					sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf sdaf asdf sad
-					fdhfjksdhfskdjfhsd gwergwer gwergwer ger gwer g ergwer g wergwer g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-				<p>글wefwefddfwd fwdfwfdw jsdhfjkds fsdjf sjdf hsdjfh
-					skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf sdf sda faskjdfhksjdhfjsdf
-					sdf sdf dsf af sadf sdaf sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf
-					sdaf asdf sad fdhfjksdhfskdjfhsd gwergwer gwergwer ger gw g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-
-				<!-- 더보기 스판버튼-->
-				<div class="home-content_more-button">
-					<h4>
-						<a href="#"><span class="label label-default">더보기</span> </a>
-					</h4>
-				</div>
-				<!-- 더보기 스판버튼-->
-
-
-			</div>
-			<!-- 왼쪽컨텐츠 2열 -->
-
-
-
-			<!-- 오른쪽컨텐츠 2열 -->
-			<div class="contentRight">
-				<table class="contentRigntLeftBoxTable">
-					<tbody>
-
-						<tr>
-							<!-- 카테고리로직 영역 -->
-							<td colspan="2">
-								<ol class="breadcrumb2">
-									<li><a href="#">홈</a></li>
-									<li><a href="#">모터</a></li>
-									<li class="active">자동차</li>
-								</ol>
-							</td>
-							<!-- 카테고리로직 영역 -->
-						</tr>
-
-						<tr id="home-content_left-img--tr01">
-							<!-- 첫번째사진영역 -->
-							<td id="home-content_left-img--td01" rowspan="3"><div>
-									<img src="/img/car-01.jpg">
-								</div></td>
-							<!-- 첫번째사진영역 -->
-
-							<!-- 두번째사진영역 -->
-							<td id="home-content_left-img--td02"><div>
-									<img src="/img/car-02.jpg">
-								</div></td>
-							<!-- 두번째사진영역 -->
-						</tr>
-						<!-- 세번째사진영역 -->
-						<tr id="home-content_left-img--tr02">
-							<td><div>
-									<img src="/img/car-03.jpg">
-								</div></td>
-						</tr>
-						<!-- 세번째사진영역 -->
-						<!-- 네번째사진영역 -->
-						<tr id="home-content_left-img--tr03">
-							<td><div>
-									<img src="/img/car-04.jpg">
-								</div></td>
-						</tr>
-						<!-- 네번째사진영역 -->
-				</table>
-
-				<h3>Product Title2</h3>
-				<h5>입찰자수:787844 | 현재가격:985000원</h5>
-				<p>글wefwefdsf wfwdfw fdwf wdfwfwdfwdf wdfwdfwd fwdfwfdw
-					jsdhfjkds fsdjf sjdf hsdjfh skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf
-					sdf sda faskjdfhksjdhfjsdf sdf sdf dsf af sadf sdaf
-					sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf sdaf asdf sad
-					fdhfjksdhfskdjfhsd gwergwer gwergwer ger gwer g ergwer g wergwer g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-				<p>글wefwefddfwd fwdfwfdw jsdhfjkds fsdjf sjdf hsdjfh
-					skdjfhsjdfhskdj sadf sadf asdfhsdjfhsf sdf sda faskjdfhksjdhfjsdf
-					sdf sdf dsf af sadf sdaf sdksasdfasdfkjhsadkjfhasdkjfhaskdja sdf
-					sdaf asdf sad fdhfjksdhfskdjfhsd gwergwer gwergwer ger gw g
-					wergwegwergwergwer g werg wer htr he th eth et hertertr th f</p>
-
-				<!-- 더보기 스판버튼-->
-				<div class="home-content_more-button">
-					<h4>
-						<a href="#"><span class="label label-default">더보기</span> </a>
-					</h4>
-				</div>
-				<!-- 더보기 스판버튼-->
-
-
-			</div>
-			<!-- 오른쪽컨텐츠 2열 -->
 
 			<!-- 정적인클루드방식 -->
 			<%@ include file="/WEB-INF/views/common/content_final.jspf"%>
@@ -526,6 +269,7 @@ div {
 
 	</div>
 	<%@ include file="/WEB-INF/views/common/footer.jspf"%>
+
 </body>
 </html>
 
