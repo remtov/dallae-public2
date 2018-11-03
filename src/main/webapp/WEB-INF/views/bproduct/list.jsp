@@ -133,7 +133,7 @@ div { /* border: 3px solid red; */
 
 	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='관리자'||userid=='판매자'}">
+		<c:when test="${userid=='admin'||userid=='sell'}">
 
 
 			<!-- 관리자만보이는영역 -->
@@ -152,7 +152,7 @@ div { /* border: 3px solid red; */
 					</h3>
 
 
-					
+
 
 					<div style="width: 100%;">
 						<hr>
@@ -187,13 +187,9 @@ div { /* border: 3px solid red; */
 			<!-- 관리자만보이는영역 -->
 		</c:when>
 		<c:otherwise>
-
 			<!-- 세션없는 사람에게 보이는 영역 -->
 			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
 			<!-- 세션없는 사람에게 보이는 영역 -->
-
-
-
 		</c:otherwise>
 	</c:choose>
 

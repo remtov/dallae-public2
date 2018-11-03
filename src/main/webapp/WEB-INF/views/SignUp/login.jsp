@@ -1,3 +1,6 @@
+<!-- 백엔드- 현재 판매자 아이디와 관리자아이디로 레벨구현중인데
+레벨컬럼을 추가하여 레벨권한 구현해야할듯 -->
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -9,6 +12,11 @@
 <title>Login</title>
 
 <style>
+div {
+	/* border: 1px solid red; */
+	
+}
+
 h1 {
 	margin-top: 50px;
 }
@@ -82,9 +90,9 @@ h1 {
 							아직 가입하지 않으셨습니까? <a onclick="signUp()">회원가입</a>
 						</p>
 
-						<p style="color:red;">
-							테스트1 - 아이디:관리자,비밀번호:123 _ 로그인하여 관리자 테스트를 할 수 있습니다.<br> 테스트2
-							- 아이디:판매자,비밀번호:123 _ 로그인하여 판매자 테스트를 할 수 있습니다.
+						<p style="color: red;">
+							테스트<br> id:admin pw:123 _ 관리자 테스트를 할 수 있습니다.<br>
+							id:sell pw:123 _ 판매자 테스트를 할 수 있습니다.
 						</p>
 					</div>
 					<form id="login" class="form-horizontal">
@@ -123,9 +131,9 @@ h1 {
 
 
 
-						<div class="form-group">
+						<div class="form-group" style="margin-bottom: 30px;">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="button" class="btn btn-default btn-lg btn-block"
+								<button type="button" class="btn btn-primary btn-lg btn-block"
 									onclick="loging()">로그인</button>
 
 							</div>

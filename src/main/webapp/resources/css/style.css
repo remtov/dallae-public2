@@ -64,7 +64,7 @@ body {
 .find-container {
 	width: 100%;
 	background-color: #f6f6f6;
-	height: 500px;
+	height: auto;
 }
 
 .admin-container_no-session {
@@ -209,7 +209,6 @@ body {
 	z-index: 2;
 }
 
-
 #header {
 	/* 	overflow: auto; */
 	height: 80px;
@@ -326,86 +325,3 @@ body {
 .breadcrumb2>.active {
 	color: #777;
 }
-
-/* 경로css 실험 */
-/* @media ( max-width :800px ) {
-	가로 1200px이하일경우 스마트폰 레이아웃으로 변경
-	#container {
-		width: auto;
-	}
-	#content {
-		width: auto;
-	}
-	#footer {
-		width: auto;
-		clear: both;
-	}
-
-	클래스선택자
-	.contentLeft {
-		width: 100%;
-		float: none;
-	}
-	.contentRight {
-		width: auto;
-		float: none;
-	}
-	#searchLine {
-		width: auto;
-	}
-	#content {
-		width: auto;
-	}
-	#dropDown-menu {
-		width: auto;
-	}
-	#dropDown-img {
-		width: auto;
-	}
-	#contentFinal {
-		width: auto;
-	}
-	#footerInner {
-		width: auto;
-	}
-}
-
-@media ( min-width :800px) and ( max-width:1200px ) {
-	가로 1200px이하일경우 스마트폰 레이아웃으로 변경
-	#container {
-		width: auto;
-	}
-	#content {
-		width: auto;
-	}
-	#footer {
-		width: auto;
-		clear: both;
-	}
-
-	클래스선택자
-	.contentLeft {
-		width: 48%;
-	}
-	.contentRight {
-		width: 48%;
-	}
-	#searchLine {
-		width: auto;
-	}
-	#content {
-		width: auto;
-	}
-	#dropDown-menu {
-		width: auto;
-	}
-	#dropDown-img {
-		width: auto;
-	}
-	#contentFinal {
-		width: auto;
-	}
-	#footerInner {
-		width: auto;
-	}
-} */

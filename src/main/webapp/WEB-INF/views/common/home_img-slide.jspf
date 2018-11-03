@@ -58,11 +58,10 @@ div {
 				%>
 				<div class="item <%if (i == 1) {%>active<%}%>">
 
-					<div style="">
+					<div>
 						<div id="home-title_end-message">
 							<h3>
 								<b>2분</b> 뒤에 경매 종료됩니다.
-
 							</h3>
 							<p>
 								MainSlide Title 01 | <b>5454600원</b> | 입찰수 : 4656

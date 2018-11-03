@@ -1,5 +1,12 @@
-<!-- 수정할것: 프로덕트 즉시구매 컬럼 삭제 예정 -->
-<!-- 회원아이디와 물건에 올린자로 연결해야할듯 -->
+<!--백엔드-
+프로덕트 즉시구매 컬럼 삭제 할 예정 
+물건에 판매자 아이디가 보여야 할 듯
+컬럼간 연결 포린키인가 뭔가 -->
+<!-- 
+프론트엔드
+물건을 올린사람이나 관리자일 경우
+수정이 가능하도록
+그외의 사람은 그냥 보기만 가능하도록 할것-->
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -43,7 +50,7 @@ h4 {
 
 	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='관리자'||userid=='판매자'}">
+		<c:when test="${userid=='admin'||userid=='sell'}">
 
 
 			<!-- 관리자만보이는영역 -->
@@ -96,7 +103,6 @@ h4 {
 									<td rowspan="2" style="text-align: right;">올린사람의 매너점수) 61점
 										(icon)</td>
 
-
 								</tr>
 								<tr>
 									<td>올린장소</td>
@@ -110,8 +116,8 @@ h4 {
 
 							<input required data-vc="2,30" class="form-control" type="text"
 								name="productName" value="${product.productName}">
-								
-								
+
+
 
 							<div class="row" style="margin-top: 0px;">
 
@@ -130,6 +136,7 @@ h4 {
 										data-vc="2,30">
 								</div>
 							</div>
+
 
 
 							<div class="row">

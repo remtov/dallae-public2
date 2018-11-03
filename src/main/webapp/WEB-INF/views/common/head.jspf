@@ -23,23 +23,24 @@
 
 <title>달래옥션 - Dallae Auction</title>
 
-<!-- 파비콘 -->
-<link rel="icon" href="/resources/img/favi.png">
 
 
 <!-- 부트스트랩 -->
 <link href="<%=rootPath%>/resources/css/bootstrap.min.css"
 	rel="stylesheet">
+<!-- 부트스트랩 -->
+
 <!-- 개인CSS -->
+<!-- 파비콘 -->
+<link rel="icon" href="/resources/img/favi.png">
 <link rel="stylesheet" href="<%=rootPath%>/resources/css/style.css">
 <!-- 개인CSS -->
-<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+
+<!-- jQuery -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-
 <script src="<%=rootPath%>/resources/js/bootstrap.min.js"></script>
-
+<!-- jQuery -->
 
 
 
@@ -142,7 +143,7 @@
 
 
 										<!-- 관리자에 해당하는 내용분기점 -->
-										<c:if test="${userLoginInfo.signupId =='관리자'}">
+										<c:if test="${userLoginInfo.signupId =='admin'}">
 											<li><a href="/url/SignUp:Admin">관리자 페이지</a></li>
 										</c:if>
 										<!-- 관리자에 해당하는 내용분기점 -->

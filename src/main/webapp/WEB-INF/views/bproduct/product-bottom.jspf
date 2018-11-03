@@ -12,12 +12,12 @@ function valicheck(){
 		var max = sp.split(',')[1];
 		
 		if(vc.value.trim().length<min){
-			alert(min+'글자 이상 넣어주십시오');
+			alert('커서가 가게 될 곳에'+min+'글자 이상으로 맞춰서 작성 해 주십시오.');
 			vc.focus();
 			return false;
 		}
 		if(vc.value.trim().length>max){
-			alert(max+'글자 이하로 넣어주십시오');
+			alert('커서가 가게 될 곳에'+max+'글자 이하로 맞춰서 작성 해 주십시오.');
 			vc.focus();
 			return false;
 		}

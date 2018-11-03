@@ -18,7 +18,6 @@
 <style>
 div {
 	/* border: 1px solid red; */
-	
 }
 
 #insert_myform-btn {
@@ -34,15 +33,39 @@ h4 {
 	width: 100%;
 	padding: 5px;
 }
+
+/* 파일버튼 바꾸기 css */
+.fileBox {
+	padding: 5px;
+	width: 100%;
+}
+
+.fileBox>label {
+	margin-bottom: 10px;
+}
+
+.fileBox>label>span {
+	color: red;
+}
+
+.fileBox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: re
+}
+/* 파일버튼 바꾸기 css */
 </style>
 <script>
+	/* 인서트페이지의 각 항목(예:제품상태,제품코드 등)을 누르면 설명 팝업이 생기는 기능 */
 	$(function() {
 		$('[data-toggle="popover"]').popover()
 	})
-
 	$('#example').popover(options)
-	
-	
+	/* 인서트페이지의 각 항목(예:제품상태,제품코드 등)을 누르면 설명 팝업이 생기는 기능 */
 </script>
 
 </head>
@@ -52,36 +75,28 @@ h4 {
 
 	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='관리자'||userid=='판매자'}">
-
-
+		<c:when test="${userid=='admin'||userid=='sell'}">
 			<!-- 관리자만보이는영역 -->
-
-
 			<!-- 회색바탕 -->
 			<div class="view-container">
 				<!-- 컨텐츠컨테이너 -->
 				<div class="container">
 					<!-- 2분할 -->
-
 					<div class="common_title-line">
 						<h3>
 							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.signupName}
 									<span class="badge">${sessionScope.userLoginInfo.signupNum}</span>
 							</a></small>
 						</h3>
-
-
-
 					</div>
 
 
 
-					<div class="container" style="width: 100%;">
+					<div class="container">
 						<form id="myform" enctype="multipart/form-data" method="POST">
 							<!-- 폼 분할 -->
 							<h4>경매 물품정보 작성</h4>
-							<div class="row" style="margin-top: 0px;">
+							<div class="row">
 
 
 								<div class="col-md-3">
@@ -96,7 +111,7 @@ h4 {
 								<div class="col-md-9">
 									<input required type="text" class="form-control"
 										id="productName" name="productName" placeholder="제품명을 입력해 주세요"
-										data-vc="2,30">
+										data-vc="2,50">
 								</div>
 							</div>
 
@@ -119,8 +134,6 @@ h4 {
 										<option value="sports">스포츠</option>
 										<option value="homeGarden">홈,가든</option>
 										<option value="life">생활</option>
-
-
 									</select>
 								</div>
 							</div>
@@ -137,14 +150,11 @@ h4 {
 								</div>
 
 								<div class="col-md-9">
-									<textarea class="form-control" rows="4" id="productCondition"
+									<textarea class="form-control" rows="2" id="productCondition"
 										name="productCondition" placeholder="제품의 상태(자세히)"
-										data-vc="1,30"></textarea>
-									<!-- 
-										<input class="form-control" type="text" id="productCondition"
-											name="productCondition" placeholder="제품의 상태(자세히)"
-											data-vc="1,30">
- -->
+										data-vc="1,50"></textarea>
+
+
 								</div>
 							</div>
 
@@ -163,7 +173,7 @@ h4 {
 								<div class="col-md-3">
 									<input required type="text" class="form-control"
 										id="productCode" name="productCode" placeholder="제품코드"
-										data-vc="3,10">
+										data-vc="3,20">
 								</div>
 							</div>
 
@@ -171,89 +181,96 @@ h4 {
 							<div class="row">
 								<div class="col-md-3">
 									<span style="color: red;">*</span>사진
-
 								</div>
 
 								<div class="col-md-9" style="overflow: auto;">
 
-
-
-									<table style="width: 100%;">
-
-										<tr>
-											<td><input required type="file" id="productImage"
-												name="productImage"></td>
-											<td><input type="file" id="productImage2"></td>
-											<td><input type="file" id="productImage3"></td>
-										</tr>
-
-										<tr style="height: auto;">
-
-											<td style="width: 200px;"><img style="width: 100%"
-												src="/img/icon-img.png" id="preview"></td>
-											<td style="width: 200px;"><img style="width: 100%"
-												src="/img/icon-img.png" id="preview2"></td>
-											<td style="width: 200px;"><img style="width: 100%"
-												src="/img/icon-img.png" id="preview3"></td>
-
-										</tr>
-
-										<tr>
-											<td><input type="file" id="productImage4"></td>
-											<td><input type="file" id="productImage5"></td>
-											<td><input type="file" id="productImage6"></td>
-										</tr>
-
-										<tr style="height: auto;">
-
-											<td><img style="width: 100%" src="/img/icon-img.png"
-												id="preview4"></td>
-											<td><img style="width: 100%" src="/img/icon-img.png"
-												id="preview5"></td>
-											<td><img style="width: 100%" src="/img/icon-img.png"
-												id="preview6"></td>
-
-										</tr>
-
-										<tr>
-											<td><input type="file" id="productImage7"></td>
-											<td><input type="file" id="productImage8"></td>
-											<td><input type="file" id="productImage9"></td>
-										</tr>
-
-										<tr style="height: auto;">
-
-											<td><img style="width: 100%" src="/img/icon-img.png"
-												id="preview7"></td>
-											<td><img style="width: 100%" src="/img/icon-img.png"
-												id="preview8"></td>
-											<td><img style="width: 100%" src="/img/icon-img.png"
-												id="preview9"></td>
-
-										</tr>
-
-
-									</table>
-
-
-
-
+									<div style="width: 33%; float: left;">
+										<div class="fileBox">
+											<label for="productImage" class="btn btn-default"
+												style="width: 100%;"><span>+</span>1번 사진</label> <input
+												name="productImage" required type="file" id="productImage"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview">
+										</div>
+										<div class="fileBox">
+											<label for="productImage2" class="btn btn-default"
+												style="width: 100%;"><span>+</span>2번 사진</label> <input
+												name="productImage2" required type="file" id="productImage2"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview2">
+										</div>
+										<div class="fileBox">
+											<label for="productImage3" class="btn btn-default"
+												style="width: 100%;"><span>+</span>3번 사진</label> <input
+												name="productImage3" required type="file" id="productImage3"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview3">
+										</div>
+									</div>
+									<div style="width: 33%; float: left;">
+										<div class="fileBox">
+											<label for="productImage4" class="btn btn-default"
+												style="width: 100%;"><span>+</span>4번 사진</label> <input
+												name="productImage4" required type="file" id="productImage4"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview4">
+										</div>
+										<div class="fileBox">
+											<label for="productImage5" class="btn btn-default"
+												style="width: 100%;">+ 5번 사진</label> <input
+												name="productImage5" required type="file" id="productImage5"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview5">
+										</div>
+										<div class="fileBox">
+											<label for="productImage6" class="btn btn-default"
+												style="width: 100%;">+ 6번 사진</label> <input
+												name="productImage6" required type="file" id="productImage6"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview6">
+										</div>
+									</div>
+									<div style="width: 33%; float: left;">
+										<div class="fileBox">
+											<label for="productImage7" class="btn btn-default"
+												style="width: 100%;">+ 7번 사진</label> <input
+												name="productImage7" required type="file" id="productImage7"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview7">
+										</div>
+										<div class="fileBox">
+											<label for="productImage8" class="btn btn-default"
+												style="width: 100%;">+ 8번 사진</label> <input
+												name="productImage8" required type="file" id="productImage8"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview8">
+										</div>
+										<div class="fileBox">
+											<label for="productImage9" class="btn btn-default"
+												style="width: 100%;">+ 9번 사진</label> <input
+												name="productImage9" required type="file" id="productImage9"
+												class="uploadBtn"> <img style="width: 100%"
+												src="/img/icon-img.png" id="preview9">
+										</div>
+									</div>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-md-3">
-									<span style="color: red;">*</span>제품 설명 <a tabindex="0"
+									<span style="color: red;">*</span> <a tabindex="0"
 										role="button" type="button" data-container="body"
 										data-toggle="popover" data-placement="right"
 										data-trigger="focus"
 										data-content="판매하는 물건에 대한 설명을 완전하게 기재 하십시오. 
-											모바일 환경에서 잘 보이도록 간결한 형식을 유지 부탁 드립니다. (300글자 이내)">ⓘ</a>
+											모바일 환경에서 잘 보이도록 간결한 형식을 유지 부탁 드립니다. (300글자 이내)">제품
+										설명</a>
 								</div>
 
 								<div class="col-md-9">
 									<textarea class="form-control" rows="10" id="productDesc"
-										name="productDesc" placeholder="제품의 설명" data-vc="1,300"></textarea>
+										name="productDesc" placeholder="제품의 설명" data-vc="1,1000"></textarea>
 									<!-- 
 										<input class="form-control" type="text" id="productDesc"
 											name="productDesc" placeholder="제품의 설명" data-vc="1,300"> -->
@@ -324,130 +341,111 @@ h4 {
 							<!-- 폼 분할 -->
 						</form>
 					</div>
-
 				</div>
 				<!-- 우측 컨텐츠 -->
-
-
-
 			</div>
-			<!-- 전체 분할 레프트-메인 -->
-
-
-			<!-- 				<div class="form-group">
-											<label for="productImage-2" >경매
-												물품 사진 업로드 2</label>
-											<div class="col-sm-10">
-												<input class="form-control" type="file" id="productImage-2"
-													name="productImage-2" accept="image/*">
-												<p class="help-block">(비활성화중)</p>
-
-												<div style="width: 100%; overflow: auto;">
-
-													<img style="width: 100%" src="#" id="preview-2">
-
-												</div>
-											</div>
-										</div> -->
-
 
 
 			<%@ include file="/WEB-INF/views/bproduct/product-bottom.jspf"%>
 
+		</c:when>
+		<c:otherwise>
+			<!-- 세션없는 사람에게 보이는 영역 -->
+			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
+			<!-- 세션없는 사람에게 보이는 영역 -->
+		</c:otherwise>
+	</c:choose>
 
 
-			<!-- 우측컨텐츠 -->
 
-			<script>
-				/* 				var fileInput = document.querySelector('input[type="file"]'); */
 
-				var fileInput = document.getElementById('productImage');
-				var fileInput2 = document.getElementById('productImage2');
-				var fileInput3 = document.getElementById('productImage3');
-				var fileInput4 = document.getElementById('productImage4');
-				var fileInput5 = document.getElementById('productImage5');
-				var fileInput6 = document.getElementById('productImage6');
-				var fileInput7 = document.getElementById('productImage7');
-				var fileInput8 = document.getElementById('productImage8');
-				var fileInput9 = document.getElementById('productImage9');
 
-				var preview = document.getElementById('preview');
-				var preview2 = document.getElementById('preview2');
-				var preview3 = document.getElementById('preview3');
-				var preview4 = document.getElementById('preview4');
-				var preview5 = document.getElementById('preview5');
-				var preview6 = document.getElementById('preview6');
-				var preview7 = document.getElementById('preview7');
-				var preview8 = document.getElementById('preview8');
-				var preview9 = document.getElementById('preview9');
+	<script>
+		/* 				var fileInput = document.querySelector('input[type="file"]'); */
 
-				fileInput.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview.setAttribute('src', url);
-				});
+		var fileInput = document.getElementById('productImage');
+		var fileInput2 = document.getElementById('productImage2');
+		var fileInput3 = document.getElementById('productImage3');
+		var fileInput4 = document.getElementById('productImage4');
+		var fileInput5 = document.getElementById('productImage5');
+		var fileInput6 = document.getElementById('productImage6');
+		var fileInput7 = document.getElementById('productImage7');
+		var fileInput8 = document.getElementById('productImage8');
+		var fileInput9 = document.getElementById('productImage9');
 
-				fileInput2.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview2.setAttribute('src', url);
-				});
+		var preview = document.getElementById('preview');
+		var preview2 = document.getElementById('preview2');
+		var preview3 = document.getElementById('preview3');
+		var preview4 = document.getElementById('preview4');
+		var preview5 = document.getElementById('preview5');
+		var preview6 = document.getElementById('preview6');
+		var preview7 = document.getElementById('preview7');
+		var preview8 = document.getElementById('preview8');
+		var preview9 = document.getElementById('preview9');
 
-				fileInput3.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview3.setAttribute('src', url);
-				});
+		fileInput.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview.setAttribute('src', url);
+		});
 
-				fileInput4.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview4.setAttribute('src', url);
-				});
+		fileInput2.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview2.setAttribute('src', url);
+		});
 
-				fileInput5.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview5.setAttribute('src', url);
-				});
+		fileInput3.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview3.setAttribute('src', url);
+		});
 
-				fileInput6.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview6.setAttribute('src', url);
-				});
+		fileInput4.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview4.setAttribute('src', url);
+		});
 
-				fileInput7.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview7.setAttribute('src', url);
-				});
+		fileInput5.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview5.setAttribute('src', url);
+		});
 
-				fileInput8.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview8.setAttribute('src', url);
-				});
+		fileInput6.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview6.setAttribute('src', url);
+		});
 
-				fileInput9.addEventListener('change', function(e) {
-					var url = URL.createObjectURL(e.target.files[0]);
-					preview9.setAttribute('src', url);
-				});
+		fileInput7.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview7.setAttribute('src', url);
+		});
 
-				function imgvali() {
-					/* var img = document.querySelector('input[type="file"]'); */
+		fileInput8.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview8.setAttribute('src', url);
+		});
 
-					var img = document.getElementById('productImage');
-					var img2 = document.getElementById('productImage2');
-					var img3 = document.getElementById('productImage3');
-					var img4 = document.getElementById('productImage4');
+		fileInput9.addEventListener('change', function(e) {
+			var url = URL.createObjectURL(e.target.files[0]);
+			preview9.setAttribute('src', url);
+		});
 
-					img = img.value.substring(img.value.lastIndexOf('.') + 1);
-					img2 = img2.value
-							.substring(img2.value.lastIndexOf('.') + 1);
-					img3 = img3.value
-							.substring(img3.value.lastIndexOf('.') + 1);
-					img4 = img4.value
-							.substring(img4.value.lastIndexOf('.') + 1);
+		function imgvali() {
+			/* var img = document.querySelector('input[type="file"]'); */
 
-					if (img.toUpperCase() != 'JPG'
-							&& img.toUpperCase() != 'PNG') {
-						alert("1 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					}
-					if (img2.toUpperCase() != 'JPG'
+			var img = document.getElementById('productImage');
+			var img2 = document.getElementById('productImage2');
+			var img3 = document.getElementById('productImage3');
+			var img4 = document.getElementById('productImage4');
+
+			img = img.value.substring(img.value.lastIndexOf('.') + 1);
+			img2 = img2.value.substring(img2.value.lastIndexOf('.') + 1);
+			img3 = img3.value.substring(img3.value.lastIndexOf('.') + 1);
+			img4 = img4.value.substring(img4.value.lastIndexOf('.') + 1);
+
+			if (img.toUpperCase() != 'JPG' && img.toUpperCase() != 'PNG') {
+				alert("1 번째 사진에 jpg 나 png파일을 넣어주세요");
+				return false;
+			}
+			/* 		if (img2.toUpperCase() != 'JPG'
 							&& img2.toUpperCase() != 'PNG') {
 						alert("2 번째 사진에 jpg 나 png파일을 넣어주세요");
 						return false;
@@ -461,53 +459,34 @@ h4 {
 							&& img4.toUpperCase() != 'PNG') {
 						alert("4 번째 사진에 jpg 나 png파일을 넣어주세요");
 						return false;
-					}
+					} */
 
-					return true;
-				}
+			return true;
+		}
 
-				function insert() {
+		function insert() {
 
-					var form = document.querySelector('#myform');
-					var formData = new FormData(form);
+			var form = document.querySelector('#myform');
+			var formData = new FormData(form);
 
-					if (valicheck()) {
-						if (imgvali()) {
+			if (valicheck()) {
+				if (imgvali()) {
 
-							$.ajax({
-								url : '/BProductInfo',
-								contentType : false,//헤더 지우기
-								processData : false,//쿼리스트링 형식으로 바꾸지 않기
-								data : formData,
-								type : 'POST',
-								success : function() {
-									location.href = '/url/bproduct:list';
-									alert('성공');
-								}
-							});
+					$.ajax({
+						url : '/BProductInfo',
+						contentType : false,//헤더 지우기
+						processData : false,//쿼리스트링 형식으로 바꾸지 않기
+						data : formData,
+						type : 'POST',
+						success : function() {
+							location.href = '/url/bproduct:list';
+							alert('성공');
 						}
-					}
+					});
 				}
-			</script>
-
-
-			<!-- 관리자만보이는영역 -->
-		</c:when>
-
-
-
-		<c:otherwise>
-
-			<!-- 세션없는 사람에게 보이는 영역 -->
-			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
-			<!-- 세션없는 사람에게 보이는 영역 -->
-
-
-
-		</c:otherwise>
-
-	</c:choose>
-
+			}
+		}
+	</script>
 
 
 
@@ -515,27 +494,3 @@ h4 {
 </body>
 </html>
 
-<!-- 	var productImage = productImage + ',' + productImage2 + ','
-							+ productImage3 + ',' + productImage4 + ','
-							+ productImage5 + ',' + productImage6 + ','
-							+ productImage7 + ',' + productImage8 + ','
-							+ productImage9
-				/* var productImage = document
-							.getElementByName('productImage');
-					var productImage2 = document
-							.getElementByName('productImage2');
-					var productImage3 = document
-							.getElementByName('productImage3');
-					var productImage4 = document
-							.getElementByName('productImage4');
-					var productImage5 = document
-							.getElementByName('productImage5');
-					var productImage6 = document
-							.getElementByName('productImage6');
-					var productImage7 = document
-							.getElementByName('productImage7');
-					var productImage8 = document
-							.getElementByName('productImage8');
-					var productImage9 = document
-							.getElementByName('productImage9');
- */ -->
