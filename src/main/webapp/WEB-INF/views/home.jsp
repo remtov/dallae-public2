@@ -70,7 +70,7 @@ div {
 
 	<div id="home_container">
 
-
+		<!-- 이미지슬라이드 -->
 		<%@ include file="/WEB-INF/views/common/home_img-slide.jspf"%>
 		<!-- 이미지슬라이드 -->
 

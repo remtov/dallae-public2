@@ -7,13 +7,10 @@
 <title>이미지 슬라이더</title>
 
 <style>
-.home_img-slide {
-	z-index: 1;
-}
-
 #home-title_end-message {
 	/* position: absolute;
 	top: 0px;*/
+	width:100%;
 	text-align: center;
 }
 
@@ -35,10 +32,10 @@ div {
 
 
 	<!-- 이미지슬라이더 -->
-	<div id="dropDown-img" class="home_img-slide">
+	<div id="dropDown-img" style="width:100%;">
 
 		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
+			data-ride="carousel" style="width: 100%;">
 
 			<!-- j<n설정으로 슬라이더 장수를 설정-->
 			<ol class="carousel-indicators">
