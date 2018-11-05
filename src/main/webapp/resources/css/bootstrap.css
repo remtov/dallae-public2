@@ -5714,7 +5714,7 @@ a.label:hover, a.label:focus {
 }
 
 .label-primary[href]:hover, .label-primary[href]:focus {
-	background-color: #286090;
+	background-color: #51acae;
 }
 
 .label-success {
@@ -5726,11 +5726,11 @@ a.label:hover, a.label:focus {
 }
 
 .label-info {
-	background-color: #5bc0de;
+	background-color: #f4969b;
 }
 
 .label-info[href]:hover, .label-info[href]:focus {
-	background-color: #31b0d5;
+	background-color: #ed545b;
 }
 
 .label-warning {
@@ -5746,7 +5746,7 @@ a.label:hover, a.label:focus {
 }
 
 .label-danger[href]:hover, .label-danger[href]:focus {
-	background-color: #c9302c;
+	background-color: #c41a4d;
 }
 
 .badge {

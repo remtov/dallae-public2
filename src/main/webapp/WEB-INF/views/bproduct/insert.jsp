@@ -11,6 +11,7 @@
  
 
 프론트엔드
+--영찬이 사진버튼소스완성 교체할 것
 -판매자인증하러가기 페이지나 모달창구현 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
