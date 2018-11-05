@@ -162,8 +162,7 @@
 
 							<ul class="nav navbar-nav navbar-right">
 								<!-- <li><a href="/url/bproduct:list">오늘의 추천거래</a></li> -->
-								<li><a href="/url/bproduct:insert">경매 올리기</a></li>
-								<li><a href="/url/bproduct:list">경매 보기</a></li>
+								
 
 								<li><a href="/url/SignUp:login">로그인</a></li>
 								<li><a href="/url/SignUp:SignUp">가입</a></li>
