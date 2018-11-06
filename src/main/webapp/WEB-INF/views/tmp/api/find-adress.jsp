@@ -40,19 +40,19 @@ h1 {
 					<label class="col-sm-2 control-label">우편번호
 						찾기</label>
 					<div class="col-sm-10">
-						<input type="text" id="sample6_postcode" placeholder="우편번호">
+						<input type="text" id="sample6_postcode" placeholder="우편번호" disabled/>
 						<input type="button" onclick="sample6_execDaumPostcode()"
-							value="우편번호 찾기"><br>
+							value="우편번호 찾기" /><br>
 
 					</div>
 				</div>
 
 
 				<div class="form-group">
-					<label class="col-sm-2 control-label">주소</label>
+					<label class="col-sm-2 control-label" >주소</label>
 
 					<div class="col-sm-10">
-						<input type="text" id="sample6_address" placeholder="주소">
+						<input type="text" id="sample6_address" placeholder="주소" disabled>
 						<input type="text" id="sample6_address2" placeholder="상세주소">
 					</div>
 				</div>

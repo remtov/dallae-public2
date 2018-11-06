@@ -23,9 +23,7 @@ public class Util {
 		Map<String, Object> data = request.getParameterMap();
 		Iterator<String> it = data.keySet().iterator();
 		uploadPath= request.getSession().getServletContext().getRealPath("/") +"/resources/img/product";
-	//	이렇게 해서 쓰셔야 할거같은데 원래는 밖에서 하는 방법도 있을텐데 굳이 그렇게 할 필요 없으니까
-		//이렇게 쓰셔도 될거같아요 다른 메소드에서도 쓰려고 위에 static으로 빼놓으신거같은데 이렇게
-		//쓰면 다른 메소드에서도 쓸 수 있어요 넵 
+	
 		while (it.hasNext()) {
 			String key = it.next();
 			map.put(key, data.get(key));
