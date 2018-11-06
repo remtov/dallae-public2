@@ -1,18 +1,4 @@
-<!-- 백엔드
--인서트할때 파일이 업로드되는 프로그레스가 보였으면 좋겠다.
--사진을 압축해서 리사이즈해서 올리는 로직이 있어야 할듯
-트래픽절약.이력서 평가상승
 
--회원테이블에 레벨컬럼 제작하여 판매자 인증 후 레벨상승되며
-레벨에 따라 경매올리기가 가능하도록 하기
--프로덕트테이블에 즉시구매 컬럼 삭제하고 입찰가가 회원들이 입찰버튼누를 때마다 상승되고
-마지막에 누른 회원의 이름이 출력되도록 구현
--여러장의 사진을 인서트하고 셀렉트 할 수 있도록 구조나 스크립트 기술이 필요
- 
-
-프론트엔드
---영찬이 사진버튼소스완성 교체할 것
--판매자인증하러가기 페이지나 모달창구현 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -275,10 +261,8 @@ h4 {
 
 								<div class="col-md-9">
 									<textarea class="form-control" rows="10" id="productDesc"
-										name="productDesc" placeholder="제품의 설명" data-vc="1,1000"></textarea>
-									<!-- 
-										<input class="form-control" type="text" id="productDesc"
-											name="productDesc" placeholder="제품의 설명" data-vc="1,300"> -->
+										name="productDesc" placeholder="제품의 설명" data-vc="1,2000"></textarea>
+									
 								</div>
 							</div>
 
