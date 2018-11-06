@@ -1,6 +1,5 @@
 package com.auction.dallae;
 
-
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -12,32 +11,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.auction.dallae.service.SignUpService;
-import com.auction.dallae.vo.SignUp;
+import com.auction.dallae.service.UserInfoService;
+import com.auction.dallae.vo.UserInfo;
 
-
-/**
- * Handles requests for the application home page.
- */
 @Controller
-public class HomeController { 
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);        
-	  
+public class HomeController {
+
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
-	public SignUpService sus;
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model m,@ModelAttribute SignUp su) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
+	public UserInfoService userInfoService;
 
-		m.addAttribute("ko_kim_signupList", sus.selectSignUpList(su) );
-		
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Locale locale, Model model, @ModelAttribute UserInfo userInfo) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+
+		model.addAttribute("userInfoList", userInfoService.getUserInfoList(userInfo));
+
 		return "home";
 
-
-
-}
+	}
 }

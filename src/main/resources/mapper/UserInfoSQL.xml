@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQL.UserInfo">
+<select id ="getUserInfoList" resultType="userInfo" parameterType="userInfo">
+select * from userInfo
+<where>
+	<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
+	<if test="userName!=null"> and username like '%'||#{userName}||'%'</if>
+  	<if test="userId!=null"> and userId like '%'||#{userId}||'%'</if>
+  	<if test="userPassword!=null"> and userPassword like '%'||#{userPassword}||'%'</if>
+  	<if test="userEmail!=null"> and userEmail like '%'||#{userEmail}||'%'</if>
+  	
+  	<if test="userPhoneNum!=null"> and userPhoneNum like '%'||#{userPhoneNum}||'%'</if>
+  	<if test="userSignUpDate!=null"> and userSignUpDate like '%'||#{userSignUpDate}||'%'</if>
+  	<if test="userAddress!=null"> and userAddress like '%'||#{userAddress}||'%'</if>
+  	<if test="userAddress2!=null"> and userAddress2 like '%'||#{userAddress2}||'%'</if>
+  	
+  	<if test="userLevel!=null"> and userLevel like '%'||#{userLevel}||'%'</if>
+  	<if test="userPoint!=null"> and userPoint like '%'||#{userPoint}||'%'</if>
+  	
+  	<if test="userCreditLevel!=null"> and userCreditLevel like '%'||#{userCreditLevel}||'%'</if>
+  	
+  	
+  	<if test="userImage!=null"> and userImage like '%'||#{userImage}||'%'</if> 
+  	
+  	
+</where>
+ order by userNumber
+</select>
+
+  	 
+  	
+
+<select id="getUserInfo" resultType="userInfo">
+select * from userInfo
+<where>
+	userNumber = #{userNumber}
+</where>
+</select>
+  <insert id="insertUserInfo" parameterType="userInfo">
+    INSERT INTO USERINFO(USERNUMBER,USERNAME,USERID,USERPASSWORD,USEREMAIL,USERNICKNAME,USERPHONENUM,USERSIGNUPDATE,USERADDRESS,USERADDRESS2,USERLEVEL,USERPOINT, USERCREDITLEVEL, USERIMAGE)
+	VALUES(SEQ_USERINFO_USERNUM.nextval,#{USERNAME},#{USERID},#{USERPASSWORD},#{USEREMAIL},#{USERNICKNAME},#{USERPHONENUM},to_char(sysdate,'YYYY-MM-DD'),#{USERADDRESS},#{USERADDRESS2},#{USERLEVEL},#{USERPOINT},#{USERCREDITLEVEL},#{USERIMAGE})
+	
+  </insert>
+  <update id="updateUserInfo" parameterType="userInfo">
+  update USERINFO
+  <set>
+
+
+  	<if test="userName!=null">USERNAME=#{USERNAME},</if>
+  	<if test="userId!=null">USERID=#{USERID},</if>
+  	<if test="userPassword!=null">USERPASSWORD=#{USERPASSWORD},</if>
+  	<if test="userEmail!=null">USEREMAIL=#{USEREMAIL},</if>
+  	<if test="userNickName!=null">USERNICKNAME=#{USERNICKNAME},</if>
+  	
+  	<if test="userPhoneNum!=null">USERPHONENUM=#{USERPHONENUM},</if>
+  	<if test="userSignUpDate!=null">USERSIGNUPDATE=#{USERSIGNUPDATE},</if>
+  	<if test="userAddress!=null">USERADDRESS=#{USERADDRESS},</if> 
+  	
+  	<if test="userAddress2!=null">USERADDRESS2=#{USERADDRESS2},</if> 
+  	<if test="userLevel!=null">USERLEVEL=#{USERLEVEL},</if> 
+  	<if test="userPoint!=null">USERPOINT=#{USERPOINT},</if> 
+  	<if test="userCreditLevel!=null">USERCREDITLEVEL=#{USERCREDITLEVEL},</if> 
+  	<if test="userImage!=null">USERIMAGE=#{USERIMAGE},</if> 
+  	 
+  </set>
+	where userNumber=#{userNumber}
+  </update>
+  <delete id="deleteUserInfo" parameterType="userInfo">
+  delete from userInfo where userNumber=#{userNumber}
+  </delete>
+  <select id="login" resultType="userInfo">
+        select * from userInfo where userId = #{userId} and userPassword = #{userPassword}
+   </select>
+ <update id="keepLogin">
+        update userInfo set sessionKey = #{sessionId}, sessionLimit = #{next} where userId=#{userId}
+</update>
+
+ <select id ="getId" resultType="userInfo" parameterType="userInfo">
+   select userId from userInfo 
+  <where>
+  userName = #{userName} AND USERPHONENUM=#{USERPHONENUM}
+  </where>
+ 
+ </select> 
+  <select id ="getPassword" resultType="userInfo" parameterType="userInfo">
+   select userPassword from userInfo 
+  <where>
+  userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND userId=#{userId}
+  </where>
+ 
+ </select>
+ <select id ="getLogin" resultType="userInfo" parameterType="userInfo">
+ select userName,userNumber,userId, USERNICKNAME,userEmail,userPhoneNum from userInfo
+ <where>
+ userId = #{userId} AND userPassword=#{userPassword}
+ </where>
+ </select> 
+ 
+</mapper>

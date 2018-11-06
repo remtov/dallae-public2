@@ -3,30 +3,34 @@ package com.auction.dallae.vo;
 import org.apache.ibatis.type.Alias;
 
 @Alias("product")
-public class ATProductInfo {
+public class Product {
+
 	private Integer productNumber;
 	private String productName;
 	private String productCategory;
-	private String productCode;
 	private Integer productQuantity;
 	private String productDate;
+	private String productEnddate;
 	private Integer productLowestPrice;
 	private Integer productHopefulPrice;
 	private String productImage;
 	private String productDesc;
 	private String productBrand;
 	private String productCondition;
+	private String userId;
+	private Integer userCredit;
 
-	public ATProductInfo() {
+	public Product() {
 	}
 
 	@Override
 	public String toString() {
-		return "ATProductInfo [productNumber=" + productNumber + ", productName=" + productName + ", productCategory="
-				+ productCategory + ", productCode=" + productCode + ", productQuantity=" + productQuantity
-				+ ", productDate=" + productDate + ", productLowestPrice=" + productLowestPrice
+		return "Product [productNumber=" + productNumber + ", productName=" + productName + ", productCategory="
+				+ productCategory + ", productQuantity=" + productQuantity + ", productDate=" + productDate
+				+ ", productEnddate=" + productEnddate + ", productLowestPrice=" + productLowestPrice
 				+ ", productHopefulPrice=" + productHopefulPrice + ", productImage=" + productImage + ", productDesc="
-				+ productDesc + ", productBrand=" + productBrand + ", productCondition=" + productCondition + "]";
+				+ productDesc + ", productBrand=" + productBrand + ", productCondition=" + productCondition
+				+ ", userId=" + userId + ", userCredit=" + userCredit + "]";
 	}
 
 	public Integer getProductNumber() {
@@ -53,14 +57,6 @@ public class ATProductInfo {
 		this.productCategory = productCategory;
 	}
 
-	public String getProductCode() {
-		return productCode;
-	}
-
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
-	}
-
 	public Integer getProductQuantity() {
 		return productQuantity;
 	}
@@ -75,6 +71,14 @@ public class ATProductInfo {
 
 	public void setProductDate(String productDate) {
 		this.productDate = productDate;
+	}
+
+	public String getProductEnddate() {
+		return productEnddate;
+	}
+
+	public void setProductEnddate(String productEnddate) {
+		this.productEnddate = productEnddate;
 	}
 
 	public Integer getProductLowestPrice() {
@@ -125,21 +129,41 @@ public class ATProductInfo {
 		this.productCondition = productCondition;
 	}
 
-	public ATProductInfo(Integer productNumber, String productName, String productCategory, String productCode,
-			Integer productQuantity, String productDate, Integer productLowestPrice, Integer productHopefulPrice,
-			String productImage, String productDesc, String productBrand, String productCondition) {
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public Integer getUserCredit() {
+		return userCredit;
+	}
+
+	public void setUserCredit(Integer userCredit) {
+		this.userCredit = userCredit;
+	}
+
+	public Product(Integer productNumber, String productName, String productCategory, Integer productQuantity,
+			String productDate, String productEnddate, Integer productLowestPrice, Integer productHopefulPrice,
+			String productImage, String productDesc, String productBrand, String productCondition, String userId,
+			Integer userCredit) {
+		super();
 		this.productNumber = productNumber;
 		this.productName = productName;
 		this.productCategory = productCategory;
-		this.productCode = productCode;
 		this.productQuantity = productQuantity;
 		this.productDate = productDate;
+		this.productEnddate = productEnddate;
 		this.productLowestPrice = productLowestPrice;
 		this.productHopefulPrice = productHopefulPrice;
 		this.productImage = productImage;
 		this.productDesc = productDesc;
 		this.productBrand = productBrand;
 		this.productCondition = productCondition;
+		this.userId = userId;
+		this.userCredit = userCredit;
 	}
 
 }
