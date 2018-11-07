@@ -19,90 +19,82 @@ div { /* border: 3px solid red; */
 <script src="/resources/js/AjaxUtil.js"></script>
 
 <script>
-	window
-			.addEventListener(
-					'load',
-					function() {
-						var au = new AjaxUtil(
-								{
+window.addEventListener('load',
+		   function() {
+		      var au = new AjaxUtil({
 
-									url : '/BProductInfo',
-									success : function(res) {
-										res = JSON.parse(res);
-										var plus = 0;
-										var html = '';
+		            url: '/ProductInfo',
+		            success: function(res) {
+		               res = JSON.parse(res);
+		               var plus = 0;
+		               var html = '';
 
-										if (res.length % 4 != 0) {
-											plus = 1;
-										}
+		               if (res.length % 4 != 0) {
+		                  plus = 1;
+		               }
 
-										for (var i = 0; i < (res.length / 4)
-												+ plus;
+		               for (var i = 0; i < (res.length / 4) + plus;
 
-										i++) {
-											html = '<div class="row">';
-											for (var j = 0; j < 4;
+		                  i++) {
+		                  html = '<div class="row">';
+		                  for (var j = 0; j < 4;
 
-											j++) {
-												if (j + (i * 4) == res.length) {
-													break;
-												}
+		                     j++) {
+		                     if (j + (i * 4) == res.length) {
+		                        break;
+		                     }
 
-												html += '<div class="col-sm-6 col-md-3">';
-												html += '<div class="thumbnail">';
-												html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/'
-														+ res[j + (i * 4)].productImage
-														+ '" onclick="goPage('
-														+ res[j + (i * 4)].productNumber
-														+ ')">';
-												html += '<div class="caption">';
-												html += '<h3>'
-														+ res[j + (i * 4)].productName
-														+ '</h3>';
-												html += '<h4>시작가격 : '
-														+ res[j + (i * 4)].productLowestPrice
-														+ ' 원</h4>';
-												html += '<h4>현재가격 : '
-														+ res[j + (i * 4)].productHopefulPrice
-														+ ' 원</h4>';
-												html += '<p>제품브랜드 : '
-														+ res[j + (i * 4)].productBrand
-														+ ' | 제품수량 : '
-														+ res[j + (i * 4)].productQuantity
-														+ ' | 등록일 : '
-														+ res[j + (i * 4)].productDate
-														+ '</p>';
-												html += '<div style="height:50px;overflow:hidden;">'
-												html += '<p>'
-														+ res[j + (i * 4)].productCondition
-														+ '</p>';
-												html += '</div>'
-												html += '<div style="height:50px;overflow:hidden;">'
-												html += '<p>'
-														+ res[j + (i * 4)].productDesc
-														+ '</p>';
-												html += '</div>'
-												html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
-												html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage('
-														+ res[j + (i * 4)].productNumber
-														+ ')">더보기</a></p>';
-												html += '</div></div></div>';
-											}
+		                  	       		                     
+		                     
+		                     html += '<div class="col-sm-6 col-md-3">';
+		                     html += '<div class="thumbnail">';
+		                     html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/' +
+		                        res[j + (i * 4)].productImage + '" onclick="goPage(' +
+		                        res[j + (i * 4)].productNumber + ')">';
+		                     html += '<div class="caption">';
+		                     html += '<h3>' +
+		                        res[j + (i * 4)].productName + '</h3>';
+		                     html += '<h4>시작가격 : ' +
+		                        res[j + (i * 4)].productLowestPrice + ' 원</h4>';
+		                     html += '<h4>현재가격 : ' +
+		                        res[j + (i * 4)].productLowestPrice*3/2 + ' 원</h4>';
+		                     html += '<p>제품브랜드 : ' +res[j + (i * 4)].productBrand + 
+		                     ' | 판매자 : ' +res[j + (i * 4)].userId +
+		                     ' | 판매자 신용도 : ' +res[j + (i * 4)].productQuantity +
+		                     
+		                     ' | 제품수량 : ' +res[j + (i * 4)].productQuantity + 
+		                     ' | 분류 : ' +
+		                        res[j + (i * 4)].productCategory + ' | 등록일 : ' +
+		                        res[j + (i * 4)].productQuantity + 
+		                        ' | 등록일 : ' + res[j + (i * 4)].productDate + 
+		                        ' | 마감일 : ' + res[j + (i * 4)].productEndDate + 
 
-											html += '</div>';
-											document.querySelector(
-													'#ATProductBody')
-													.insertAdjacentHTML(
-															'beforeend', html);
-										}
-									}
-								}
+		                        '</p>';
+		                     html += '<div style="height:50px;overflow:hidden;">'
+		                     html += '<p>' +
+		                        res[j + (i * 4)].productCondition + '</p>';
+		                     html += '</div>'
+		                     html += '<div style="height:50px;overflow:hidden;">'
+		                     html += '<p>' +
+		                        res[j + (i * 4)].productDesc + '</p>';
+		                     html += '</div>'
+		                     html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
+		                     html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage(' +
+		                        res[j + (i * 4)].productNumber + ')">더보기</a></p>';
+		                     html += '</div></div></div>';
+		                  }
 
-						);
-						au.send();
-					}
+		                  html += '</div>';
+		                  document.querySelector('#product-div').insertAdjacentHTML('beforeend', html);
+		               }
+		            }
+		         }
 
-			);
+		      );
+		      au.send();
+		   }
+
+		);
 	/* 테이블바디형 로직 
 	 html += '<td>'+ product.productNumber+'</td>';
 	 html += '<td>'+ product.productName + '</td>';
@@ -116,13 +108,11 @@ div { /* border: 3px solid red; */
 </head>
 
 
-
-
 <body>
 
 
 
-	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
+	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userid=='admin'||userid=='sell'}">
 
@@ -137,8 +127,8 @@ div { /* border: 3px solid red; */
 
 					<h3>
 						나의 달래 : 경매 보기 <small><a href="/url/SignUp:MyPage"
-							style="color: gray;"><b>${sessionScope.userLoginInfo.signupName}</b>(${sessionScope.userLoginInfo.signupId})
-								<span class="badge">${sessionScope.userLoginInfo.signupNum}</span>
+							style="color: gray;"><b>${sessionScope.userLoginInfo.userName}</b>(${sessionScope.userLoginInfo.userId})
+								<span class="badge">${sessionScope.userLoginInfo.userNum}</span>
 						</a></small>
 					</h3>
 
@@ -149,28 +139,20 @@ div { /* border: 3px solid red; */
 						<hr>
 						<h4>경매 물품정보 보기</h4>
 
-						<div id="ATProductBody"></div>
+						<div id="product-div"></div>
 					</div>
 				</div>
 
 
-
-
-
-
 			</div>
 
-			<%@ include file="/WEB-INF/views/bproduct/product-bottom.jspf"%>
-
-
-
-
+			<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
 
 
 
 			<script>
-				function goPage(num) {
-					location.href = '/BProductInfo/' + num;
+				function goPage(productNumber) {
+					location.href = '/ProductInfo/' + productNumber;
 				}
 			</script>
 
@@ -185,12 +167,7 @@ div { /* border: 3px solid red; */
 	</c:choose>
 
 
-
-
-
-
 </body>
-
 </html>
 
 

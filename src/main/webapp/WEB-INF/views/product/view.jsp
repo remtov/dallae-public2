@@ -12,7 +12,7 @@ div {
 	
 }
 
-#insert_myform-btn {
+#insert_my-form-btn {
 	margin-bottom: 50px;
 }
 
@@ -20,7 +20,7 @@ h4 {
 	margin-bottom: 20px;
 }
 
-#myform .row {
+#my-form .row {
 	margin-top: 20px;
 	width: 100%;
 	padding: 5px;
@@ -58,7 +58,7 @@ h4 {
 
 
 
-	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
+	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userid=='admin'||userid=='sell'}">
 			<!-- 관리자 판매자만 보이는영역 -->
@@ -69,19 +69,20 @@ h4 {
 				<div class="container">
 					<div class="common_title-line">
 						<h3>
-							나의 달래 : 경매 보기 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.signupName}
-									<span class="badge">${sessionScope.userLoginInfo.signupNum}</span>
+							나의 달래 : 경매 보기 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.userName}
+									<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
 							</a></small>
 						</h3>
 					</div>
 
 
-					<form id="iform" enctype="multipart/form-data" method="POST">
+					<form id="i-form" enctype="multipart/form-data" method="POST">
 						<!-- 폼 분할 -->
 						<h4>경매 물품정보 수정</h4>
 
-						<h2>${product.productCategory}><b>${product.productName}</b>
+						<h2>${product.productCategory}><b>${product.productName}</b><small>${productEndDate}</small>
 						</h2>
+
 
 						<div style="overflow: auto;">
 							<div style="width: 33%; float: left;">
@@ -160,6 +161,7 @@ h4 {
 
 
 
+
 						<div style="overflow: auto; margin-top: 10px;">
 							<div style="float: left;">
 								<img style="width: 50px; height: auto;"
@@ -168,7 +170,8 @@ h4 {
 
 							<div style="margin-left: 10px; float: left;">
 								<p>
-									<b>올린사람</b><br> 올린장소
+									<b>판매자 : ${userId}</b><br> 
+									판매자 신용도 : ${userCredit}
 								</p>
 							</div>
 							<div style="float: right;">
@@ -196,10 +199,8 @@ h4 {
 						<p>
 							<input required data-vc="1,11" type="number"
 								style="width: 100px;" name="productLowestPrice"
-								value="${product.productLowestPrice}"><b
-								style="font-size: 1.5em; color: gray;"> ~ </b><input required
-								data-vc="1,11" type="number" name="productHopefulPrice"
-								value="${product.productHopefulPrice}" style="width: 100px;">
+								value="${product.productLowestPrice}">
+								
 						</p>
 
 						<textarea required data-vc="1,600" rows="10" class="form-control"
@@ -211,11 +212,9 @@ h4 {
 							제품수량 : <input style="margin-bottom: 10px; width:50px;"
 								data-vc="1,3" required type="number" name="productQuantity"
 								value="${product.productQuantity}"><br> 
-								
-								제품코드 : <input
-								style="margin-bottom: 10px; width: 200px;" required
-								data-vc="3,10" type="text" name="productCode"
-								value="${product.productCode}"><br> 브랜드명 : <input style="margin-bottom: 10px; width: 150px;"
+					
+
+								브랜드명 : <input style="margin-bottom: 10px; width: 150px;"
 								style="margin-bottom: 10px;" required data-vc="1,20" type="text"
 								name="productBrand" value="${product.productBrand}">
 						</p>
@@ -229,7 +228,8 @@ h4 {
 			</div>
 
 			<!-- 우측 컨텐츠 -->
-			<%@ include file="/WEB-INF/views/bproduct/product-bottom.jspf"%>
+			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+			<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
 			<!-- 관리자만보이는영역 -->
 		</c:when>
 		<c:otherwise>
@@ -247,7 +247,7 @@ fileInput.addEventListener('change', function(e) {
 	var url = URL.createObjectURL(e.target.files[0]);
 	preview.setAttribute('src', url);
 });
-function imgvali() {
+function imgVali() {
 	var img = document.querySelector('input[type="file"]');
 
 	img = img.value.substring(img.value.lastIndexOf('.') + 1);
@@ -260,14 +260,14 @@ function imgvali() {
 }
 
 function insert() {
-	var form = document.querySelector('#myform');
+	var form = document.querySelector('#i-form');
 	var formData = new FormData(form);
 
-	if (valicheck()) {
-		if (imgvali()) {
+	if (valiCheck()) {
+		if (imgVali()) {
 
 			$.ajax({
-				url : '/BProductInfo',
+				url : '/ProductInfo',
 				contentType : false,//헤더 지우기
 				processData : false,//쿼리스트링 형식으로 바꾸지 않기
 				data : formData,
@@ -284,27 +284,27 @@ function insert() {
 
 	function dele(dsa){
 		$.ajax({
-			url : '/BProductInfo/'+${product.productNumber},
+			url : '/ProductInfo/'+${product.productNumber},
 			type : 'DELETE',
 			success : function(){
-				location.href = '/url/bproduct:list';
+				location.href = '/url/product:list';
 				alert('성공');
 			}
 		})
 	}
 	
 		function update(){
-		var form = document.querySelector('#iform');
+		var form = document.querySelector('#i-form');
 		var formData = new FormData(form);
-		if(valicheck() ){
+		if(valiCheck() ){
 			$.ajax({
-				url : '/BProductInfo/'+${product.productNumber},
+				url : '/ProductInfo/'+${product.productNumber},
 				contentType : false,//헤더 지우기
 				processData : false,//쿼리스트링 형식으로 바꾸지 않기
 				data : formData,
 				type : 'POST',
 				success : function(){
-					location.href = '/url/bproduct:list';
+					location.href = '/url/product:list';
 					alert('성공');
 				}
 			});
@@ -378,7 +378,7 @@ function insert() {
 			preview9.setAttribute('src', url);
 		});
 
-		function imgvali() {
+		function imgVali() {
 			/* var img = document.querySelector('input[type="file"]'); */
 
 			var img = document.getElementById('productImage');

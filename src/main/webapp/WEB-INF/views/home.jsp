@@ -175,7 +175,7 @@ div {
 
 
 			<!-- 정적인클루드방식 -->
-			<%@ include file="/WEB-INF/views/common/content_final.jspf"%>
+			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 
 			<!-- 정적인클루드방식 -->
 

@@ -9,6 +9,7 @@
 <style>
 div {
 	/* border: 3px solid red; */
+	
 }
 </style>
 
@@ -19,9 +20,9 @@ div {
 
 
 
-	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
+	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='관리자'}">
+		<c:when test="${userid=='admin'}">
 
 
 			<!-- 관리자만보이는영역 -->
@@ -33,11 +34,7 @@ div {
 					<!-- 2분할 -->
 					<div class="row">
 						<!-- 좌측메뉴 -->
-						<div class="col-md-2" style="background-color: #f6f6f6;">
-							
-
-
-						</div>
+						<div class="col-md-2" style="background-color: #f6f6f6;"></div>
 
 
 						<!-- 우측컨텐츠 -->
@@ -47,40 +44,42 @@ div {
 							<div class="col-md-6">
 								<h3>관리자 페이지</h3>
 								<p>모든 컨텐츠와 회원정보를 편집하거나 관리할 수 있는 페이지 입니다.</p>
-							</div>
-
-							<!-- 상단광고 -->
-							<div class="col-md-6">
-								<img style="margin-top: 20px;" class="pull-right"
-									src="http://www.koitt.com/data/file/right_banner/3547767421_JgukId0s_rb04.jpg">
+								userImage-view--test :<img
+									src="/img/user-info/${userLoginInfo.userImage}"
+									style="width: 100px; height: auto;">
 
 							</div>
 
-							<!-- 상단광고 -->
 
 
 							<!-- 검색창영역 -->
 							<hr style="clear: both;">
 
-							<div class="admi-main_search-line">
+
+							<div class="admin-main_search-line">
 								<div class="col-md-3">
-									<select class="form-control input" id="serch">
-										<option value="signupNum">선택하세요</option>
-										<option value="signupNum">회원 번호</option>
-										<option value="signupName">회원 이름</option>
-										<option value="signupId">회원id</option>
-										<option value="signupPassword">회원 비밀번호</option>
-										<option value="signupEmail">회원 email</option>
-										<option value="signupNickName">회원 별명</option>
-										<option value="signupDate">회원가입 일자</option>
-										<option value="signupConcern">회원 관심사</option>
-										<option value="signupPersonallity">회원 주민등록번호</option>
-										<option value="signupPhone">회원폰번호</option>
+									<select class="form-control input" id="search">
+										<option value="#">선택하세요</option>
+										<option value="userNumber">번호</option>
+										<option value="userName">이름</option>
+										<option value="userId">아이디</option>
+										<option value="userPassword">비밀번호</option>
+										<option value="userEmail">이메일</option>
+										<option value="userNickName">별명</option>
+										<option value="userPhoneNum">폰번호</option>
+										<option value="userAddress">주소</option>
+										<option value="userAddress2">상세주소</option>
+										<option value="userSignUpDate">가입일자</option>
+										<option value="userLevel">권한</option>
+										<option value="userPoint">포인트</option>
+										<option value="userCreditLevel">신용등급</option>
+										
+
 									</select>
 								</div>
 
 								<div class="col-md-7">
-									<input class="form-control input" type="text" id="serchEx">
+									<input class="form-control input" type="text" id="search-ex">
 								</div>
 
 
@@ -95,24 +94,29 @@ div {
 									<thead>
 										<tr>
 
-											<th>회원 번호</th>
-											<th>회원 이름</th>
-											<th>회원id</th>
-											<th>회원 비밀번호</th>
-											<th>회원 email</th>
-											<th>회원 별명</th>
-											<th>회원가입 일자</th>
-											<th>회원 관심사</th>
-											<th>회원 주민등록번호</th>
-											<th>회원폰번호</th>
+											<th>번호</th>
+											<th>이름</th>
+											<th>아이디</th>
+											<th>비밀번호</th>
+											<th>이메일</th>
+											<th>별명</th>
+											<th>폰번호</th>
+											<th>가입일</th>
+											<th>주소</th>
+											<th>상세주소</th>
+											<th>권한</th>
+											<th>포인트</th>
+											<th>신용등급</th>
+											<th>사진</th>
 										</tr>
 									</thead>
-									<tbody id="liBody">
+									
+									<tbody id="user-info_div">
 									</tbody>
 								</table>
 							</div>
-							
-							
+
+
 
 						</div>
 
@@ -129,34 +133,40 @@ div {
  
 	function search(){
  
-		var ser =document.querySelector('#serch').value;	
-		var tex = document.querySelector('#serchEx').value;
+		var ser =document.querySelector('#search').value;	
+		var tex = document.querySelector('#search-ex').value;
 		var params = ser + '=' + tex;
 	
 		var conf = {
 		param : params,
-		url : '/SignUp',
+		url : '/UserInfo',
 		success : function(res){
 			res = JSON.parse(res);
-			document.querySelector('#liBody').innerHTML = '';
+			document.querySelector('#user-info_div').innerHTML = '';
 			var html = '';
-			for(var su of res){
-				html += '<tr onclick="location.href=\'/SignUpView/'+ su.signupNum +'\'">';
-				html += '<td>' + su.signupNum + '</td>';
-				html += '<td>' +su.signupName+ '</td>';
-				html += '<td>' +su.signupId+ '</td>';
-				html += '<td>' +su.signupPassword+ '</td>';
-				html += '<td>' +su.signupEmail+ '</td>';
-				html += '<td>' +su.signupNickName+ '</td>';
-				html += '<td>' +su.signupDate+ '</td>';
-				html += '<td>' +su.signupConcern+ '</td>';
-				html += '<td>' +su.signupPersonallity+ '</td>';
-				html += '<td>' +su.signupPhone+ '</td>';
+			for(var userInfo of res){
+				html += '<tr onclick="location.href=\'/user-info_view/'+ userInfo.userNumber +'\'">';
+				html += '<td>' +userInfo.userNumber + '</td>';
+				html += '<td>' +userInfo.userName+ '</td>';
+				html += '<td>' +userInfo.userId+ '</td>';
+				html += '<td>' +userInfo.userPassword+ '</td>';
+				html += '<td>' +userInfo.userEmail+ '</td>';
+				html += '<td>' +userInfo.userNickName+ '</td>';
+				html += '<td>' +userInfo.userPhoneNum+ '</td>';
+				html += '<td>' +userInfo.userAddress+ '</td>';
+				html += '<td>' +userInfo.userAddress2+ '</td>';
+				html += '<td>' +userInfo.userLevel+ '</td>';
+				html += '<td>' +userInfo.userPoint+ '</td>';
+				html += '<td>' +userInfo.userCreditLevel+ '</td>';
+				html += '<td>' +userInfo.userImage+ '</td>';
 				html += '</tr>';
  
-			
+
+		
+
+				
 			} 
-			document.querySelector('#liBody').insertAdjacentHTML('afterbegin',html);
+			document.querySelector('#user-info_div').insertAdjacentHTML('afterbegin',html);
 		}
 	}
 			
@@ -184,7 +194,7 @@ div {
 					<img src="/img/icon_login.png">
 
 					<h3>
-						<a href="/url/SignUp:login">관리자 ID로 <b>로그인</b></a> 부탁드립니다. <small><a
+						<a href="/url/user-info:login">관리자 ID로 <b>로그인</b></a> 부탁드립니다. <small><a
 							href="/">| <b>홈으로</b></a></small>
 					</h3>
 					<p>

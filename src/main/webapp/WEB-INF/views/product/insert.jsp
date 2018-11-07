@@ -1,4 +1,8 @@
-
+<!-- 프론트
+데이터 새로바꾼다음에
+어드민 셀러 아이디 권한
+유제레벨아이디로 전환할것
+------------ -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -64,9 +68,9 @@ h4 {
 
 
 
-	<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
+	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='admin'||userid=='sell'}">
+		<c:when test="${userId=='admin'||userId=='sell'}">
 			<!-- 관리자만보이는영역 -->
 			<!-- 회색바탕 -->
 			<div class="view-container">
@@ -75,8 +79,8 @@ h4 {
 					<!-- 2분할 -->
 					<div class="common_title-line">
 						<h3>
-							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.signupName}
-									<span class="badge">${sessionScope.userLoginInfo.signupNum}</span>
+							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.userName}
+									<span class="badge">${sessionScope.userLoginInfo.userNum}</span>
 							</a></small>
 						</h3>
 					</div>
@@ -105,6 +109,8 @@ h4 {
 										data-vc="2,50">
 								</div>
 							</div>
+
+
 
 
 							<div class="row">
@@ -146,6 +152,7 @@ h4 {
 										data-vc="1,50"></textarea>
 
 
+
 								</div>
 							</div>
 
@@ -161,12 +168,7 @@ h4 {
 
 
 
-								<div class="col-md-3">
-									<input required type="text" class="form-control"
-										id="productCode" name="productCode" placeholder="제품코드"
-										data-vc="3,20">
-								</div>
-							</div>
+
 
 
 							<div class="row">
@@ -266,6 +268,8 @@ h4 {
 								</div>
 							</div>
 
+
+
 							<div class="row">
 								<div class="col-md-3">
 									<span style="color: red;">*</span>제품 수량
@@ -283,7 +287,7 @@ h4 {
 							<div class="row">
 
 								<div class="col-md-3">
-									<span style="color: red;">*</span>가격설정
+									<span style="color: red;">*</span>시작가격설정
 								</div>
 
 								<div class="col-md-4">
@@ -291,14 +295,7 @@ h4 {
 										id="productLowestPrice" name="productLowestPrice"
 										placeholder="제품의 최저가" data-vc="1,10">
 								</div>
-								<div class="col-md-1">
-									<p style="font-size: 2em; color: #D9E0DF;">~</p>
-								</div>
-								<div class="col-md-4">
-									<input required type="number" class="form-control"
-										id="productHopefulPrice" name="productHopefulPrice"
-										placeholder="제품 희망가(즉시 구매가)" data-vc="1,10">
-								</div>
+								
 							</div>
 
 
@@ -335,7 +332,7 @@ h4 {
 			</div>
 
 
-			<%@ include file="/WEB-INF/views/bproduct/product-bottom.jspf"%>
+			<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
 
 		</c:when>
 		<c:otherwise>
@@ -462,13 +459,13 @@ h4 {
 				if (imgvali()) {
 
 					$.ajax({
-						url : '/BProductInfo',
+						url : '/Product',
 						contentType : false,//헤더 지우기
 						processData : false,//쿼리스트링 형식으로 바꾸지 않기
 						data : formData,
 						type : 'POST',
 						success : function() {
-							location.href = '/url/bproduct:list';
+							location.href = '/url/product:list';
 							alert('성공');
 						}
 					});
