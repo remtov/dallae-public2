@@ -58,9 +58,9 @@ h4 {
 
 
 
-	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='admin'||userid=='sell'}">
+		<c:when test="${userId=='admin'||userId=='sell'}">
 			<!-- 관리자 판매자만 보이는영역 -->
 			<!-- 연 회색 바디 -->
 
@@ -267,13 +267,13 @@ function insert() {
 		if (imgVali()) {
 
 			$.ajax({
-				url : '/ProductInfo',
+				url : '/Product',
 				contentType : false,//헤더 지우기
 				processData : false,//쿼리스트링 형식으로 바꾸지 않기
 				data : formData,
 				type : 'POST',
 				success : function() {
-					location.href = '/url/bproduct:list';
+					location.href = '/url/product:list';
 					alert('성공');
 				}
 			});
@@ -284,7 +284,7 @@ function insert() {
 
 	function dele(dsa){
 		$.ajax({
-			url : '/ProductInfo/'+${product.productNumber},
+			url : '/Product/'+${product.productNumber},
 			type : 'DELETE',
 			success : function(){
 				location.href = '/url/product:list';
@@ -298,7 +298,7 @@ function insert() {
 		var formData = new FormData(form);
 		if(valiCheck() ){
 			$.ajax({
-				url : '/ProductInfo/'+${product.productNumber},
+				url : '/Product/'+${product.productNumber},
 				contentType : false,//헤더 지우기
 				processData : false,//쿼리스트링 형식으로 바꾸지 않기
 				data : formData,

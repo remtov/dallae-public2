@@ -18,7 +18,7 @@ public class Product {
 	private String productBrand;
 	private String productCondition;
 	private String userId;
-	private Integer userCredit;
+	private Integer userCreditLevel;
 
 	public Product() {
 	}
@@ -30,7 +30,7 @@ public class Product {
 				+ ", productEnddate=" + productEnddate + ", productLowestPrice=" + productLowestPrice
 				+ ", productHopefulPrice=" + productHopefulPrice + ", productImage=" + productImage + ", productDesc="
 				+ productDesc + ", productBrand=" + productBrand + ", productCondition=" + productCondition
-				+ ", userId=" + userId + ", userCredit=" + userCredit + "]";
+				+ ", userId=" + userId + ", userCreditLevel=" + userCreditLevel + "]";
 	}
 
 	public Integer getProductNumber() {
@@ -137,18 +137,18 @@ public class Product {
 		this.userId = userId;
 	}
 
-	public Integer getUserCredit() {
-		return userCredit;
+	public Integer getUserCreditLevel() {
+		return userCreditLevel;
 	}
 
-	public void setUserCredit(Integer userCredit) {
-		this.userCredit = userCredit;
+	public void setUserCreditLevel(Integer userCreditLevel) {
+		this.userCreditLevel = userCreditLevel;
 	}
 
 	public Product(Integer productNumber, String productName, String productCategory, Integer productQuantity,
 			String productDate, String productEnddate, Integer productLowestPrice, Integer productHopefulPrice,
 			String productImage, String productDesc, String productBrand, String productCondition, String userId,
-			Integer userCredit) {
+			Integer userCreditLevel) {
 		super();
 		this.productNumber = productNumber;
 		this.productName = productName;
@@ -163,7 +163,7 @@ public class Product {
 		this.productBrand = productBrand;
 		this.productCondition = productCondition;
 		this.userId = userId;
-		this.userCredit = userCredit;
+		this.userCreditLevel = userCreditLevel;
 	}
 
 }

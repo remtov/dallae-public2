@@ -215,7 +215,7 @@
 		};
 		function logOut() {
 			var conf = {
-				url : '/logOut',
+				url : '/LogOut',
 				method : 'POST',
 				success : function(res) {
 

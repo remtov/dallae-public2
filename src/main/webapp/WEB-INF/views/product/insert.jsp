@@ -13,6 +13,7 @@
 <style>
 div {
 	/* border: 1px solid red; */
+	
 }
 
 #insert_myform-btn {
@@ -68,7 +69,7 @@ h4 {
 
 
 
-	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userId=='admin'||userId=='sell'}">
 			<!-- 관리자만보이는영역 -->
@@ -156,15 +157,6 @@ h4 {
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="col-md-3">
-									<span style="color: red;">*</span> <a tabindex="0"
-										role="button" type="button" data-container="body"
-										data-toggle="popover" data-placement="right"
-										data-trigger="focus"
-										data-content="데이터 관리를 위한 코드를 영문과 숫자로 정해 주십시오.(10글자이하)">제품
-										코드</a>
-								</div>
 
 
 
@@ -264,7 +256,7 @@ h4 {
 								<div class="col-md-9">
 									<textarea class="form-control" rows="10" id="productDesc"
 										name="productDesc" placeholder="제품의 설명" data-vc="1,2000"></textarea>
-									
+
 								</div>
 							</div>
 
@@ -295,7 +287,7 @@ h4 {
 										id="productLowestPrice" name="productLowestPrice"
 										placeholder="제품의 최저가" data-vc="1,10">
 								</div>
-								
+
 							</div>
 
 
@@ -314,8 +306,18 @@ h4 {
 								</div>
 							</div>
 
+							<div style="display: none">
+								<input class="form-control" type="text" id="userId"
+									name="userId" value="${userLoginInfo.userId}"> <input
+									class="form-control" type="text" id="userCreditLevel"
+									name="userCredit" value="${userLoginInfo.userCreditLevel}">
 
+							</div>
 
+							<h1>${userLoginInfo.userId}|
+								${sessionScope.userLoginInfo.userNumber} |
+								${sessionScope.userLoginInfo.userCreditLevel} |
+								${userInfo.userCreditLevel}</h1>
 
 							<div class="row">
 								<div class="col-md-3"></div>
@@ -336,6 +338,8 @@ h4 {
 
 		</c:when>
 		<c:otherwise>
+
+
 			<!-- 세션없는 사람에게 보이는 영역 -->
 			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
 			<!-- 세션없는 사람에게 보이는 영역 -->

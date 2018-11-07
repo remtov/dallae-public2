@@ -14,9 +14,8 @@
 		=#{productNumber}
 	</select>
 	<insert id="insertProduct" parameterType="product">
-		insert into
-
-		product(
+	
+		insert into	product(
 		ProductNumber,
 		ProductName,
 		ProductCategory,
@@ -24,13 +23,12 @@
 		ProductDate,
 		ProductEndDate,
 		ProductLowestPrice,
-		ProductHopefulPrice,
 		ProductImage,
 		ProductDesc,
 		ProductBrand,
 		ProductCondition,
 		UserId,
-		UserCredit
+		userCreditLevel
 		)
 		values(
 		SEQ_Product_ProductNum.nextval,
@@ -38,15 +36,17 @@
 		#{productCategory},
 		#{productQuantity},
 		to_char(SYSDATE,'YYYYMMDD'),
+		to_char(SYSDATE+3,'YYYYMMDD'),
 		#{productLowestPrice},
-		#{productHopefulPrice},
 		#{productImage},
 		#{productDesc},
 		#{productBrand},
-		#{productCondition}
-		#{userId}
-		#{userCredit}
+		#{productCondition},
+		#{userId},
+		#{userCreditLevel}
 		)
+
+
 
 
 
@@ -75,10 +75,7 @@
 			<if test="productLowestPrice !=null">ProductLowestPrice =
 				#{productLowestPrice},
 			</if>
-			<if test="productHopefulPrice !=null">ProductHopefulPrice =
-				#{productHopefulPrice},
-			</if>
-			, from dancingvitamins.product;
+
 
 			<if test="productImage !=null">ProductImage =
 				#{productImage},
@@ -89,6 +86,8 @@
 			<if test="productBrand !=null">ProductBrand =
 				#{productBrand},
 			</if>
+	
+
 			<if test="productCondition !=null">ProductCondition =
 				#{productCondition},
 			</if>
