@@ -36,9 +36,9 @@ h1 {
 			<form class="form-horizontal" id="find_form--40">
 
 				<div class="form-group">
-					<label for="signupId" class="col-sm-2 control-label">아이디</label>
+					<label for="userId" class="col-sm-2 control-label">아이디</label>
 					<div class="col-sm-10">
-						<input type="text" id="signupId" data-vali="2"
+						<input type="text" id="userId" data-vali="2"
 							class="form-control" placeholder="아이디를 입력하세요.">
 					</div>
 				</div>
@@ -46,27 +46,27 @@ h1 {
 
 
 				<div class="form-group">
-					<label for="signupName" class="col-sm-2 control-label">이름</label>
+					<label for="userName" class="col-sm-2 control-label">이름</label>
 					<div class="col-sm-10">
-						<input type="text" id="signupName" data-vali="2"
+						<input type="text" id="userName" data-vali="2"
 							class="form-control" placeholder="이름을 입력하세요.">
 					</div>
 				</div>
 
 
 				<div class="form-group">
-					<label for="signupPhone" class="col-sm-2 control-label">핸드폰
+					<label for="userPhoneNum" class="col-sm-2 control-label">핸드폰
 						번호</label>
 
 					<div class="col-sm-10">
-						<input class="form-control" type="password" id="signupPhone"
+						<input class="form-control" type="password" id="userPhoneNum"
 							data-vali="2" placeholder="핸드폰 번호를 입력하세요. 예)01012345678">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="button" class="btn btn-default btn-lg btn-block"
-							onclick="findpass()">비밀번호 찾기</button>
+							onclick="findPassword()">비밀번호 찾기</button>
 
 					</div>
 				</div>
@@ -81,31 +81,31 @@ h1 {
 
 	<script>
 		
-		function findpass() {
-			var signupId = document.querySelector('#signupId').value
-			var signupName = document.querySelector('#signupName').value
-			var signupPhone = document.querySelector('#signupPhone').value
+		function findPassword() {
+			var userId = document.querySelector('#userId').value
+			var userName = document.querySelector('#userName').value
+			var userPhoneNum = document.querySelector('#userPhoneNum').value
 			var params = '';
-			params = 'signupName=' + signupName + '&signupPhone=' + signupPhone
-					+ '&signupId=' + signupId;
+			params = 'userName=' + userName + '&userPhoneNum=' + userPhoneNum
+					+ '&userId=' + userId;
 
 			var conf = {
-				url : '/findpass',
+				url : '/FindPass',
 				param : params,
 				success : function(res) {
 					if (res != '') {
 						res = JSON.parse(res);
-						alert('회원님의 비밀번호는' + res.signupPassword + ' 입니다.');
-						location.href = "/url/SignUp:login";
+						alert('회원님의 비밀번호는' + res.userPassword + ' 입니다.');
+						location.href = "/url/user-info:login";
 					} else {
-						alert('아이디 또는 폰 번호 또는 회원 이름가 일치하지 않습니다.');
+						alert('아이디, 폰 번호, 회원 이름이 일치하지 않습니다.');
 					}
 
 				}
 			}
 
-			var au = new AjaxUtil(conf);
-			au.send();
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
 
 		}
 	</script>

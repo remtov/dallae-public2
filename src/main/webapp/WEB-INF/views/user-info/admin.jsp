@@ -22,7 +22,7 @@ div {
 
 	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='admin'}">
+		<c:when test="${userId=='admin'}">
 
 
 			<!-- 관리자만보이는영역 -->
@@ -115,16 +115,9 @@ div {
 									</tbody>
 								</table>
 							</div>
-
-
-
 						</div>
-
-
 						<!-- 우측컨텐츠 -->
 					</div>
-
-
 				</div>
 			</div>
 

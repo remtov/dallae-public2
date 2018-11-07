@@ -37,27 +37,27 @@ h1 {
 			<form class="form-horizontal" id="find_form--40">
 
 				<div class="form-group">
-					<label for="signupName" class="col-sm-2 control-label">이름</label>
+					<label for="userName" class="col-sm-2 control-label">이름</label>
 					<div class="col-sm-10">
-						<input type="text" id="signupName" data-vali="2"
+						<input type="text" id="userName" data-vali="2"
 							class="form-control" placeholder="이름을 입력하세요.">
 					</div>
 				</div>
 
 
 				<div class="form-group">
-					<label for="signupPhone" class="col-sm-2 control-label">핸드폰
+					<label for="userPhoneNum" class="col-sm-2 control-label">핸드폰
 						번호</label>
 
 					<div class="col-sm-10">
-						<input class="form-control" type="password" id="signupPhone"
+						<input class="form-control" type="password" id="userPhoneNum"
 							data-vali="2" placeholder="핸드폰 번호를 입력하세요. 예)01012345678">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="button" class="btn btn-default btn-lg btn-block"
-							onclick="findid()">아이디 찾기</button>
+							onclick="FindId()">아이디 찾기</button>
 
 					</div>
 				</div>
@@ -70,21 +70,21 @@ h1 {
 	<script>
 		
 		/* 아이디찾기를 눌렀을때 실행되는구문 */
-		function findid() {
-			var signupName = document.querySelector('#signupName').value
-			var signupPhone = document.querySelector('#signupPhone').value
+		function findId() {
+			var userName = document.querySelector('#userName').value
+			var userPhoneNum = document.querySelector('#userPhoneNum').value
 			var params = '';
-			params = 'signupName=' + signupName + '&signupPhone=' + signupPhone;
+			params = 'userName=' + userName + '&userPhoneNum=' + userPhoneNum;
 
 			var conf = {
-				url : '/findId',
+				url : '/FindId',
 				param : params,
 				success : function(res) {
 
 					if (res != '') {
 						res = JSON.parse(res);
-						alert('회원님의 아이디는' + res.signupId + ' 입니다.');
-						location.href = "/url/SignUp:login";
+						alert('회원님의 아이디는' + res.userId + ' 입니다.');
+						location.href = "/url/user-info:login";
 
 					} else {
 						alert('회원 이름 또는 폰 번호가 일치하지 않습니다.');
@@ -92,8 +92,8 @@ h1 {
 				}
 
 			}
-			var au = new AjaxUtil(conf);
-			au.send();
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
 		}
 		/* 아이디찾기를 눌렀을때 실행되는구문 */
 	</script>
