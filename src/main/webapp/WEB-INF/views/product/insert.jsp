@@ -314,10 +314,7 @@ h4 {
 
 							</div>
 
-							<h1>${userLoginInfo.userId}|
-								${sessionScope.userLoginInfo.userNumber} |
-								${sessionScope.userLoginInfo.userCreditLevel} |
-								${userInfo.userCreditLevel}</h1>
+							
 
 							<div class="row">
 								<div class="col-md-3"></div>

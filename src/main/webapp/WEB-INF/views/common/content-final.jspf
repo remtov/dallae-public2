@@ -54,12 +54,12 @@ window.addEventListener('load',
 		                        res[j + (i * 4)].productLowestPrice*3/2 + ' 원</h4>';
 		                     html += '<p>제품브랜드 : ' +res[j + (i * 4)].productBrand + 
 		                     ' | 판매자 : ' +res[j + (i * 4)].userId +
-		                     ' | 판매자 신용도 : ' +res[j + (i * 4)].productQuantity +
+		                     
 		                     
 		                     ' | 제품수량 : ' +res[j + (i * 4)].productQuantity + 
 		                     ' | 분류 : ' +
-		                        res[j + (i * 4)].productCategory + ' | 등록일 : ' +
-		                        res[j + (i * 4)].productQuantity + 
+		                        res[j + (i * 4)].productCategory + ' | 신용등급 : ' +
+		                        res[j + (i * 4)].userCreditLevel + 
 		                        ' | 등록일 : ' + res[j + (i * 4)].productDate + 
 		                        ' | 마감일 : ' + res[j + (i * 4)].productEndDate + 
 
