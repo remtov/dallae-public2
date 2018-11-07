@@ -31,7 +31,7 @@
 
 				<p style="text-align: center;">
 					<button class="btn btn-primary btn-lg"
-						onclick="location.href='/url/SignUp:login'">
+						onclick="location.href='/url/user-info:login'">
 						권한을 가진 ID로 <b>로그인</b> 부탁드립니다.
 					</button>
 					<br>

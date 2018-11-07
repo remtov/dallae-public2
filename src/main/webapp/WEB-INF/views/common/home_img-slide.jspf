@@ -1,3 +1,6 @@
+<!-- 입찰버튼과 메인슬라이드 컨텐츠가 활성화되지않았음
+구현하기위해 쿼리적인 로직이필요한듯 -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

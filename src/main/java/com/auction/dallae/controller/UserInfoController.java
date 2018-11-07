@@ -30,7 +30,7 @@ public class UserInfoController {
 		return userInfoService.getUserInfoList(userInfo);
 	}
 
-	@RequestMapping(value = "/UserInfoView/{UserNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/UserInfoView/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
 
@@ -45,21 +45,21 @@ public class UserInfoController {
 		return userInfoService.insertUserInfo(userInfo);
 	}
 
-	@RequestMapping(value = "/Delete/{UserNumber}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/Delete/{userNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public int deleteUserInfo(@PathVariable Integer userNumber) {
 
 		return userInfoService.deleteUserInfo(userNumber);
 	}
 
-	@RequestMapping(value = "/UpdateVil/{UserNumber}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/UpdateVil/{userNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateUserInfo(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber) {
 		userInfo.setUserNumber(userNumber);
 		return userInfoService.updateUserInfo(userInfo);
 	}
 
-	@RequestMapping(value = "/Update/{UserNumber}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/Update/{userNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
 			HttpSession httpSession, HttpServletRequest httpServletRequest) {
