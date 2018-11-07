@@ -80,7 +80,7 @@ h4 {
 					<div class="common_title-line">
 						<h3>
 							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.userName}
-									<span class="badge">${sessionScope.userLoginInfo.userNum}</span>
+									<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
 							</a></small>
 						</h3>
 					</div>

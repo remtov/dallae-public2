@@ -43,8 +43,8 @@ table {
 	margin-bottom: 50px;
 }
 
-#view_btn-tr{
-height:100px;
+#view_btn-tr {
+	height: 100px;
 }
 </style>
 
@@ -59,66 +59,90 @@ height:100px;
 				</p>
 
 			</div>
-
-
-
-
+			<p style="text-align: center;">
+				<img src="/img/${userImage}" alt="유저 이미지">
+			</p>
 
 			<table>
-				<c:set value="${getOne}" var="li" />
+				<c:set value="${getOne}" var="userInfo" />
 				<tr>
 					<th class="col-md-2">회원 번호</th>
-					<td colspan="2" class="col-md-10" id="signupNum"><input
-						class="form-control" type="text" id="signupNum"
-						value="${li.signupNum}" disabled></td>
+					<td colspan="2" class="col-md-10"><input class="form-control"
+						type="text" id="userNumber" value="${userInfo.userNumber}"
+						disabled></td>
 				</tr>
+
 				<tr>
 					<th class="col-md-2">회원 이름</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupName" value="${li.signupName}"></td>
+						type="text" id="userName" value="${userInfo.userName}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원id</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupId" value="${li.signupId}"></td>
+						type="text" id="userId" value="${userInfo.userId}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원 비밀번호</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupPassword" value="${li.signupPassword}"></td>
+						type="text" id="userPassword" value="${userInfo.userPassword}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원 별명</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupNickName" value="${li.signupNickName}"></td>
+						type="text" id="userNickName" value="${userInfo.userNickName}"></td>
 				</tr>
+
 				<tr>
 					<th class="col-md-2">회원 email</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupEmail" value="${li.signupEmail}"></td>
+						type="text" id="userEmail" value="${userInfo.userEmail}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원가입 일자</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupDate" value="${li.signupDate}"></td>
+						type="text" id="userSignUpDate" value="${userInfo.userSignUpDate}"
+						disabled></td>
 				</tr>
-				<tr>
-					<th class="col-md-2">회원 관심사</th>
-					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupConcern" value="${li.signupConcern}"></td>
-				</tr>
-				<tr>
-					<th class="col-md-2">회원 주민등록번호</th>
-					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupPersonallity"
-						value="${li.signupPersonallity}"></td>
-				</tr>
+
 
 				<tr>
 					<th class="col-md-2">회원폰번호</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="signupPhone" value="${li.signupPhone}"></td>
+						type="text" id="userPhoneNum" value="${userInfo.userPhoneNum}"></td>
 				</tr>
+
+				<tr>
+					<th class="col-md-2">주소</th>
+					<td colspan="2" class="col-md-10"><input class="form-control"
+						type="text" id="userAddress" value="${userInfo.userAddress}"></td>
+				</tr>
+
+				<tr>
+					<th class="col-md-2">상세주소</th>
+					<td colspan="2" class="col-md-10"><input class="form-control"
+						type="text" id="userAddress2" value="${userInfo.userAddress2}"></td>
+				</tr>
+
+				<tr>
+					<th class="col-md-2">권한등급</th>
+					<td colspan="2" class="col-md-10"><input class="form-control"
+						type="text" id="userLevel" value="${userInfo.userLevel}"></td>
+				</tr>
+
+				<tr>
+					<th class="col-md-2">포인트</th>
+					<td colspan="2" class="col-md-10"><input class="form-control"
+						type="text" id="userPoint" value="${userInfo.userPoint}"></td>
+				</tr>
+
+				<tr>
+					<th class="col-md-2">신용등급</th>
+					<td colspan="2" class="col-md-10"><input class="form-control"
+						type="text" id="userCreditLevel"
+						value="${userInfo.userCreditLevel}"></td>
+				</tr>
+
 
 
 				<tr id="view_btn-tr">
@@ -152,7 +176,7 @@ function Back(){
 
 function Delete(){ 
 			var conf = {
-					url : '/Delete/' + ${li.signupNum},
+					url : '/Delete/' + ${userInfo.signupNum},
 					method : 'DELETE',
 					success : function(res){
 						if(res!==1){					  
@@ -174,7 +198,7 @@ function  Update(){
 	var signupEmail = document.querySelector('#signupEmail').value;
 	var signupDate = document.querySelector('#signupDate').value;
 	var signupConcern = document.querySelector('#signupConcern').value;
-	var signupPersonallity = document.querySelector('#signupPersonallity').value;
+	var signupPersonaluserInfoty = document.querySelector('#signupPersonallity').value;
 	var signupPhone = document.querySelector('#signupPhone').value;
 	
 	var params={signupName:signupName,signupId:signupId,signupPassword:signupPassword,signupNickName:signupNickName,signupEmail:signupEmail,signupDate:signupDate,signupConcern:signupConcern,signupPersonallity:signupPersonallity,signupPhone:signupPhone};
@@ -182,13 +206,13 @@ function  Update(){
 
 		var conf = {
 				
-				url : '/updatevil/'+ ${li.signupNum},
+				url : '/updatevil/'+ ${userInfo.signupNum},
 				method :'PUT',
 				param : params,
 				success:function(res){
 					if(res==1){
 						alert("성공하였습니다.");
-						location.href="/SignUpView/"+${li.signupNum};
+						location.href="/SignUpView/"+${userInfo.signupNum};
 					}
 				}
 		

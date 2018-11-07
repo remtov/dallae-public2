@@ -128,7 +128,7 @@ window.addEventListener('load',
 					<h3>
 						나의 달래 : 경매 보기 <small><a href="/url/SignUp:MyPage"
 							style="color: gray;"><b>${sessionScope.userLoginInfo.userName}</b>(${sessionScope.userLoginInfo.userId})
-								<span class="badge">${sessionScope.userLoginInfo.userNum}</span>
+								<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
 						</a></small>
 					</h3>
 

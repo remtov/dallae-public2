@@ -160,64 +160,7 @@ tr td .form-group div #myform {
 		<div class="container">
 			<c:choose>
 				<c:when test="${not empty sessionScope.userLoginInfo}">
-
-					<!-- 두번째 검색창라인 -->
-					<div id="searchLine" class="home_search-line">
-
-
-						<!-- 카테고리드랍다운영역 -->
-						<div class="dropdown" id="my-page_drop-down">
-							<button class="btn btn-default dropdown-toggle" type="button"
-								id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-								카테고리 <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu"
-								aria-labelledby="dropdownMenu1">
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="#">Action</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="#">Another action</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="#">Something else here</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="#">Separated link</a></li>
-							</ul>
-						</div>
-						<!-- 카테고리드랍다운영역 -->
-
-						<!-- 검색창영역 -->
-						<div class="my-page_search-bar">
-							<div class="input-group">
-
-								<input type="text" class="form-control" aria-label="..."
-									placeholder="Search for...">
-
-								<div class="input-group-btn">
-
-
-									<button class="btn btn-default" type="button">Search</button>
-
-									<button type="button" class="btn btn-default dropdown-toggle"
-										data-toggle="dropdown" aria-expanded="false">
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu dropdown-menu-right" role="menu">
-										<li><a href="#">Action</a></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
-								<!-- /btn-group -->
-
-
-							</div>
-						</div>
-						<!-- /input-group -->
-
-					</div>
-					<!-- 검색창영역 -->
+					<!-- 세션을가진사람만보임 -->
 
 					<!-- 프로필판넬 -->
 					<div class="my-page_back-ground">
@@ -230,12 +173,11 @@ tr td .form-group div #myform {
 							</button>
 						</div>
 
-
-
 						<div class="row" id="my-page_row2">
 							<!-- 프로필판넬 -->
 							<div class="col-md-3">
-								<img src="/img/icon_profile.png">
+								<img src="/img/icon_profile.png"> DB 이미지 테스트<img
+									src="/img/${userImage}">
 								<!-- 프로필사진 -->
 								<div>
 									<button>
@@ -249,14 +191,12 @@ tr td .form-group div #myform {
 							<!-- 수정 인풋 -->
 
 
-
-
 							<div class="col-md-4">
 								<table>
 									<tr>
 										<td id="user-pannel_td-widther">이름</td>
 										<td><input class="form-control" type="text"
-											id="signupName" value="${userLoginInfo.signupName}"
+											id="signupName" value="${userLoginInfo.userName}"
 											data-vali="2"></td>
 									</tr>
 									<tr>
@@ -267,19 +207,16 @@ tr td .form-group div #myform {
 
 									<tr>
 										<td>패스워드</td>
-										<td><input class="form-control" type="text"
-											id="signupPassword" value="${userLoginInfo.signupPassword}"
+										<td><input class="form-control" type="password"
+											id="userPassword" value="${userLoginInfo.userPassword}"
 											data-vali="2"></td>
 									</tr>
 									<tr>
 										<td colspan="2"><div class="form-group">
 												<div>
-													관심사:
-													<div id="myform">
-														<input type="checkbox" id="beauty">미용 <input
-															type="checkbox" id="machine">전자기기 <input
-															type="checkbox" id="life">생활<br>
-													</div>
+													<input class="form-control" type="text" id="" value=""
+														data-vali="2">
+
 												</div>
 											</div></td>
 									</tr>
@@ -288,13 +225,12 @@ tr td .form-group div #myform {
 
 
 
-
 							<div class="col-md-5">
 								<table>
 									<tr>
 										<td id="user-pannel_td-widther">별명</td>
 										<td><input class="form-control" type="text"
-											id="signupNickName" value="${userLoginInfo.signupNickName}"
+											id="userNickName" value="${userLoginInfo.userNickName}"
 											data-vali="2"></td>
 
 									</tr>
@@ -302,7 +238,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>이메일</td>
 										<td><input class="form-control" type="text"
-											id="signupEmail" value="${userLoginInfo.signupEmail}"
+											id="userEmail" value="${userLoginInfo.userEmail}"
 											data-vali="2"></td>
 
 									</tr>
@@ -310,7 +246,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>폰번호</td>
 										<td><input class="form-control" type="text"
-											id="signupPhone" value="${userLoginInfo.signupPhone}"
+											id="userPhoneNum" value="${userLoginInfo.userPhoneNum}"
 											data-vali="2"></td>
 
 									</tr>
@@ -333,6 +269,14 @@ tr td .form-group div #myform {
 									</tr>
 
 								</table>
+								<div>
+									회원번호 : ${userNumber} | 등록일 : ${userSignUpDate} | 권한등급 :
+									${userLevel} | 포인트 : ${userPoint} | 신용등급 : ${userCreditLevel} |
+									<input class="form-control" type="text" value="userAddress"
+										id="userAddress"> <input class="form-control"
+										type="text" value="userAddress2" id="userAddress2">
+
+								</div>
 
 
 							</div>
@@ -347,15 +291,11 @@ tr td .form-group div #myform {
 					<!-- 배경 -->
 
 
-
-
-
-
 					<h2>
 						판매 품목 ( 0 ) | <small><a href="#">모든 항목보기</a></small>
 					</h2>
 					<p>
-						오늘 bong에서 <a href="#">판매를 시작</a>하십시오.
+						오늘 dallae에서 <a href="#">판매를 시작</a>하십시오.
 					</p>
 					<hr>
 
@@ -367,7 +307,7 @@ tr td .form-group div #myform {
 					<div>
 						<h2>팔로윙</h2>
 						<p>
-							다른 회원, 소장품 및 관심사를 따라 가면 <a href="#">bong 피드</a>에서 더 많은 검색 결과를 얻을
+							다른 회원, 소장품 및 관심사를 따라 가면 <a href="#">dallae 피드</a>에서 더 많은 검색 결과를 얻을
 							수 있습니다.
 						</p>
 					</div>
@@ -388,10 +328,10 @@ tr td .form-group div #myform {
 
 					<div class="gray-container">
 						<div class="find-container">
-							<div id="session-less" style="margin:auto;">
+							<div id="session-less" style="margin: auto;">
 								<img src="/img/icon_login.png">
 								<h3>
-									<a href="/url/SignUp:login"><b>로그인</b></a> 부탁드립니다. <small><a
+									<a href="/url/user-info:login"><b>로그인</b></a> 부탁드립니다. <small><a
 										href="/">| <b>홈으로</b></a></small>
 								</h3>
 								<p>
@@ -410,27 +350,31 @@ tr td .form-group div #myform {
 
 	</div>
 	<script>
+	userNumber, 
+	, 
+	, 
+	, 
+	, 
+	, 
+	, 
+	userSignUpDate, 
+	userAddress, 
+	userAddress2, 
+	userLevel, 
+	userPoint, 
+	userCreditLevel, 
+	userImage 
 
 
 function save(){
 
-	var signupName = document.querySelector('#signupName').value;
-	var signupId = document.querySelector('#signupId').value;
-	var signupPassword = document.querySelector('#signupPassword').value;
-	var signupNickName = document.querySelector('#signupNickName').value;
-	var signupEmail = document.querySelector('#signupEmail').value;
-	var signupPhone = document.querySelector('#signupPhone').value;
-    var setChk = "";
-    if(document.querySelector('#beauty').checked) {
-     setChk += "미용,";
-    }
-    if(document.querySelector('#machine').checked) {
-     setChk += "전자기기,";
-    }
-    if(document.querySelector('#life').checked) {
-     setChk += "생활,";
-    }
-    setChk = setChk.substr(0, setChk.length-1);
+	var userName = document.querySelector('#userName').value;
+	var userId = document.querySelector('#userId').value;
+	var userPassword = document.querySelector('#userPassword').value;
+	var userNickName = document.querySelector('#userNickName').value;
+	var userEmail = document.querySelector('#userEmail').value;
+	var userPhoneNum = document.querySelector('#userPhoneNum').value;
+    
 	var valis = document.querySelectorAll('*[data-vali]');
 	
 	valis.forEach((e) => {
@@ -438,29 +382,29 @@ function save(){
 		
 		if(e.value.trim().length < length){
 			e.focus();
-			alert(e.id + '는 ' + length + '이상입니다.');
+			alert(e.id + '은(는) ' + length + '이상의 글자로 채워 주셔야 합니다.');
 			return false;
 		}
 	});
-		
-	var params={signupName:signupName,signupId:signupId,signupPassword:signupPassword,signupEmail:signupEmail,
-			signupNickName:signupNickName,signupPhone:signupPhone,signupConcern:setChk};
+
+	var params={userName:userName,userId:userId,userPassword:userPassword,userEmail:userEmail,userNickName:userNickName,
+				userPhoneNum:userPhoneNum,userAddress:userAddress,userAddress2:userAddress2};
 	 params = JSON.stringify(params); 
 	
 		var conf = {
-				url : '/update/'+${userLoginInfo.signupNum},
+				url : '/Update/'+${userLoginInfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){
 					if(res==1){
 						alert('회원수정이 완료 되셨습니다.');
-						location.href="//SignUp:MyPage";
+						location.href="/url/user-info:my-page";
 					};  
 				}
 		
 		};
-		var au = new AjaxUtil(conf);
-		au.send();
+		var ajaxUtil = new AjaxUtil(conf);
+		ajaxUtil.send();
 	
 }
 
