@@ -1,4 +1,5 @@
-
+<!-- 아직 현재가격이 구현되지않아 
+시작가격의 3배에서 나누기 2해서 현재가격으로 띄우고있다. -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -48,7 +49,7 @@ window.addEventListener('load',
 		                     
 		                     html += '<div class="col-sm-6 col-md-3">';
 		                     html += '<div class="thumbnail">';
-		                     html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/' +
+		                     html += '<img style="width:100%;" alt="sell-img" src="/resources/img/product/' +
 		                        res[j + (i * 4)].productImage + '" onclick="goPage(' +
 		                        res[j + (i * 4)].productNumber + ')">';
 		                     html += '<div class="caption">';
@@ -112,9 +113,9 @@ window.addEventListener('load',
 
 
 
-	<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
-		<c:when test="${userid=='admin'||userid=='sell'}">
+		<c:when test="${userId=='admin'||userId=='sell'}">
 
 
 			<!-- 관리자만보이는영역 -->

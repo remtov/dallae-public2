@@ -24,13 +24,13 @@ public class UserInfoController {
 	@Autowired
 	public UserInfoService userInfoService;
 
-	@RequestMapping(value = "/UserInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/UserInfoList", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo userInfo) {
 
 		return userInfoService.getUserInfoList(userInfo);
 	}
 
-	@RequestMapping(value = "/UserInfoView/{userNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/UserInfo/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
 

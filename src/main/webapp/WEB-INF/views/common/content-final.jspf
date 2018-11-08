@@ -15,7 +15,7 @@ div { /* border: 3px solid red; */
 <script>
 window.addEventListener('load',
 		   function() {
-		      var au = new AjaxUtil({
+		      var ajaxUtil = new AjaxUtil({
 
 		            url: '/ProductList',
 		            success: function(res) {
@@ -61,9 +61,7 @@ window.addEventListener('load',
 		                        res[j + (i * 4)].productCategory + ' | 신용등급 : ' +
 		                        res[j + (i * 4)].userCreditLevel + 
 		                        ' | 등록일 : ' + res[j + (i * 4)].productDate + 
-		                        ' | 마감일 : ' + res[j + (i * 4)].productEndDate + 
-
-		                        '</p>';
+		                        ' | 마감일 : ' + res[j + (i * 4)].productEndDate + '</p>';
 		                     html += '<div style="height:50px;overflow:hidden;">'
 		                     html += '<p>' +
 		                        res[j + (i * 4)].productCondition + '</p>';
@@ -85,7 +83,7 @@ window.addEventListener('load',
 		         }
 
 		      );
-		      au.send();
+		      ajaxUtil.send();
 		   }
 
 		);

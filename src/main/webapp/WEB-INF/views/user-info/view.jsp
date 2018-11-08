@@ -170,55 +170,59 @@ table {
 	</div>
 	<script>
 function Back(){
-	location.href="/url/SignUp:Admin"
+	location.href="/url/user-info:admin"
 }
 
 
 function Delete(){ 
 			var conf = {
-					url : '/Delete/' + ${userInfo.signupNum},
+					url : '/Delete/' + ${userInfo.userNumber},
 					method : 'DELETE',
 					success : function(res){
 						if(res!==1){					  
 							alert('성공');
-							location.href='/url/SignUp:Admin';
+							location.href='/url/user-info:admin';
 					}
 				}
 		}
 			
-			var au = new AjaxUtil(conf);
-			au.send();
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
 }
+
+
 function  Update(){
-	var signupNum = document.querySelector('#signupNum').value;
-	var signupName = document.querySelector('#signupName').value;
-	var signupId = document.querySelector('#signupId').value;
-	var signupPassword = document.querySelector('#signupPassword').value;
-	var signupNickName = document.querySelector('#signupNickName').value;
-	var signupEmail = document.querySelector('#signupEmail').value;
-	var signupDate = document.querySelector('#signupDate').value;
-	var signupConcern = document.querySelector('#signupConcern').value;
-	var signupPersonaluserInfoty = document.querySelector('#signupPersonallity').value;
-	var signupPhone = document.querySelector('#signupPhone').value;
+	var userNumber = document.querySelector('#userNumber').value;
+	var userName = document.querySelector('#userName').value;
+	var userId = document.querySelector('#userId').value;
+	var userPassword = document.querySelector('#userPassword').value;
+	var userNickName = document.querySelector('#userNickName').value;
+	var userEmail = document.querySelector('#userEmail').value;
+	var userSignUpDate = document.querySelector('#userSignUpDate').value;
+	var userAddress = document.querySelector('#userAddress').value;
+	var userAddress2 = document.querySelector('#userAddress2').value;
+	var userPhoneNum = document.querySelector('#userPhoneNum').value;
 	
-	var params={signupName:signupName,signupId:signupId,signupPassword:signupPassword,signupNickName:signupNickName,signupEmail:signupEmail,signupDate:signupDate,signupConcern:signupConcern,signupPersonallity:signupPersonallity,signupPhone:signupPhone};
+	var params={userName:userName,userId:userId,userPassword:userPassword,
+			userNickName:userNickName,userEmail:userEmail,userSignUpDate:userSignUpDate,
+			userAddress:userAddress,userAddress2:userAddress2,userPhoneNum:userPhoneNum};
 	 params = JSON.stringify(params); 
 
 		var conf = {
 				
-				url : '/updatevil/'+ ${userInfo.signupNum},
+				url : '/updateVil/'+ ${userInfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){
 					if(res==1){
 						alert("성공하였습니다.");
-						location.href="/SignUpView/"+${userInfo.signupNum};
+						location.href="/UserInfo/"+${userInfo.userNumber};
 					}
 				}
 		
 		};
-		var au = new AjaxUtil(conf);
-		au.send();
+		var ajaxUtil = new AjaxUtil(conf);
+		ajaxUtil.send();
 		
 }
 

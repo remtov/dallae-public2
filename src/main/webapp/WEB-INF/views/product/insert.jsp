@@ -1,4 +1,13 @@
-<!-- 프론트
+
+
+<!-- 
+벡엔드 마지막컬럼 유저크레딧레벨은 인서트에서 제외했음
+어떻게 넣을지 인풋으로 입력하는건아닌것같고
+어떻게 가져와서 인풋태그에 밸류로 넣어서 넣어줘야하는지 
+잘모르겠음 일단 백엔드기술자에게 보류 ㅎㅎ
+
+
+프론트
 데이터 새로바꾼다음에
 어드민 셀러 아이디 권한
 유제레벨아이디로 전환할것
@@ -308,9 +317,7 @@ h4 {
 
 							<div style="display: none">
 								<input class="form-control" type="text" id="userId"
-									name="userId" value="${userLoginInfo.userId}"> <input
-									class="form-control" type="text" id="userCreditLevel"
-									name="userCredit" value="${userLoginInfo.userCreditLevel}">
+									name="userId" value="${userLoginInfo.userId}"> 
 
 							</div>
 
@@ -320,7 +327,7 @@ h4 {
 								<div class="col-md-3"></div>
 								<div class="col-md-9">
 									<button class="btn btn-info btn-lg btn-block" type="button"
-										id="insert_myform-btn" name="ATProductInfo" onclick="insert()">업로드하기</button>
+										id="insert_myform-btn" name="Product" onclick="insert()">업로드하기</button>
 								</div>
 							</div>
 							<!-- 폼 분할 -->
@@ -415,7 +422,7 @@ h4 {
 			preview9.setAttribute('src', url);
 		});
 
-		function imgvali() {
+		function imgVali() {
 			/* var img = document.querySelector('input[type="file"]'); */
 
 			var img = document.getElementById('productImage');
@@ -456,8 +463,8 @@ h4 {
 			var form = document.querySelector('#myform');
 			var formData = new FormData(form);
 
-			if (valicheck()) {
-				if (imgvali()) {
+			if (valiCheck()) {
+				if (imgVali()) {
 
 					$.ajax({
 						url : '/Product',

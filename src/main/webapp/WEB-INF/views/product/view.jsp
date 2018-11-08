@@ -170,8 +170,7 @@ h4 {
 
 							<div style="margin-left: 10px; float: left;">
 								<p>
-									<b>판매자 : ${userId}</b><br> 
-									판매자 신용도 : ${userCredit}
+									<b>판매자 : ${userId}</b><br> 판매자 신용도 : ${userCredit}
 								</p>
 							</div>
 							<div style="float: right;">
@@ -200,7 +199,7 @@ h4 {
 							<input required data-vc="1,11" type="number"
 								style="width: 100px;" name="productLowestPrice"
 								value="${product.productLowestPrice}">
-								
+
 						</p>
 
 						<textarea required data-vc="1,600" rows="10" class="form-control"
@@ -209,12 +208,10 @@ h4 {
 
 
 						<p>
-							제품수량 : <input style="margin-bottom: 10px; width:50px;"
+							제품수량 : <input style="margin-bottom: 10px; width: 50px;"
 								data-vc="1,3" required type="number" name="productQuantity"
-								value="${product.productQuantity}"><br> 
-					
-
-								브랜드명 : <input style="margin-bottom: 10px; width: 150px;"
+								value="${product.productQuantity}"><br> 브랜드명 : <input
+								style="margin-bottom: 10px; width: 150px;"
 								style="margin-bottom: 10px;" required data-vc="1,20" type="text"
 								name="productBrand" value="${product.productBrand}">
 						</p>
@@ -224,11 +221,13 @@ h4 {
 						<button class="btn btn-danger btn-lg" type="button"
 							onclick="dele(${product.productNumber})">주의! 데이터가 삭제됩니다.</button>
 					</form>
+					<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 				</div>
+
 			</div>
 
-			<!-- 우측 컨텐츠 -->
-			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+
+
 			<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
 			<!-- 관리자만보이는영역 -->
 		</c:when>

@@ -14,21 +14,22 @@
 		=#{productNumber}
 	</select>
 	<insert id="insertProduct" parameterType="product">
-	
-		insert into	product(
+
+		insert into product(
 		ProductNumber,
 		ProductName,
 		ProductCategory,
 		ProductQuantity,
 		ProductDate,
+		
 		ProductEndDate,
 		ProductLowestPrice,
 		ProductImage,
 		ProductDesc,
 		ProductBrand,
+		
 		ProductCondition,
-		UserId,
-		userCreditLevel
+		UserId
 		)
 		values(
 		SEQ_Product_ProductNum.nextval,
@@ -36,14 +37,15 @@
 		#{productCategory},
 		#{productQuantity},
 		to_char(SYSDATE,'YYYYMMDD'),
+		
 		to_char(SYSDATE+3,'YYYYMMDD'),
 		#{productLowestPrice},
 		#{productImage},
 		#{productDesc},
 		#{productBrand},
+		
 		#{productCondition},
-		#{userId},
-		#{userCreditLevel}
+		#{userId}
 		)
 
 
@@ -86,7 +88,7 @@
 			<if test="productBrand !=null">ProductBrand =
 				#{productBrand},
 			</if>
-	
+
 
 			<if test="productCondition !=null">ProductCondition =
 				#{productCondition},
@@ -103,7 +105,7 @@
 		</set>
 		where ProductNumber =# {productNumber}
 	</update>
-	
+
 	<delete id="deleteProduct" parameterType="product">
 		delete from
 		product
