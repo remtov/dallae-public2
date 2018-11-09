@@ -319,7 +319,7 @@ h4 {
 								<input class="form-control" type="text" id="userId"
 									name="userId" value="${userlogininfo.userId}"> 
 									<input
-									class="form-control" type="text" id="userId" name="userId"
+									class="form-control" type="text" id="userCreditLevel" name="userCreditLevel"
 									value="${userlogininfo.userCreditLevel}">
 
 							</div>

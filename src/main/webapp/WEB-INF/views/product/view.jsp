@@ -173,7 +173,6 @@ h4 {
 									<b>판매자 ID : ${userId}</b><br> 
 									
 									'${userId}' 님의 신용점수 ${userlogininfo.userPoint} 점 
-									
 									<br>
 				
 									

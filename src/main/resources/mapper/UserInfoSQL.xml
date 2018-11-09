@@ -42,17 +42,20 @@
 		</where>
 	</select>
 	<insert id="insertUserInfo" parameterType="userInfo">
+		
 		insert into
 		userInfo(userNumber,
 		userName,
 		userId,
 		userPassword,
 		userEmail,
+		
 		userNickName,
 		userPhoneNum,
 		userSignUpDate,
 		userAddress,
 		userAddress2,
+		
 		userLevel,
 		userPoint,
 		userCreditLevel,
@@ -63,15 +66,18 @@
 		#{userId},
 		#{userPassword},
 		#{userEmail},
+		
 		#{userNickName},
 		#{userPhoneNum},
 		to_char(SYSDATE,'YYYY-MM-DD'),
 		#{userAddress},
 		#{userAddress2},
+		
 		1,
-		#{userPoint},
+		0,
 		5,
-		#{userImage})
+		null
+		)
 
 
 	</insert>

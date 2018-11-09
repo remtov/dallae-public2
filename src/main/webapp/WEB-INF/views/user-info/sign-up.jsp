@@ -234,11 +234,11 @@ function save(){
 	var userName = document.querySelector('#userName').value;
 	var userId = document.querySelector('#userId').value;
 	var userPassword = document.querySelector('#userPassword').value;
+	var userEmail = document.querySelector('#userEmail').value;
 	
 	var userNickName = document.querySelector('#userNickName').value;
-	var userEmail = document.querySelector('#userEmail').value;
 	var userPhoneNum = document.querySelector('#userPhoneNum').value;
-	
+		
 	var userAddress = document.querySelector('#userAddress').value;
 	var userAddress2 = document.querySelector('#userAddress2').value;
 	
@@ -267,25 +267,19 @@ function save(){
 		
 		
 		
-				  usernumber number(10,0) not null,
 				  
-				   varchar2(100 byte) not null,
-				   varchar2(100 byte) not null,
-				   varchar2(100 byte) not null,
-				   varchar2(100 byte) not null,
-				   char(16 byte) not null,
-				  usersignupdate varchar2(20 byte) not null,
-				   varchar2(100 byte) not null,
-				   varchar2(100 byte) not null,
-				  userlevel char(2 byte) not null,
-				  userpoint number(10,0),
-				  usercreditlevel varchar2(20 byte) not null,
-				  userimage varchar2(1000 byte)
-				  
-				  
-	var params={userName:userName,userId:userId,userPassword:userPassword,userEmail:userEmail,userNickName:userNickName,
-					  userPhoneNum:userPhoneNum,userAddress:userAddress,userAddress2:userAddress2};
-	 params = JSON.stringify(params); 
+	var params={userName:userName,
+			userId:userId,
+			userPassword:userPassword,
+			userEmail:userEmail,		
+	
+			userNickName:userNickName,
+			userPhoneNum:userPhoneNum,
+			
+			userAddress:userAddress,
+			userAddress2:userAddress2};
+	
+	 params = JSON.stringify(params);
 	
 		var conf = {
 				url : '/userinfo',
@@ -299,8 +293,8 @@ function save(){
 				}
 		
 		};
-		var au = new AjaxUtil(conf);
-		au.send();
+		var ajaxUtil = new AjaxUtil(conf);
+		ajaxUtil.send();
 		 
 	
 		
