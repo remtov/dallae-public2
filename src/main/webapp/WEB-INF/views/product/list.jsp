@@ -24,7 +24,7 @@ window.addEventListener('load',
 		   function() {
 		      var au = new AjaxUtil({
 
-		            url: '/ProductList',
+		            url: '/productList',
 		            success: function(res) {
 		               res = JSON.parse(res);
 		               var plus = 0;
@@ -127,7 +127,7 @@ window.addEventListener('load',
 
 
 					<h3>
-						나의 달래 : 경매 보기 <small><a href="/url/SignUp:MyPage"
+						나의 달래 : 경매 보기 <small><a href="/url/signup:MyPage"
 							style="color: gray;"><b>${sessionScope.userLoginInfo.userName}</b>(${sessionScope.userLoginInfo.userId})
 								<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
 						</a></small>

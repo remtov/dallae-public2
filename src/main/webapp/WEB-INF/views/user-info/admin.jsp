@@ -133,7 +133,7 @@ div {
 	
 		var conf = {
 		param : params,
-		url : '/UserInfo',
+		url : '/userinfo',
 		success : function(res){
 			res = JSON.parse(res);
 			document.querySelector('#user-info_div').innerHTML = '';

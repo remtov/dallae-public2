@@ -392,7 +392,7 @@ function save(){
 	 params = JSON.stringify(params); 
 	
 		var conf = {
-				url : '/Update/'+${userLoginInfo.userNumber},
+				url : '/update/'+${userLoginInfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){

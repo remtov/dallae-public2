@@ -25,22 +25,22 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(value = "/ProductList", method = RequestMethod.GET)
+	@RequestMapping(value = "/productList", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductList() {
 		return productService.getProductList(null);
 		
 	}
-	@RequestMapping(value = "/Product/{productNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/view", "product", productService.getProduct(productNumber));
 	}
-	@RequestMapping(value = "/Product/{productNumber}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Integer deleteProduct(@PathVariable Integer productNumber) {
 		return productService.deleteProduct(productNumber);
 	}
-	@RequestMapping(value = "/Product/{productNumber}", method = RequestMethod.POST)
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest, @PathVariable Integer productNumber) {
 		System.out.println(productNumber);

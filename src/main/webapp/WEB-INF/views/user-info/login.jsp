@@ -148,7 +148,7 @@ h1 {
 				params = JSON.stringify(params);
 
 				var conf = {
-					url : '/DoLogIn',
+					url : '/dologin',
 					method : 'POST',
 					param : params,
 					success : function(res) {

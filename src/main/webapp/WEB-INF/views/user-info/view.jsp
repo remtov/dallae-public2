@@ -176,7 +176,7 @@ function Back(){
 
 function Delete(){ 
 			var conf = {
-					url : '/Delete/' + ${userInfo.userNumber},
+					url : '/delete/' + ${userInfo.userNumber},
 					method : 'DELETE',
 					success : function(res){
 						if(res!==1){					  
@@ -210,7 +210,7 @@ function  Update(){
 
 		var conf = {
 				
-				url : '/updateVil/'+ ${userInfo.userNumber},
+				url : '/updatevil/'+ ${userInfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){
