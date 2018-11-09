@@ -318,10 +318,13 @@ h4 {
 							<div style="display: none">
 								<input class="form-control" type="text" id="userId"
 									name="userId" value="${userlogininfo.userId}"> 
+									<input
+									class="form-control" type="text" id="userId" name="userId"
+									value="${userlogininfo.userCreditLevel}">
 
 							</div>
 
-							
+
 
 							<div class="row">
 								<div class="col-md-3"></div>

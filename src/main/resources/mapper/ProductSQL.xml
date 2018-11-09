@@ -30,6 +30,7 @@
 		
 		ProductCondition,
 		UserId
+		UserCreditLevel
 		)
 		values(
 		SEQ_Product_ProductNum.nextval,
@@ -45,7 +46,8 @@
 		#{productBrand},
 		
 		#{productCondition},
-		#{userId}
+		#{userId},
+		#{userCreditLevel}
 		)
 
 

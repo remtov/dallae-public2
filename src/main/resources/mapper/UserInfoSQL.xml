@@ -42,9 +42,22 @@
 		</where>
 	</select>
 	<insert id="insertUserInfo" parameterType="userInfo">
-		INSERT INTO
-		USERINFO(USERNUMBER,USERNAME,USERID,USERPASSWORD,USEREMAIL,USERNICKNAME,USERPHONENUM,USERSIGNUPDATE,USERADDRESS,USERADDRESS2,USERLEVEL,USERPOINT,
-		USERCREDITLEVEL, USERIMAGE)
+		insert into
+		userInfo(userNumber,
+		userName,
+		userId,
+		userPassword,
+		userEmail,
+		userNickName,
+		userPhoneNum,
+		userSignUpDate,
+		userAddress,
+		userAddress2,
+		userLevel,
+		userPoint,
+		userCreditLevel,
+		userImage
+		)
 		VALUES(SEQ_USERINFO_USERNUM.nextval,
 		#{userName},
 		#{userId},
@@ -52,12 +65,12 @@
 		#{userEmail},
 		#{userNickName},
 		#{userPhoneNum},
-		to_char(sysdate,'YYYY-MM-DD'),
+		to_char(SYSDATE,'YYYY-MM-DD'),
 		#{userAddress},
 		#{userAddress2},
-		#{userLevel},
+		1,
 		#{userPoint},
-		#{userCreditLevel},
+		5,
 		#{userImage})
 
 

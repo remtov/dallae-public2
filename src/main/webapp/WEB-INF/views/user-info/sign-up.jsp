@@ -267,8 +267,24 @@ function save(){
 		
 		
 		
+				  usernumber number(10,0) not null,
+				  
+				   varchar2(100 byte) not null,
+				   varchar2(100 byte) not null,
+				   varchar2(100 byte) not null,
+				   varchar2(100 byte) not null,
+				   char(16 byte) not null,
+				  usersignupdate varchar2(20 byte) not null,
+				   varchar2(100 byte) not null,
+				   varchar2(100 byte) not null,
+				  userlevel char(2 byte) not null,
+				  userpoint number(10,0),
+				  usercreditlevel varchar2(20 byte) not null,
+				  userimage varchar2(1000 byte)
+				  
+				  
 	var params={userName:userName,userId:userId,userPassword:userPassword,userEmail:userEmail,userNickName:userNickName,
-				userPhoneNum:userPhoneNum,userAddress:userAddress,userAddress2:userAddress2};
+					  userPhoneNum:userPhoneNum,userAddress:userAddress,userAddress2:userAddress2};
 	 params = JSON.stringify(params); 
 	
 		var conf = {
