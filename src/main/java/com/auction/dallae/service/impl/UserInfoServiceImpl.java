@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.auction.dallae.dao.UserInfoDAO;
 import com.auction.dallae.service.UserInfoService;
 import com.auction.dallae.vo.UserInfo;
 
-@Repository
+@Service
 public class UserInfoServiceImpl implements UserInfoService {
 
 	@Autowired

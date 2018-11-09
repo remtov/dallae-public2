@@ -52,14 +52,14 @@ public class UserInfoController {
 		return userInfoService.deleteUserInfo(userNumber);
 	}
 
-	@RequestMapping(value = "/UpdateVil/{userNumber}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/updatevil/{userNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateUserInfo(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber) {
 		userInfo.setUserNumber(userNumber);
 		return userInfoService.updateUserInfo(userInfo);
 	}
 
-	@RequestMapping(value = "/Update/{userNumber}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update/{userNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
 			HttpSession httpSession, HttpServletRequest httpServletRequest) {

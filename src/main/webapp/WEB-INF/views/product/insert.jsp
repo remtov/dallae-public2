@@ -467,7 +467,7 @@ h4 {
 				if (imgVali()) {
 
 					$.ajax({
-						url : '/Product',
+						url : '/product',
 						contentType : false,//헤더 지우기
 						processData : false,//쿼리스트링 형식으로 바꾸지 않기
 						data : formData,
