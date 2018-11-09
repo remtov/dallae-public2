@@ -80,7 +80,7 @@ h4 {
 						<!-- 폼 분할 -->
 						<h4>경매 물품정보 수정</h4>
 
-						<h2>${product.productCategory}><b>${product.productName}</b><small>${productEndDate}</small>
+						<h2>${product.productCategory}><b>${product.productName}</b><small>마감일 : ${product.productEndDate}</small>
 						</h2>
 
 
@@ -170,12 +170,12 @@ h4 {
 
 							<div style="margin-left: 10px; float: left;">
 								<p>
-									<b>판매자 : ${userId}</b><br> 판매자 신용도 : ${userCredit}
+									<b>판매자 ID : ${userId}</b><br>  ${sessionScope.userLoginInfo.userPoint}
 								</p>
 							</div>
 							<div style="float: right;">
-								<span style="font-size: 0.8em;">매너점수</span><span
-									style="font-size: 1.5em; color: #f4969b;"> 61점</span> <img
+								<span style="font-size: 0.8em;">판매자 신용등급 (최고LV 10) : </span><span
+									style="font-size: 1.5em; color: #f4969b;"> LV ${product.userCreditLevel} </span> <img
 									src="/img/icon-level-1.png" style="width: 50px; height: auto;">
 							</div>
 
@@ -189,13 +189,13 @@ h4 {
 
 						<input required data-vc="2,50" class="form-control" type="text"
 							name="productName" value="${product.productName}"><br>
-						<p>
+						<p>상태 : 
 							<input required data-vc="1,30" type="text"
 								name="productCondition" value="${product.productCondition}">.${product.productDate}
 						</p>
 
 
-						<p>
+						<p>시작가 : 
 							<input required data-vc="1,11" type="number"
 								style="width: 100px;" name="productLowestPrice"
 								value="${product.productLowestPrice}">

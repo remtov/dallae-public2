@@ -10,7 +10,7 @@ public class Product {
 	private String productCategory;
 	private Integer productQuantity;
 	private String productDate;
-	private String productEnddate;
+	private String productEndDate;
 	private Integer productLowestPrice;
 	
 	private String productImage;
@@ -29,7 +29,7 @@ public class Product {
 	public String toString() {
 		return "Product [productNumber=" + productNumber + ", productName=" + productName + ", productCategory="
 				+ productCategory + ", productQuantity=" + productQuantity + ", productDate=" + productDate
-				+ ", productEnddate=" + productEnddate + ", productLowestPrice=" + productLowestPrice
+				+ ", productEndDate=" + productEndDate + ", productLowestPrice=" + productLowestPrice
 				+ ", productImage=" + productImage + ", productDesc=" + productDesc + ", productBrand=" + productBrand
 				+ ", productCondition=" + productCondition + ", userId=" + userId + ", userCreditLevel="
 				+ userCreditLevel + "]";
@@ -86,13 +86,13 @@ public class Product {
 	}
 
 
-	public String getProductEnddate() {
-		return productEnddate;
+	public String getProductEndDate() {
+		return productEndDate;
 	}
 
 
-	public void setProductEnddate(String productEnddate) {
-		this.productEnddate = productEnddate;
+	public void setProductEndDate(String productEndDate) {
+		this.productEndDate = productEndDate;
 	}
 
 
@@ -167,7 +167,7 @@ public class Product {
 
 
 	public Product(Integer productNumber, String productName, String productCategory, Integer productQuantity,
-			String productDate, String productEnddate, Integer productLowestPrice, String productImage,
+			String productDate, String productEndDate, Integer productLowestPrice, String productImage,
 			String productDesc, String productBrand, String productCondition, String userId, Integer userCreditLevel) {
 		super();
 		this.productNumber = productNumber;
@@ -175,7 +175,7 @@ public class Product {
 		this.productCategory = productCategory;
 		this.productQuantity = productQuantity;
 		this.productDate = productDate;
-		this.productEnddate = productEnddate;
+		this.productEndDate = productEndDate;
 		this.productLowestPrice = productLowestPrice;
 		this.productImage = productImage;
 		this.productDesc = productDesc;
@@ -186,7 +186,6 @@ public class Product {
 	}
 	
 	
-	
-	
+
 }
 	

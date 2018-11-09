@@ -98,17 +98,16 @@
 				#{userId},
 			</if>
 
-			<if test="userCredit !=null">userCredit =
-				#{userCredit},
+			<if test="userCreditLevel !=null">userCreditLevel =
+				#{userCreditLevel},
 			</if>
-
 		</set>
-		where ProductNumber =# {productNumber}
+		where ProductNumber=#{productNumber}
 	</update>
 
 	<delete id="deleteProduct" parameterType="product">
 		delete from
 		product
-		where ProductNumber =# {productNumber}
+		where ProductNumber=#{productNumber}
 	</delete>
 </mapper>

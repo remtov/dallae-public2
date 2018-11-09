@@ -22,12 +22,9 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!--길어진 리소스생략 로직 -->
-
-
 	<mvc:resources mapping="/img/**"
 		location="/resources/img/" />
-
-
+	<!-- 자주쓰는 이미지 폴더는 줄여서 쓰기 -->
 	<!--길어진 리소스생략 로직 -->
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
@@ -40,15 +37,7 @@
 
 	<context:component-scan
 		base-package="com.auction.dallae" />
-<context:component-scan
-		base-package="com.auction.dallae.controller" />
 
-	<context:component-scan
-		base-package="com.auction.dallae.service" />
-	<context:component-scan
-		base-package="com.auction.dallae.dao" />
-	<context:component-scan
-		base-package="com.auction.dallae.vo" />
 
 	<aop:aspectj-autoproxy />
 
