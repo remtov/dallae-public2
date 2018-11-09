@@ -58,7 +58,7 @@ h4 {
 
 
 
-	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userlogininfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userId=='admin'||userId=='sell'}">
 			<!-- 관리자 판매자만 보이는영역 -->
@@ -69,8 +69,8 @@ h4 {
 				<div class="container">
 					<div class="common_title-line">
 						<h3>
-							나의 달래 : 경매 보기 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.userName}
-									<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
+							나의 달래 : 경매 보기 <small><a href="#" style="color: gray;">${sessionScope.userlogininfo.userName}
+									<span class="badge">${sessionScope.userlogininfo.userNumber}</span>
 							</a></small>
 						</h3>
 					</div>
@@ -172,7 +172,7 @@ h4 {
 								<p>
 									<b>판매자 ID : ${userId}</b><br> 
 									
-									'${userId}' 님의 신용점수 ${userLoginInfo.userPoint} 점 
+									'${userId}' 님의 신용점수 ${userlogininfo.userPoint} 점 
 									
 									<br>
 				

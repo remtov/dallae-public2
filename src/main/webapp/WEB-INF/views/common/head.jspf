@@ -123,9 +123,9 @@
 						<button type="submit" class="btn btn-default">검색</button>
 					</form>
 
-					<c:set var="userid" value="${userLoginInfo.userId}"></c:set>
+					<c:set var="userid" value="${userlogininfo.userId}"></c:set>
 					<c:choose>
-						<c:when test="${not empty sessionScope.userLoginInfo}">
+						<c:when test="${not empty sessionScope.userlogininfo}">
 							<!-- 세션이 있는사람들만 볼 수 있는 영역-->
 
 
@@ -135,7 +135,7 @@
 
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown" role="button" aria-expanded="false">
-										<b>${sessionScope.userLoginInfo.userName}</b>님 환영합니다.<img
+										<b>${sessionScope.userlogininfo.userName}</b>님 환영합니다.<img
 										src="/img/icon_profile.png" style="height: 17px; width: auto;">
 										<span class="caret"></span>
 								</a>
@@ -146,7 +146,7 @@
 
 
 										<!-- 관리자에 해당하는 내용분기점 -->
-										<c:if test="${userLoginInfo.userId =='admin'}">
+										<c:if test="${userlogininfo.userId =='admin'}">
 											<li><a href="/url/user-info:admin">관리자 페이지</a></li>
 										</c:if>
 										<!-- 관리자에 해당하는 내용분기점 -->

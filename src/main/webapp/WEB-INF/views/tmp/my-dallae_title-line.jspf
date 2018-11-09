@@ -15,9 +15,9 @@
 
 
 	<div>
-		<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
+		<c:set var="userid" value="${userlogininfo.signupId}"></c:set>
 		<c:choose>
-			<c:when test="${not empty sessionScope.userLoginInfo}">
+			<c:when test="${not empty sessionScope.userlogininfo}">
 				<!-- 세션이있는 모든사람들에게 보이는 메뉴 -->
 
 			

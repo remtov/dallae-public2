@@ -78,7 +78,7 @@ h4 {
 
 
 
-	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userlogininfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userId=='admin'||userId=='sell'}">
 			<!-- 관리자만보이는영역 -->
@@ -89,8 +89,8 @@ h4 {
 					<!-- 2분할 -->
 					<div class="common_title-line">
 						<h3>
-							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.userName}
-									<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
+							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userlogininfo.userName}
+									<span class="badge">${sessionScope.userlogininfo.userNumber}</span>
 							</a></small>
 						</h3>
 					</div>
@@ -317,7 +317,7 @@ h4 {
 
 							<div style="display: none">
 								<input class="form-control" type="text" id="userId"
-									name="userId" value="${userLoginInfo.userId}"> 
+									name="userId" value="${userlogininfo.userId}"> 
 
 							</div>
 

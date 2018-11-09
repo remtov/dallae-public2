@@ -20,7 +20,7 @@ div {
 
 
 
-	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userlogininfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userId=='admin'}">
 
@@ -46,7 +46,7 @@ div {
 								<h3>관리자 페이지</h3>
 								<p>모든 컨텐츠와 회원정보를 편집하거나 관리할 수 있는 페이지 입니다.</p>
 								userImage-view--test :<img
-									src="/img/user-info/${userLoginInfo.userImage}"
+									src="/img/user-info/${userlogininfo.userImage}"
 									style="width: 100px; height: auto;">
 
 							</div>

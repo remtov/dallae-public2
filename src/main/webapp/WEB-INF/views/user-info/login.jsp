@@ -35,7 +35,7 @@ h1 {
 		<div class="container" id="find_container--800">
 
 			<c:choose>
-				<c:when test="${not empty sessionScope.userLoginInfo}">
+				<c:when test="${not empty sessionScope.userlogininfo}">
 					<!-- 로그인된 상태인 사람이 이 페이지를 열었을 때 보여지는 영역-->
 					<head>
 <style>
@@ -50,11 +50,11 @@ h1 {
 						<div class="row">
 
 							<h1>
-								"<b>${sessionScope.userLoginInfo.userId}</b>"님 반갑습니다.
+								"<b>${sessionScope.userlogininfo.userId}</b>"님 반갑습니다.
 							</h1>
 							<p>
 								로그인 된 상태입니다. (이메일 : " <b><c:out
-										value="${sessionScope.userLoginInfo.userEmail}" /></b>") <a
+										value="${sessionScope.userlogininfo.userEmail}" /></b>") <a
 									onclick="history.back()">뒤로가기</a>
 							</p>
 							<div class="col-md-4">

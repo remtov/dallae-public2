@@ -114,7 +114,7 @@ window.addEventListener('load',
 
 
 
-	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
+	<c:set var="userId" value="${userlogininfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${userId=='admin'||userId=='sell'}">
 
@@ -129,8 +129,8 @@ window.addEventListener('load',
 
 					<h3>
 						나의 달래 : 경매 보기 <small><a href="/url/user-info:my-page"
-							style="color: gray;"><b>${sessionScope.userLoginInfo.userName}</b>(${sessionScope.userLoginInfo.userId})
-								<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
+							style="color: gray;"><b>${sessionScope.userlogininfo.userName}</b>(${sessionScope.userlogininfo.userId})
+								<span class="badge">${sessionScope.userlogininfo.userNumber}</span>
 						</a></small>
 					</h3>
 

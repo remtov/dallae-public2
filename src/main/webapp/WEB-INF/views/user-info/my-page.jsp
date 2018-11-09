@@ -159,7 +159,7 @@ tr td .form-group div #myform {
 	<div class="my-page_container">
 		<div class="container">
 			<c:choose>
-				<c:when test="${not empty sessionScope.userLoginInfo}">
+				<c:when test="${not empty sessionScope.userlogininfo}">
 					<!-- 세션을가진사람만보임 -->
 
 					<!-- 프로필판넬 -->
@@ -196,19 +196,19 @@ tr td .form-group div #myform {
 									<tr>
 										<td id="user-pannel_td-widther">이름</td>
 										<td><input class="form-control" type="text"
-											id="signupName" value="${userLoginInfo.userName}"
+											id="signupName" value="${userlogininfo.userName}"
 											data-vali="2"></td>
 									</tr>
 									<tr>
 										<td>아이디</td>
 										<td><input class="form-control" type="text" id="signupId"
-											value="${userLoginInfo.signupId}" data-vali="2"></td>
+											value="${userlogininfo.signupId}" data-vali="2"></td>
 									</tr>
 
 									<tr>
 										<td>패스워드</td>
 										<td><input class="form-control" type="password"
-											id="userPassword" value="${userLoginInfo.userPassword}"
+											id="userPassword" value="${userlogininfo.userPassword}"
 											data-vali="2"></td>
 									</tr>
 									<tr>
@@ -230,7 +230,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td id="user-pannel_td-widther">별명</td>
 										<td><input class="form-control" type="text"
-											id="userNickName" value="${userLoginInfo.userNickName}"
+											id="userNickName" value="${userlogininfo.userNickName}"
 											data-vali="2"></td>
 
 									</tr>
@@ -238,7 +238,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>이메일</td>
 										<td><input class="form-control" type="text"
-											id="userEmail" value="${userLoginInfo.userEmail}"
+											id="userEmail" value="${userlogininfo.userEmail}"
 											data-vali="2"></td>
 
 									</tr>
@@ -246,7 +246,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>폰번호</td>
 										<td><input class="form-control" type="text"
-											id="userPhoneNum" value="${userLoginInfo.userPhoneNum}"
+											id="userPhoneNum" value="${userlogininfo.userPhoneNum}"
 											data-vali="2"></td>
 
 									</tr>
@@ -377,7 +377,7 @@ function save(){
 	 params = JSON.stringify(params); 
 	
 		var conf = {
-				url : '/update/'+${userLoginInfo.userNumber},
+				url : '/update/'+${userlogininfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){

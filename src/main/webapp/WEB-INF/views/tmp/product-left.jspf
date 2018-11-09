@@ -18,9 +18,9 @@ div {
 
 
 	<div style="border: 1px solid #f6f6f6;">
-		<c:set var="userid" value="${userLoginInfo.signupId}"></c:set>
+		<c:set var="userid" value="${userlogininfo.signupId}"></c:set>
 		<c:choose>
-			<c:when test="${not empty sessionScope.userLoginInfo}">
+			<c:when test="${not empty sessionScope.userlogininfo}">
 				<!-- 세션이있는 모든사람들에게 보이는 메뉴 -->
 		
 				<div class="container">
@@ -32,7 +32,7 @@ div {
 
 							<button type="button" class="btn btn-default dropdown-toggle"
 								data-toggle="dropdown" aria-expanded="false">
-								<b>${sessionScope.userLoginInfo.signupName}</b>님 <span
+								<b>${sessionScope.userlogininfo.signupName}</b>님 <span
 									class="caret"></span>
 							</button>
 
@@ -40,7 +40,7 @@ div {
 								<li><a href="/url/SignUp:MyPage">계정설정</a></li>
 								<li><a onclick="logout()">로그아웃</a></li>
 								<!-- 관리자에 해당하는 내용분기점 -->
-								<c:if test="${userLoginInfo.signupId =='관리자'}">
+								<c:if test="${userlogininfo.signupId =='관리자'}">
 									<li class="divider"></li>
 									<li><a href="/url/SignUp:Admin">관리자 페이지</a></li>
 								</c:if>
