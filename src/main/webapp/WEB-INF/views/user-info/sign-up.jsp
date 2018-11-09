@@ -272,7 +272,7 @@ function save(){
 	 params = JSON.stringify(params); 
 	
 		var conf = {
-				url : '/UserInfo',
+				url : '/userinfo',
 				method :'POST',
 				param : params,
 				success:function(res){

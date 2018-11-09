@@ -202,7 +202,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>아이디</td>
 										<td><input class="form-control" type="text" id="signupId"
-											value="${userLoginInfo.userId}" data-vali="2"></td>
+											value="${userLoginInfo.signupId}" data-vali="2"></td>
 									</tr>
 
 									<tr>
@@ -378,7 +378,7 @@ function save(){
 	 params = JSON.stringify(params); 
 	
 		var conf = {
-				url : '/Update/'+${userLoginInfo.userNumber},
+				url : '/update/'+${userLoginInfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){

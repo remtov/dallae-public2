@@ -77,7 +77,7 @@ h1 {
 			params = 'userName=' + userName + '&userPhoneNum=' + userPhoneNum;
 
 			var conf = {
-				url : '/FindId',
+				url : '/findid',
 				param : params,
 				success : function(res) {
 

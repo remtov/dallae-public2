@@ -90,7 +90,7 @@ h1 {
 					+ '&userId=' + userId;
 
 			var conf = {
-				url : '/FindPass',
+				url : '/findpass',
 				param : params,
 				success : function(res) {
 					if (res != '') {
