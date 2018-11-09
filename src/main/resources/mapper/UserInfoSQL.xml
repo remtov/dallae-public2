@@ -93,7 +93,7 @@ select * from userInfo
  
  </select>
  <select id ="getLogin" resultType="userInfo" parameterType="userInfo">
- select userName,userNumber,userId, USERNICKNAME,userEmail,userPhoneNum from userInfo
+ select userName,userNumber,userId,USERNICKNAME,userEmail,userPhoneNum,userSignUpDate,userAddress,userAddress2,userLevel,userPoint,userCreditLevel,userImage from userInfo
  <where>
  userId = #{userId} AND userPassword=#{userPassword}
  </where>
