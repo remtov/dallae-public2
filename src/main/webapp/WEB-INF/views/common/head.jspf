@@ -160,7 +160,7 @@
 							<!-- 세션이 없는 사람들이 볼 수 있는 내용 -->
 
 							<ul class="nav navbar-nav navbar-right">
-								<!-- <li><a href="/url/bproduct:list">오늘의 추천거래</a></li> -->
+								
 								
 
 								<li><a href="/url/user-info:login">로그인</a></li>

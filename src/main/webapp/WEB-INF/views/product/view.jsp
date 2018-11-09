@@ -276,7 +276,7 @@ function insert() {
 		if (imgVali()) {
 
 			$.ajax({
-				url : '/Product',
+				url : '/product',
 				contentType : false,//헤더 지우기
 				processData : false,//쿼리스트링 형식으로 바꾸지 않기
 				data : formData,
@@ -293,7 +293,7 @@ function insert() {
 
 	function deleteBtn(dsa){
 		$.ajax({
-			url : '/Product/'+${product.productNumber},
+			url : '/product/'+${product.productNumber},
 			type : 'DELETE',
 			success : function(){
 				location.href = '/url/product:list';
@@ -307,7 +307,7 @@ function insert() {
 		var formData = new FormData(form);
 		if(valiCheck() ){
 			$.ajax({
-				url : '/Product/'+${product.productNumber},
+				url : '/product/'+${product.productNumber},
 				contentType : false,//헤더 지우기
 				processData : false,//쿼리스트링 형식으로 바꾸지 않기
 				data : formData,

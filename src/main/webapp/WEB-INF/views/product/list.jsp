@@ -154,7 +154,7 @@ window.addEventListener('load',
 
 			<script>
 				function goPage(productNumber) {
-					location.href = '/Product/' + productNumber;
+					location.href = '/product/' + productNumber;
 				}
 			</script>
 
