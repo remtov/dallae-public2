@@ -22,7 +22,7 @@ import com.auction.dallae.vo.UserInfo;
 public class UserInfoController {
 
 	@Autowired
-	public UserInfoService userInfoService;  
+	public UserInfoService userInfoService;
 
 	@RequestMapping(value = "/UserInfoList", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo userInfo) {
