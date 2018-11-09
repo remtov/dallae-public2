@@ -1,18 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>약관</title>
-<style>
-
-</style>
-
-</head>
-<body>
-
-	1. 소개
+1. 소개
 
 2. Dallae 정보
 3. Dallae 사용
@@ -272,5 +260,3 @@ C. 법적 분쟁을위한 사법 포럼
 
 일리노이 사건 티켓과 관련된 거래의 경우, 구매자와 판매자는 규칙과 절차에 따라 미국 중재 협회 ( "AAA")에 불만 사항을 제출할 수 있습니다. 815 ILCS 414 / 1.5 (c) AAA의 규칙은 www.adr.org 에서 확인할 수 있습니다 . 이러한 불만은이 사용자 계약에 따라 독립적 인 중재자가 결정합니다. 구매자와 판매자는 일리노이 주에서 열리는 티켓 행사와 관련된 불만을 제기하기 위해 일리노이 주 관할권에 더 동의합니다.
 
-</body>
-</html>

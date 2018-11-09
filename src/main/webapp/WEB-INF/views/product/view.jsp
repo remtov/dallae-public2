@@ -170,7 +170,16 @@ h4 {
 
 							<div style="margin-left: 10px; float: left;">
 								<p>
-									<b>판매자 ID : ${userId}</b><br>  ${sessionScope.userLoginInfo.userPoint}
+									<b>판매자 ID : ${userId}</b><br> 
+									
+									'${userId}' 님의 신용점수 ${userLoginInfo.userPoint} 점 
+									
+									<br>
+				
+									
+									
+									
+									
 								</p>
 							</div>
 							<div style="float: right;">
@@ -191,14 +200,14 @@ h4 {
 							name="productName" value="${product.productName}"><br>
 						<p>상태 : 
 							<input required data-vc="1,30" type="text"
-								name="productCondition" value="${product.productCondition}">.${product.productDate}
+								name="productCondition" value="${product.productCondition}"> | 등록일 : ${product.productDate}
 						</p>
 
 
 						<p>시작가 : 
 							<input required data-vc="1,11" type="number"
 								style="width: 100px;" name="productLowestPrice"
-								value="${product.productLowestPrice}">
+								value="${product.productLowestPrice}"> 원
 
 						</p>
 
@@ -207,19 +216,20 @@ h4 {
 
 
 
-						<p>
+						<p style="">
 							제품수량 : <input style="margin-bottom: 10px; width: 50px;"
 								data-vc="1,3" required type="number" name="productQuantity"
-								value="${product.productQuantity}"><br> 브랜드명 : <input
+								value="${product.productQuantity}"> 
+								개<br> 브랜드명 : <input
 								style="margin-bottom: 10px; width: 150px;"
 								style="margin-bottom: 10px;" required data-vc="1,20" type="text"
 								name="productBrand" value="${product.productBrand}">
 						</p>
 
 						<button class="btn btn-default btn-lg" type="button"
-							onclick="update(${product.productNumber})">수정</button>
+							onclick="updateBtn(${product.productNumber})">수정</button>
 						<button class="btn btn-danger btn-lg" type="button"
-							onclick="dele(${product.productNumber})">주의! 데이터가 삭제됩니다.</button>
+							onclick="deleteBtn(${product.productNumber})">주의! 데이터가 삭제됩니다.</button>
 					</form>
 					<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 				</div>
@@ -281,7 +291,7 @@ function insert() {
 }
 
 
-	function dele(dsa){
+	function deleteBtn(dsa){
 		$.ajax({
 			url : '/Product/'+${product.productNumber},
 			type : 'DELETE',
@@ -292,7 +302,7 @@ function insert() {
 		})
 	}
 	
-		function update(){
+		function updateBtn(){
 		var form = document.querySelector('#i-form');
 		var formData = new FormData(form);
 		if(valiCheck() ){

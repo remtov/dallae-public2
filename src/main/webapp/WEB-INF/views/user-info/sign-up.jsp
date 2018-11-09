@@ -53,23 +53,23 @@ function agreeCheck(frm){
 
 					<div class="col-sm-10">
 						<input type="text" id="userName" data-vali="2"
-							class="form-control" placeholder="이름">
+							class="form-control" style="width: 200px" placeholder="이름">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="userId" class="col-sm-2 control-label">아이디</label>
 
 					<div class="col-sm-10">
-						<input type="text" id="userId" data-vali="2" class="form-control"
-							placeholder="아이디">
+						<input style="width: 200px" type="text" id="userId" data-vali="2"
+							class="form-control" placeholder="아이디">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="userPassword" class="col-sm-2 control-label">비밀번호</label>
 
 					<div class="col-sm-10">
-						<input class="form-control" type="password" id="userPassword"
-							data-vali="2" placeholder="비밀번호">
+						<input style="width: 200px" class="form-control" type="password"
+							id="userPassword" data-vali="2" placeholder="비밀번호">
 					</div>
 				</div>
 				<div class="form-group">
@@ -77,24 +77,24 @@ function agreeCheck(frm){
 						확인</label>
 
 					<div class="col-sm-10">
-						<input class="form-control" type="password" id="confirmPassword"
-							data-vali="2" placeholder="비밀번호 확인">
+						<input style="width: 200px" class="form-control" type="password"
+							id="confirmPassword" data-vali="2" placeholder="비밀번호 확인">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="userEmail" class="col-sm-2 control-label">이메일</label>
 
 					<div class="col-sm-10">
-						<input type="email" id="userEmail" class="form-control"
-							placeholder="이메일 주소를 입력하세요 예)abc@defg.com">
+						<input style="width: 400px" type="email" id="userEmail"
+							class="form-control" placeholder="이메일 주소를 입력하세요 예)abc@defg.com">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="userNickName" class="col-sm-2 control-label">별명</label>
 
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="userNickName"
-							placeholder="별명" data-vali="2">
+						<input type="text" style="width: 200px" class="form-control"
+							id="userNickName" placeholder="별명" data-vali="2">
 					</div>
 				</div>
 				<div class="form-group">
@@ -102,15 +102,18 @@ function agreeCheck(frm){
 
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="userPhoneNum"
-							placeholder="전화번호를 입력해주세요 예)01012345678" data-vali="2">
+							placeholder="전화번호를 입력해주세요 예)01012345678" data-vali="2"
+							style="width: 400px">
 					</div>
 				</div>
 				<!-- 진석이 주소API영역 -->
 				<div class="form-group">
 					<label class="col-sm-2 control-label">우편번호 찾기</label>
 					<div class="col-sm-10">
-						<input type="text" id="postCode" placeholder="우편번호" disabled /> <input
-							type="button" onclick="execPostCode()" value="우편번호 찾기" /><br>
+						<input style="width: 200px; margin-bottom: 5px;" type="text"
+							id="postCode" placeholder="우편번호" disabled class="form-control" />
+						<input type="button" class="btn btn-default"
+							onclick="execPostCode()" value="우편번호 찾기" /><br>
 
 					</div>
 				</div>
@@ -120,8 +123,9 @@ function agreeCheck(frm){
 					<label class="col-sm-2 control-label">주소</label>
 
 					<div class="col-sm-10">
-						<input type="text" id="userAddress" placeholder="주소" disabled>
-						<input type="text" id="userAddress2" placeholder="상세주소">
+						<input style="margin-bottom: 5px;" type="text" id="userAddress" placeholder="주소"
+							class="form-control" disabled> <input type="text"
+							id="userAddress2" placeholder="상세주소" class="form-control">
 					</div>
 				</div>
 				<!-- 진석이 주소API영역 -->
@@ -155,11 +159,13 @@ function agreeCheck(frm){
 					</div>
 				</div>
 				<hr>
-				<div id="user-info_btn">
-					<input class="btn btn-default btn-lg btn-block" type="button"
-						name="checkButton" value="확인 " disabled onclick="save()">
+				<div class="form-group">
+					<label for="agree" class="col-sm-2 control-label"></label>
+					<div id="user-info_btn" class="col-sm-10">
+						<input class="btn btn-primary btn-lg btn-block" type="button"
+							name="checkButton" value="확인 " disabled onclick="save()">
+					</div>
 				</div>
-
 
 			</form>
 

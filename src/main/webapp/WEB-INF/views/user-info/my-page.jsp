@@ -202,7 +202,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>아이디</td>
 										<td><input class="form-control" type="text" id="signupId"
-											value="${userLoginInfo.signupId}" data-vali="2"></td>
+											value="${userLoginInfo.userId}" data-vali="2"></td>
 									</tr>
 
 									<tr>
@@ -350,20 +350,6 @@ tr td .form-group div #myform {
 
 	</div>
 	<script>
-	userNumber, 
-	, 
-	, 
-	, 
-	, 
-	, 
-	, 
-	userSignUpDate, 
-	userAddress, 
-	userAddress2, 
-	userLevel, 
-	userPoint, 
-	userCreditLevel, 
-	userImage 
 
 
 function save(){
