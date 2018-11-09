@@ -20,7 +20,7 @@ public class ProductBiddingController {
 	@Autowired
 	private ProductBiddingService productBiddingService;
 	
-	@RequestMapping(value = "/productbiddingList", method = RequestMethod.GET)
+	@RequestMapping(value = "/productbiddingList", method = RequestMethod.GET) 
 	@ResponseBody
 	public List<ProductBidding> getProductBiddingList() {
 		return productBiddingService.getProductBiddingList(null);
