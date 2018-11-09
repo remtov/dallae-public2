@@ -49,6 +49,7 @@ public class ProductController {
 		return productService.updateProduct(product);
 	}
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
+
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product =PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);

@@ -166,7 +166,7 @@ function agreeCheck(frm){
 							name="checkButton" value="확인 " disabled onclick="save()">
 					</div>
 				</div>
-
+				
 			</form>
 
 

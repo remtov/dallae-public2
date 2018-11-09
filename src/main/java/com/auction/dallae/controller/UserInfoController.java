@@ -24,20 +24,20 @@ public class UserInfoController {
 	@Autowired
 	public UserInfoService userInfoService;
 
-	@RequestMapping(value = "/UserInfoList", method = RequestMethod.GET)
+	@RequestMapping(value = "/userinfolist", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo userInfo) {
 
 		return userInfoService.getUserInfoList(userInfo);
 	}
 
-	@RequestMapping(value = "/UserInfo/{userNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/userinfo/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
 
 		return "UserInfo/View";
 	}
 
-	@RequestMapping(value="/UserInfo",method=RequestMethod.POST)
+	@RequestMapping(value="/userinfo",method=RequestMethod.POST)
 	@ResponseBody
 	public int insertUserInfo (@RequestBody UserInfo userInfo)
 	{
@@ -45,7 +45,7 @@ public class UserInfoController {
 		return userInfoService.insertUserInfo(userInfo);
 	}
 
-	@RequestMapping(value = "/Delete/{userNumber}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete/{userNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public int deleteUserInfo(@PathVariable Integer userNumber) {
 
@@ -67,51 +67,51 @@ public class UserInfoController {
 		userInfoService.updateUserInfo(userInfo);
 
 		UserInfo loginUser = userInfoService.login(userInfo);
-		if (httpSession.getAttribute("userLoginInfo") != null) {
-			httpSession.removeAttribute("userLoginInfo");
+		if (httpSession.getAttribute("userlogininfo") != null) {
+			httpSession.removeAttribute("userlogininfo");
 		}
 		if (loginUser != null) {
-			httpSession.setAttribute("userLoginInfo", loginUser);
+			httpSession.setAttribute("userlogininfo", loginUser);
 		} else {
-			httpSession.setAttribute("userLoginInfo", null);
+			httpSession.setAttribute("userlogininfo", null);
 		}
 
 		return userInfoService.updateUserInfo(userInfo);
 
 	}
 
-	@RequestMapping(value = "/FindId", method = RequestMethod.GET)
+	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public @ResponseBody UserInfo getUserInfo2(@ModelAttribute UserInfo userInfo) {
 
 		return userInfoService.getId(userInfo);
 	}
 
-	@RequestMapping(value = "/FindPass", method = RequestMethod.GET)
+	@RequestMapping(value = "/findpass", method = RequestMethod.GET)
 	public @ResponseBody UserInfo getUserInfo3(@ModelAttribute UserInfo userInfo) {
 
 		return userInfoService.getPassword(userInfo);
 	}
 
 	// 로그아웃
-	@RequestMapping(value = "/LogOut", method = RequestMethod.POST)
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public @ResponseBody Integer logOut(HttpSession httpSession) {
 		httpSession.invalidate();
 		return 1;
 	}
 
 	// 로그인 처리
-	@RequestMapping(value = "/DoLogIn", method = RequestMethod.POST)
+	@RequestMapping(value = "/dologin", method = RequestMethod.POST)
 	public @ResponseBody UserInfo logInProcess(@RequestBody UserInfo userInfo, HttpSession httpSession,
 			HttpServletRequest httpServletRequest) {
 
 		UserInfo loginUser = userInfoService.login(userInfo);
-		if (httpSession.getAttribute("userLoginInfo") != null) {
-			httpSession.removeAttribute("userLoginInfo");
+		if (httpSession.getAttribute("userlogininfo") != null) {
+			httpSession.removeAttribute("userlogininfo");
 		}
 		if (loginUser != null) {
-			httpSession.setAttribute("userLoginInfo", loginUser);
+			httpSession.setAttribute("userlogininfo", loginUser);
 		} else {
-			httpSession.setAttribute("userLoginInfo", null);
+			httpSession.setAttribute("userlogininfo", null);
 		}
 		return userInfoService.login(userInfo);
 	}

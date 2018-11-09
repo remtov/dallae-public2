@@ -351,7 +351,6 @@ tr td .form-group div #myform {
 	</div>
 	<script>
 
-
 function save(){
 
 	var userName = document.querySelector('#userName').value;

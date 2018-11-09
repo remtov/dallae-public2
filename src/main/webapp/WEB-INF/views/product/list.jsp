@@ -24,6 +24,7 @@ window.addEventListener('load',
 		   function() {
 		      var au = new AjaxUtil({
 
+
 		            url: '/productlist',
 		            success: function(res) {
 		               res = JSON.parse(res);
