@@ -6,7 +6,7 @@ import com.auction.dallae.vo.ProductBidding;
 
 public interface ProductBiddingService {
 
-	public List<ProductBidding> getProductList(ProductBidding productBidding);
+	public List<ProductBidding> getProductBiddingList(ProductBidding productBidding);
 
 	public ProductBidding getProductBidding(Integer productNumber);
 

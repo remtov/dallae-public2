@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.auction.dallae.dao.impl.ProductBiddingDAOImpl;
+import com.auction.dallae.fileupload.Util;
 import com.auction.dallae.service.ProductBiddingService;
 import com.auction.dallae.vo.ProductBidding;
 
 @Service
-public class ProductBiddingServiceImpl implements ProductBiddingService{
-	
+public class ProductBiddingServiceImpl implements ProductBiddingService {
+
 	@Autowired
 	private ProductBiddingDAOImpl productBiddingDAOImpl;
 
 	@Override
-	public List<ProductBidding> getProductList(ProductBidding productBidding) {
+	public List<ProductBidding> getProductBiddingList(ProductBidding productBidding) {
 		// TODO Auto-generated method stub
 		return productBiddingDAOImpl.getProductBiddingList(productBidding);
 	}
@@ -24,29 +25,36 @@ public class ProductBiddingServiceImpl implements ProductBiddingService{
 	@Override
 	public ProductBidding getProductBidding(Integer productNumber) {
 		// TODO Auto-generated method stub
-		return productBiddingDAOImpl.get;
+		return productBiddingDAOImpl.getProductBidding(productNumber);
 	}
 
 	@Override
 	public int insertProductBidding(ProductBidding ProductBidding) {
 		// TODO Auto-generated method stub
-		return 0;
+		return productBiddingDAOImpl.insertProductBidding(ProductBidding);
+		
+		//int success = productBiddingDAOImpl.insertProductBidding(productBidding);
+
+		/*//이미지 받을때 쓰는거 같은데 일단 냅둘게요
+		 * if (success != 1) {
+			String filePath = Util.uploadPath + product.getProductImage();
+
+			Util.deleteFile(filePath);
+		}
+
+		return success;*/
 	}
 
 	@Override
 	public int deleteProductBidding(Integer productNumber) {
 		// TODO Auto-generated method stub
-		return 0;
+		return productBiddingDAOImpl.deleteProductBidding(productNumber);
 	}
 
 	@Override
 	public int updateProductBidding(ProductBidding ProductBidding) {
 		// TODO Auto-generated method stub
-		return 0;
+		return productBiddingDAOImpl.updateProductBidding(ProductBidding);
 	}
-
-
-
-	
 
 }
