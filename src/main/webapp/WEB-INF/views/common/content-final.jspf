@@ -17,7 +17,7 @@ window.addEventListener('load',
 		   function() {
 		      var ajaxUtil = new AjaxUtil({
 
-		            url: '/ProductList',
+		            url: '/productlist',
 		            success: function(res) {
 		               res = JSON.parse(res);
 		               var plus = 0;
@@ -99,7 +99,7 @@ window.addEventListener('load',
 
 	<script>
 		function goPage(productNumber) {
-			location.href = '/Product/' + productNumber;
+			location.href = '/product/' + productNumber;
 		}
 	</script>
 
