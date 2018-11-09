@@ -59,7 +59,7 @@ h1 {
 							</p>
 							<div class="col-md-4">
 								<button class="btn btn-default btn-lg btn-block" type="button"
-									onclick="logOut()">로그아웃</button>
+									onclick="logout()">로그아웃</button>
 							</div>
 							<div class="col-md-4">
 								<button class="btn btn-default btn-lg btn-block" type="button"
@@ -156,7 +156,7 @@ h1 {
 							alert('로그인이 완료되셨습니다.');
 							location.href = "/";
 						} else {
-							logOut();
+							logout();
 							location.href = "/url/user-info:login";
 							alert('로그인에 실패하였습니다.');
 
@@ -168,7 +168,7 @@ h1 {
 				ajaxUtil.send();
 			} else {
 				alert('아이디와 비밀번호를 입력하세요');
-				logOut();
+				logout();
 			}
 		}
 		function forgetId() {
