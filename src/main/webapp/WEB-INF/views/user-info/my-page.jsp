@@ -202,7 +202,7 @@ tr td .form-group div #myform {
 									<tr>
 										<td>아이디</td>
 										<td><input class="form-control" type="text" id="signupId"
-											value="${userlogininfo.signupId}" data-vali="2"></td>
+											value="${userlogininfo.userId}" data-vali="2"></td>
 									</tr>
 
 									<tr>
