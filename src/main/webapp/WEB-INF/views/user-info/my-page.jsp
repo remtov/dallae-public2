@@ -1,4 +1,8 @@
+<!-- 디비실제이미지 수정 배경이미지 수정
+팔로잉: 팔로워 비활성화 sns기능비활성화
+팔로우라인을 나중에 인클루드화해서 활용하면 좋을듯 그냥 지금은 데코레이션으로 써먹자
 
+비활성화상태 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,344 +15,205 @@
 
 
 <style>
-.my-page_search-line {
-	position: relative;
+div {
+	/* border: 1px solid red; */
+	
 }
 
-#my-page_drop-down {
-	display: inline-block;
-	width: 100px;
-}
-
-.my-page_search-bar {
-	z-index: 1;
-	display: inline-block;
+.my-page_in-box {
 	position: absolute;
-	left: 100px;
-	right: 0;
-}
-
-.my-page_back-ground {
-	margin-top: 10px;
-	position: relative;
-	z-index: 1;
-}
-
-#my-page_row1 {
-	position: absolute;
-	top: 50px;
-	left: 50%;
-	text-align: right;
-	transform: translate(-50%);
-	width: 800px;
-	height: 20px;
 	z-index: 2;
+	width: 80%;
+	left: 90%;
+	top: 40px;
+	margin-left: -80%;
+	background-color: white;
+	padding: 20px;
 }
 
-#my-page_row1>button {
-	height: 100%;
-	font-size: 0.8em;
-	margin-top: 0px;
-}
-
-#my-page_row1>button>p {
-	margin-top: -5px;
-}
-
-#my-page_row1>button>p>img {
-	height: 17px;
-	margin-top: -3px;
-}
-
-#my-page_row2 {
-	position: absolute;
-	bottom: 0px;
-	left: 50%;
-	transform: translate(-50%);
-	width: 800px;
-	background-color: #f6f6f6;
-	height: 200px;
-	z-index: 2;
-}
-
-#my-page_row2>.col-md-3 {
-	height: 100%;
-	z-index: 3;
-	position: relative;
-}
-
-#my-page_row2>.col-md-3>img {
-	margin-top: 20px;
-	width: 100%;
-}
-
-#my-page_row2>.col-md-3>div {
-	position: absolute;
-	width: 30px;
-	top: 0px;
-	right: 0px;
-}
-
-#my-page_row2>.col-md-3>div>button {
+.my-page_cut-text--inline-100 {
 	margin-top: 5px;
-}
-
-#my-page_row2>.col-md-3>div>button>img {
-	width: 100%;
-}
-
-#my-page_row2>.col-md-4 {
-	height: 100%;
-	z-index: 3;
-}
-
-#my-page_row2>.col-md-4 .form-control {
-	margin-top: 5px;
-}
-
-#user-pannel_td-widther {
-	width: 70px;
-}
-
-#my-page_row2>.col-md-5 {
-	height: 100%;
-	z-index: 3;
-}
-
-#my-page_row2>.col-md-5 .form-control {
-	margin-top: 5px;
-}
-
-#my-page_button-save {
-	margin-top: 5px;
-}
-
-.my-page_follow-line {
-	margin-top: 10px;
+	margin-left: 5px;
+	float: left;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 90px;
 }
 
 .my-page_follow-line>img {
 	width: 20px;
-}
-
-.my-page_back-ground>img {
-	width: 100%;
-	z-index: 1;
-}
-
-#my-page_setting-button {
-	width: 100%;
-	margin-top: -50px;
-	text-align: right;
-}
-
-#my-page_setting-button>img {
-	width: 15px;
-}
-
-#my-page_follow-line {
-	margin-bottom: 30px;
-}
-
-tr td .form-group div #myform {
-	margin-top: 5px;
+	height: auto;
 }
 </style>
 
 <body>
-	<div class="my-page_container">
-		<div class="container">
-			<c:choose>
-				<c:when test="${not empty sessionScope.userlogininfo}">
-					<!-- 세션을가진사람만보임 -->
+	<div class="view-container">
 
-					<!-- 프로필판넬 -->
-					<div class="my-page_back-ground">
-						<div class="row" id="my-page_row1">
-							<button class="btn btn-default">
-								<p>
-									배경이미지 편집 <img src="/img/icon_edit.png">
-								</p>
-								<!-- 수정버튼 -->
-							</button>
-						</div>
+		<c:choose>
+			<c:when test="${not empty sessionScope.userlogininfo}">
+				<!-- 세션을가진사람만보임 -->
 
-						<div class="row" id="my-page_row2">
-							<!-- 프로필판넬 -->
-							<div class="col-md-3">
-								<img src="/img/icon_profile.png"> DB 이미지 테스트<img
-									src="/img/${userImage}">
-								<!-- 프로필사진 -->
-								<div>
-									<button>
-										<img src="/img/icon_edit.png">
-										<!-- 수정버튼 -->
-									</button>
+				<!-- 프로필배경판넬 -->
+				<div
+					style="width: 100%; height: 500px; position: relative; z-index: 1; overflow: hiddn;">
+					<img src="/img/back-ground-1.jpg"
+						style="width: auto; position: absolute; z-index: 1;">
 
+
+
+
+
+					<div class="my-page_in-box" style="position: absolute;">
+						<button style="top: -30px; right: 0px; z-index: 2;"
+							class="btn btn-default btn-xs">
+
+							편집 <img style="width: 13px;" src="/img/icon_edit.png">
+
+						</button>
+						<h2>
+							My Page>ID<b> ${userlogininfo.userId} </b><small>님의 페이지
+								입니다. ${userlogininfo.userSignUpDate}</small>
+						</h2>
+
+						<!-- 프로필사진Div -->
+						<div class="row">
+							<div class="col-md-6"
+								style="padding: 10px; border: 1px solid #f6f6f6;">
+								<div style="width: 30%; float: left;">
+									<a href="#"><img src="/img/icon_profile.png"
+										style="width: 70px;"></a>
+									<!-- 수정버튼 -->
 								</div>
 
-							</div>
-							<!-- 수정 인풋 -->
+								<!-- 프로필사진Div -->
 
 
-							<div class="col-md-4">
-								<table>
-									<tr>
-										<td id="user-pannel_td-widther">이름</td>
-										<td><input class="form-control" type="text"
-											id="signupName" value="${userlogininfo.userName}"
-											data-vali="2"></td>
-									</tr>
-									<tr>
-										<td>아이디</td>
-										<td><input class="form-control" type="text" id="signupId"
-											value="${userlogininfo.userId}" data-vali="2"></td>
-									</tr>
+								<div style="width: 70%; float: left;">
+									<p>
+										<input class="form-control" style="float: left; width: 80px;"
+											type="text" id="userName" value="${userlogininfo.userName}"
+											data-vali="2"> <span
+											class="my-page_cut-text--inline-100">|
+											${userlogininfo.userAddress}</span>
+									</p>
 
-									<tr>
-										<td>패스워드</td>
-										<td><input class="form-control" type="password"
-											id="userPassword" value="${userlogininfo.userPassword}"
-											data-vali="2"></td>
-									</tr>
-									<tr>
-										<td colspan="2"><div class="form-group">
-												<div>
-													<input class="form-control" type="text" id="" value=""
-														data-vali="2">
+									<p style="clear: both;">
+										신용점수 <b>${userlogininfo.userPoint}</b> | 신용등급 LV <b>${userlogininfo.userCreditLevel}</b>
+										<br>회원 No.<b>${userlogininfo.userNumber}</b> | 권한등급 LV <b>${userlogininfo.userLevel}</b>
+									</p>
 
-												</div>
-											</div></td>
-									</tr>
-								</table>
+
+
+
+								</div>
+								ID<input style="width: 80px;" class="form-control" type="text"
+									id="userId" value="${userlogininfo.userId}" data-vali="2">
+								<p style="margin-top: 5px;">
+									새 비밀번호 <input class="form-control" type="password"
+										id="userPassword" data-vali="2">
+								</p>
+								<p style="margin-top: 5px;">
+									별명 <input style="width: 200px;" class="form-control"
+										type="text" id="userNickName"
+										value="${userlogininfo.userNickName}" data-vali="2">
+								</p>
 							</div>
 
+							<div class="col-md-6"
+								style="padding: 10px; border: 1px solid #f6f6f6;">
 
 
-							<div class="col-md-5">
-								<table>
-									<tr>
-										<td id="user-pannel_td-widther">별명</td>
-										<td><input class="form-control" type="text"
-											id="userNickName" value="${userlogininfo.userNickName}"
-											data-vali="2"></td>
-
-									</tr>
-
-									<tr>
-										<td>이메일</td>
-										<td><input class="form-control" type="text"
-											id="userEmail" value="${userlogininfo.userEmail}"
-											data-vali="2"></td>
-
-									</tr>
-
-									<tr>
-										<td>폰번호</td>
-										<td><input class="form-control" type="text"
-											id="userPhoneNum" value="${userlogininfo.userPhoneNum}"
-											data-vali="2"></td>
-
-									</tr>
-
-									<tr>
-										<td colspan="2"><input id="my-page_button-save"
-											class="btn btn-default btn-lg btn-block" type="button"
-											name="checkButton" value=" 수 정 " onclick="save()"></td>
-
-									</tr>
-									<tr>
-
-										<td colspan="2">
-											<p class="my-page_follow-line">
-												팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
-													src="/img/facebook.png"> <img
-													src="/img/instagram.png">
-											</p>
-										</td>
-									</tr>
-
-								</table>
-								<div>
-									회원번호 : ${userNumber} | 등록일 : ${userSignUpDate} | 권한등급 :
-									${userLevel} | 포인트 : ${userPoint} | 신용등급 : ${userCreditLevel} |
-									<input class="form-control" type="text" value="userAddress"
+								이메일<input class="form-control" type="text" id="userEmail"
+									value="${userlogininfo.userEmail}" data-vali="2">
+								<p style="margin-top: 5px;">
+									폰번호 <input style="width: 200px;" class="form-control"
+										type="text" id="userPhoneNum"
+										value="${userlogininfo.userPhoneNum}" data-vali="2"> <input
+										style="margin: 5px 0px 5px 0px" class="form-control"
+										type="text" value="${userlogininfo.userAddress}"
 										id="userAddress"> <input class="form-control"
-										type="text" value="userAddress2" id="userAddress2">
-
-								</div>
-
-
-							</div>
-							<!-- 수정 인풋 -->
-
-							<!-- 배경 -->
-						</div>
-
-
-						<img src="/img/background01.jpg">
-					</div>
-					<!-- 배경 -->
-
-
-					<h2>
-						판매 품목 ( 0 ) | <small><a href="#">모든 항목보기</a></small>
-					</h2>
-					<p>
-						오늘 dallae에서 <a href="#">판매를 시작</a>하십시오.
-					</p>
-					<hr>
-
-
-					<div id="my-page_setting-button">
-						<img src="/img/icon_setup.png">설정
-					</div>
-
-					<div>
-						<h2>팔로윙</h2>
-						<p>
-							다른 회원, 소장품 및 관심사를 따라 가면 <a href="#">dallae 피드</a>에서 더 많은 검색 결과를 얻을
-							수 있습니다.
-						</p>
-					</div>
-					<div id="my-page_follow-line">
-						<hr>
-						<h2>팔로워</h2>
-						<p>
-							아직 팔로워가 없습니다. 프로필을 <a href="#">맞춤 설정</a>하면 다른 회원에게 좋은 인상을 남길 수
-							있습니다.
-						</p>
-					</div>
-
-
-
-				</c:when>
-				<c:otherwise>
-					<!-- 세션없는 사람에게 보이는 영역 -->
-
-					<div class="gray-container">
-						<div class="find-container">
-							<div id="session-less" style="margin: auto;">
-								<img src="/img/icon_login.png">
-								<h3>
-									<a href="/url/user-info:login"><b>로그인</b></a> 부탁드립니다. <small><a
-										href="/">| <b>홈으로</b></a></small>
-								</h3>
-								<p>
-									권한 에러 : 페이지에 대한 <b>권한</b>이 없으십니다.
+										type="text" value="${userlogininfo.userAddress2}"
+										id="userAddress2">
 								</p>
+								<p style="margin-top: 30px;" class="my-page_follow-line">
+									팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
+										src="/img/facebook.png"> <img src="/img/instagram.png">
+								</p>
+								<input class="btn btn-primary btn-lg btn-block" type="button"
+									name="checkButton" value=" 수 정 " onclick="save()">
+
+
+
+
 							</div>
 						</div>
 					</div>
+					<!-- 프로필판넬 -->
+				</div>
 
-					<!-- 세션없는 사람에게 보이는 영역 -->
 
-				</c:otherwise>
-			</c:choose>
 
-		</div>
+
+				<!-- 배경 -->
+
+
+				<h2>
+					판매 품목 ( 0 ) | <small><a href="#">모든 항목보기</a></small>
+				</h2>
+				<p>
+					오늘 dallae에서 <a href="#">판매를 시작</a>하십시오.
+				</p>
+				<hr>
+
+
+				<div id="my-page_setting-button">
+					<img src="/img/icon_setup.png">설정
+				</div>
+
+				<div>
+					<h2>팔로윙</h2>
+					<p>
+						다른 회원, 소장품 및 관심사를 따라 가면 <a href="#">dallae 피드</a>에서 더 많은 검색 결과를 얻을
+						수 있습니다.
+					</p>
+				</div>
+				<div id="my-page_follow-line">
+					<hr>
+					<h2>팔로워</h2>
+					<p>
+						아직 팔로워가 없습니다. 프로필을 <a href="#">맞춤 설정</a>하면 다른 회원에게 좋은 인상을 남길 수
+						있습니다.
+					</p>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<!-- 세션없는 사람에게 보이는 영역 -->
+
+				<div class="gray-container">
+					<div class="find-container">
+						<div id="session-less" style="margin: auto;">
+							<img src="/img/icon_login.png">
+							<h3>
+								<a href="/url/user-info:login"><b>로그인</b></a> 부탁드립니다. <small><a
+									href="/">| <b>홈으로</b></a></small>
+							</h3>
+							<p>
+								권한 에러 : 페이지에 대한 <b>권한</b>이 없으십니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- 세션없는 사람에게 보이는 영역 -->
+
+			</c:otherwise>
+		</c:choose>
 
 	</div>
+
+
 	<script>
 
 function save(){
