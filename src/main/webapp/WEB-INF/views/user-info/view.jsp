@@ -64,44 +64,44 @@ table {
 			</p>
 
 			<table>
-				<c:set value="${getOne}" var="userInfo" />
+				<c:set value="${getUserInfo}" var="userinfo" />
 				<tr>
 					<th class="col-md-2">회원 번호</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userNumber" value="${userInfo.userNumber}"
+						type="text" id="userNumber" value="${userinfo.userNumber}"
 						disabled></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">회원 이름</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userName" value="${userInfo.userName}"></td>
+						type="text" id="userName" value="${userinfo.userName}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원id</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userId" value="${userInfo.userId}"></td>
+						type="text" id="userId" value="${userinfo.userId}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원 비밀번호</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userPassword" value="${userInfo.userPassword}"></td>
+						type="text" id="userPassword" value="${userinfo.userPassword}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원 별명</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userNickName" value="${userInfo.userNickName}"></td>
+						type="text" id="userNickName" value="${userinfo.userNickName}"></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">회원 email</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userEmail" value="${userInfo.userEmail}"></td>
+						type="text" id="userEmail" value="${userinfo.userEmail}"></td>
 				</tr>
 				<tr>
 					<th class="col-md-2">회원가입 일자</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userSignUpDate" value="${userInfo.userSignUpDate}"
+						type="text" id="userSignUpDate" value="${userinfo.userSignUpDate}"
 						disabled></td>
 				</tr>
 
@@ -109,38 +109,38 @@ table {
 				<tr>
 					<th class="col-md-2">회원폰번호</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userPhoneNum" value="${userInfo.userPhoneNum}"></td>
+						type="text" id="userPhoneNum" value="${userinfo.userPhoneNum}"></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">주소</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userAddress" value="${userInfo.userAddress}"></td>
+						type="text" id="userAddress" value="${userinfo.userAddress}"></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">상세주소</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userAddress2" value="${userInfo.userAddress2}"></td>
+						type="text" id="userAddress2" value="${userinfo.userAddress2}"></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">권한등급</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userLevel" value="${userInfo.userLevel}"></td>
+						type="text" id="userLevel" value="${userinfo.userLevel}"></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">포인트</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
-						type="text" id="userPoint" value="${userInfo.userPoint}"></td>
+						type="text" id="userPoint" value="${userinfo.userPoint}"></td>
 				</tr>
 
 				<tr>
 					<th class="col-md-2">신용등급</th>
 					<td colspan="2" class="col-md-10"><input class="form-control"
 						type="text" id="userCreditLevel"
-						value="${userInfo.userCreditLevel}"></td>
+						value="${userinfo.userCreditLevel}"></td>
 				</tr>
 
 
@@ -176,7 +176,7 @@ function Back(){
 
 function Delete(){ 
 			var conf = {
-					url : '/delete/' + ${userInfo.userNumber},
+					url : '/delete/' + ${userinfo.userNumber},
 					method : 'DELETE',
 					success : function(res){
 						if(res!==1){					  
@@ -210,13 +210,13 @@ function  Update(){
 	 
 		var conf = {
 				
-				url : '/updatevil/'+ ${userInfo.userNumber},
+				url : '/updatevil/'+ ${userinfo.userNumber},
 				method :'PUT',
 				param : params,
 				success:function(res){
 					if(res==1){
 						alert("성공하였습니다.");
-						location.href="/UserInfo/"+${userInfo.userNumber};
+						location.href="/userinfo/"+${userinfo.userNumber};
 					}
 				}
 		

@@ -34,7 +34,7 @@ public class UserInfoController {
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
 
-		return "UserInfo/View";
+		return "user-info/view";
 	}
 
 	@RequestMapping(value="/userinfo",method=RequestMethod.POST)

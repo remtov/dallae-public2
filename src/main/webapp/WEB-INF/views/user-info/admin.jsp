@@ -31,96 +31,77 @@ div {
 			<div class="view-container">
 				<!-- 컨텐츠컨테이너 -->
 				<div class="container">
-					<!-- 2분할 -->
-					<div class="row">
-						<!-- 좌측메뉴 -->
-						<div class="col-md-2" style="background-color: #f6f6f6;"></div>
+
+					<h3>관리자 페이지</h3>
+					<p>모든 컨텐츠와 회원정보를 편집하거나 관리할 수 있는 페이지 입니다.</p>
 
 
-						<!-- 우측컨텐츠 -->
-						<div class="col-md-10" style="background-color: #f6f6f6;">
+					<!-- 검색창영역 -->
+					<hr style="clear: both;">
+
+					<div style="width: 29%; float: left;">
+						<select class="form-control input" id="search">
+							<option value="#">선택하세요</option>
+							<option value="userNumber">번호</option>
+							<option value="userName">이름</option>
+							<option value="userId">아이디</option>
+							<option value="userPassword">비밀번호</option>
+							<option value="userEmail">이메일</option>
+							<option value="userNickName">별명</option>
+							<option value="userPhoneNum">폰번호</option>
+							<option value="userAddress">주소</option>
+							<option value="userAddress2">상세주소</option>
+							<option value="userSignUpDate">가입일자</option>
+							<option value="userLevel">권한</option>
+							<option value="userPoint">포인트</option>
+							<option value="userCreditLevel">신용등급</option>
+
+						</select>
+					</div>
+
+					<div style="width: 39%; float: left; margin: 0px 5px 0px 5px;">
+						<input class="form-control input" type="text" id="search-ex">
+					</div>
 
 
-							<div class="col-md-6">
-							
-								<h3>관리자 페이지</h3>
-								<p>모든 컨텐츠와 회원정보를 편집하거나 관리할 수 있는 페이지 입니다.</p>
-								userImage-view--test :<img
-									src="/img/user-info/${userlogininfo.userImage}"
-									style="width: 100px; height: auto;">
-
-							</div>
+					<div style="width: 29%; float: left;">
+						<button class="btn btn-default btn btn-block" type="button"
+							onclick="search()">검색</button>
+					</div>
 
 
+					<!-- 검색창영역 -->
 
-							<!-- 검색창영역 -->
-							<hr style="clear: both;">
+					<div class="admin-right_table-member">
+						<table style="margin-top: 20px;" class="table table-hover">
+							<thead>
+								<tr>
 
+									<th>번호</th>
+									<th>이름</th>
+									<th>아이디</th>
+									<th>비밀번호</th>
+									<th>이메일</th>
+									<th>별명</th>
+									<th>폰번호</th>
+									<th>가입일</th>
+									<th>주소</th>
+									<th>상세주소</th>
+									<th>권한</th>
+									<th>포인트</th>
+									<th>신용등급</th>
+									<th>사진</th>
+								</tr>
+							</thead>
 
-							<div class="admin-main_search-line">
-								<div class="col-md-3">
-									<select class="form-control input" id="search">
-										<option value="#">선택하세요</option>
-										<option value="userNumber">번호</option>
-										<option value="userName">이름</option>
-										<option value="userId">아이디</option>
-										<option value="userPassword">비밀번호</option>
-										<option value="userEmail">이메일</option>
-										<option value="userNickName">별명</option>
-										<option value="userPhoneNum">폰번호</option>
-										<option value="userAddress">주소</option>
-										<option value="userAddress2">상세주소</option>
-										<option value="userSignUpDate">가입일자</option>
-										<option value="userLevel">권한</option>
-										<option value="userPoint">포인트</option>
-										<option value="userCreditLevel">신용등급</option>
-										
-
-									</select>
-								</div>
-
-								<div class="col-md-7">
-									<input class="form-control input" type="text" id="search-ex">
-								</div>
-
-
-								<div class="col-md-2">
-									<button class="btn btn-default btn btn-block" type="button"
-										onclick="search()">검색</button>
-								</div>
-							</div>
-							<!-- 검색창영역 -->
-							<div class="admin-right_table-member">
-								<table style="margin-top: 20px;" class="table table-hover">
-									<thead>
-										<tr>
-
-											<th>번호</th>
-											<th>이름</th>
-											<th>아이디</th>
-											<th>비밀번호</th>
-											<th>이메일</th>
-											<th>별명</th>
-											<th>폰번호</th>
-											<th>가입일</th>
-											<th>주소</th>
-											<th>상세주소</th>
-											<th>권한</th>
-											<th>포인트</th>
-											<th>신용등급</th>
-											<th>사진</th>
-										</tr>
-									</thead>
-									
-									<tbody id="user-info_div">
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- 우측컨텐츠 -->
+							<tbody id="user-info_div">
+							</tbody>
+						</table>
 					</div>
 				</div>
+				<!-- 우측컨텐츠 -->
 			</div>
+			
 
 			<script>
  
@@ -133,13 +114,13 @@ div {
 	
 		var conf = {
 		param : params,
-		url : '/userinfo',
+		url : '/userinfolist',
 		success : function(res){
 			res = JSON.parse(res);
 			document.querySelector('#user-info_div').innerHTML = '';
 			var html = '';
 			for(var userInfo of res){
-				html += '<tr onclick="location.href=\'/user-info_view/'+ userInfo.userNumber +'\'">';
+				html += '<tr onclick="location.href=\'/userinfo/'+ userInfo.userNumber +'\'">';
 				html += '<td>' +userInfo.userNumber + '</td>';
 				html += '<td>' +userInfo.userName+ '</td>';
 				html += '<td>' +userInfo.userId+ '</td>';
@@ -165,8 +146,8 @@ div {
 	}
 			
 		
-	var au = new AjaxUtil(conf);
-	au.send();
+	var ajaxUtil = new AjaxUtil(conf);
+		ajaxUtil.send();
 	}
 	
 	
