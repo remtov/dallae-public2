@@ -78,9 +78,10 @@ h4 {
 
 
 
-	<c:set var="userId" value="${userlogininfo.userId}"></c:set>
+	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
-		<c:when test="${userId=='admin'||userId=='sell'}">
+		<c:when test="${userLevel>1.5}">
+
 			<!-- 관리자만보이는영역 -->
 			<!-- 회색바탕 -->
 			<div class="view-container">

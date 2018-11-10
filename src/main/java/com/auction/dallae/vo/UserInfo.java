@@ -19,7 +19,6 @@ public class UserInfo {
 	private String userCreditLevel;
 	private String userImage;
 
-	
 
 
 	public UserInfo() {

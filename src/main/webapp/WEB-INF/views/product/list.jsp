@@ -136,9 +136,7 @@ div { /* border: 3px solid red; */
 
 
 
-	<c:set var="userid" value="${userlogininfo.userId}"></c:set>
-	<c:choose>
-		<c:when test="${not empty sessionScope.userlogininfo}">
+	
 			<div class="view-container">
 
 				<div class="container">
@@ -174,13 +172,7 @@ div { /* border: 3px solid red; */
 
 
 
-		</c:when>
-		<c:otherwise>
-			<!-- 세션없는 사람에게 보이는 영역 -->
-			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
-			<!-- 세션없는 사람에게 보이는 영역 -->
-		</c:otherwise>
-	</c:choose>
+	
 
 
 	<script>
