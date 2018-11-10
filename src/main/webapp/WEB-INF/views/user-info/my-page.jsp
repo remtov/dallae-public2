@@ -20,32 +20,6 @@ div {
 	
 }
 
-.my-page_in-box {
-	position: absolute;
-	z-index: 2;
-	width: 90%;
-	left: 95%;
-	top: 40px;
-	margin-left: -90%;
-	background-color: white;
-	padding: 20px;
-}
-
-.my-page_cut-text--inline-100 {
-	margin-top: 5px;
-	margin-left: 5px;
-	float: left;
-	display: inline-block;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: 90px;
-}
-
-.my-page_follow-line>img {
-	width: 20px;
-	height: auto;
-}
 </style>
 <script>
 window.addEventListener('load',
@@ -200,10 +174,9 @@ window.addEventListener('load',
 										type="password" id="userPassword"
 										value="${userlogininfo.userPassword}" data-vali="2">
 									비밀번호 확인 <input style="width: 200px;" class="form-control"
-										type="password" id="userPassword"
+										type="password" id="confirmPassword"
 										value="${userlogininfo.userPassword}" data-vali="2">
-								</p>${userlogininfo.userId}
-								${userlogininfo.userPassword}
+								
 								<p style="margin-top: 5px;">
 									별명 <input style="width: 200px;" class="form-control"
 										type="text" id="userNickName"
@@ -235,18 +208,7 @@ window.addEventListener('load',
 								<input class="btn btn-primary btn-lg btn-block" type="button"
 									name="checkButton" value=" 수 정 " onclick="save()">
 
-								<div style="z-index: 3; width: 100%; height: auto;">
-
-									<!-- 배경 -->
-
-
-
-
-
-
-
-								</div>
-
+			
 
 							</div>
 

@@ -325,3 +325,33 @@ body {
 .breadcrumb2>.active {
 	color: #777;
 }
+
+/* 마이페이지 */
+.my-page_in-box {
+	position: absolute;
+	z-index: 2;
+	width: 90%;
+	left: 95%;
+	top: 40px;
+	margin-left: -90%;
+	background-color: white;
+	padding: 20px;
+}
+
+.my-page_cut-text--inline-100 {
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 90px;
+}
+
+.my-page_follow-line>img {
+	width: 20px;
+	height: auto;
+}
+
+/* 마이페이지 */
