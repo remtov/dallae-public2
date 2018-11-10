@@ -45,4 +45,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return SqlSessionTemplate.update("SQL.ProductSQL.updateProduct", product);
 	}
 
+	
+	
+	@Override
+	public List<Product> getProductUserId(Product product) {
+
+		return SqlSessionTemplate.selectList("SQL.ProductSQL.getProductUserId", product);
+	}
+
 }

@@ -72,4 +72,10 @@ public class ProductServiceImpl implements ProductService {
 		return success;
 	}
 
+	@Override
+	public List<Product> getProductUserId(Product product) {
+		
+		return productDAOImpl.getProductUserId(product);
+	}
+
 }

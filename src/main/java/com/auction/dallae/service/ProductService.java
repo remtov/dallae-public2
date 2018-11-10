@@ -15,4 +15,5 @@ public interface ProductService {
 	public int deleteProduct(Integer productNumber);
 
 	public int updateProduct(Product product);
+	public List<Product> getProductUserId(Product product);
 }

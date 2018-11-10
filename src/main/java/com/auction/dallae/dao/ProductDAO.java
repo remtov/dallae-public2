@@ -14,5 +14,8 @@ public interface ProductDAO {
 	public int updateProduct(Product product);
 
 	public int deleteProduct(Integer productNumber);
+	
+
+	public List<Product> getProductUserId(Product product);
 
 }

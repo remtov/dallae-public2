@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,11 +50,20 @@ public class ProductController {
 		return productService.updateProduct(product);
 	}
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
-
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product =PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		return productService.insertProduct(product);
+	}
+		
+		@RequestMapping(value = "/product_id", method = RequestMethod.POST)
+		@ResponseBody
+		public List<Product> getProductUserId(@RequestBody Product product) {
+
+			return productService.getProductUserId(product);
+		
+		
+		
 	}
 	
 }

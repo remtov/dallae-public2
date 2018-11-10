@@ -50,14 +50,19 @@ div {
 <script>
 window.addEventListener('load',
 		   function() {
-		      var ajaxUtil = new AjaxUtil({
+			
+				var params={userId:'${userlogininfo.userId}'};
+			
+			 params = JSON.stringify(params); 
+			      var ajaxUtil = new AjaxUtil({
 
-		            url: '/productlist',
+		            url: '/product_id',
+		            method:'post',
+		       		 param : params,
 		            success: function(res) {
 		               res = JSON.parse(res);
 		               var plus = 0;
 		               var html = '';
-
 		               if (res.length % 4 != 0) {
 		                  plus = 1;
 		               }
@@ -73,7 +78,7 @@ window.addEventListener('load',
 		                        break;
 		                     }
 
-		                  	       		                     
+		                  	       		       
 		                     
 		                     html += '<div class="col-sm-6 col-md-3">';
 		                     html += '<div class="thumbnail">';

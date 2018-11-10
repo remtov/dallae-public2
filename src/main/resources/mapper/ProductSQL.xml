@@ -14,6 +14,10 @@
 		=#{productNumber}
 	</select>
 	
+	<select id="getProductUserId" resultType="product"
+		parameterType="product">
+		select * from product where userId=#{userId}
+	</select>
 	
 	
 	<insert id="insertProduct" parameterType="product">

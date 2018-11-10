@@ -207,7 +207,7 @@ function  Update(){
 			userNickName:userNickName,userEmail:userEmail,userSignUpDate:userSignUpDate,
 			userAddress:userAddress,userAddress2:userAddress2,userPhoneNum:userPhoneNum};
 	 params = JSON.stringify(params); 
-
+	 
 		var conf = {
 				
 				url : '/updatevil/'+ ${userInfo.userNumber},

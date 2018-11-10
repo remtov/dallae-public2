@@ -24,7 +24,6 @@
 			<if test="userCreditLevel!=null"> and userCreditLevel like '%'||#{userCreditLevel}||'%'
 			</if>
 
-
 			<if test="userImage!=null"> and userImage like '%'||#{userImage}||'%'</if>
 
 
