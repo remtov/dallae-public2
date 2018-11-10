@@ -13,6 +13,9 @@
 		select * from product where productNumber
 		=#{productNumber}
 	</select>
+	
+	
+	
 	<insert id="insertProduct" parameterType="product">
 
 		insert into product(

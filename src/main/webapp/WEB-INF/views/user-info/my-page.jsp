@@ -1,4 +1,7 @@
-<!-- 디비실제이미지 수정 배경이미지 수정
+<!--마이페이지 배경깔았는데 css불안정하여 밑에 보톰이 안보이는 상황 나중에수정해보기로
+ 
+
+디비실제이미지 수정 배경이미지 수정
 팔로잉: 팔로워 비활성화 sns기능비활성화
 팔로우라인을 나중에 인클루드화해서 활용하면 좋을듯 그냥 지금은 데코레이션으로 써먹자
 
@@ -11,9 +14,6 @@
 <meta charset="UTF-8" />
 <title>MY PAGE</title>
 
-</head>
-
-
 <style>
 div {
 	/* border: 1px solid red; */
@@ -23,10 +23,10 @@ div {
 .my-page_in-box {
 	position: absolute;
 	z-index: 2;
-	width: 80%;
-	left: 90%;
+	width: 90%;
+	left: 95%;
 	top: 40px;
-	margin-left: -80%;
+	margin-left: -90%;
 	background-color: white;
 	padding: 20px;
 }
@@ -47,6 +47,85 @@ div {
 	height: auto;
 }
 </style>
+<script>
+window.addEventListener('load',
+		   function() {
+		      var ajaxUtil = new AjaxUtil({
+
+		            url: '/productlist',
+		            success: function(res) {
+		               res = JSON.parse(res);
+		               var plus = 0;
+		               var html = '';
+
+		               if (res.length % 4 != 0) {
+		                  plus = 1;
+		               }
+
+		               for (var i = 0; i < (res.length / 4) + plus;
+
+		                  i++) {
+		                  html = '<div class="row">';
+		                  for (var j = 0; j < 4;
+
+		                     j++) {
+		                     if (j + (i * 4) == res.length) {
+		                        break;
+		                     }
+
+		                  	       		                     
+		                     
+		                     html += '<div class="col-sm-6 col-md-3">';
+		                     html += '<div class="thumbnail">';
+		                     html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/' +
+		                        res[j + (i * 4)].productImage + '" onclick="goPage(' +
+		                        res[j + (i * 4)].productNumber + ')">';
+		                     html += '<div class="caption">';
+		                     html += '<h3>' +
+		                        res[j + (i * 4)].productName + '</h3>';
+		                     html += '<h4>시작가격 : ' +
+		                        res[j + (i * 4)].productLowestPrice + ' 원</h4>';
+		                     html += '<h4>현재가격 : ' +
+		                        res[j + (i * 4)].productLowestPrice*3/2 + ' 원</h4>';
+		                     html += '<p>제품브랜드 : ' +res[j + (i * 4)].productBrand + 
+		                     ' | 판매자 : ' +res[j + (i * 4)].userId +
+		                     
+		                     
+		                     ' | 제품수량 : ' +res[j + (i * 4)].productQuantity + 
+		                     ' | 분류 : ' +
+		                        res[j + (i * 4)].productCategory + ' | 신용등급 : ' +
+		                        res[j + (i * 4)].userCreditLevel + 
+		                        ' | 등록일 : ' + res[j + (i * 4)].productDate + 
+		                        ' | 마감일 : ' + res[j + (i * 4)].productEndDate + '</p>';
+		                     html += '<div style="height:50px;overflow:hidden;">'
+		                     html += '<p>' +
+		                        res[j + (i * 4)].productCondition + '</p>';
+		                     html += '</div>'
+		                     html += '<div style="height:50px;overflow:hidden;">'
+		                     html += '<p>' +
+		                        res[j + (i * 4)].productDesc + '</p>';
+		                     html += '</div>'
+		                     html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
+		                     html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage(' +
+		                        res[j + (i * 4)].productNumber + ')">더보기</a></p>';
+		                     html += '</div></div></div>';
+		                  }
+
+		                  html += '</div>';
+		                  document.querySelector('#product-div').insertAdjacentHTML('beforeend', html);
+		               }
+		            }
+		         }
+
+		      );
+		      ajaxUtil.send();
+		   }
+
+		);
+</script>
+</head>
+
+
 
 <body>
 	<div class="view-container">
@@ -57,7 +136,7 @@ div {
 
 				<!-- 프로필배경판넬 -->
 				<div
-					style="width: 100%; height: 500px; position: relative; z-index: 1; overflow: hiddn;">
+					style="width: 100%; height: 500px; position: relative; z-index: 1;">
 					<img src="/img/back-ground-1.jpg"
 						style="width: auto; position: absolute; z-index: 1;">
 
@@ -66,7 +145,8 @@ div {
 
 
 					<div class="my-page_in-box" style="position: absolute;">
-						<button style="top: -30px; right: 0px; z-index: 2;"
+						<button
+							style="position: absolute; top: -30px; right: 0px; z-index: 2;"
 							class="btn btn-default btn-xs">
 
 							편집 <img style="width: 13px;" src="/img/icon_edit.png">
@@ -111,9 +191,14 @@ div {
 								ID<input style="width: 80px;" class="form-control" type="text"
 									id="userId" value="${userlogininfo.userId}" data-vali="2">
 								<p style="margin-top: 5px;">
-									새 비밀번호 <input class="form-control" type="password"
-										id="userPassword" data-vali="2">
-								</p>
+									비밀번호 <input style="width: 200px;" class="form-control"
+										type="password" id="userPassword"
+										value="${userlogininfo.userPassword}" data-vali="2">
+									비밀번호 확인 <input style="width: 200px;" class="form-control"
+										type="password" id="userPassword"
+										value="${userlogininfo.userPassword}" data-vali="2">
+								</p>${userlogininfo.userId}
+								${userlogininfo.userPassword}
 								<p style="margin-top: 5px;">
 									별명 <input style="width: 200px;" class="form-control"
 										type="text" id="userNickName"
@@ -125,7 +210,8 @@ div {
 								style="padding: 10px; border: 1px solid #f6f6f6;">
 
 
-								이메일<input class="form-control" type="text" id="userEmail"
+
+								이메일<input class="form-control" type="email" id="userEmail"
 									value="${userlogininfo.userEmail}" data-vali="2">
 								<p style="margin-top: 5px;">
 									폰번호 <input style="width: 200px;" class="form-control"
@@ -144,49 +230,44 @@ div {
 								<input class="btn btn-primary btn-lg btn-block" type="button"
 									name="checkButton" value=" 수 정 " onclick="save()">
 
+								<div style="z-index: 3; width: 100%; height: auto;">
 
+									<!-- 배경 -->
+
+
+
+
+
+
+
+								</div>
 
 
 							</div>
+
+
+							<hr style="clear: both;">
+							<h2>판매 품목</h2>
+
+							<div id="product-div"></div>
+							<%@ include file="/WEB-INF/views/common/footer.jspf"%>
+							<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+
 						</div>
+
+
 					</div>
+
 					<!-- 프로필판넬 -->
+
+
+
 				</div>
 
 
 
 
-				<!-- 배경 -->
 
-
-				<h2>
-					판매 품목 ( 0 ) | <small><a href="#">모든 항목보기</a></small>
-				</h2>
-				<p>
-					오늘 dallae에서 <a href="#">판매를 시작</a>하십시오.
-				</p>
-				<hr>
-
-
-				<div id="my-page_setting-button">
-					<img src="/img/icon_setup.png">설정
-				</div>
-
-				<div>
-					<h2>팔로윙</h2>
-					<p>
-						다른 회원, 소장품 및 관심사를 따라 가면 <a href="#">dallae 피드</a>에서 더 많은 검색 결과를 얻을
-						수 있습니다.
-					</p>
-				</div>
-				<div id="my-page_follow-line">
-					<hr>
-					<h2>팔로워</h2>
-					<p>
-						아직 팔로워가 없습니다. 프로필을 <a href="#">맞춤 설정</a>하면 다른 회원에게 좋은 인상을 남길 수
-						있습니다.
-					</p>
-				</div>
 			</c:when>
 			<c:otherwise>
 				<!-- 세션없는 사람에게 보이는 영역 -->
@@ -217,14 +298,25 @@ div {
 	<script>
 
 function save(){
-
+	userName,
+	userId,
+	userNickName,
+	userPassword,
+	userEmail,
+	userPhoneNum,
+	userAddress,
+	userAddress2
+	
 	var userName = document.querySelector('#userName').value;
 	var userId = document.querySelector('#userId').value;
-	var userPassword = document.querySelector('#userPassword').value;
 	var userNickName = document.querySelector('#userNickName').value;
+	var userPassword = document.querySelector('#userPassword').value;
+	
 	var userEmail = document.querySelector('#userEmail').value;
 	var userPhoneNum = document.querySelector('#userPhoneNum').value;
-    
+	var userAddress = document.querySelector('#userAddress').value;
+	var userAddress2 = document.querySelector('#userAddress2').value;
+	
 	var valis = document.querySelectorAll('*[data-vali]');
 	
 	valis.forEach((e) => {
@@ -257,6 +349,11 @@ function save(){
 		ajaxUtil.send();
 	
 }
+
+function goPage(productNumber) {
+	location.href = '/product/' + productNumber;
+}
+
 
 </script>
 </body>
