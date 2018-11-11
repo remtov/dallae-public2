@@ -68,11 +68,12 @@ div {
 						<div
 							style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
 
-							<h2>
-								<button type="button" class="btn btn-default"
-									onclick="history.back()">X</button>
-								<b>로그인</b>
-								<button type="button" class="btn btn-primary" onclick="loging()">로그인</button>
+							<h2 style="text-align: center;">
+								<button style="float: left;" type="button"
+									class="btn btn-default" onclick="history.back()">X</button>
+								<b style="float: center;">로그인</b>
+								<button style="float: right;" type="button"
+									class="btn btn-primary" onclick="loging()">로그인</button>
 
 							</h2>
 							<p>

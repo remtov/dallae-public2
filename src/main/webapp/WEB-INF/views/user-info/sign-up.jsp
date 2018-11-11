@@ -32,92 +32,100 @@ function agreeCheck(frm){
 	<div class="view-container">
 		<div class="container">
 			<form class="form-horizontal" name="form">
-				<div
-					style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
 
+				<div class="row"
+					style="border: 1px solid #d6d6d6; padding: 30px; margin-top: 30px; margin-bottom: 30px;">
 					<h2>
 						<button type="button" class="btn btn-default"
 							onclick="history.back()">X</button>
 						<b>회원가입</b>
 
 					</h2>
-					<p>
-						이미 회원입니까?
-						<button class="btn btn-default btn-xs" type="button"
-							onclick="location.href='/url/user-info:login'">로그인</button>
-					</p>
-					<p>
-						이름 <input type="text" id="userName" data-vali="2"
-							class="form-control" style="width: 200px" placeholder="이름">
-					</p>
-					<p>
-						아이디 <input style="width: 200px" type="text" id="userId"
-							data-vali="2" class="form-control" placeholder="아이디">
-					</p>
-					<p>
-						비밀번호 <input style="width: 200px" class="form-control"
-							type="password" id="userPassword" data-vali="2"
-							placeholder="비밀번호">
-					</p>
-					<p>
-						비밀번호 확인 <input style="width: 200px" class="form-control"
-							type="password" id="confirmPassword" data-vali="2"
-							placeholder="비밀번호 확인">
 
-					</p>
+					이미 회원입니까?
+					<button class="btn btn-default btn-xs" type="button"
+						onclick="location.href='/url/user-info:login'">로그인</button>
 
-					<p>
-						이메일 <input style="width: 300px" type="email" id="userEmail"
-							class="form-control" placeholder="이메일 주소를 입력하세요 예)abc@defg.com">
-					</p>
-					<p>
-						별명 <input type="text" style="width: 200px" class="form-control"
-							id="userNickName" placeholder="별명" data-vali="2">
-					</p>
+					<hr>
 
-					<p>
-						전화번호 <input type="text" class="form-control" id="userPhoneNum"
-							placeholder="전화번호를 입력해주세요 예)01012345678" data-vali="2"
-							style="width: 300px">
+					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+						<p>
+							이름 <input type="text" id="userName" data-vali="2"
+								class="form-control" style="width: 200px" placeholder="이름">
+						</p>
+						<p>
+							아이디 <input style="width: 200px" type="text" id="userId"
+								data-vali="2" class="form-control" placeholder="아이디">
+						</p>
+						<p>
+							비밀번호 <input style="width: 200px" class="form-control"
+								type="password" id="userPassword" data-vali="2"
+								placeholder="비밀번호">
+						</p>
+						<p>
+							비밀번호 확인 <input style="width: 200px" class="form-control"
+								type="password" id="confirmPassword" data-vali="2"
+								placeholder="비밀번호 확인">
 
-					</p>
+						</p>
 
+						<p>
+							이메일 <input style="max-width: 300px;" type="email" id="userEmail"
+								class="form-control" placeholder="예)abc@abc.abc">
+						</p>
 
-					<!-- 진석이 주소API영역 -->
-					<p>
-						우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
-							id="postCode" placeholder="우편번호" disabled class="form-control" />
-						<input type="button" class="btn btn-default"
-							onclick="execPostCode()" value="우편번호 찾기" />
-					</p>
-					<p>
-						주소 <input style="margin-bottom: 5px;" type="text" id="userAddress"
-							placeholder="주소" class="form-control" disabled> <input
-							type="text" id="userAddress2" placeholder="상세주소"
-							class="form-control">
-					</p>
-					<!-- 진석이 주소API영역 -->
+						<p>
+							별명 <input type="text" style="width: 200px" class="form-control"
+								id="userNickName" placeholder="별명" data-vali="2">
+						</p>
+
+						<p>
+							전화번호 <input style="max-width: 300px;" type="text"
+								class="form-control" id="userPhoneNum"
+								placeholder="예)01012345678" data-vali="2">
+
+						</p>
+					</div>
+					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 
 
 
-					<p>
-						<textarea class="form-control" cols="40" rows="5"
-							style="width: 100%; height: 200px;">
+
+						<!-- 진석이 주소API영역 -->
+						<p>
+							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
+								id="postCode" placeholder="우편번호" disabled class="form-control" />
+							<input type="button" class="btn btn-default"
+								onclick="execPostCode()" value="우편번호 찾기" />
+						</p>
+						<p>
+							주소 <input style="margin-bottom: 5px;" type="text"
+								id="userAddress" placeholder="주소" class="form-control" disabled>
+							<input type="text" id="userAddress2" placeholder="상세주소"
+								class="form-control">
+						</p>
+						<!-- 진석이 주소API영역 -->
+
+
+
+						<p>
+							<textarea class="form-control" cols="20" rows="5"
+								style="width: 100%; height: 200px;" readonly="readonly">
 						<%@ include file="/WEB-INF/views/common/terms.jspf"%> 
 						</textarea>
-					</p>
+						</p>
 
 
-					<p>
-						약관 동의 <input type="checkbox" name="agree" id="agree"
-							onClick="agreeCheck(this.form)"> 체크하시고 가입을 완료하세요.
-					</p>
-					<input class="btn btn-primary btn-block" type="button"
-						name="checkButton" onclick="save()" disabled value="확인">
+						<p>
+							<input type="checkbox" name="agree" id="agree"
+								onClick="agreeCheck(this.form)"> 약관 동의 체크하시고 가입을 완료하세요.
+						</p>
+						<input class="btn btn-primary btn-block" type="button"
+							name="checkButton" onclick="save()" disabled value="확인">
 
 
+					</div>
 				</div>
-
 
 			</form>
 
