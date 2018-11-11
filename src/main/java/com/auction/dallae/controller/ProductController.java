@@ -34,8 +34,13 @@ public class ProductController {
 	}
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
-		return new ModelAndView("product/view", "product", productService.getProduct(productNumber));
+		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
 	}
+	@RequestMapping(value = "/productupdate/{productNumber}", method = RequestMethod.GET)
+	public ModelAndView getProductupdate(@PathVariable Integer productNumber) {
+		return new ModelAndView("product/view-update", "product", productService.getProduct(productNumber));
+	}
+	
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Integer deleteProduct(@PathVariable Integer productNumber) {

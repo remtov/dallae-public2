@@ -110,7 +110,6 @@ window.addEventListener('load',
 		                     html += '<p>' +
 		                        res[j + (i * 4)].productDesc + '</p>';
 		                     html += '</div>'
-		                     html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
 		                     html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage(' +
 		                        res[j + (i * 4)].productNumber + ')">더보기</a></p>';
 		                     html += '</div></div></div>';
