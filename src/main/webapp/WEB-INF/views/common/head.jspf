@@ -179,7 +179,7 @@
 
 	<script>
 		var AjaxUtil = function(conf) {
-			var xhr = new XMLHttpRequest();
+			var xmlHttpRequest = new XMLHttpRequest();
 			var url = conf.url;
 			var method = conf.method ? conf.method : 'GET';
 			var param = conf.param ? conf.param : '{}';
@@ -192,27 +192,27 @@
 				alert(res);
 			}
 
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4) {
-					if (xhr.status == "200") {
-						success(xhr.responseText);
+			xmlHttpRequest.onreadystatechange = function() {
+				if (xmlHttpRequest.readyState == 4) {
+					if (xmlHttpRequest.status == "200") {
+						success(xmlHttpRequest.responseText);
 					} else {
-						error(xhr.responseText);
+						error(xmlHttpRequest.responseText);
 					}
 				}
 			}
 
 			if (method != 'GET') {
-				xhr.open(method, url);
-				xhr.setRequestHeader('content-Type',
+				xmlHttpRequest.open(method, url);
+				xmlHttpRequest.setRequestHeader('content-Type',
 						'application/json; charset=UTF-8');
 			} else {
 				url = url + '?' + encodeURI(param);
-				xhr.open(method, url);
+				xmlHttpRequest.open(method, url);
 			}
 
 			this.send = function() {
-				xhr.send(param);
+				xmlHttpRequest.send(param);
 			}
 		};
 		function logout() {

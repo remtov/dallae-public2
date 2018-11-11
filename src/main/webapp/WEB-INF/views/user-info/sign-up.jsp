@@ -11,10 +11,6 @@
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 <style>
-#user-info_btn {
-	height: 100px;
-	/* background-color:red; */
-}
 </style>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
@@ -33,148 +29,103 @@ function agreeCheck(frm){
 
 </head>
 <body>
-
-	<div class="my-page_container">
-		<div class="container" id="find_container--800">
-
-
-			<div style="text-align: center; margin-bottom: 50px;">
-				<h1>회원가입</h1>
-				<p>
-					이미 회원입니까? <a href="/url/user-info:login">로그인</a>
-				</p>
-
-			</div>
-
-
+	<div class="view-container">
+		<div class="container">
 			<form class="form-horizontal" name="form">
-				<div class="form-group">
-					<label for="userName" class="col-sm-2 control-label">이름</label>
+				<div
+					style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
 
-					<div class="col-sm-10">
-						<input type="text" id="userName" data-vali="2"
+					<h2>
+						<button type="button" class="btn btn-default"
+							onclick="history.back()">X</button>
+						<b>회원가입</b>
+
+					</h2>
+					<p>
+						이미 회원입니까?
+						<button class="btn btn-default btn-xs" type="button"
+							onclick="location.href='/url/user-info:login'">로그인</button>
+					</p>
+					<p>
+						이름 <input type="text" id="userName" data-vali="2"
 							class="form-control" style="width: 200px" placeholder="이름">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="userId" class="col-sm-2 control-label">아이디</label>
+					</p>
+					<p>
+						아이디 <input style="width: 200px" type="text" id="userId"
+							data-vali="2" class="form-control" placeholder="아이디">
+					</p>
+					<p>
+						비밀번호 <input style="width: 200px" class="form-control"
+							type="password" id="userPassword" data-vali="2"
+							placeholder="비밀번호">
+					</p>
+					<p>
+						비밀번호 확인 <input style="width: 200px" class="form-control"
+							type="password" id="confirmPassword" data-vali="2"
+							placeholder="비밀번호 확인">
 
-					<div class="col-sm-10">
-						<input style="width: 200px" type="text" id="userId" data-vali="2"
-							class="form-control" placeholder="아이디">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="userPassword" class="col-sm-2 control-label">비밀번호</label>
+					</p>
 
-					<div class="col-sm-10">
-						<input style="width: 200px" class="form-control" type="password"
-							id="userPassword" data-vali="2" placeholder="비밀번호">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="confirmPassword" class="col-sm-2 control-label">비밀번호
-						확인</label>
-
-					<div class="col-sm-10">
-						<input style="width: 200px" class="form-control" type="password"
-							id="confirmPassword" data-vali="2" placeholder="비밀번호 확인">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="userEmail" class="col-sm-2 control-label">이메일</label>
-
-					<div class="col-sm-10">
-						<input style="width: 400px" type="email" id="userEmail"
+					<p>
+						이메일 <input style="width: 300px" type="email" id="userEmail"
 							class="form-control" placeholder="이메일 주소를 입력하세요 예)abc@defg.com">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="userNickName" class="col-sm-2 control-label">별명</label>
-
-					<div class="col-sm-10">
-						<input type="text" style="width: 200px" class="form-control"
+					</p>
+					<p>
+						별명 <input type="text" style="width: 200px" class="form-control"
 							id="userNickName" placeholder="별명" data-vali="2">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="userPhoneNum" class="col-sm-2 control-label">전화번호</label>
+					</p>
 
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="userPhoneNum"
+					<p>
+						전화번호 <input type="text" class="form-control" id="userPhoneNum"
 							placeholder="전화번호를 입력해주세요 예)01012345678" data-vali="2"
-							style="width: 400px">
-					</div>
-				</div>
-				<!-- 진석이 주소API영역 -->
-				<div class="form-group">
-					<label class="col-sm-2 control-label">우편번호 찾기</label>
-					<div class="col-sm-10">
-						<input style="width: 200px; margin-bottom: 5px;" type="text"
+							style="width: 300px">
+
+					</p>
+
+
+					<!-- 진석이 주소API영역 -->
+					<p>
+						우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
 							id="postCode" placeholder="우편번호" disabled class="form-control" />
 						<input type="button" class="btn btn-default"
-							onclick="execPostCode()" value="우편번호 찾기" /><br>
-
-					</div>
-				</div>
-
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">주소</label>
-
-					<div class="col-sm-10">
-						<input style="margin-bottom: 5px;" type="text" id="userAddress" placeholder="주소"
-							class="form-control" disabled> <input type="text"
-							id="userAddress2" placeholder="상세주소" class="form-control">
-					</div>
-				</div>
-				<!-- 진석이 주소API영역 -->
+							onclick="execPostCode()" value="우편번호 찾기" />
+					</p>
+					<p>
+						주소 <input style="margin-bottom: 5px;" type="text" id="userAddress"
+							placeholder="주소" class="form-control" disabled> <input
+							type="text" id="userAddress2" placeholder="상세주소"
+							class="form-control">
+					</p>
+					<!-- 진석이 주소API영역 -->
 
 
 
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<!-- 약관내용 -->
+					<p>
 						<textarea class="form-control" cols="40" rows="5"
-							style="width: 100%; height: 300px;">
+							style="width: 100%; height: 200px;">
 						<%@ include file="/WEB-INF/views/common/terms.jspf"%> 
 						</textarea>
-						<!-- 약관내용 -->
+					</p>
 
 
-					</div>
+					<p>
+						약관 동의 <input type="checkbox" name="agree" id="agree"
+							onClick="agreeCheck(this.form)"> 체크하시고 가입을 완료하세요.
+					</p>
+					<input class="btn btn-primary btn-block" type="button"
+						name="checkButton" onclick="save()" disabled value="확인">
+
+
 				</div>
-				<div class="form-group">
-					<label for="agree" class="col-sm-2 control-label">약관 동의</label>
 
-					<div class="col-sm-10" style="margin-top: -7px;">
 
-						<div class="checkbox">
-							<label class="checkbox-inline"> <input type="checkbox"
-								name="agree" id="agree" onClick="agreeCheck(this.form)">
-								체크하심으로 회원가입을 완료하실 수 있습니다.
-
-							</label>
-						</div>
-					</div>
-				</div>
-				<hr>
-				<div class="form-group">
-					<label for="agree" class="col-sm-2 control-label"></label>
-					<div id="user-info_btn" class="col-sm-10">
-						<input class="btn btn-primary btn-lg btn-block" type="button"
-							name="checkButton" value="확인 " disabled onclick="save()">
-					</div>
-				</div>
-				
 			</form>
 
-
-
 		</div>
-		<!-- 이너컨테이너 -->
 	</div>
-	<!-- 아웃터컨테이너 -->
+
+
+
 
 
 
@@ -231,6 +182,9 @@ function execPostCode() {
 
 function save(){
 
+
+
+	
 	var userName = document.querySelector('#userName').value;
 	var userId = document.querySelector('#userId').value;
 	var userPassword = document.querySelector('#userPassword').value;
@@ -264,20 +218,20 @@ function save(){
 		var passFocus =document.querySelector('#Password');
 		passFocus.focus();
 	}else{
-		
-		
+				
 		
 				  
 	var params={userName:userName,
 			userId:userId,
 			userPassword:userPassword,
-			userEmail:userEmail,		
-	
+			userEmail:userEmail,
+			
 			userNickName:userNickName,
 			userPhoneNum:userPhoneNum,
 			
 			userAddress:userAddress,
-			userAddress2:userAddress2};
+			userAddress2:userAddress2
+			};
 	
 	 params = JSON.stringify(params);
 	

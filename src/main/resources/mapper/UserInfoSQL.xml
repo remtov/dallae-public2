@@ -71,10 +71,11 @@
 		to_char(sysdate,'YYYY-MM-DDHH24MISS'),
 		#{userAddress},
 		#{userAddress2},
-		#{userLevel},
-		#{userPoint},
-		#{userCreditLevel},
-		#{userImage})
+		1,
+		50,
+		5,
+		null
+		)
 
 	</insert>
 	<update id="updateUserInfo" parameterType="userInfo">

@@ -16,14 +16,6 @@ div {
 	/* border: 1px solid red; */
 	
 }
-
-h1 {
-	margin-top: 50px;
-}
-
-.row>p {
-	margin-bottom: 100px;
-}
 </style>
 
 </head>
@@ -32,98 +24,97 @@ h1 {
 
 
 	<div class="find-container">
-		<div class="container" id="find_container--800">
+		<div class="container">
 
 			<c:choose>
 				<c:when test="${not empty sessionScope.userlogininfo}">
 					<!-- 로그인된 상태인 사람이 이 페이지를 열었을 때 보여지는 영역-->
-					<head>
-<style>
-h1 {
-	margin-top: 150px;
-}
-</style>
-					</head>
+
+					<div
+						style="background-color: white; margin-top: 20px; padding: 20px;">
+						<h2>
+							<b>로그인</b> 된 상태입니다.
+						</h2>
+						<p>
+							"<b>${sessionScope.userlogininfo.userId}</b>"님 반갑습니다. <br> <b>
+								<c:out value="${sessionScope.userlogininfo.userEmail}" />
+							</b>
+						</p>
+						<button class="btn btn-default btn-lg" type="button"
+							onclick="history.back()">뒤로가기</button>
 
 
-					<body>
-						<div class="row">
+						<button class="btn btn-default btn-lg" type="button"
+							onclick="logout()">로그아웃</button>
 
-							<h1>
-								"<b>${sessionScope.userlogininfo.userId}</b>"님 반갑습니다.
-							</h1>
-							<p>
-								로그인 된 상태입니다. (이메일 : " <b><c:out
-										value="${sessionScope.userlogininfo.userEmail}" /></b>") <a
-									onclick="history.back()">뒤로가기</a>
-							</p>
-							<div class="col-md-4">
-								<button class="btn btn-default btn-lg btn-block" type="button"
-									onclick="logout()">로그아웃</button>
-							</div>
-							<div class="col-md-4">
-								<button class="btn btn-default btn-lg btn-block" type="button"
-									onclick="location.href='/url/user-info:my-page'">마이페이지</button>
-							</div>
-							<div class="col-md-4">
-								<button class="btn btn-primary btn-lg btn-block" type="button"
-									onclick="location.href='#'">판매자 인증하러 가기</button>
-							</div>
-						</div>
-					</body>
+
+						<button class="btn btn-default btn-lg" type="button"
+							onclick="location.href='/url/user-info:my-page'"
+							style="margin-top: 5px; margin-bottom: 5px;">마이페이지</button>
+
+
+						<button class="btn btn-primary btn-lg" type="button"
+							onclick="location.href='#'">판매자 인증하러 가기</button>
+					</div>
+
+
 					<!-- 로그인된상태인 사람이 이 페이지를 열었을때 보여지는 영역-->
 				</c:when>
 				<c:otherwise>
 
-					<div>
-						<h1>로그인</h1>
-						<p>
-							아직 가입하지 않으셨습니까? <a onclick="signUp()">회원가입</a>
-						</p>
-						<p style="color: red;">
-							테스트<br> id:admin pw:123 _ 관리자 테스트를 할 수 있습니다.<br>
-							id:sell pw:123 _ 판매자 테스트를 할 수 있습니다.
-						</p>
-					</div>
+
+
 					<form id="login" class="form-horizontal">
-						<div class="form-group">
-							<label for="userId" class="col-sm-2 control-label">아이디</label>
-							<div class="col-sm-10">
-								<input type="text" onkeypress="enter(event)" id="userId"
-									data-vali="2" class="form-control" placeholder="아이디를 입력하세요.">
-							</div>
-						</div>
+						<div
+							style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
 
-						<div class="form-group">
-							<label for="userPassword" class="col-sm-2 control-label">비밀번호</label>
+							<h2>
+								<button type="button" class="btn btn-default"
+									onclick="history.back()">X</button>
+								<b>로그인</b>
+								<button type="button" class="btn btn-primary" onclick="loging()">로그인</button>
 
-							<div class="col-sm-10">
-								<input class="form-control" onkeypress="enter(event)"
-									type="password" id="userPassword" data-vali="2"
-									placeholder="비밀번호를 입력하세요.">
-							</div>
-						</div>
+							</h2>
+							<p>
+								아이디 <input style="width: 300px;" type="text"
+									onkeypress="enter(event)" id="userId" data-vali="2"
+									class="form-control" placeholder="아이디를 입력하세요.">
+							</p>
 
-						<div class="form-group" id="find-pass_quiz--2">
-							<div class="col-sm-offset-2 col-sm-10">
-								<p>
-									아이디를 잊어버리셨습니까? <a onclick="forgetId()">아이디찾기</a>
-								</p>
-							</div>
-							<div class="col-sm-offset-2 col-sm-10">
-								<p>
-									비밀번호를 잊어버리셨습니까? <a onclick="forgetPass()">비밀번호 찾기</a>
-								</p>
-							</div>
-						</div>
 
-						<div class="form-group" style="margin-bottom: 30px;">
-							<div class="col-sm-offset-2 col-sm-10">
-								<button type="button" class="btn btn-primary btn-lg btn-block"
-									onclick="loging()">로그인</button>
-							</div>
+							<p>
+								비밀번호 <input style="width: 300px;" class="form-control"
+									onkeypress="enter(event)" type="password" id="userPassword"
+									data-vali="2" placeholder="비밀번호를 입력하세요.">
+							</p>
+							<p>
+								아직 가입하지 않으셨습니까?
+								<button class="btn btn-default btn-xs" type="button"
+									onclick="signUp()">회원가입</button>
+							</p>
+							<p>
+								아이디를 잊어 버리셨습니까?
+								<button class="btn btn-default btn-xs" type="button"
+									onclick="forgetId()">아이디 찾기</button>
+							</p>
+
+							<p>
+								비밀번호를 잊어버리셨습니까?
+								<button class="btn btn-default btn-xs" type="button"
+									onclick="forgetPass()">비밀번호 찾기</button>
+							</p>
+
+							<p style="color: gray;">
+								<b>테스트</b><br> id:admin pw:123 _ 관리자 테스트를 할 수 있습니다.<br>
+								id:sell pw:123 _ 판매자 테스트를 할 수 있습니다.<br> id:navi pw:123 _
+								구매자 테스트를 할 수 있습니다.<br>
+							</p>
+
+
 						</div>
 					</form>
+
+
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -136,14 +127,14 @@ h1 {
 				loging()
 			}
 		}
-		
+
 		function loging() {
 			var userId = document.querySelector('#userId').value
 			var userPassword = document.querySelector('#userPassword').value
 			if (userId != '' && userPassword != '') {
 				var params = {
-						userId : userId,
-						userPassword : userPassword
+					userId : userId,
+					userPassword : userPassword
 				};
 				params = JSON.stringify(params);
 
