@@ -78,7 +78,7 @@ h4 {
 
 
 
-	<c:set var="userLevel" value="${userLoginInfo.userLevel}"></c:set>
+	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
 		<c:when test="${userLevel>1.5}">
 			<!-- 관리자만보이는영역 -->
@@ -317,15 +317,15 @@ h4 {
 
 							<div style="display: none">
 								<input class="form-control" type="text" id="userId"
-									name="userId" value="${userLoginInfo.userId}">
-									<input class="form-control" type="text" id="userCreditLevel"
-									name="userCreditLevel" value="${userLoginInfo.userCreditLevel}"> 
-									<input class="form-control" type="text" id="userNumber"
-									name="userNumber" value="${userLoginInfo.userNumber}">  
+									name="userId" value="${userLoginInfo.userId}"> <input
+									class="form-control" type="text" id="userCreditLevel"
+									name="userCreditLevel" value="${userLoginInfo.userCreditLevel}">
+								<input class="form-control" type="text" id="userNumber"
+									name="userNumber" value="${userLoginInfo.userNumber}">
 
 							</div>
 
-							
+
 
 							<div class="row">
 								<div class="col-md-3"></div>
@@ -419,7 +419,7 @@ h4 {
 		fileInput8.addEventListener('change', function(e) {
 			var url = URL.createObjectURL(e.target.files[0]);
 			preview8.setAttribute('src', url);
-		}); 
+		});
 
 		fileInput9.addEventListener('change', function(e) {
 			var url = URL.createObjectURL(e.target.files[0]);
@@ -483,9 +483,6 @@ h4 {
 				}
 			}
 		}
-		
-		
-	
 	</script>
 
 
