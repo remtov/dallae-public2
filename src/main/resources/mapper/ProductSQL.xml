@@ -13,13 +13,6 @@
 		select * from product where productNumber
 		=#{productNumber}
 	</select>
-	
-	<select id="getProductUserId" resultType="product"
-		parameterType="product">
-		select * from product where userId=#{userId}
-	</select>
-	
-	
 	<insert id="insertProduct" parameterType="product">
 
 		insert into product(
@@ -28,34 +21,27 @@
 		ProductCategory,
 		ProductQuantity,
 		ProductDate,
-		
 		ProductEndDate,
 		ProductLowestPrice,
 		ProductImage,
 		ProductDesc,
 		ProductBrand,
-		
 		ProductCondition,
-		UserId,
-		UserCreditLevel
+		UserId
 		)
-		
 		values(
 		SEQ_Product_ProductNum.nextval,
 		#{productName},
 		#{productCategory},
 		#{productQuantity},
-		to_char(SYSDATE,'YYYYMMDD'),
-		
-		to_char(SYSDATE+3,'YYYYMMDD'),
+		to_char(SYSDATE,'YYYYMMDDHH24MISS'),
+		to_char(SYSDATE+3,'YYYYMMDDHH24MISS'),
 		#{productLowestPrice},
 		#{productImage},
 		#{productDesc},
 		#{productBrand},
-		
 		#{productCondition},
-		#{userId},
-		#{userCreditLevel}
+		#{userId}
 		)
 
 

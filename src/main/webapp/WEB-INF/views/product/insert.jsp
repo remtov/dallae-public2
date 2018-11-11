@@ -78,10 +78,9 @@ h4 {
 
 
 
-	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
+	<c:set var="userId" value="${userLoginInfo.userId}"></c:set>
 	<c:choose>
-		<c:when test="${userLevel>1.5}">
-
+		<c:when test="${userId=='admin'||userId=='sell'}">
 			<!-- 관리자만보이는영역 -->
 			<!-- 회색바탕 -->
 			<div class="view-container">
@@ -90,8 +89,8 @@ h4 {
 					<!-- 2분할 -->
 					<div class="common_title-line">
 						<h3>
-							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userlogininfo.userName}
-									<span class="badge">${sessionScope.userlogininfo.userNumber}</span>
+							나의 달래 : 경매 등록 <small><a href="#" style="color: gray;">${sessionScope.userLoginInfo.userName}
+									<span class="badge">${sessionScope.userLoginInfo.userNumber}</span>
 							</a></small>
 						</h3>
 					</div>
@@ -318,14 +317,11 @@ h4 {
 
 							<div style="display: none">
 								<input class="form-control" type="text" id="userId"
-									name="userId" value="${userlogininfo.userId}"> 
-									<input
-									class="form-control" type="text" id="userCreditLevel" name="userCreditLevel"
-									value="${userlogininfo.userCreditLevel}">
+									name="userId" value="${userLoginInfo.userId}"> 
 
 							</div>
 
-
+							
 
 							<div class="row">
 								<div class="col-md-3"></div>
@@ -419,7 +415,7 @@ h4 {
 		fileInput8.addEventListener('change', function(e) {
 			var url = URL.createObjectURL(e.target.files[0]);
 			preview8.setAttribute('src', url);
-		});
+		}); 
 
 		fileInput9.addEventListener('change', function(e) {
 			var url = URL.createObjectURL(e.target.files[0]);
@@ -469,9 +465,8 @@ h4 {
 
 			if (valiCheck()) {
 				if (imgVali()) {
-
 					$.ajax({
-						url : '/product',
+						url : '/Product',
 						contentType : false,//헤더 지우기
 						processData : false,//쿼리스트링 형식으로 바꾸지 않기
 						data : formData,
@@ -484,6 +479,9 @@ h4 {
 				}
 			}
 		}
+		
+		
+	
 	</script>
 
 
