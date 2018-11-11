@@ -27,6 +27,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 		return userInfoDAO.getUserInfo(userNumber);
 	}
+	
+
 
 	@Override
 	public int insertUserInfo(UserInfo userInfo) {

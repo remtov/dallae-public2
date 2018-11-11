@@ -36,6 +36,13 @@ public class UserInfoController {
 
 		return "user-info/view";
 	}
+	
+	@RequestMapping(value = "/userinfo_my-page/{userNumber}", method = RequestMethod.GET)
+	public String getUserInfoMyPage(Model model, @PathVariable Integer userNumber) {
+		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
+
+		return "user-info/my-page_shop";
+	}
 
 	@RequestMapping(value="/userinfo",method=RequestMethod.POST)
 	@ResponseBody

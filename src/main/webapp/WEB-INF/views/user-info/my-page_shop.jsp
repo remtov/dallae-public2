@@ -19,13 +19,12 @@ div {
 	/* border: 1px solid red; */
 	
 }
-
 </style>
 <script>
 window.addEventListener('load',
 		   function() {
 			
-				var params={userId:'${userlogininfo.userId}'};
+				var params={userId:'${product.userId}'};
 			
 			 params = JSON.stringify(params); 
 			      var ajaxUtil = new AjaxUtil({
@@ -109,155 +108,106 @@ window.addEventListener('load',
 <body>
 	<div class="view-container">
 
-		<c:choose>
-			<c:when test="${not empty sessionScope.userlogininfo}">
-				<!-- 세션을가진사람만보임 -->
+		<!-- 세션을가진사람만보임 -->
 
-				<!-- 프로필배경판넬 -->
-				<div
-					style="width: 100%; height: 500px; position: relative; z-index: 1;">
-					<img src="/img/back-ground-1.jpg"
-						style="width: auto; position: absolute; z-index: 1;">
+		<!-- 프로필배경판넬 -->
+		<div
+			style="width: 100%; height: 500px; position: relative; z-index: 1;">
+			<img src="/img/back-ground-1.jpg"
+				style="width: auto; position: absolute; z-index: 1;">
 
 
 
 
 
-					<div class="my-page_in-box" style="position: absolute;">
-						<button
-							style="position: absolute; top: -30px; right: 0px; z-index: 2;"
-							class="btn btn-default btn-xs">
+			<div class="my-page_in-box" style="position: absolute;">
+				<button
+					style="position: absolute; top: -30px; right: 0px; z-index: 2;"
+					class="btn btn-default btn-xs">
 
-							편집 <img style="width: 13px;" src="/img/icon_edit.png">
+					편집 <img style="width: 13px;" src="/img/icon_edit.png">
 
-						</button>
-						<h2>
-							My Page>ID<b> ${userlogininfo.userId} </b><small>님의 페이지
-								입니다. ${userlogininfo.userSignUpDate}</small>
-						</h2>
+				</button>
+				<h2>
+					My Page>ID<b> ${product.userId} </b><small>님의 페이지 입니다. 회원
+						No.<b>${product.userNumber}</b>
+					</small>
+				</h2>
+
+				<!-- 프로필사진Div -->
+				<div class="row">
+					<div class="col-md-6"
+						style="padding: 10px; border: 1px solid #f6f6f6;">
+						<div style="width: 30%; float: left;">
+							<a href="#"><img src="/img/icon_profile.png"
+								style="width: 70px;"></a>
+							<!-- 수정버튼 -->
+						</div>
 
 						<!-- 프로필사진Div -->
-						<div class="row">
-							<div class="col-md-6"
-								style="padding: 10px; border: 1px solid #f6f6f6;">
-								<div style="width: 30%; float: left;">
-									<a href="#"><img src="/img/icon_profile.png"
-										style="width: 70px;"></a>
-									<!-- 수정버튼 -->
-								</div>
-
-								<!-- 프로필사진Div -->
 
 
-								<div style="width: 70%; float: left;">
-									<p>
-										<input class="form-control" style="float: left; width: 80px;"
-											type="text" id="userName" value="${userlogininfo.userName}"
-											data-vali="2"> <span
-											class="my-page_cut-text--inline-100">|
-											${userlogininfo.userAddress}</span>
-									</p>
+						<div style="width: 70%; float: left;">
+							<p>${product.userName},${product.userAddress}</p>
 
-									<p style="clear: both;">
-										신용점수 <b>${userlogininfo.userPoint}</b> | 신용등급 LV <b>${userlogininfo.userCreditLevel}</b>
-										<br>회원 No.<b>${userlogininfo.userNumber}</b> | 권한등급 LV <b>${userlogininfo.userLevel}</b>
-									</p>
-
-
-
-
-								</div>
-								ID<input style="width: 80px;" class="form-control" type="text"
-									id="userId" value="${userlogininfo.userId}" data-vali="2">
-								<p style="margin-top: 5px;">
-									비밀번호 <input style="width: 200px;" class="form-control"
-										type="password" id="userPassword"
-										value="${userlogininfo.userPassword}" data-vali="2">
-									비밀번호 확인 <input style="width: 200px;" class="form-control"
-										type="password" id="confirmPassword"
-										value="${userlogininfo.userPassword}" data-vali="2">
-								
-								<p style="margin-top: 5px;">
-									별명 <input style="width: 200px;" class="form-control"
-										type="text" id="userNickName"
-										value="${userlogininfo.userNickName}" data-vali="2">
-								</p>
-							</div>
-
-							<div class="col-md-6"
-								style="padding: 10px; border: 1px solid #f6f6f6;">
-
-
-
-								이메일<input class="form-control" type="email" id="userEmail"
-									value="${userlogininfo.userEmail}" data-vali="2">
-								<p style="margin-top: 5px;">
-									폰번호 <input style="width: 200px;" class="form-control"
-										type="text" id="userPhoneNum"
-										value="${userlogininfo.userPhoneNum}" data-vali="2"> <input
-										style="margin: 5px 0px 5px 0px" class="form-control"
-										type="text" value="${userlogininfo.userAddress}"
-										id="userAddress"> <input class="form-control"
-										type="text" value="${userlogininfo.userAddress2}"
-										id="userAddress2">
-								</p>
-								<p style="margin-top: 30px;" class="my-page_follow-line">
-									팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
-										src="/img/facebook.png"> <img src="/img/instagram.png">
-								</p>
-								<input class="btn btn-primary btn-lg btn-block" type="button"
-									name="checkButton" value=" 수 정 " onclick="save()">
-
-			
-
-							</div>
-
-
-							<hr style="clear: both;">
-							<h2>판매 품목</h2>
-
-							<div id="product-div"></div>
-							<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-							<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
-
-						</div>
-
-
-					</div>
-
-					<!-- 프로필판넬 -->
-
-
-
-				</div>
-
-
-
-
-
-			</c:when>
-			<c:otherwise>
-				<!-- 세션없는 사람에게 보이는 영역 -->
-
-				<div class="gray-container">
-					<div class="find-container">
-						<div id="session-less" style="margin: auto;">
-							<img src="/img/icon_login.png">
-							<h3>
-								<a href="/url/user-info:login"><b>로그인</b></a> 부탁드립니다. <small><a
-									href="/">| <b>홈으로</b></a></small>
-							</h3>
-							<p>
-								권한 에러 : 페이지에 대한 <b>권한</b>이 없으십니다.
+							<p style="clear: both;">
+								신용점수 <b>${product.userPoint}</b> | 신용등급 LV <b>${product.userCreditLevel}</b>
+								<br>회원 No.<b>${product.userNumber}</b> | 권한등급 LV <b>${product.userLevel}</b>
 							</p>
+
+
+
+
 						</div>
+						ID : ${product.userId}
+
+
+						<p style="margin-top: 5px;">별명 : ${userlogininfo.userNickName}
+						</p>
 					</div>
+
+					<div class="col-md-6"
+						style="padding: 10px; border: 1px solid #f6f6f6;">
+
+
+
+						이메일 : ${userlogininfo.userEmail}
+						<p style="margin-top: 5px;">폰번호 : ${product.userPhoneNum} | 주소
+							: ${userlogininfo.userAddress}${userlogininfo.userAddress2}" |</p>
+						<p style="margin-top: 30px;" class="my-page_follow-line">
+							팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
+								src="/img/facebook.png"> <img src="/img/instagram.png">
+						</p>
+
+
+
+					</div>
+
+
+					<hr style="clear: both;">
+					<h2>판매 품목</h2>
+
+					<div id="product-div"></div>
+
+					<%@ include file="/WEB-INF/views/common/footer.jspf"%>
+					<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+
 				</div>
 
-				<!-- 세션없는 사람에게 보이는 영역 -->
 
-			</c:otherwise>
-		</c:choose>
+			</div>
+
+			<!-- 프로필판넬 -->
+
+
+
+		</div>
+
+
+
+
+
+
 
 	</div>
 

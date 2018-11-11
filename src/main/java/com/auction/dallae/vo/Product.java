@@ -19,6 +19,7 @@ public class Product {
 	private String productCondition;
 	private String userId;
 	private Integer userCreditLevel;
+	private Integer userNumber;
 
 
 	public Product() {
@@ -32,7 +33,7 @@ public class Product {
 				+ ", productEndDate=" + productEndDate + ", productLowestPrice=" + productLowestPrice
 				+ ", productImage=" + productImage + ", productDesc=" + productDesc + ", productBrand=" + productBrand
 				+ ", productCondition=" + productCondition + ", userId=" + userId + ", userCreditLevel="
-				+ userCreditLevel + "]";
+				+ userCreditLevel + ", userNumber=" + userNumber + "]";
 	}
 
 
@@ -166,9 +167,20 @@ public class Product {
 	}
 
 
+	public Integer getUserNumber() {
+		return userNumber;
+	}
+
+
+	public void setUserNumber(Integer userNumber) {
+		this.userNumber = userNumber;
+	}
+
+
 	public Product(Integer productNumber, String productName, String productCategory, Integer productQuantity,
 			String productDate, String productEndDate, Integer productLowestPrice, String productImage,
-			String productDesc, String productBrand, String productCondition, String userId, Integer userCreditLevel) {
+			String productDesc, String productBrand, String productCondition, String userId, Integer userCreditLevel,
+			Integer userNumber) {
 		super();
 		this.productNumber = productNumber;
 		this.productName = productName;
@@ -183,9 +195,9 @@ public class Product {
 		this.productCondition = productCondition;
 		this.userId = userId;
 		this.userCreditLevel = userCreditLevel;
+		this.userNumber = userNumber;
 	}
 	
 	
-
 }
 	

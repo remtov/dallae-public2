@@ -27,7 +27,9 @@
 		ProductDesc,
 		ProductBrand,
 		ProductCondition,
-		UserId
+		UserId,
+		UserCreditLevel,
+		UserNumber
 		)
 		values(
 		SEQ_Product_ProductNum.nextval,
@@ -42,6 +44,8 @@
 		#{productBrand},
 		#{productCondition},
 		#{userId}
+		#{userCreditLevel}
+		#{userNumber}
 		)
 
 
@@ -97,6 +101,10 @@
 			<if test="userCreditLevel !=null">userCreditLevel =
 				#{userCreditLevel},
 			</if>
+			<if test="userNumber !=null">userNumber =
+				#{userNumber},
+			</if>
+			
 		</set>
 		where ProductNumber=#{productNumber}
 	</update>
@@ -106,4 +114,12 @@
 		product
 		where ProductNumber=#{productNumber}
 	</delete>
+	
+		<select id="getProductUserId" resultType="product"
+		parameterType="product">
+		select * from product where userId=#{userId}
+	</select>
+	
+	
+	
 </mapper>

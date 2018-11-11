@@ -249,9 +249,7 @@ h4 {
 				<div class="container">
 					<div class="common_title-line">
 						<h3>
-							경매 보기 <small><a href="#" style="color: gray;">
-									
-							</a></small>
+							경매 보기 <small><a href="#" style="color: gray;"> </a></small>
 						</h3>
 					</div>
 
@@ -260,13 +258,13 @@ h4 {
 					<!-- 폼 분할 -->
 					<h4>경매 물품정보 수정</h4>
 
-					<h2>${product.productCategory}><b>${product.productName}</b><small>마감일
-							: ${product.productEndDate}</small>
-					</h2>
+					<h3>${product.productCategory}><b>${product.productName} </b><small>
+							마감일 : ${product.productEndDate}</small>
+					</h3>
 
 
 					<div style="overflow: auto;">
-						<div style="width: 33%; float: left;">
+						<div style="width: 100%; float: left;">
 							<div class="fileBox">
 								<img style="width: 100%"
 									src="/resources/img/product/${product.productImage}"
@@ -287,10 +285,12 @@ h4 {
 
 						<div style="margin-left: 10px; float: left;">
 							<p>
-								<button>판매자 ID : ${product.userId}</button>
-								<br> '${product.userId}' 님의 신용점수 ${product.userCreditLevel} 점 <br>
+								<a style="font-size: 1.2em;"
+									href="/userinfo_my-page/${product.userNumber}">판매자 ID : <b>${product.userId}</b>
+									님의 페이지로 가기
+								</a> <br> 게시물 번호: ${product.productNumber} <br>
 
-								${product.productNumber}
+
 
 
 

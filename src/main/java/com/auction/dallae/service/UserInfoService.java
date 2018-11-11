@@ -8,7 +8,7 @@ public interface UserInfoService {
 
 	public List<UserInfo> getUserInfoList(UserInfo userInfo);
 
-	public UserInfo getUserInfo(Integer userNumber);
+	public UserInfo getUserInfo(Integer userNumber);// 관리자가 회원을 보는 뷰페이지로
 
 	public int insertUserInfo(UserInfo userInfo);
 
