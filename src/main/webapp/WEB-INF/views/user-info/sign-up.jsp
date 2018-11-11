@@ -181,23 +181,23 @@ function execPostCode() {
 /* 배진석 주소API추가 */
 
 function save(){
-
-
-
 	
 	var userName = document.querySelector('#userName').value;
 	var userId = document.querySelector('#userId').value;
 	var userPassword = document.querySelector('#userPassword').value;
 	var userEmail = document.querySelector('#userEmail').value;
-	
 	var userNickName = document.querySelector('#userNickName').value;
 	var userPhoneNum = document.querySelector('#userPhoneNum').value;
-		
 	var userAddress = document.querySelector('#userAddress').value;
 	var userAddress2 = document.querySelector('#userAddress2').value;
 	
-    
+
+
 	var valis = document.querySelectorAll('*[data-vali]');
+	/* 이메일검사 */
+	var emailVal = $("#userEmail").val();
+	var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	/* 이메일검사 */
 	
 	valis.forEach((e) => {
 		var length = e.getAttribute('data-vali');
@@ -209,7 +209,12 @@ function save(){
 		}
 	});
 
-
+	if (emailVal.match(regExp) != null) {
+		
+	} else {
+		alert('이메일 주소 형식이 올바르지 않습니다. 확인 부탁드립니다.');
+		return false;
+	}
 	
 	var confirmPassword = document.querySelector("#confirmPassword").value;
 	
