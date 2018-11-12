@@ -83,8 +83,8 @@ window.addEventListener('load',
 		                     html += '<p>' +
 		                        res[j + (i * 4)].productDesc + '</p>';
 		                     html += '</div>'
-		                     html += '<a style="margin-left:10px;" href="#" class="btn btn-primary" role="button" onclick="goPage(' +
-		                        res[j + (i * 4)].productNumber + ')">물품정보수정</a></p>';
+		                     html += '<a style="margin-top:10px;" href="#" class="btn btn-primary" role="button" onclick="goPage(' +
+		                        res[j + (i * 4)].productNumber + ')">수정</a></p>';
 		                     html += '</div></div></div>';
 		                  }
 

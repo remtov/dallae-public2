@@ -193,7 +193,7 @@ h4 {
 							<span class="label label-info">판매중</span>
 						</h3>
 
-						<input required data-vc="2,50" class="form-control" type="text"
+						<input required data-vc="2,150" class="form-control" type="text"
 							name="productName" value="${product.productName}"><br>
 						<p>
 							상태 : <input required data-vc="1,30" type="text"
@@ -209,7 +209,7 @@ h4 {
 
 						</p>
 
-						<textarea required data-vc="1,600" rows="10" class="form-control"
+						<textarea required data-vc="1,1000" rows="10" class="form-control"
 							name="productDesc">${product.productDesc}</textarea>
 
 
@@ -272,7 +272,7 @@ function insert() {
 				data : formData,
 				type : 'POST',
 				success : function() {
-					location.href = '/url/product:list';
+					location.href = '/url/product:view-update';
 					alert('성공');
 				}
 			});
@@ -286,7 +286,7 @@ function insert() {
 			url : '/product/'+${product.productNumber},
 			type : 'DELETE',
 			success : function(){
-				location.href = '/url/product:list';
+				location.href = '/url/product:view-update';
 				alert('성공');
 			}
 		})
@@ -303,7 +303,7 @@ function insert() {
 				data : formData,
 				type : 'POST',
 				success : function(){
-					location.href = '/url/product:list';
+					location.href = '/url/product:view-update';
 					alert('성공');
 				}
 			});

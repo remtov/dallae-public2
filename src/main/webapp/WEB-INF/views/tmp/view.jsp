@@ -62,10 +62,10 @@ h4 {
 	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
 		<c:when test="${userLevel>2.5}">
-			<%-- <%@ include file="/WEB-INF/views/product/view-update_common.jspf"%> --%>
+			
 		</c:when>
 		<c:when test="${userId==product.userId}">
-			<%-- <%@ include file="/WEB-INF/views/product/view-update_common.jspf"%> --%>
+			
 
 		</c:when>
 		<c:otherwise>
