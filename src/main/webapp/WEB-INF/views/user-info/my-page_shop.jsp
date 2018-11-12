@@ -25,28 +25,19 @@ div {
 
 
 <body>
+
+
+
+	<c:set value="${getUserInfo}" var="userinfo" />
+	<!-- 프로필배경판넬 -->
+
+
+
+
+
 	<div class="view-container">
-
-
-		<c:set value="${getUserInfo}" var="userinfo" />
-		<!-- 프로필배경판넬 -->
-		<div
-			style="width: 100%; height: 500px; position: relative; z-index: 1;">
-			<img src="/img/back-ground-1.jpg"
-				style="width: auto; position: absolute; z-index: 1;">
-
-
-
-
-
-			<div class="my-page_in-box" style="position: absolute;">
-				<button
-					style="position: absolute; top: -30px; right: 0px; z-index: 2;"
-					class="btn btn-default btn-xs">
-
-					편집 <img style="width: 13px;" src="/img/icon_edit.png">
-
-				</button>
+		<div class="container">
+			<div style="margin-top:20px; border: 1px solid #d6d6d6; padding: 30px;">
 				<h2>
 					My Page>ID<b> ${userinfo.userId} </b><small>님의 페이지 입니다. 회원
 						No.<b>${userinfo.userNumber}</b>
@@ -101,126 +92,144 @@ div {
 
 					</div>
 
-
-					<hr style="clear: both;">
-					<h2>판매 품목</h2>
-
-					<div id="product-div"></div>
-
-					<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-					<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
-
 				</div>
-
-
 			</div>
+			<hr style="clear: both;">
+			<h2>판매 품목</h2>
 
-			<!-- 프로필판넬 -->
+			<div id="product-div"></div>
+
+			<%@ include file="/WEB-INF/views/common/footer.jspf"%>
+			<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+
 
 
 
 		</div>
 
-
-
-
+		<!-- 프로필판넬 -->
 
 
 
 	</div>
 
 
+
+
+
+
+
+
+
+
 	<script>
-	
-	
-	window.addEventListener('load',
-			   function() {
-				
-					var params={userId:'${userinfo.userId}'};
-				
-				 params = JSON.stringify(params); 
-				      var ajaxUtil = new AjaxUtil({
+		window
+				.addEventListener(
+						'load',
+						function() {
 
-			            url: '/product_id',
-			            method:'post',
-			       		 param : params,
-			            success: function(res) {
-			               res = JSON.parse(res);
-			               var plus = 0;
-			               var html = '';
-			               if (res.length % 4 != 0) {
-			                  plus = 1;
-			               }
+							var params = {
+								userId : '${userinfo.userId}'
+							};
 
-			               for (var i = 0; i < (res.length / 4) + plus;
+							params = JSON.stringify(params);
+							var ajaxUtil = new AjaxUtil(
+									{
 
-			                  i++) {
-			                  html = '<div class="row">';
-			                  for (var j = 0; j < 4;
+										url : '/product_id',
+										method : 'post',
+										param : params,
+										success : function(res) {
+											res = JSON.parse(res);
+											var plus = 0;
+											var html = '';
+											if (res.length % 4 != 0) {
+												plus = 1;
+											}
 
-			                     j++) {
-			                     if (j + (i * 4) == res.length) {
-			                        break;
-			                     }
+											for (var i = 0; i < (res.length / 4)
+													+ plus;
 
-			                  	       		       
-			                     
-			                     html += '<div class="col-sm-6 col-md-3">';
-			                     html += '<div class="thumbnail">';
-			                     html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/' +
-			                        res[j + (i * 4)].productImage + '" onclick="goPage(' +
-			                        res[j + (i * 4)].productNumber + ')">';
-			                     html += '<div class="caption">';
-			                     html += '<h3>' +
-			                        res[j + (i * 4)].productName + '</h3>';
-			                     html += '<h4>시작가격 : ' +
-			                        res[j + (i * 4)].productLowestPrice + ' 원</h4>';
-			                     html += '<h4>현재가격 : ' +
-			                        res[j + (i * 4)].productLowestPrice*3/2 + ' 원</h4>';
-			                     html += '<p>제품브랜드 : ' +res[j + (i * 4)].productBrand + 
-			                     ' | 판매자 : ' +res[j + (i * 4)].userId +
-			                     
-			                     
-			                     ' | 제품수량 : ' +res[j + (i * 4)].productQuantity + 
-			                     ' | 분류 : ' +
-			                        res[j + (i * 4)].productCategory + ' | 신용등급 : ' +
-			                        res[j + (i * 4)].userCreditLevel + 
-			                        ' | 등록일 : ' + res[j + (i * 4)].productDate + 
-			                        ' | 마감일 : ' + res[j + (i * 4)].productEndDate + '</p>';
-			                     html += '<div style="height:50px;overflow:hidden;">'
-			                     html += '<p>' +
-			                        res[j + (i * 4)].productCondition + '</p>';
-			                     html += '</div>'
-			                     html += '<div style="height:50px;overflow:hidden;">'
-			                     html += '<p>' +
-			                        res[j + (i * 4)].productDesc + '</p>';
-			                     html += '</div>'
-			                     html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
-			                     html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage(' +
-			                        res[j + (i * 4)].productNumber + ')">더보기</a></p>';
-			                     html += '</div></div></div>';
-			                  }
+											i++) {
+												html = '<div class="row">';
+												for (var j = 0; j < 4;
 
-			                  html += '</div>';
-			                  document.querySelector('#product-div').insertAdjacentHTML('beforeend', html);
-			               }
-			            }
-			         }
+												j++) {
+													if (j + (i * 4) == res.length) {
+														break;
+													}
 
-			      );
-			      ajaxUtil.send();
-			   }
+													html += '<div class="col-sm-6 col-md-3">';
+													html += '<div class="thumbnail">';
+													html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/'
+															+ res[j + (i * 4)].productImage
+															+ '" onclick="goPage('
+															+ res[j + (i * 4)].productNumber
+															+ ')">';
+													html += '<div class="caption">';
+													html += '<h3>'
+															+ res[j + (i * 4)].productName
+															+ '</h3>';
+													html += '<h4>시작가격 : '
+															+ res[j + (i * 4)].productLowestPrice
+															+ ' 원</h4>';
+													html += '<h4>현재가격 : '
+															+ res[j + (i * 4)].productLowestPrice
+															* 3 / 2 + ' 원</h4>';
+													html += '<p>제품브랜드 : '
+															+ res[j + (i * 4)].productBrand
+															+ ' | 판매자 : '
+															+ res[j + (i * 4)].userId
+															+
 
-			);
-	
+															' | 제품수량 : '
+															+ res[j + (i * 4)].productQuantity
+															+ ' | 분류 : '
+															+ res[j + (i * 4)].productCategory
+															+ ' | 신용등급 : '
+															+ res[j + (i * 4)].userCreditLevel
+															+ ' | 등록일 : '
+															+ res[j + (i * 4)].productDate
+															+ ' | 마감일 : '
+															+ res[j + (i * 4)].productEndDate
+															+ '</p>';
+													html += '<div style="height:50px;overflow:hidden;">'
+													html += '<p>'
+															+ res[j + (i * 4)].productCondition
+															+ '</p>';
+													html += '</div>'
+													html += '<div style="height:50px;overflow:hidden;">'
+													html += '<p>'
+															+ res[j + (i * 4)].productDesc
+															+ '</p>';
+													html += '</div>'
+													html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
+													html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage('
+															+ res[j + (i * 4)].productNumber
+															+ ')">더보기</a></p>';
+													html += '</div></div></div>';
+												}
 
+												html += '</div>';
+												document.querySelector(
+														'#product-div')
+														.insertAdjacentHTML(
+																'beforeend',
+																html);
+											}
+										}
+									}
 
-function goPage(productNumber) {
-	location.href = '/product/' + productNumber;
-}
+							);
+							ajaxUtil.send();
+						}
 
+				);
 
-</script>
+		function goPage(productNumber) {
+			location.href = '/product/' + productNumber;
+		}
+	</script>
 </body>
 </html>
 
