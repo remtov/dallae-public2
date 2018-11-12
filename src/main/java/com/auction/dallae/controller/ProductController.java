@@ -29,46 +29,43 @@ public class ProductController {
 		return productService.getProductList(null);
 
 	}
-
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
-		return new ModelAndView("product/view", "product", productService.getProduct(productNumber));
+		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
 	}
-
 	@RequestMapping(value = "/productupdate/{productNumber}", method = RequestMethod.GET)
 	public ModelAndView getProductupdate(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/view-update", "product", productService.getProduct(productNumber));
 	}
-
+	
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Integer deleteProduct(@PathVariable Integer productNumber) {
 		return productService.deleteProduct(productNumber);
 	}
-
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.POST)
 	@ResponseBody
-	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
-			@PathVariable Integer productNumber) {
+	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest, @PathVariable Integer productNumber) {
 		System.out.println(productNumber);
-		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
+		Product product =PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		product.setProductNumber(productNumber);
 		return productService.updateProduct(product);
 	}
-
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
-		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
+		Product product =PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		return productService.insertProduct(product);
 	}
+		
+		@RequestMapping(value = "/product_id", method = RequestMethod.POST)
+		@ResponseBody
+		public List<Product> getProductUserId(@RequestBody Product product) {
 
-	@RequestMapping(value = "/product_id", method = RequestMethod.POST)
-	@ResponseBody
-	public List<Product> getProductUserId(@RequestBody Product product) {
-
-		return productService.getProductUserId(product);
-
+			return productService.getProductUserId(product);
+		
+		
+		
 	}
 	
 	@RequestMapping(value = "/productlist_enddate", method = RequestMethod.POST)
