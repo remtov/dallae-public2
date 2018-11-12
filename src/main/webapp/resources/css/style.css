@@ -145,12 +145,7 @@ body {
 	margin-bottom: 20px;
 }
 
-.admin-right_table-member {
-	margin-top: 20px;
-	width: 100%;
-	overflow: scroll;
-	/* border: 1px solid #e6e6e6; */
-}
+
 
 .admin-main_grid-div--h400 {
 	border: 1px solid gray;

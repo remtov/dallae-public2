@@ -52,5 +52,12 @@ public class ProductDAOImpl implements ProductDAO {
 
 		return SqlSessionTemplate.selectList("SQL.ProductSQL.getProductUserId", product);
 	}
+	
+	@Override
+	public List<Product> getProductListEndDate(Product product) {
+
+		return SqlSessionTemplate.selectList("SQL.ProductSQL.getProductListEndDate", product);
+	}
+
 
 }

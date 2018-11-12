@@ -12,6 +12,105 @@ div {
 	
 }
 </style>
+<script>
+	window
+			.addEventListener(
+					'load',
+					function() {
+						var au = new AjaxUtil(
+								{
+
+									url : '/productlist',
+									success : function(res) {
+										res = JSON.parse(res);
+										var plus = 0;
+										var html = '';
+
+										if (res.length % 4 != 0) {
+											plus = 1;
+										}
+
+										for (var i = 0; i < (res.length / 4)
+												+ plus;
+
+										i++) {
+											html = '<div class="row">';
+											for (var j = 0; j < 4;
+
+											j++) {
+												if (j + (i * 4) == res.length) {
+													break;
+												}
+
+												html += '<div class="col-sm-6 col-md-3">';
+												html += '<div class="thumbnail">';
+												html += '<img style="width:100%;" alt="sell-img" src="/resources/img/product/'
+														+ res[j + (i * 4)].productImage
+														+ '" onclick="goPage('
+														+ res[j + (i * 4)].productNumber
+														+ ')">';
+												html += '<div class="caption">';
+												html += '<h3>'
+														+ res[j + (i * 4)].productName
+														+ '</h3>';
+												html += '<h4>시작가격 : '
+														+ res[j + (i * 4)].productLowestPrice
+														+ ' 원</h4>';
+												html += '<h4>현재가격 : '
+														+ res[j + (i * 4)].productLowestPrice
+														* 3 / 2 + ' 원</h4>';
+												html += '<p>제품브랜드 : '
+														+ res[j + (i * 4)].productBrand
+														+ ' | 판매자 : '
+														+ res[j + (i * 4)].userId
+														+
+
+														' | 제품수량 : '
+														+ res[j + (i * 4)].productQuantity
+														+ ' | 분류 : '
+														+ res[j + (i * 4)].productCategory
+														+ ' | 신용등급 : '
+														+ res[j + (i * 4)].userCreditLevel
+														+ ' | 등록일 : '
+														+ res[j + (i * 4)].productDate
+														+ ' | 마감일 : '
+														+ res[j + (i * 4)].productEndDate
+														+
+
+														'</p>';
+												html += '<div style="height:50px;overflow:hidden;">'
+												html += '<p>'
+														+ res[j + (i * 4)].productCondition
+														+ '</p>';
+												html += '</div>'
+												html += '<div style="height:50px;overflow:hidden;">'
+												html += '<p>'
+														+ res[j + (i * 4)].productDesc
+														+ '</p>';
+												html += '</div>'
+												html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';
+												html += '<a style="margin-left:10px;" href="#" class="btn btn-default" role="button" onclick="goPage('
+														+ res[j + (i * 4)].productNumber
+														+ ')">더보기</a></p>';
+												html += '</div></div></div>';
+											}
+
+											html += '</div>';
+											document.querySelector(
+													'#product-div')
+													.insertAdjacentHTML(
+															'beforeend', html);
+										}
+									}
+								}
+
+						);
+						au.send();
+					}
+
+			);
+
+</script>
 
 </head>
 
@@ -20,9 +119,9 @@ div {
 
 
 
-	<c:set var="userId" value="${userlogininfo.userId}"></c:set>
+	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
-		<c:when test="${userId=='admin'}">
+		<c:when test="${userLevel>2.5}">
 
 
 			<!-- 관리자만보이는영역 -->
@@ -39,7 +138,7 @@ div {
 					<!-- 검색창영역 -->
 					<hr style="clear: both;">
 
-					<div style="width: 29%; float: left;">
+					<div style="width: 28%; float: left;">
 						<select class="form-control input" id="search">
 							<option value="#">선택하세요</option>
 							<option value="userNumber">번호</option>
@@ -59,12 +158,12 @@ div {
 						</select>
 					</div>
 
-					<div style="width: 39%; float: left; margin: 0px 5px 0px 5px;">
+					<div style="width: 38%; float: left; margin: 0px 5px 0px 5px;">
 						<input class="form-control input" type="text" id="search-ex">
 					</div>
 
 
-					<div style="width: 29%; float: left;">
+					<div style="width: 28%; float: left;">
 						<button class="btn btn-default btn btn-block" type="button"
 							onclick="search()">검색</button>
 					</div>
@@ -72,8 +171,12 @@ div {
 
 					<!-- 검색창영역 -->
 
-					<div class="admin-right_table-member">
-						<table style="margin-top: 20px;" class="table table-hover">
+				</div>
+				<!-- 우측컨텐츠 -->
+				<div class="container"
+					style="margin-top: 20px; background-color: white;">
+					<div class="table-responsive">
+						<table class="table table-hover">
 							<thead>
 								<tr>
 
@@ -97,9 +200,12 @@ div {
 							<tbody id="user-info_div">
 							</tbody>
 						</table>
+
 					</div>
+
+
+					<div id="product-div"></div>
 				</div>
-				<!-- 우측컨텐츠 -->
 			</div>
 
 
@@ -163,21 +269,7 @@ div {
 		<c:otherwise>
 
 			<!-- 세션없는 사람에게 보이는 영역 -->
-			<div class="admin-container_no-session">
-				<div id="session-less" style="margin: auto;">
-
-					<img src="/img/icon_login.png">
-
-					<h3>
-						<a href="/url/user-info:login">관리자 ID로 <b>로그인</b></a> 부탁드립니다. <small><a
-							href="/">| <b>홈으로</b></a></small>
-					</h3>
-					<p>
-						권한 에러 : 페이지에 대한 <b>권한</b>이 없으십니다.
-					</p>
-
-				</div>
-			</div>
+			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
 
 			<!-- 세션없는 사람에게 보이는 영역 -->
 

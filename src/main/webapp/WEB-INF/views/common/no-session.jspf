@@ -21,25 +21,31 @@
 </head>
 <body>
 
+
 	<div class="find-container">
 		<div class="container">
 
-			<div class="no-session_box">
+			<div
+				style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
 
-				<img src="/img/icon_login.png"
-					style="width: 50px; display: block; margin: auto; margin-bottom: 10px;">
+				<h2 style="text-align: center;">
+					<button style="float: left;" type="button" class="btn btn-default"
+						onclick="history.back()">X</button>
+					<b style="float: center;">권한이</b><small>필요합니다.</small>
+					<button style="float: right;" type="button" class="btn btn-primary"
+						onclick="location.href='/url/user-info:login'">로그인</button>
 
-				<p style="text-align: center;">
-					<button class="btn btn-primary btn-lg"
-						onclick="location.href='/url/user-info:login'">
-						2LV 이상의 권한이 필요합니다. <b>로그인 또는 인증</b> 부탁드립니다.
-					</button>
-					<br>
-					<button class="btn btn-default btn-lg" onclick="location.href='/'">홈으로</button>
+				</h2>
+
+				<p>
+					<b>로그인 또는 인증</b> 부탁드립니다. 판매자 인증을 받으시겠습니까?
+					<button class="btn btn-default btn-xs" type="button"
+						onclick="location.href='#'">인증</button>
+
+
 				</p>
+
 			</div>
-
-
 
 		</div>
 	</div>

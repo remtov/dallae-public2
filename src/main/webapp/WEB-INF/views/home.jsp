@@ -162,7 +162,7 @@ div {
 						</div>
 
 
-						<!-- 문장들-제목,내용,버튼 -->
+
 					</div>
 				</div>
 				<%
@@ -174,18 +174,10 @@ div {
 
 
 
-			<!-- 정적인클루드방식 -->
+
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 
-			<!-- 정적인클루드방식 -->
 
-			<!-- 동적 인클루드방식 -->
-			<%-- 		<jsp:include page="/WEB-INF/views/common/content_final.jspf"
-			flush="false">
-			<jsp:include page="/WEB-INF/views/common/footer.jspf" flush="false">
-			사용이 안된다 jspf라서 그런듯 --%>
-			<!-- 동적 인클루드방식 -->
-			<!-- 전체컨테이너 -->
 		</div>
 
 

@@ -19,7 +19,6 @@ div {
 	/* border: 1px solid red; */
 	
 }
-
 </style>
 <script>
 window.addEventListener('load',
@@ -175,7 +174,6 @@ window.addEventListener('load',
 									비밀번호 확인 <input style="width: 200px;" class="form-control"
 										type="password" id="confirmPassword"
 										value="${userlogininfo.userPassword}" data-vali="2">
-								
 								<p style="margin-top: 5px;">
 									별명 <input style="width: 200px;" class="form-control"
 										type="text" id="userNickName"
@@ -207,7 +205,7 @@ window.addEventListener('load',
 								<input class="btn btn-primary btn-lg btn-block" type="button"
 									name="checkButton" value=" 수 정 " onclick="save()">
 
-			
+
 
 							</div>
 
@@ -238,21 +236,7 @@ window.addEventListener('load',
 			<c:otherwise>
 				<!-- 세션없는 사람에게 보이는 영역 -->
 
-				<div class="gray-container">
-					<div class="find-container">
-						<div id="session-less" style="margin: auto;">
-							<img src="/img/icon_login.png">
-							<h3>
-								<a href="/url/user-info:login"><b>로그인</b></a> 부탁드립니다. <small><a
-									href="/">| <b>홈으로</b></a></small>
-							</h3>
-							<p>
-								권한 에러 : 페이지에 대한 <b>권한</b>이 없으십니다.
-							</p>
-						</div>
-					</div>
-				</div>
-
+				<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 				<!-- 세션없는 사람에게 보이는 영역 -->
 
 			</c:otherwise>

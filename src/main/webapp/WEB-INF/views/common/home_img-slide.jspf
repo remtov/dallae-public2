@@ -13,7 +13,7 @@
 #home-title_end-message {
 	/* position: absolute;
 	top: 0px;*/
-	width:100%;
+	width: 100%;
 	text-align: center;
 }
 
@@ -33,14 +33,22 @@ div {
 </head>
 <body>
 
+</head>
+<body>
 
-	<!-- 이미지슬라이더 -->
-	<div id="dropDown-img" style="width:100%;">
 
+
+	<div id="productlist_enddate-div"></div>
+
+
+
+
+	
+
+
+	<div id="dropDown-img" style="width: 100%;">
 		<div id="carousel-example-generic" class="carousel slide"
 			data-ride="carousel" style="width: 100%;">
-
-			<!-- j<n설정으로 슬라이더 장수를 설정-->
 			<ol class="carousel-indicators">
 				<%
 					for (int j = 0; j < 8; j++) {
@@ -50,56 +58,47 @@ div {
 					}
 				%>
 			</ol>
-			<!-- j<n설정으로 슬라이더 장수를 설정-->
-			<!-- i<n 설정을 띄울 사진수에 맞추면 슬라이더 장수가 세팅됨 -->
 			<div class="carousel-inner" role="listbox">
 				<%
 					for (int i = 1; i < 9; i++) {
 				%>
 				<div class="item <%if (i == 1) {%>active<%}%>">
-
 					<div>
 						<div id="home-title_end-message">
 							<h3>
-								<b>2분</b> 뒤에 경매 종료됩니다.
+								<b>마감임박! </b> 마감시 ${productEndDate}에 경매가 종료됩니다.
 							</h3>
 							<p>
-								MainSlide Title 01 | <b>5454600원</b> | 입찰수 : 4656
-
+								${productName} | <b>${productLowestPrice}</b> | ${productBrand}
 							</p>
 							<button class="btn btn-danger" onclick="location.href='#'">입찰</button>
-							<button class="btn btn-default" onclick="location.href='#'">더보기</button>
+							<button class="btn btn-default" onclick="location.href='/product/${productNumber}'">더보기</button>
 						</div>
 						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
-
-
 					</div>
-
 				</div>
 				<%
 					}
 				%>
 			</div>
-			<!-- i<n 설정을 띄울 사진수에 맞추면 슬라이더 장수가 세팅됨 -->
-			<!-- 이미지슬라이더 - 화살표 -->
 			<div>
 				<a class="left carousel-control" href="#carousel-example-generic"
-					role="button" data-slide="prev"> <!-- 왼쪽 화살표로직 --> <span
-					aria-hidden="true">
+					role="button" data-slide="prev"> <span aria-hidden="true">
 						<p style="padding-top: 200px; font-size: 1.5em;">&lt;</p>
-				</span> <!-- 왼쪽 화살표로직 -->
+				</span>
 				</a> <a class="right carousel-control" href="#carousel-example-generic"
-					role="button" data-slide="next"> <!-- 오른쪽 화살표로직 --> <span
-					aria-hidden="true">
+					role="button" data-slide="next"> <span aria-hidden="true">
 						<p style="padding-top: 200px; font-size: 1.5em;">&gt;</p>
-				</span> <!-- 오른쪽 화살표로직 -->
+				</span>
 				</a>
 			</div>
-			<!-- 이미지슬라이더 - 화살표 -->
 		</div>
-
 	</div>
-	<!-- 이미지슬라이더 -->
 
+	<script>
+					function goPage(productNumber) {
+						location.href = '/product/' + productNumber;
+					}
+				</script>
 </body>
 </html>

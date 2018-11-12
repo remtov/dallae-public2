@@ -78,4 +78,10 @@ public class ProductServiceImpl implements ProductService {
 		return productDAOImpl.getProductUserId(product);
 	}
 
+	@Override
+	public List<Product> getProductListEndDate(Product product) {
+		
+		return productDAOImpl.getProductListEndDate(product);
+	}
+
 }

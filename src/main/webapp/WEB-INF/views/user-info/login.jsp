@@ -30,31 +30,47 @@ div {
 				<c:when test="${not empty sessionScope.userlogininfo}">
 					<!-- 로그인된 상태인 사람이 이 페이지를 열었을 때 보여지는 영역-->
 
+
+
+
 					<div
-						style="background-color: white; margin-top: 20px; padding: 20px;">
-						<h2>
-							<b>로그인</b> 된 상태입니다.
+						style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
+
+						<h2 style="text-align: center;">
+							<button style="float: left;" type="button"
+								class="btn btn-default" onclick="history.back()">X</button>
+							<b style="float: center;">로그인</b> <small>된 상태</small>
+							<button style="float: right;" type="button"
+								class="btn btn-primary" onclick="loging()">로그인</button>
+
 						</h2>
 						<p>
 							"<b>${sessionScope.userlogininfo.userId}</b>"님 반갑습니다. <br> <b>
 								<c:out value="${sessionScope.userlogininfo.userEmail}" />
 							</b>
 						</p>
-						<button class="btn btn-default btn-lg" type="button"
-							onclick="history.back()">뒤로가기</button>
+
+						<p>
+							다른 아이디로 로그인 하시겠습니까?
+							<button class="btn btn-default btn-xs" onclick="logout()">로그아웃</button>
+						</p>
 
 
-						<button class="btn btn-default btn-lg" type="button"
-							onclick="logout()">로그아웃</button>
+
+						<p>
+							개인 페이지로 가시겠습니까?
+							<button class="btn btn-default btn-xs" type="button"
+								onclick="location.href='/url/user-info:my-page'">마이페이지</button>
+						</p>
+
+						<p>
+							판매자 인증을 받으시겠습니까?
+							<button class="btn btn-primary btn-xs" type="button"
+								onclick="location.href='#'">인증</button>
 
 
-						<button class="btn btn-default btn-lg" type="button"
-							onclick="location.href='/url/user-info:my-page'"
-							style="margin-top: 5px; margin-bottom: 5px;">마이페이지</button>
+						</p>
 
-
-						<button class="btn btn-primary btn-lg" type="button"
-							onclick="location.href='#'">판매자 인증하러 가기</button>
 					</div>
 
 

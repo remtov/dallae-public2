@@ -317,11 +317,11 @@ h4 {
 
 							<div style="display: none">
 								<input class="form-control" type="text" id="userId"
-									name="userId" value="${userLoginInfo.userId}"> <input
+									name="userId" value="${userlogininfo.userId}"> <input
 									class="form-control" type="text" id="userCreditLevel"
-									name="userCreditLevel" value="${userLoginInfo.userCreditLevel}">
+									name="userCreditLevel" value="${userlogininfo.userCreditLevel}">
 								<input class="form-control" type="text" id="userNumber"
-									name="userNumber" value="${userLoginInfo.userNumber}">
+									name="userNumber" value="${userlogininfo.userNumber}">
 
 							</div>
 
@@ -470,7 +470,7 @@ h4 {
 			if (valiCheck()) {
 				if (imgVali()) {
 					$.ajax({
-						url : '/Product',
+						url : '/product',
 						contentType : false,//헤더 지우기
 						processData : false,//쿼리스트링 형식으로 바꾸지 않기
 						data : formData,

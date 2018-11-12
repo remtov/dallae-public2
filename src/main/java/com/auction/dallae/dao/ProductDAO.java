@@ -18,4 +18,6 @@ public interface ProductDAO {
 
 	public List<Product> getProductUserId(Product product);
 
+	List<Product> getProductListEndDate(Product product);
+
 }

@@ -55,10 +55,6 @@ h4 {
 
 </head>
 <body>
-
-
-
-	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 			<!-- 관리자 판매자만 보이는영역 -->
 			<!-- 연 회색 바디 -->
 
@@ -236,183 +232,31 @@ h4 {
 
 
 
+
+			<!--<c:set var="grade" value=""></c:set>
+랜덤으로 선택된 등급코드는 ${grade}이며 <br />
+<c:choose>
+  <c:when test="${grade=='a1'}">
+     당신의 접근권한은  A1입니다!!
+  </c:when>
+  <c:when test="${grade=='a2'}">
+     당신의 접근권한은  A2입니다!!
+  </c:when>
+  <c:when test="${grade=='a3'}">
+     당신의 접근권한은  A3입니다!!
+  </c:when>
+  <c:when test="${grade=='a4'}">
+     당신의 접근권한은  A4입니다!!
+  </c:when>
+  <c:otherwise>
+     당신의 접근권한은  A5이하입니다!!
+  </c:otherwise>
+</c:choose>   
+
+</body>
+</html>  -->
 			<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
-		
-	<script>
-var fileInput = document.querySelector('input[type="file"]');
-var preview = document.getElementById('preview');
-
-fileInput.addEventListener('change', function(e) {
-	var url = URL.createObjectURL(e.target.files[0]);
-	preview.setAttribute('src', url);
-});
-function imgVali() {
-	var img = document.querySelector('input[type="file"]');
-
-	img = img.value.substring(img.value.lastIndexOf('.') + 1);
-	if (img.toUpperCase() != 'JPG'
-			&& img.toUpperCase() != 'PNG') {
-		alert("jpg 나 png파일을 넣어주세요");
-		return false;
-	}
-	return true;
-}
-
-function insert() {
-	var form = document.querySelector('#i-form');
-	var formData = new FormData(form);
-
-	if (valiCheck()) {
-		if (imgVali()) {
-
-			$.ajax({
-				url : '/product',
-				contentType : false,//헤더 지우기
-				processData : false,//쿼리스트링 형식으로 바꾸지 않기
-				data : formData,
-				type : 'POST',
-				success : function() {
-					location.href = '/url/product:list';
-					alert('성공');
-				}
-			});
-		}
-	}
-}
-
-
-	function deleteBtn(dsa){
-		$.ajax({
-			url : '/product/'+${product.productNumber},
-			type : 'DELETE',
-			success : function(){
-				location.href = '/url/product:list';
-				alert('성공');
-			}
-		})
-	}
-	
-		function updateBtn(){
-		var form = document.querySelector('#i-form');
-		var formData = new FormData(form);
-		if(valiCheck() ){
-			$.ajax({
-				url : '/product/'+${product.productNumber},
-				contentType : false,//헤더 지우기
-				processData : false,//쿼리스트링 형식으로 바꾸지 않기
-				data : formData,
-				type : 'POST',
-				success : function(){
-					location.href = '/url/product:list';
-					alert('성공');
-				}
-			});
-			}
-		}
-		
-		
-
-		var fileInput = document.getElementById('productImage');
-		var fileInput2 = document.getElementById('productImage2');
-		var fileInput3 = document.getElementById('productImage3');
-		var fileInput4 = document.getElementById('productImage4');
-		var fileInput5 = document.getElementById('productImage5');
-		var fileInput6 = document.getElementById('productImage6');
-		var fileInput7 = document.getElementById('productImage7');
-		var fileInput8 = document.getElementById('productImage8');
-		var fileInput9 = document.getElementById('productImage9');
-
-		var preview = document.getElementById('preview');
-		var preview2 = document.getElementById('preview2');
-		var preview3 = document.getElementById('preview3');
-		var preview4 = document.getElementById('preview4');
-		var preview5 = document.getElementById('preview5');
-		var preview6 = document.getElementById('preview6');
-		var preview7 = document.getElementById('preview7');
-		var preview8 = document.getElementById('preview8');
-		var preview9 = document.getElementById('preview9');
-
-		fileInput.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview.setAttribute('src', url);
-		});
-
-		fileInput2.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview2.setAttribute('src', url);
-		});
-
-		fileInput3.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview3.setAttribute('src', url);
-		});
-
-		fileInput4.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview4.setAttribute('src', url);
-		});
-
-		fileInput5.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview5.setAttribute('src', url);
-		});
-
-		fileInput6.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview6.setAttribute('src', url);
-		});
-
-		fileInput7.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview7.setAttribute('src', url);
-		});
-
-		fileInput8.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview8.setAttribute('src', url);
-		});
-
-		fileInput9.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview9.setAttribute('src', url);
-		});
-
-		function imgVali() {
-			/* var img = document.querySelector('input[type="file"]'); */
-
-			var img = document.getElementById('productImage');
-			var img2 = document.getElementById('productImage2');
-			var img3 = document.getElementById('productImage3');
-			var img4 = document.getElementById('productImage4');
-
-			img = img.value.substring(img.value.lastIndexOf('.') + 1);
-			img2 = img2.value.substring(img2.value.lastIndexOf('.') + 1);
-			img3 = img3.value.substring(img3.value.lastIndexOf('.') + 1);
-			img4 = img4.value.substring(img4.value.lastIndexOf('.') + 1);
-
-			if (img.toUpperCase() != 'JPG' && img.toUpperCase() != 'PNG') {
-				alert("1 번째 사진에 jpg 나 png파일을 넣어주세요");
-				return false;
-			}
-			/* 		if (img2.toUpperCase() != 'JPG'
-							&& img2.toUpperCase() != 'PNG') {
-						alert("2 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					}
-					if (img3.toUpperCase() != 'JPG'
-							&& img3.toUpperCase() != 'PNG') {
-						alert("3 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					}
-					if (img4.toUpperCase() != 'JPG'
-							&& img4.toUpperCase() != 'PNG') {
-						alert("4 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					} */
-
-			return true;
-		}
-	</script>
+			<!-- 세션이있는 사람에게 만보이는영역 -->
 
 </body>
 </html>
