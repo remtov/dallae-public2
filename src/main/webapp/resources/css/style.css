@@ -11,6 +11,15 @@ body {
 	margin-top: 50px
 }
 
+a:hover {
+	font-size: 110%;
+
+}
+
+img:hover {
+	border: 3px dotted #d6d6d6;
+}
+
 .home_search-line {
 	margin-top: 30px;
 	position: relative;
@@ -151,7 +160,6 @@ body {
 	overflow: scroll;
 	/* border: 1px solid #e6e6e6; */
 }
-
 
 .admin-main_grid-div--h400 {
 	border: 1px solid gray;

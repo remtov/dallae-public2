@@ -1,13 +1,4 @@
 
-
-
-
-<!-- 백엔드
--올린사람, 올린장소, 신용도(매너점수) 출력될수있도록한다
--입찰중인지 입찰종료되었는지 배송중인지 결제중이라던지 상태볼수있는 데이터베이스 컬럼필요한듯?
-
-프론트엔드
- -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

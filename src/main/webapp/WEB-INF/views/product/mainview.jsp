@@ -122,20 +122,20 @@ h4 {
 			</h3>
 
 
-			<h3>${product.productName}"</h3>
-			<p>상태 : ${product.productCondition}" | 등록일 :
+			<h3>${product.productName}</h3>
+			<p>상태 : ${product.productCondition} | 등록일 :
 				${product.productDate}</p>
 
 
-			<p>시작가 : ${product.productLowestPrice}" 원</p>
+			<p>시작가 : ${product.productLowestPrice} 원</p>
 
 			<p>${product.productDesc}</p>
 
 
 
 			<p>
-				제품수량 : <b>${product.productQuantity}"</b> 개<br> 브랜드명 :
-				${product.productBrand}"
+				제품수량 : <b>${product.productQuantity}</b> 개<br> 브랜드명 :
+				${product.productBrand}
 			</p>
 
 			<c:set var="userId" value="${userlogininfo.userId}"></c:set>

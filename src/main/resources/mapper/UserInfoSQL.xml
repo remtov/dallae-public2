@@ -121,11 +121,10 @@
 		parameterType="userInfo">
 		select userId from userInfo
 		<where>
-			<if test="userName!=null"> and userName = #{userName} </if>
-			<if test="userPhoneNum!=null"> and trim(userPhoneNum) = #{userPhoneNum} </if>
+			userName = #{userName} AND userPhoneNum=#{userPhoneNum}
 		</where>
 	</select>
-
+<!-- 선생님이 도와주실때 적어주신구문>>>> -->
 	<select id="getIdCnt" resultType="int"
 		parameterType="userInfo">
 		select count(userId) from userInfo
@@ -134,6 +133,8 @@
 			<if test="userPhoneNum!=null"> and userPhoneNum = #{userPhoneNum} </if>
 		</where>
 	</select>
+<!-- <<<<선생님이 도와주실때 적어주신구문 지금은 필요없을 수도 있다.-->	
+	
 	<select id="getPassword" resultType="userInfo"
 		parameterType="userInfo">
 		select userPassword from userInfo

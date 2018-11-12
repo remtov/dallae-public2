@@ -1,7 +1,3 @@
-<!-- 백엔드- 현재 판매자 아이디와 관리자아이디로 레벨구현중인데
-레벨컬럼을 추가하여 레벨권한 구현해야할듯 -->
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -186,7 +182,7 @@ div {
 			location.href = "/url/user-info:sign-up"
 		}
 		function forgetPass() {
-			location.href = "/url/user-info:find-pass"
+			location.href = "/url/user-info:find-password"
 		}
 	</script>
 </body>

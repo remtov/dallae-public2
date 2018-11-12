@@ -1,11 +1,4 @@
-<!--마이페이지 배경깔았는데 css불안정하여 밑에 보톰이 안보이는 상황 나중에수정해보기로
- 
 
-디비실제이미지 수정 배경이미지 수정
-팔로잉: 팔로워 비활성화 sns기능비활성화
-팔로우라인을 나중에 인클루드화해서 활용하면 좋을듯 그냥 지금은 데코레이션으로 써먹자
-
-비활성화상태 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>

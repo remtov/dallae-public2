@@ -1,5 +1,3 @@
-<!-- 데이터베이스에 유저이미지가 있긴있지만 아직비활성화
-낫널로 일단달려있지만 구현되지않은상태 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

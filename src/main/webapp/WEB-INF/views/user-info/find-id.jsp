@@ -8,9 +8,7 @@
 <title>ID 찾기</title>
 
 <style>
-h1 {
-	margin-top: 100px;
-}
+
 </style>
 </head>
 
@@ -97,7 +95,7 @@ h1 {
 							</p>
 
 							<p>
-								폰번호 <input onkeypress="enter(event)" class="form-control" type="password"
+								폰번호 <input onkeypress="enter(event)" class="form-control" type="number"
 									id="userPhoneNum" data-vali="2"
 									placeholder="핸드폰 번호를 입력하세요. 예)01012345678">
 
@@ -141,7 +139,7 @@ h1 {
 						res = JSON.parse(res);
 				
 					
-					alert('회원님의 아이디는' + res.userId + ' 입니다.');
+					alert('회원님의 아이디는 '+res.userId+' 입니다.');
 					location.href = "/url/user-info:login";
 				
 						
