@@ -103,14 +103,17 @@
 		where userNumber=#{userNumber}
 	</update>
 	<delete id="deleteUserInfo" parameterType="userInfo">
-		delete from userInfo where userNumber=#{userNumber}
+		delete from userInfo
+		where userNumber=#{userNumber}
 	</delete>
 	<select id="login" resultType="userInfo">
-		select * from userInfo where userId = #{userId} and userPassword =
+		select * from userInfo where
+		userId = #{userId} and userPassword =
 		#{userPassword}
 	</select>
 	<update id="keepLogin">
-		update userInfo set sessionKey = #{sessionId}, sessionLimit = #{next} where
+		update userInfo set sessionKey = #{sessionId},
+		sessionLimit = #{next} where
 		userId=#{userId}
 	</update>
 
@@ -118,15 +121,25 @@
 		parameterType="userInfo">
 		select userId from userInfo
 		<where>
-			userName = #{userName} AND USERPHONENUM=#{userPhoneNum}
+			<if test="userName!=null"> and userName = #{userName} </if>
+			<if test="userPhoneNum!=null"> and trim(userPhoneNum) = #{userPhoneNum} </if>
 		</where>
+	</select>
 
+	<select id="getIdCnt" resultType="int"
+		parameterType="userInfo">
+		select count(userId) from userInfo
+		<where>
+			<if test="userName!=null"> and userName = #{userName} </if>
+			<if test="userPhoneNum!=null"> and userPhoneNum = #{userPhoneNum} </if>
+		</where>
 	</select>
 	<select id="getPassword" resultType="userInfo"
 		parameterType="userInfo">
 		select userPassword from userInfo
 		<where>
-			userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND userId=#{userId}
+			userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
+			userId=#{userId}
 		</where>
 
 	</select>
@@ -154,7 +167,8 @@
 	</select>
 
 	<select id="checkId" parameterType="userInfo" resultType="int">
-		SELECT NVL(COUNT(*),0)
+		SELECT
+		NVL(COUNT(*),0)
 		FROM userInfo WHERE userId=#{userId}
 	</select>
 </mapper>
