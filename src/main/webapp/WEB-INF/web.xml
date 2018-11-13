@@ -17,7 +17,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- spring security login START -->
+	<!-- spring security FilterChain START -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -27,9 +27,7 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-
-	<!-- spring security login END -->
+	<!-- spring security FilterChain END -->
 
 	<!-- Processes application requests -->
 	<servlet>
