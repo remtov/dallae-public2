@@ -346,108 +346,34 @@ h4 {
 
 
 	<script>
-		/* 				var fileInput = document.querySelector('input[type="file"]'); */
+	window.addEventListener('load', function() {
+		var fileInputs = document.querySelectorAll('.uploadBtn');
+		var previews = document.querySelectorAll('*[name=preview]');
+		
+		fileInputs.forEach((e, i) => {
+			e.onchange = function(event) {
+				let url = URL.createObjectURL(event.target.files[0]);   
+				console.log(url);
+				previews[i].src = url;
+				
+			};
 
-		var fileInput = document.getElementById('productImage');
-		var fileInput2 = document.getElementById('productImage2');
-		var fileInput3 = document.getElementById('productImage3');
-		var fileInput4 = document.getElementById('productImage4');
-		var fileInput5 = document.getElementById('productImage5');
-		var fileInput6 = document.getElementById('productImage6');
-		var fileInput7 = document.getElementById('productImage7');
-		var fileInput8 = document.getElementById('productImage8');
-		var fileInput9 = document.getElementById('productImage9');
-
-		var preview = document.getElementById('preview');
-		var preview2 = document.getElementById('preview2');
-		var preview3 = document.getElementById('preview3');
-		var preview4 = document.getElementById('preview4');
-		var preview5 = document.getElementById('preview5');
-		var preview6 = document.getElementById('preview6');
-		var preview7 = document.getElementById('preview7');
-		var preview8 = document.getElementById('preview8');
-		var preview9 = document.getElementById('preview9');
-
-		fileInput.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview.setAttribute('src', url);
 		});
-
-		fileInput2.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview2.setAttribute('src', url);
-		});
-
-		fileInput3.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview3.setAttribute('src', url);
-		});
-
-		fileInput4.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview4.setAttribute('src', url);
-		});
-
-		fileInput5.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview5.setAttribute('src', url);
-		});
-
-		fileInput6.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview6.setAttribute('src', url);
-		});
-
-		fileInput7.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview7.setAttribute('src', url);
-		});
-
-		fileInput8.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview8.setAttribute('src', url);
-		});
-
-		fileInput9.addEventListener('change', function(e) {
-			var url = URL.createObjectURL(e.target.files[0]);
-			preview9.setAttribute('src', url);
-		});
-
-		function imgVali() {
-			/* var img = document.querySelector('input[type="file"]'); */
-
-			var img = document.getElementById('productImage');
-			var img2 = document.getElementById('productImage2');
-			var img3 = document.getElementById('productImage3');
-			var img4 = document.getElementById('productImage4');
-
+			
+	});
+	function imgVali() {
+		var imgs = document.querySelectorAll('input[type="file"]');
+		for(img of imgs){
 			img = img.value.substring(img.value.lastIndexOf('.') + 1);
-			img2 = img2.value.substring(img2.value.lastIndexOf('.') + 1);
-			img3 = img3.value.substring(img3.value.lastIndexOf('.') + 1);
-			img4 = img4.value.substring(img4.value.lastIndexOf('.') + 1);
-
-			if (img.toUpperCase() != 'JPG' && img.toUpperCase() != 'PNG') {
-				alert("1 번째 사진에 jpg 나 png파일을 넣어주세요");
+			if (img.toUpperCase() != 'JPG'
+					&& img.toUpperCase() != 'PNG') {
+				alert("jpg 나 png파일을 넣어주세요");
 				return false;
 			}
-			/* 		if (img2.toUpperCase() != 'JPG'
-							&& img2.toUpperCase() != 'PNG') {
-						alert("2 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					}
-					if (img3.toUpperCase() != 'JPG'
-							&& img3.toUpperCase() != 'PNG') {
-						alert("3 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					}
-					if (img4.toUpperCase() != 'JPG'
-							&& img4.toUpperCase() != 'PNG') {
-						alert("4 번째 사진에 jpg 나 png파일을 넣어주세요");
-						return false;
-					} */
-
-			return true;
 		}
+		
+		return true;
+	}
 
 		function insert() {
 
