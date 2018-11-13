@@ -144,9 +144,6 @@ h4 {
 				<c:when test="${userLevel>2.5}">
 					<button class="btn btn-default btn-lg" type="button"
 						onclick="updateBtn(${product.productNumber})">수정</button>
-					<button class="btn btn-danger btn-lg" type="button"
-						onclick="deleteBtn(${product.productNumber})">주의! 데이터가
-						삭제됩니다.</button>
 
 				</c:when>
 				<c:when test="${userId==product.userId}">
