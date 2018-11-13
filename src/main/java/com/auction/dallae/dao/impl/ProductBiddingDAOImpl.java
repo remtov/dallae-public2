@@ -16,7 +16,7 @@ public class ProductBiddingDAOImpl implements ProductBiddingDAO{
 	@Override
 	public List<ProductBidding> getProductBiddingList(ProductBidding ProductBidding) {
 		// TODO Auto-generated method stub
-		return SqlSessionTemplate.selectList("SQL.ProductBiddingSQL.getProductBiddingdingList", ProductBidding);
+		return SqlSessionTemplate.selectList("SQL.ProductBiddingSQL.getProductBiddingList", ProductBidding);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class ProductBiddingDAOImpl implements ProductBiddingDAO{
 	@Override
 	public int deleteProductBidding(Integer ProductNumber) {
 		// TODO Auto-generated method stub
-		return SqlSessionTemplate.update("SQL.ProductBiddingSQL.updateProductBiddingding", ProductNumber);
+		return SqlSessionTemplate.update("SQL.ProductBiddingSQL.updateProductBidding", ProductNumber);
 	}
 
 
