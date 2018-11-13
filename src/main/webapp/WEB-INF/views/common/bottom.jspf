@@ -45,23 +45,13 @@
 }
 </style>
 <body>
-
-
 	<div class="bottom-container">
-		
 		<div class="container">
-
-			<p>Copyright © 2018 Dallae Auction Inc. Bongkun Kim, Yongchan ko, Jinsuk
-				Bae, Hyungoo Kim, All Rights Reserved.</p>
+			<p>Copyright © 2018 Dallae Auction Inc. Bongkun Kim, Yongchan ko,
+				Jinsuk Bae, Hyungoo Kim, All Rights Reserved.</p>
 			<div id="koitta_logo">
 				<a href="http://www.koitt.com/"> <img src="/img/koitta-logo.gif"></a>
-				<!-- <button onclick="location.href='http://www.koitt.com/'"></button> -->
-
-
-
 			</div>
-
 		</div>
 	</div>
-
 </body>

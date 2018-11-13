@@ -173,7 +173,8 @@ div {
 
 
 
-
+			<hr>
+			<h2>최신 매물들</h2>
 
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 

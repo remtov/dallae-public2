@@ -9,9 +9,7 @@
 
 <style>
 #home-title_end-message {
-	/* position: absolute;
-	top: 0px;*/
-	width:100%;
+	width: 100%;
 	text-align: center;
 }
 
@@ -23,29 +21,24 @@
 	margin-bottom: 30px;
 }
 
-div {
-	/* 	border: 1px solid red; */
-	
+#dropDown-img {
+	width: 100%;
+}
+
+#carousel-example-generic {
+	width: 100%;
+}
+
+div>.carousel-control p {
+	padding-top: 200px;
+	font-size: 1.5em;
 }
 </style>
 </head>
 <body>
-
-
-
-
-
-	<div id="productlist_enddate-div"></div>
-
-
-
-
-	
-
-
-	<div id="dropDown-img" style="width: 100%;">
+	<div id="dropDown-img">
 		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel" style="width: 100%;">
+			data-ride="carousel">
 			<ol class="carousel-indicators">
 				<%
 					for (int j = 0; j < 8; j++) {
@@ -69,7 +62,8 @@ div {
 								${productName} | <b>${productLowestPrice}</b> | ${productBrand}
 							</p>
 							<button class="btn btn-danger" onclick="location.href='#'">입찰</button>
-							<button class="btn btn-default" onclick="location.href='/product/${productNumber}'">더보기</button>
+							<button class="btn btn-default"
+								onclick="location.href='/product/${productNumber}'">더보기</button>
 						</div>
 						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
 					</div>
@@ -81,21 +75,20 @@ div {
 			<div>
 				<a class="left carousel-control" href="#carousel-example-generic"
 					role="button" data-slide="prev"> <span aria-hidden="true">
-						<p style="padding-top: 200px; font-size: 1.5em;">&lt;</p>
+						<p>&lt;</p>
 				</span>
 				</a> <a class="right carousel-control" href="#carousel-example-generic"
 					role="button" data-slide="next"> <span aria-hidden="true">
-						<p style="padding-top: 200px; font-size: 1.5em;">&gt;</p>
+						<p>&gt;</p>
 				</span>
 				</a>
 			</div>
 		</div>
 	</div>
-
 	<script>
-					function goPage(productNumber) {
-						location.href = '/product/' + productNumber;
-					}
-				</script>
+		function goPage(productNumber) {
+			location.href = '/product/' + productNumber;
+		}
+	</script>
 </body>
 </html>

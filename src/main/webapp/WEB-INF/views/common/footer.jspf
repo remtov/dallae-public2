@@ -14,7 +14,6 @@ h5 a {
 
 .footer-container {
 	margin-top: 30px;
-	/* background-color: white;  */
 }
 
 .footer-container>div {
@@ -23,11 +22,6 @@ h5 a {
 
 .footer-container>div>div {
 	margin-bottom: 50px;
-}
-
-div {
-	/* border: 1px solid red; */
-	
 }
 
 .footer-both-box {
@@ -39,18 +33,16 @@ div {
 	width: 33%;
 	float: left;
 }
-/* 화면크기 줄었을경우 */
+
 @media ( max-width :800px ) {
-.footer-both-box>div {
-width: 100%;
+	.footer-both-box>div {
+		width: 100%;
+	}
 }
 </style>
 <body>
-
 	<div class="footer-container">
-
 		<div class="container">
-
 			<div class="footer-both-box">
 				<div>
 					<h5>
@@ -59,21 +51,14 @@ width: 100%;
 					<a href="#">물건팔기 시작 </a><br> <a href="#">입찰 및 구매 </a><br>
 					<a href="#">판매하는 법 </a><br> <a href="#">비즈니스 판매자 </a><br>
 					<a href="#">제휴사 </a><br>
-
 				</div>
-
-
 				<div>
-
 					<h5>
 						<b><a href="#">물건사기</a></b>
 					</h5>
 					<a href="#">회원가입</a><br> <a href="#">입찰 및 구매 </a><br> <a
 						href="#">도움말 </a><br> <a href="#">배달</a><br> <br>
-
 				</div>
-
-
 				<div>
 					<h5>
 						<b><a href="#">도구 및 앱</a></b>
@@ -81,13 +66,9 @@ width: 100%;
 					<a href="#">물건팔기 시작 </a><br> <a href="#">모바일 앱 </a><br> <a
 						href="#">다운로드 </a><br> <a href="#">개발자 보안</a><br> <a
 						href="#">센터</a><br>
-
 				</div>
 			</div>
-
-
 			<div class="footer-both-box">
-
 				<div>
 					<h5>
 						<b><a href="#">달래 비지니스</a></b>
@@ -95,12 +76,7 @@ width: 100%;
 					<a href="#">달래의 자매회사 </a><br> <a href="#">개인프로젝트1 </a><br>
 					<a href="#">개인프로젝트2 </a><br> <a href="#">개인프로젝트3 </a><br>
 					<a href="#">개인프로젝트4 </a><br>
-
 				</div>
-
-
-
-
 				<div>
 					<h5>
 						<b><a href="#">커뮤니티</a></b>
@@ -109,35 +85,21 @@ width: 100%;
 						href="#">토론 게시판 </a><br> <a href="#">달래 제작상품 </a><br> <a
 						href="#">달래 연예인 </a><br> <a href="#">달래 동호회 </a><br> <a
 						href="#">구매후기</a><br>
-
 				</div>
-
-
-
 				<div>
-
 					<h5>
 						<b><a href="#">도움말 및 문의</a></b>
 					</h5>
 					<a href="#">고객불만센터 </a><br> <a href="#">자주하는 문의 </a><br>
 					<a href="#">문의하기 </a><br> <br>
-
 					<h5>
 						<b><a href="#">SNS</a></b>
 					</h5>
 					<a href="#">달래의 블로그 </a><br> <a href="#">페이스북 </a><br> <a
 						href="#">트위터 인스타그램</a><br>
-
 				</div>
 			</div>
-
 		</div>
-
-
-
-
-
-
 	</div>
 	<hr>
 </body>
