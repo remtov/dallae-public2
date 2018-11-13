@@ -1,18 +1,5 @@
 
 
-<!-- 
-벡엔드 마지막컬럼 유저크레딧레벨은 인서트에서 제외했음
-어떻게 넣을지 인풋으로 입력하는건아닌것같고
-어떻게 가져와서 인풋태그에 밸류로 넣어서 넣어줘야하는지 
-잘모르겠음 일단 백엔드기술자에게 보류 ㅎㅎ
-
-
-프론트
-데이터 새로바꾼다음에
-어드민 셀러 아이디 권한
-유제레벨아이디로 전환할것
------------- -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

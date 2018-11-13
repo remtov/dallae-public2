@@ -42,9 +42,9 @@ window.addEventListener('load',
 		                     
 		                     html += '<div class="col-sm-6 col-md-3">';
 		                     html += '<div class="thumbnail">';
-		                     html += '<img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/' +
+		                     html += '<a href="#"><img style="width:100%;" alt="매물-메인이미지" src="/resources/img/product/' +
 		                        res[j + (i * 4)].productImage + '" onclick="goPage(' +
-		                        res[j + (i * 4)].productNumber + ')">';
+		                        res[j + (i * 4)].productNumber + ')"></a>';
 		                     html += '<div class="caption">';
 		                     html += '<h3>' +
 		                        res[j + (i * 4)].productName + '</h3>';

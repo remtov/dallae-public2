@@ -1,5 +1,4 @@
-<!-- 아직 현재가격이 구현되지않아 
-시작가격의 3배에서 나누기 2해서 현재가격으로 띄우고있다. -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

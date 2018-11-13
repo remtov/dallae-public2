@@ -9,8 +9,11 @@ import org.springframework.stereotype.Repository;
 import com.auction.dallae.dao.UserInfoDAO;
 import com.auction.dallae.vo.UserInfo;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 @Repository
+@Slf4j
 public class UserInfoDAOImpl implements UserInfoDAO {
 
 
@@ -18,7 +21,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	private SqlSession sqlSession;
 	@Override
 	public List<UserInfo> getUserInfoList(UserInfo userInfo) {
-		
 		return sqlSession.selectList("SQL.UserInfo.getUserInfoList",userInfo);
 	}
 
@@ -48,7 +50,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
 	@Override
 	public UserInfo getId(UserInfo userInfo) {
-
+		System.out.println(sqlSession.selectList("SQL.UserInfo.getUserInfoList"));
+		
+		System.out.println("userCnt : " + sqlSession.selectOne("SQL.UserInfo.getIdCnt",userInfo));
 		return sqlSession.selectOne("SQL.UserInfo.getId",userInfo);
 		
 	}

@@ -1,7 +1,4 @@
-<!-- 메뉴가 접힐때 모바일로 넘어가기전에 두줄로 변하는 현상을 고쳐야함 -->
 
-<!-- 헤드의 검색 기능이 아직 구현되지않았음 거기에 검색하면
-관련된 문자열이 포함된 건 다나오게 구현바람 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
