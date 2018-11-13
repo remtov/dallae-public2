@@ -319,4 +319,8 @@
 
 
 	</dependencies>
+	
+	<build>
+		<finalName>dallae</finalName>
+	</build>
 </project>
