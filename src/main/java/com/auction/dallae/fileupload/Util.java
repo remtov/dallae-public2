@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public class Util {
 
-	public static String rootPath  ;
+	public static String rootPath;
 	public static String uploadPath;
 
 	public static Map<String, Object> saveFile(MultipartHttpServletRequest request) {

@@ -88,8 +88,7 @@ h4 {
 								style="width: 100%;"><span>+</span>1번 사진</label> <input
 								name="productImage" required type="file" id="productImage"
 								class="uploadBtn" name="productImage"
-								value="${product.productImage}"> <img
-								name="preview"
+								value="${product.productImage}"> <img name="preview"
 								style="width: 100%"
 								src="/resources/img/product/${product.productImage}"
 								id="preview">
@@ -229,7 +228,7 @@ h4 {
 					onclick="deleteBtn(${product.productNumber})">주의! 데이터가
 					삭제됩니다.</button>
 			</form>
-			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+			<p><%@ include file="/WEB-INF/views/common/content-final.jspf"%></p>
 		</div>
 
 	</div>
