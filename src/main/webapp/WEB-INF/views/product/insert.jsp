@@ -164,19 +164,19 @@ file-box-container {
 												<label for="productImage" class="btn btn-default"><span>+</span>1번
 													사진</label> <input name="productImage" required type="file"
 													id="productImage" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview">
+													src="/img/icon-img.png" id="preview"name="preview">
 											</div>
 											<div class="fileBox">
 												<label for="productImage2" class="btn btn-default"><span>+</span>2번
 													사진</label> <input name="productImage2" required type="file"
 													id="productImage2" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview2">
+													src="/img/icon-img.png" id="preview2"name="preview">
 											</div>
 											<div class="fileBox">
 												<label for="productImage3" class="btn btn-default"><span>+</span>3번
 													사진</label> <input name="productImage3" required type="file"
 													id="productImage3" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview3">
+													src="/img/icon-img.png" id="preview3"name="preview">
 											</div>
 										</div>
 										<div>
@@ -184,19 +184,19 @@ file-box-container {
 												<label for="productImage4" class="btn btn-default"><span>+</span>4번
 													사진</label> <input name="productImage4" required type="file"
 													id="productImage4" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview4">
+													src="/img/icon-img.png" id="preview4"name="preview">
 											</div>
 											<div class="fileBox">
 												<label for="productImage5" class="btn btn-default">+
 													5번 사진</label> <input name="productImage5" required type="file"
 													id="productImage5" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview5">
+													src="/img/icon-img.png" id="preview5"name="preview">
 											</div>
 											<div class="fileBox">
 												<label for="productImage6" class="btn btn-default">+
 													6번 사진</label> <input name="productImage6" required type="file"
 													id="productImage6" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview6">
+													src="/img/icon-img.png" id="preview6"name="preview">
 											</div>
 										</div>
 										<div>
@@ -204,19 +204,19 @@ file-box-container {
 												<label for="productImage7" class="btn btn-default">+
 													7번 사진</label> <input name="productImage7" required type="file"
 													id="productImage7" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview7">
+													src="/img/icon-img.png" id="preview7"name="preview">
 											</div>
 											<div class="fileBox">
 												<label for="productImage8" class="btn btn-default">+
 													8번 사진</label> <input name="productImage8" required type="file"
 													id="productImage8" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview8">
+													src="/img/icon-img.png" id="preview8"name="preview">
 											</div>
 											<div class="fileBox">
 												<label for="productImage9" class="btn btn-default">+
 													9번 사진</label> <input name="productImage9" required type="file"
 													id="productImage9" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview9">
+													src="/img/icon-img.png" id="preview9"name="preview">
 											</div>
 										</div>
 									</div>
@@ -313,7 +313,7 @@ file-box-container {
 			};
 		});
 	});
-	function imgVali() {
+	function imgsVali() {
 		var imgs = document.querySelectorAll('input[type="file"]');
 		for(img of imgs){
 			img = img.value.substring(img.value.lastIndexOf('.') + 1);
@@ -331,7 +331,7 @@ file-box-container {
 			var formData = new FormData(form);
 
 			if (valiCheck()) {
-				if (imgVali()) {
+				//if (imgVali()) {
 					$.ajax({
 						url : '/product',
 						contentType : false,//헤더 지우기
@@ -343,7 +343,7 @@ file-box-container {
 							alert('성공');
 						}
 					});
-				}
+				//}
 			}
 		}
 	</script>
