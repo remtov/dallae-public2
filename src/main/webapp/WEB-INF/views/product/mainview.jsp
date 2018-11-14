@@ -114,6 +114,21 @@ h4 {
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;
 		}
+		window.addEventListener('load', function() {
+			var fileInputs = document.querySelectorAll('.uploadBtn');
+			var previews = document.querySelectorAll('*[name=preview]');
+			
+			fileInputs.forEach((e, i) => {
+				e.onchange = function(event) {
+					let url = URL.createObjectURL(event.target.files[0]);   
+					console.log(url);
+					previews[i].src = url;
+					
+				};
+
+			});
+				
+		});
 	</script>
 </body>
 </html>
