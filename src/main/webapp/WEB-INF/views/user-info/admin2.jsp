@@ -102,7 +102,7 @@ div {
 						</table>
 					</div>
 
-					<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+					
 
 				</div>
 			</div>
@@ -118,15 +118,13 @@ div {
 	function search(){
 
 		var ser =document.querySelector('#search-select_user-info').value;	
-		var tex = document.querySelector('#search-value_user-info').value;
-		
+		var tex = document.querySelector('#search-value_user-info').value; 
+	
 		var params = ser + '=' + tex;
-
 		var conf = {
-		url : '/userinfolist?' + params,
-		method:'GET',
+		param : params,
+		url : '/userinfolist',
 		success : function(res){
-			
 			res = JSON.parse(res);
 			document.querySelector('#user-info_div').innerHTML = '';
 			var html = '';

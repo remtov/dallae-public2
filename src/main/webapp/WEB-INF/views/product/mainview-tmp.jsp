@@ -17,27 +17,19 @@ h4 {
 		<div class="container">
 			<div class="inner-box">
 
-				<c:set var="now" value="<%=new java.util.Date()%>" />
-				<c:set var="productEndDate" value="${product.productEndDate}" />
-
-
-				<fmt:formatDate var="today" value="${now}" pattern="yyyyMMddHHmmss" />
-				<fmt:formatDate var="today" value="${now}"  />
-
-				
-<!-- 
-				<script type="text/javascript">
-				 ${productEndDate-today}
-				 </script> -->
-
-
-
+				<jsp:useBean id="thisTime" class="java.util.Date" />
+				<fmt:parseDate var="productEndTime"
+					value="${product.productEndDate}" pattern="yyyyMMddHHmmss" />
+				<fmt:parseNumber value="${thisTime.time / (1000*60*60*24)}"
+					integerOnly="true" var="nowTime" scope="request" />
+				<fmt:parseNumber value="${productEndTime.time / (1000*60*60*24)}"
+					integerOnly="true" var="oldTime" scope="request" />
 
 				<h3>
 					경매 보기 <small><a href="#" style="color: gray;"> </a></small>
 				</h3>
 				<h3>${product.productCategory}><b>${product.productName} </b><small><font
-						color="red"> 마감시까지 ${productEndDate-today} 남았습니다. </font></small>
+						color="red"> 마감일 ${oldTime-nowTime}일 남았습니다. </font></small>
 				</h3>
 
 
