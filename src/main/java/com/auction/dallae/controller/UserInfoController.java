@@ -26,14 +26,13 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/userinfolist", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo userInfo) {
-
+						System.out.println(userInfo);
 		return userInfoService.getUserInfoList(userInfo);
 	}
 
 	@RequestMapping(value = "/userinfo/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
-
 		return "user-info/view";
 	}
 	
