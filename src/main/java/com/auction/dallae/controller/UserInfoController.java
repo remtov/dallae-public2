@@ -89,9 +89,7 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public @ResponseBody UserInfo getUserInfo2(@ModelAttribute UserInfo userInfo) {
-			System.out.println(userInfo+"바보");
-			System.out.println(userInfoService.getId(userInfo));
-			System.out.println(userInfo+"바보");
+			
 		return userInfoService.getId(userInfo);
 	}
 

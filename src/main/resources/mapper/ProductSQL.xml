@@ -6,12 +6,30 @@
 	<select id="getProductList" resultType="product"
 		parameterType="product">
 		select * from product
+		<where>
+			<if test="productNumber!=null"> and productNumber like '%'||#{productNumber}||'%'</if>
+			<if test="productName!=null"> and productName like '%'||#{productName}||'%'</if>
+			<if test="productCategory!=null"> and productCategory like '%'||#{productCategory}||'%'</if>
+			<if test="productQuantity!=null"> and productQuantity like '%'||#{productQuantity}||'%'</if>
+			<if test="productDate!=null"> and productDate like '%'||#{productDate}||'%'</if>
+			<if test="productEndDate!=null"> and productEndDate like '%'||#{productEndDate}||'%'</if>
+			<if test="productLowestPrice!=null"> and productLowestPrice like '%'||#{productLowestPrice}||'%'</if>
+			<if test="productImage!=null"> and productImage like '%'||#{productImage}||'%'</if>
+			<if test="productDesc!=null"> and productDesc like '%'||#{productDesc}||'%'</if>
+			<if test="productBrand!=null"> and productBrand like '%'||#{productBrand}||'%'</if>
+			<if test="productCondition!=null"> and productCondition like '%'||#{productCondition}||'%'</if>
+			<if test="userId!=null"> and userId like '%'||#{userId}||'%'</if>
+			<if test="userCreditLevel!=null"> and userCreditLevel like '%'||#{userCreditLevel}||'%'</if>
+			<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
+			
+		</where>
+		order by productNumber
 	</select>
-
 
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">
-		SELECT * FROM PRODUCT WHERE ROWNUM&lt;9 ORDER BY PRODUCTENDDATE;
+		SELECT * FROM PRODUCT WHERE ROWNUM&lt;9 ORDER BY
+		PRODUCTENDDATE;
 	</select>
 
 

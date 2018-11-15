@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.view-container {
+	width: 100%;
+	background-color: #f6f6f6;
+}
+
 .inner-box {
 	border: 1px solid #d6d6d6;
 	margin: auto;

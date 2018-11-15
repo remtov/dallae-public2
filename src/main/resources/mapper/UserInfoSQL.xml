@@ -12,21 +12,18 @@
 			<if test="userId!=null"> and userId like '%'||#{userId}||'%'</if>
 			<if test="userPassword!=null"> and userPassword like '%'||#{userPassword}||'%'</if>
 			<if test="userEmail!=null"> and userEmail like '%'||#{userEmail}||'%'</if>
-
+			
+			<if test="userNickName!=null"> and userNickName like '%'||#{userNickName}||'%'</if>
 			<if test="userPhoneNum!=null"> and userPhoneNum like '%'||#{userPhoneNum}||'%'</if>
 			<if test="userSignUpDate!=null"> and userSignUpDate like '%'||#{userSignUpDate}||'%'</if>
 			<if test="userAddress!=null"> and userAddress like '%'||#{userAddress}||'%'</if>
 			<if test="userAddress2!=null"> and userAddress2 like '%'||#{userAddress2}||'%'</if>
-
+			
 			<if test="userLevel!=null"> and userLevel like '%'||#{userLevel}||'%'</if>
 			<if test="userPoint!=null"> and userPoint like '%'||#{userPoint}||'%'</if>
-
 			<if test="userCreditLevel!=null"> and userCreditLevel like '%'||#{userCreditLevel}||'%'
 			</if>
-
-
 			<if test="userImage!=null"> and userImage like '%'||#{userImage}||'%'</if>
-
 
 		</where>
 		order by userNumber
