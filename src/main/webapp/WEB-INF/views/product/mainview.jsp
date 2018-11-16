@@ -22,57 +22,30 @@ h4 {
 		<div class="container">
 			<div class="inner-box">
 
-
-
-
 				<c:set var="endTime" value="${product.productEndDate}" />
-
 				<fmt:parseDate var="endTimeDate" value="${endTime}"
 					pattern="yyyyMMddHHmmss" />
-
 				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
 					integerOnly="true" />
 
-
-				<h3>
-					경매 보기 <small><a href="#" style="color: gray;"> </a></small>
-				</h3>
-				<h3>${product.productCategory}><b>${product.productName} </b><small><font
-						color="red"> 마감시까지 <b id="days-output"></b>일 <b
-							id="minutes-output"></b>분<b id="seconds-output"></b> 초 남았습니다.
+				<h3>경매 보기</h3>
+				<h3>${product.productCategory}><b>${product.productName}</b><small><font
+						color="#e53a6f"> | 마감시까지 <b id="days-output"></b>일<b
+							id="hours-output"></b>시간 <b id="minutes-output"></b>분<b
+							id="seconds-output"></b>초 남았습니다.
 					</font></small>
 				</h3>
 
 				<script type="text/javascript">
-
 				function closingTimeCalculation() {
-
-
 					 var now = new Date();
-					 var dday = new Date(${endTimeNumber}); // 원하는 날짜, 시간, 초단위까지 기입.
-					  
+					 var dday = new Date(${endTimeNumber}); 
 					 var booleanTest =Boolean(now.getTime() < dday.getTime());
-					 alert(booleanTest)
-					 alert('now의 값은? '+now)
-					  alert('dday의 값은? '+dday)
-					  alert('dday-now의 값은? '+(dday-now)) 
-					  alert('now.getTime()의 값은? '+now.getTime())
-					  alert('dday.getTime()의 값은? '+dday.getTime())
-					 
-					  if (now.getTime() > dday.getTime()) {
-						
+
+					 if (now.getTime() > dday.getTime()) {
 					    alert('마감된 상품입니다.')
 					    location.href = '/url/product:list';				
 					  }
-					  
-					    /* -로 되면 밖으로 튕기게
-					    
-					    다른대안
-					    1. c:when으로 다른 페이지 가게 하기.
-					    2. 버튼을 비활성화. 
-					    3. 판매종료라고라는 텍스트를 띄우기.
-					    								*/
-					    								
 					  days = (dday - now) / 1000 / 60 / 60 / 24;
 					  daysRound = Math.floor(days);
 					  
@@ -84,38 +57,24 @@ h4 {
 					  
 					  seconds = (dday - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
 					  secondsRound = Math.round(seconds);
-
-					  document.getElementById("days-output").innerHTML = hoursRound;
+					  
+					  document.getElementById("days-output").innerHTML = daysRound;
+					  document.getElementById("hours-output").innerHTML = hoursRound;
 					  document.getElementById("minutes-output").innerHTML = minutesRound;
 					  document.getElementById("seconds-output").innerHTML = secondsRound;
 					  newtime = window.setTimeout("closingTimeCalculation();", 1000);
 					}
 					setTimeout(closingTimeCalculation, 100);
 </script>
-
-
-
-
-				<div style="overflow: auto;">
-					<div style="width: 100%; float: left;">
-						<div class="fileBox">
-							<img style="width: 100%"
-								src="/resources/img/product/${product.productImage}"
-								id="preview">
-						</div>
-
-					</div>
-				</div>
-
-
-
-
+				<p>
+					<img style="width: 100%"
+						src="/resources/img/product/${product.productImage}">
+				</p>
 				<div style="overflow: auto; margin-top: 10px;">
 					<div style="float: left;">
 						<img style="width: 50px; height: auto;"
 							src="/img/icon_profile.png">
 					</div>
-
 					<div style="margin-left: 10px; float: left;">
 						<p>
 							<a style="font-size: 1.2em;"
