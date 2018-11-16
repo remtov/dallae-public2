@@ -26,16 +26,17 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/userinfolist", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo userInfo) {
-						System.out.println(userInfo);
+		
 		return userInfoService.getUserInfoList(userInfo);
 	}
 
 	@RequestMapping(value = "/userinfo/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
+
 		return "user-info/view";
 	}
-	
+
 	@RequestMapping(value = "/userinfo_my-page/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfoMyPage(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
@@ -43,10 +44,9 @@ public class UserInfoController {
 		return "user-info/my-page_shop";
 	}
 
-	@RequestMapping(value="/userinfo",method=RequestMethod.POST)
+	@RequestMapping(value = "/userinfo", method = RequestMethod.POST)
 	@ResponseBody
-	public int insertUserInfo (@RequestBody UserInfo userInfo)
-	{
+	public int insertUserInfo(@RequestBody UserInfo userInfo) {
 
 		return userInfoService.insertUserInfo(userInfo);
 	}
@@ -88,7 +88,7 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public @ResponseBody UserInfo getUserInfo2(@ModelAttribute UserInfo userInfo) {
-			
+
 		return userInfoService.getId(userInfo);
 	}
 

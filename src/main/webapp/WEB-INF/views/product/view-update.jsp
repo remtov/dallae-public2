@@ -87,10 +87,8 @@ h4 {
 							<label for="productImage" class="btn btn-default"
 								style="width: 100%;"><span>+</span>1번 사진</label> <input
 								name="productImage" required type="file" id="productImage"
-								class="uploadBtn" name="productImage"
-								value="${product.productImage}"> <img
-								name="preview"
-								style="width: 100%"
+								class="uploadBtn" name="productImage"> <img
+								name="preview" style="width: 100%"
 								src="/resources/img/product/${product.productImage}"
 								id="preview">
 						</div>
