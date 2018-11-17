@@ -7,6 +7,8 @@
 		parameterType="product">
 		select * from product
 		<where>
+			productEnddate
+			>=to_char(sysdate,'yyyymmdd hh24:mi:ss')
 			<if test="productNumber!=null"> and productNumber like '%'||#{productNumber}||'%'</if>
 			<if test="productName!=null"> and productName like '%'||#{productName}||'%'</if>
 			<if test="productCategory!=null"> and productCategory like '%'||#{productCategory}||'%'
@@ -28,15 +30,17 @@
 			<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
 
 		</where>
-		order by productNumber DESC
+		order by productEnddate asc
 	</select>
 
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">
 
-		select * from (SELECT * FROM PRODUCT WHERE productEnddate
-		>=to_char(sysdate+3,'yyyymmdd hh24:mi:ss') order by productEnddate asc
-		)Product WHERE rownum &lt;9;
+		select * from 
+		(SELECT * FROM PRODUCT WHERE productEnddate >= 
+		to_char(sysdate,'yyyymmdd hh24:mi:ss')
+		order by productEnddate asc)
+		WHERE rownum <![CDATA[<]]> 9
 	</select>
 
 

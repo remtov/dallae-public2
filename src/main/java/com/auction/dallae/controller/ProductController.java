@@ -29,12 +29,11 @@ public class ProductController {
 	public List<Product> getProductList() {
 		return productService.getProductList(null);
 	}
-
-	@RequestMapping(value = "/productlist_enddate", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/productlistenddate", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Product> getProductListEndDate(@RequestBody Product product) {
-
-		return productService.getProductListEndDate(product);
+	public List<Product> getProductListEndDate() {
+		return productService.getProductListEndDate(null);
 	}
 
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
