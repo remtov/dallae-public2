@@ -40,7 +40,6 @@ h4 {
 				function closingTimeCalculation() {
 					 var now = new Date();
 					 var dday = new Date(${endTimeNumber}); 
-					 var booleanTest =Boolean(now.getTime() < dday.getTime());
 
 					 if (now.getTime() > dday.getTime()) {
 					    alert('마감된 상품입니다.')
@@ -48,7 +47,7 @@ h4 {
 					  }
 					  days = (dday - now) / 1000 / 60 / 60 / 24;
 					  daysRound = Math.floor(days);
-					  
+
 					  hours = (dday - now) / 1000 / 60 / 60 - (24 * daysRound);
 					  hoursRound = Math.floor(hours);
 					  
