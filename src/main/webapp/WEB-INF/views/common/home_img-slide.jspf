@@ -51,7 +51,7 @@ window.addEventListener('load',function(){
 			html += 'active';
 			}
 			html += '"><div><div id="home-title_end-message">';
-			html +='<h3><b>마감임박! </b> 마감시 '+${res[i].productEndDate}+'에 경매가 종료됩니다.</h3>';
+			html +='<h3><b>마감임박! </b> 마감시 '+${res.productEndDate}+'에 경매가 종료됩니다.</h3>';
 			html +='<p>'+${res[i].productName}+' | <b>'+${res[i].productLowestPrice}+'</b> | '+${res[i].productBrand}+'</p>';
 			html +='<button class="btn btn-danger" onclick="location.href=''">입찰</button>';
 			html +='<button class="btn btn-default"';

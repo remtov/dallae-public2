@@ -43,24 +43,23 @@ window.addEventListener('load',function(){
 			res = JSON.parse(res);
 			
 			var html = '';
-						
-			html += '<ol class="carousel-indicators">';
-			for (var j = 0; j < 8; j++) {
-			html += '<li data-slide-to="'+j+'"></li>';
-			}
-			html += '</ol><div class="carousel-inner" role="listbox">';
-			
-			for (var i = 1; i < 9; i++) {
-			html += '<div class="item'
-			if (i == 1) { active }
-			html += '"><div>';
-			html += '<div id="home-title_end-message">';
-			html += '<h3><b>마감임박! </b> 마감시'+${res[i].productEndDate}+'에 경매가 종료됩니다.</h3><p>';
-			html += ${res[i].productName} +'| <b>'+${res[i].productLowestPrice}+'</b> |'+${res[i].productBrand}
-			html += '</p><button class="btn btn-danger" onclick="location.href='#'">입찰</button>';
-			html += '<button class="btn btn-default"';
-			html += 'onclick="location.href='/product/${res[i].productNumber}'">더보기</button></div>';
-			html += '<img style="width: 100%;" src="/img/mainSlide-'+i+'.jpg"></div></div>';
+			for(var product of res) {
+				html += '<button onclick="goPage('+product.productNumber+')">'+product.productNumber+'</button>';
+				html += '<p>'+ product.productNumber+'</p>';
+				html += '<p>'+ product.productName + '</p>';
+				html += '<p>'+ product.productCategory + '</p>';
+				html += '<p>'+ product.productQuantity + '</p>';
+				html += '<p>'+ product.producpate + '</p>';
+				html += '<p>'+ product.productEndDate + '</p>';
+				html += '<p>'+ product.productLowestPrice + '</p>';
+				html += '<p>'+ product.productImage + '</p>';
+				html += '<p>'+ product.producpesc + '</p>';
+				html += '<p>'+ product.productBrand + '</p>';
+				html += '<p>'+ product.productCondition + '</p>';
+				html += '<p>'+ product.userId + '</p>';
+				html += '<p>'+ product.userCreditLevel + '</p>';
+				html += '<p>'+ product.userNumber + '</p>';
+				html += '</tr>';
 			}
 			document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
 	}
@@ -71,31 +70,10 @@ window.addEventListener('load',function(){
 </head>
 <body>
 
-	<div id="dropDown-img">
-		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
-
-			<div id="productlistEnddateDiv"></div>
-
-		</div>
-		<div>
-			<a class="left carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="prev"> <span aria-hidden="true">
-					<p>&lt;</p>
-			</span>
-			</a> <a class="right carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="next"> <span aria-hidden="true">
-					<p>&gt;</p>
-			</span>
-			</a>
-		</div>
-	</div>
+	<div id="productlistEnddateDiv"></div>
 	
-	<script>
-		function goPage(productNumber) {
-			location.href = '/product/' + productNumber;
-		}
-	</script>
+	
+	
 </body>
 </html>
 
