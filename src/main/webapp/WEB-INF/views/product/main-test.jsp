@@ -29,15 +29,7 @@ h4 {
             <fmt:formatDate var="today" value="${now}" pattern="yyyyMMddHHmmss" />
             <fmt:formatDate var="today" value="${now}"  />
 
-            
-<!-- 
-            <script type="text/javascript">
-             ${productEndDate-today}
-             </script> -->
-
-
-
-
+     
             <h3>
                경매 보기 <small><a href="#" style="color: gray;"> </a></small>
             </h3>

@@ -8,7 +8,7 @@
 		select * from product
 		<where>
 			productEnddate
-			>=to_char(sysdate,'yyyymmdd hh24:mi:ss')
+			>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
 			<if test="productNumber!=null"> and productNumber like '%'||#{productNumber}||'%'</if>
 			<if test="productName!=null"> and productName like '%'||#{productName}||'%'</if>
 			<if test="productCategory!=null"> and productCategory like '%'||#{productCategory}||'%'
@@ -38,7 +38,7 @@
 
 		select * from 
 		(SELECT * FROM PRODUCT WHERE productEnddate >= 
-		to_char(sysdate,'yyyymmdd hh24:mi:ss')
+		to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
 		order by productEnddate asc)
 		WHERE rownum <![CDATA[<]]> 9
 	</select>
@@ -78,8 +78,8 @@
 		#{productCategory},
 
 		#{productQuantity},
-		to_char(SYSDATE,'YYYYMMDDHH24MISS'),
-		to_char(SYSDATE+3,'YYYYMMDDHH24MISS'),
+		to_char(SYSDATE,'YYYY-MM-DD HH24:mi:ss'),
+		to_char(SYSDATE+3,'YYYY-MM-DD HH24:mi:ss'),
 
 		#{productLowestPrice},
 		#{productImage},

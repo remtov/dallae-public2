@@ -45,14 +45,14 @@ window.addEventListener('load',function(){
 	response = JSON.parse(response);
 	
 	var now = new Date();
-	var dday0 = new Date(response[0].productEndDate*1);
-	var dday1 = new Date(response[1].productEndDate*1);
-	var dday2 = new Date(response[2].productEndDate*1);
-	var dday3 = new Date(response[3].productEndDate*1);
-	var dday4 = new Date(response[4].productEndDate*1);
-	var dday5 = new Date(response[5].productEndDate*1);
-	var dday6 = new Date(response[6].productEndDate*1);
-	var dday7 = new Date(response[7].productEndDate*1);
+	var dday0 = new Date(response[0].productEndDate);
+	var dday1 = new Date(response[1].productEndDate);
+	var dday2 = new Date(response[2].productEndDate);
+	var dday3 = new Date(response[3].productEndDate);
+	var dday4 = new Date(response[4].productEndDate);
+	var dday5 = new Date(response[5].productEndDate);
+	var dday6 = new Date(response[6].productEndDate);
+	var dday7 = new Date(response[7].productEndDate);
 	
 	alert('now의값은?'+now);
 	alert('response[0].productEndDate의값은?'+response[0].productEndDate);
@@ -60,15 +60,19 @@ window.addEventListener('load',function(){
 	alert('dday0의값은?'+dday0);
 	alert('dday1의값은?'+dday1);
 
+
 			
-	days0 = (dday0-now) / 1000 / 60 / 60 / 24;
-	days1 = (dday1-now) / 1000 / 60 / 60 / 24;
-	days2 = (dday2-now) / 1000 / 60 / 60 / 24;
-	days3 = (dday3-now) / 1000 / 60 / 60 / 24;
-	days4 = (dday4-now) / 1000 / 60 / 60 / 24;
-	days5 = (dday5-now) / 1000 / 60 / 60 / 24;
-	days6 = (dday6-now) / 1000 / 60 / 60 / 24;
-	days7 = (dday7-now) / 1000 / 60 / 60 / 24;
+	days0 = (dday0 - now) / 1000 / 60 / 60 / 24;
+	days1 = (dday1 - now) / 1000 / 60 / 60 / 24;
+	days2 = (dday2 - now) / 1000 / 60 / 60 / 24;
+	days3 = (dday3 - now) / 1000 / 60 / 60 / 24;
+	days4 = (dday4 - now) / 1000 / 60 / 60 / 24;
+	days5 = (dday5 - now) / 1000 / 60 / 60 / 24;
+	days6 = (dday6 - now) / 1000 / 60 / 60 / 24;
+	days7 = (dday7 - now) / 1000 / 60 / 60 / 24;
+	alert('dday7-now의값은?'+(dday7 - now));
+	alert('days7의 값은?'+ days7);
+	
 	daysRound0 = Math.floor(days0);
 	daysRound1 = Math.floor(days1);
 	daysRound2 = Math.floor(days2);
@@ -190,7 +194,5 @@ ajaxUtil.send();
 	</script>
 </body>
 </html>
-
-
 
 

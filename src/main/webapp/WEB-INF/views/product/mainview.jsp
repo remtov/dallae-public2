@@ -24,7 +24,7 @@ h4 {
 
 				<c:set var="endTime" value="${product.productEndDate}" />
 				<fmt:parseDate var="endTimeDate" value="${endTime}"
-					pattern="yyyyMMddHHmmss" />
+					pattern="yyyy-MM-dd HH:mm:ss" />
 				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
 					integerOnly="true" />
 

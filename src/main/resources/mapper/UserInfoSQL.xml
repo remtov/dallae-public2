@@ -65,7 +65,7 @@
 		#{userEmail},
 		#{userNickName},
 		#{userPhoneNum},
-		to_char(sysdate,'YYYY-MM-DDHH24MISS'),
+		to_char(sysdate,'YYYY-MM-DD HH24:mi:ss'),
 		#{userAddress},
 		#{userAddress2},
 		1,
