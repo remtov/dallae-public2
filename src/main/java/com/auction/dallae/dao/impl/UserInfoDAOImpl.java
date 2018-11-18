@@ -69,6 +69,12 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return sqlSession.selectOne("SQL.UserInfo.getLogin",userInfo);
 	}
 
+	@Override
+	public int checkId(UserInfo userInfo) {
+		
+		return sqlSession.selectOne("SQL.UserInfo.checkId",userInfo);
+	}
+
 
 
 }

@@ -66,4 +66,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userInfoDAO.login(userInfo);
 	}
 
+	@Override
+	public int checkId(UserInfo userInfo) {
+		
+		return userInfoDAO.checkId(userInfo);
+	}
+
 }

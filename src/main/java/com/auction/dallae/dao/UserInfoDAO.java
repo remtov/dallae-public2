@@ -21,4 +21,6 @@ public interface UserInfoDAO {
 	public UserInfo getPassword(UserInfo userInfo);
 
 	public UserInfo login(UserInfo userInfo);
+	
+	public int checkId(UserInfo userInfo);
 }

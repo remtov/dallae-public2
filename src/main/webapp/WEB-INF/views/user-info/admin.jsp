@@ -125,7 +125,7 @@ div {
 		var conf = {
 		url : '/userinfolist?' + params,
 		method:'GET',
-		success : function(res){
+		success : function(res){ 
 			
 			res = JSON.parse(res);
 			document.querySelector('#user-info_div').innerHTML = '';

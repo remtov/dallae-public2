@@ -29,9 +29,6 @@
 		order by userNumber
 	</select>
 
-
-
-
 	<select id="getUserInfo" resultType="userInfo">
 		select * from userInfo
 		<where>

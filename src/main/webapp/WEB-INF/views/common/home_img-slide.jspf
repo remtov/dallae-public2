@@ -44,99 +44,7 @@ window.addEventListener('load',function(){
 	success : function(response){
 	response = JSON.parse(response);
 	
-	var now = new Date();
-	var dday0 = new Date(response[0].productEndDate);
-	var dday1 = new Date(response[1].productEndDate);
-	var dday2 = new Date(response[2].productEndDate);
-	var dday3 = new Date(response[3].productEndDate);
-	var dday4 = new Date(response[4].productEndDate);
-	var dday5 = new Date(response[5].productEndDate);
-	var dday6 = new Date(response[6].productEndDate);
-	var dday7 = new Date(response[7].productEndDate);
 	
-	alert('now의값은?'+now);
-	alert('response[0].productEndDate의값은?'+response[0].productEndDate);
-	alert('response[1].productEndDate의값은?'+response[1].productEndDate);
-	alert('dday0의값은?'+dday0);
-	alert('dday1의값은?'+dday1);
-
-
-			
-	days0 = (dday0 - now) / 1000 / 60 / 60 / 24;
-	days1 = (dday1 - now) / 1000 / 60 / 60 / 24;
-	days2 = (dday2 - now) / 1000 / 60 / 60 / 24;
-	days3 = (dday3 - now) / 1000 / 60 / 60 / 24;
-	days4 = (dday4 - now) / 1000 / 60 / 60 / 24;
-	days5 = (dday5 - now) / 1000 / 60 / 60 / 24;
-	days6 = (dday6 - now) / 1000 / 60 / 60 / 24;
-	days7 = (dday7 - now) / 1000 / 60 / 60 / 24;
-	alert('dday7-now의값은?'+(dday7 - now));
-	alert('days7의 값은?'+ days7);
-	
-	daysRound0 = Math.floor(days0);
-	daysRound1 = Math.floor(days1);
-	daysRound2 = Math.floor(days2);
-	daysRound3 = Math.floor(days3);
-	daysRound4 = Math.floor(days4);
-	daysRound5 = Math.floor(days5);
-	daysRound6 = Math.floor(days6);
-	daysRound7 = Math.floor(days7);
-
-	hours0 = (dday0- now) / 1000 / 60 / 60 - (24 * daysRound0);  
-	hours1 = (dday1- now) / 1000 / 60 / 60 - (24 * daysRound1);
-	hours2 = (dday2- now) / 1000 / 60 / 60 - (24 * daysRound2);
-	hours3 = (dday3- now) / 1000 / 60 / 60 - (24 * daysRound3);
-	hours4 = (dday4- now) / 1000 / 60 / 60 - (24 * daysRound4);
-	hours5 = (dday5- now) / 1000 / 60 / 60 - (24 * daysRound5);
-	hours6 = (dday6- now) / 1000 / 60 / 60 - (24 * daysRound6);
-	hours7 = (dday7- now) / 1000 / 60 / 60 - (24 * daysRound7);
-	hoursRound0 = Math.floor(hours0);
-	hoursRound1 = Math.floor(hours1);
-	hoursRound2 = Math.floor(hours2);
-	hoursRound3 = Math.floor(hours3);
-	hoursRound4 = Math.floor(hours4);
-	hoursRound5 = Math.floor(hours5);
-	hoursRound6 = Math.floor(hours6);
-	hoursRound7 = Math.floor(hours7);
-
-	minutes0 = (dday0- now) / 1000 / 60 - (24 * 60 * daysRound0) - (60 * hoursRound0);
-	minutes1 = (dday1- now) / 1000 / 60 - (24 * 60 * daysRound1) - (60 * hoursRound1);
-	minutes2 = (dday2- now) / 1000 / 60 - (24 * 60 * daysRound2) - (60 * hoursRound2);
-	minutes3 = (dday3- now) / 1000 / 60 - (24 * 60 * daysRound3) - (60 * hoursRound3);
-	minutes4 = (dday4- now) / 1000 / 60 - (24 * 60 * daysRound4) - (60 * hoursRound4);
-	minutes5 = (dday5- now) / 1000 / 60 - (24 * 60 * daysRound5) - (60 * hoursRound5);
-	minutes6 = (dday6- now) / 1000 / 60 - (24 * 60 * daysRound6) - (60 * hoursRound6);
-	minutes7 = (dday7- now) / 1000 / 60 - (24 * 60 * daysRound7) - (60 * hoursRound7);
-	minutesRound0 = Math.floor(minutes0);
-	minutesRound1 = Math.floor(minutes1);
-	minutesRound2 = Math.floor(minutes2);
-	minutesRound3 = Math.floor(minutes3);
-	minutesRound4 = Math.floor(minutes4);
-	minutesRound5 = Math.floor(minutes5);
-	minutesRound6 = Math.floor(minutes6);
-	minutesRound7 = Math.floor(minutes7);
-				  
-	seconds0 = (dday0- now) / 1000 - (24 * 60 * 60 * daysRound0) - (60 * 60 * hoursRound0) - (60 * minutesRound0);
-	seconds1 = (dday1- now) / 1000 - (24 * 60 * 60 * daysRound1) - (60 * 60 * hoursRound1) - (60 * minutesRound1);
-	seconds2 = (dday2- now) / 1000 - (24 * 60 * 60 * daysRound2) - (60 * 60 * hoursRound2) - (60 * minutesRound2);
-	seconds3 = (dday3- now) / 1000 - (24 * 60 * 60 * daysRound3) - (60 * 60 * hoursRound3) - (60 * minutesRound3);
-	seconds4 = (dday4- now) / 1000 - (24 * 60 * 60 * daysRound4) - (60 * 60 * hoursRound4) - (60 * minutesRound4);
-	seconds5 = (dday5- now) / 1000 - (24 * 60 * 60 * daysRound5) - (60 * 60 * hoursRound5) - (60 * minutesRound5);
-	seconds6 = (dday6- now) / 1000 - (24 * 60 * 60 * daysRound6) - (60 * 60 * hoursRound6) - (60 * minutesRound6);
-	seconds7 = (dday7- now) / 1000 - (24 * 60 * 60 * daysRound7) - (60 * 60 * hoursRound7) - (60 * minutesRound7);
-	secondsRound0 = Math.round(seconds0);
-	secondsRound1 = Math.round(seconds1);
-	secondsRound2 = Math.round(seconds2);
-	secondsRound3 = Math.round(seconds3);
-	secondsRound4 = Math.round(seconds4);
-	secondsRound5 = Math.round(seconds5);
-	secondsRound6 = Math.round(seconds6);
-	secondsRound7 = Math.round(seconds7);
-
-	var daysArray = [daysRound0,daysRound1,daysRound2,daysRound3,daysRound4,daysRound5,daysRound6,daysRound7];
-	var hoursArray = [hoursRound0,hoursRound1,hoursRound2,hoursRound3,hoursRound4,hoursRound5,hoursRound6,hoursRound7];
-	var minutesArray = [minutesRound0,minutesRound1,minutesRound2,minutesRound3,minutesRound4,minutesRound5,minutesRound6,minutesRound7];
-	var secondsArray = [secondsRound0,secondsRound1,secondsRound2,secondsRound3,secondsRound4,secondsRound5,secondsRound6,secondsRound7];
 	
 	var html = '';
 	html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
@@ -147,10 +55,25 @@ window.addEventListener('load',function(){
 		html +=	' class="active';
 		}
 		html +='"></li>';
+	
 	}
 	html +='</ol>';
 	html += '<div class="carousel-inner" role="listbox">';
+	var now = new Date();
 	for (var i = 0; i < 8; i++) {
+
+		var dday = new Date(response[i].productEndDate);
+		days = (dday - now) / 1000 / 60 / 60 / 24;
+		daysRound = Math.floor(days);
+		hours = (dday- now) / 1000 / 60 / 60 - (24 * daysRound); 
+		hoursRound = Math.floor(hours);
+		minutes = (dday- now) / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
+		minutesRound = Math.floor(minutes);
+		seconds = (dday- now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+		secondsRound = Math.round(seconds);
+	
+	
+	
 	html += '<div style="max-height:500px; overflow:hidden;" class="item';
 	if (i == 0) {
 	html += ' active';
@@ -159,7 +82,7 @@ window.addEventListener('load',function(){
 	html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[i].productImage+'" alt="해당 경매가 마감되었습니다.">';
 	html += '<div class="carousel-caption" >';
 	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);">'
-			+ daysArray[i]+ ' 일'+hoursArray[i]+' 시'+minutesArray[i]+' 분'+secondsArray[i]+'초 뒤에 경매가 종료됩니다. '
+			+ daysRound+ ' 일'+hoursRound+' 시'+minutesRound+' 분'+secondsRound+'초 뒤에 경매가 종료됩니다. '
 			+ '</span></p><button class="btn btn-danger" onclick="goPage('
 			+ response[i].productNumber + ')">입찰</button><button style="margin-left:5px;" class="btn btn-default" onclick="goPage('
 			+ response[i].productNumber + ')">더보기</button></div></div>';

@@ -121,5 +121,10 @@ public class UserInfoController {
 		}
 		return userInfoService.login(userInfo);
 	}
+	@RequestMapping(value = "check-id", method = RequestMethod.GET)
+    public @ResponseBody int idCheck(@ModelAttribute UserInfo userInfo) {
+		
+        return userInfoService.checkId(userInfo);
+    }
 
 }

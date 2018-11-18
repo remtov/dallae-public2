@@ -52,7 +52,7 @@ function agreeCheck(frm){
 								class="form-control" style="width: 200px" placeholder="이름">
 						</p>
 						<p>
-							아이디 <input style="width: 200px" type="text" id="userId"
+							아이디 <input style="width: 200px" type="text" id="userId" oninput="checkId()"
 								data-vali="2" class="form-control" placeholder="아이디">
 						</p>
 						<p>
@@ -186,6 +186,9 @@ function execPostCode() {
 
 /* 배진석 주소API추가 */
 
+
+
+
 function save(){
 	
 	var userName = document.querySelector('#userName').value;
@@ -266,6 +269,40 @@ function save(){
 }
 	
 }
+var idCheck = 0;
+
+function checkId() {
+	var userId = document.querySelector('#userId').value;
+	/* var params = 'userId =' + userId;
+	var conf = {
+        url : "/check-id",
+        param : params,
+        method:'POST', */
+       
+        $.ajax({
+            data : {
+            	userId : userId
+            },
+            url : "/check-id",
+        success : function(res) {
+            if(userId=="" && res=='0') {
+                $("#userId").css("background-color", "#FFCECE");
+                idCheck = 0;   
+            } else if (res == '1') {
+                $("#userId").css("background-color", "#FFCECE");
+                idCheck = 0;
+            } else {
+                $("#userId").css("background-color", "#B0F6AC");
+                idCheck = 1;
+                }
+        }
+        });
+/*     }
+	var ajaxUtil = new AjaxUtil(conf);
+	ajaxUtil.send(); */
+}
+
+
 </script>
 </body>
 </html>
