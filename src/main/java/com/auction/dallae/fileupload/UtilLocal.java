@@ -26,34 +26,41 @@ package com.auction.dallae.fileupload;
 			
 			Map<String, MultipartFile> files = request.getFileMap();
 			it = request.getFileMap().keySet().iterator();
-			while(it.hasNext()) {
-				String key = it.next();
+			String dataName = "";
+			String key = "";
+			int cnt = 1;
+			while (it.hasNext()) {
+				key = it.next();
+				System.out.println(key);
 				String fileName = files.get(key).getOriginalFilename();
-				
-				if(!fileName.equals("")) {
-					String extensionName = fileName.substring(fileName.lastIndexOf("."));//확장자명 뽑아옴
-					String lastFileName = System.currentTimeMillis() + extensionName ;//이름=업로드시간+확장자명
+
+				if (!fileName.equals("")) {
+					String extensionName = fileName.substring(fileName.lastIndexOf("."));// 확장자명 뽑아옴
+					String lastFileName = System.currentTimeMillis() +"num"+ cnt + extensionName;// 이름=업로드시간+확장자명
 					File uploadFile = new File(uploadPath, lastFileName);
-					
 					try {
 						files.get(key).transferTo(uploadFile);
+						dataName += lastFileName + "|";
+						cnt++;
 					} catch (IllegalStateException | IOException e) {
 						e.printStackTrace();
 					}
-					map.put(key, lastFileName);
+
 				}
+
 			}
-			
+			dataName = dataName.substring(0, dataName.length() - 1);
+			map.put("productImage", dataName);
+
 			System.out.println(map);
 			return map;
 		}
-		
+
 		public static void deleteFile(String filePath) {
 			File file = new File(filePath);
-			if(file.exists()){
+			if (file.exists()) {
 				file.delete();
 			}
-			
+
 		}
 	}
-
