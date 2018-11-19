@@ -82,9 +82,6 @@ h4 {
 							</a> <br> 게시물 번호: ${product.productNumber} <br>
 
 
-
-
-
 						</p>
 					</div>
 					<div style="float: right;">

@@ -43,9 +43,7 @@ window.addEventListener('load',function(){
 	url : '/productlistenddate',
 	success : function(response){
 	response = JSON.parse(response);
-	
-	
-	
+		
 	var html = '';
 	html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
 	html += '<ol class="carousel-indicators">';
@@ -71,9 +69,7 @@ window.addEventListener('load',function(){
 		minutesRound = Math.floor(minutes);
 		seconds = (dday- now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
 		secondsRound = Math.round(seconds);
-	
-	
-	
+		
 	html += '<div style="max-height:500px; overflow:hidden;" class="item';
 	if (i == 0) {
 	html += ' active';
@@ -98,7 +94,6 @@ window.addEventListener('load',function(){
 	html += '<span class="sr-only">Next</span></a></div>';
 	
 		document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
-
 	
 	}
 });
