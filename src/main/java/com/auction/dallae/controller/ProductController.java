@@ -57,7 +57,7 @@ public class ProductController {
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
 			@PathVariable Integer productNumber) {
 		System.out.println(productNumber);
-		Product product = PM.MapToVo(UtilLocal.saveFile(multipartHttpServletRequest), Product.class);
+		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		product.setProductNumber(productNumber);
 		return productService.updateProduct(product);
 	}
@@ -65,7 +65,7 @@ public class ProductController {
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
-		Product product = PM.MapToVo(UtilLocal.saveFile(multipartHttpServletRequest), Product.class);
+		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		return productService.insertProduct(product);
 	}
 
