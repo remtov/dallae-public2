@@ -97,7 +97,7 @@ window.addEventListener('load',function(){
 	
 	}
 });
-ajaxUtil.send();
+ajaxUtil.send();   
 });
 </script>
 </head>
