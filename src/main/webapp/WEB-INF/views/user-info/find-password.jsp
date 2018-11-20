@@ -126,7 +126,7 @@
 		if (code == 13) {
 			findPassword()
 		}
-
+	}
 		function findPassword() {
 			var userId = document.querySelector('#userId').value
 			var userName = document.querySelector('#userName').value
@@ -155,7 +155,7 @@
 
 		}
 
-	}
+	
 	
 </script>
 
