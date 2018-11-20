@@ -17,7 +17,7 @@ th {
 }
 
 tr {
-	/* border: 1px solid black; */
+	
 	height: 50px;
 }
 
@@ -53,21 +53,15 @@ table {
 				<p>
 					이전페이지로 돌아 가시겠습니까? <a onclick="backBtn()">돌아가기</a>
 				</p>
-
 			</div>
 
-
-
 			<c:set value="${getUserInfo}" var="userinfo" />
-
-
 			<div style="padding: 20px; background-color: white;">
 				<h2>
 					My Page>ID<b> ${userinfo.userId} </b><small>님의 페이지 입니다.
 						${userinfo.userSignUpDate} <b> No.${userinfo.userNumber}</b>
 					</small>
 				</h2>
-
 				<!-- 프로필사진Div -->
 				<div class="row">
 					<div class="col-md-6"
@@ -119,8 +113,6 @@ table {
 
 					<div class="col-md-6"
 						style="padding: 10px; border: 1px solid #f6f6f6;">
-
-
 
 						이메일<input type="email" id="userEmail"
 							value="${userinfo.userEmail}" data-vali="2" required>

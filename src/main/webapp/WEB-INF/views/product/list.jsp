@@ -27,6 +27,6 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-	<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
+	
 </body>
 </html>

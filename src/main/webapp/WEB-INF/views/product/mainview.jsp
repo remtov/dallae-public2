@@ -93,7 +93,7 @@ h4 {
 								html += ' active';
 								}
 								html += '">';
-								html+='<img style="width: 100%" src="/resources/img/product/'+img[i]+'">';
+								html+='<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+img[i]+'">';
 								html+='<div class="carousel-caption"></div></div>';
 							}
 			
@@ -175,7 +175,7 @@ h4 {
 	</div>
 
 
-	<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
+	
 	<script>
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;
