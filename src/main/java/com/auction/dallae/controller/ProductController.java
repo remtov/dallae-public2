@@ -46,7 +46,6 @@ public class ProductController {
 		return new ModelAndView("product/view-update", "product", productService.getProduct(productNumber));
 	}
 
-	
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Integer deleteProduct(@PathVariable Integer productNumber) {
