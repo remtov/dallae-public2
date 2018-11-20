@@ -30,7 +30,13 @@ window.addEventListener('load', function() {
 	        };
 	        html += '<div class="col-sm-6 col-md-3">';
 	        html += '<div class="thumbnail">';
-	        html += '<img style="width:100%;" alt="sell-img" src="/resources/img/product/' + res[i].productImage + '" onclick="goPage(' + res[i].productNumber + ')">';
+	        html += '<img style="width:100%;" alt="sell-img" src="/resources/img/product/';
+	        
+			var imgs = res[i].productImage;
+			var img = imgs.split('|');
+			
+			html += img[0];
+		    html += '" onclick="goPage(' + res[i].productNumber + ')">';
 	        html += '<div class="caption" style="overflow: hidden; text-overflow: ellipsis;">';
 	        html += '<h3>' + res[i].productName + '</h3>';
 	        html += '<h4>시작가격 : ' + res[i].productLowestPrice + ' 원</h4>';

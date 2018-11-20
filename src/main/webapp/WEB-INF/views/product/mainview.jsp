@@ -68,11 +68,44 @@ h4 {
 					window.addEventListener('load', function() {
 						var imgs = '${product.productImage}';
 						var img = imgs.split('|');
-						var html ="";
-						for(var i=0;i<img.length;i++){
-							html+="<img style='width: 100%'src='/resources/img/product/"+img[i]+"'>";
-						}
-						document.querySelector('.view').insertAdjacentHTML('beforebegin', html);
+						var html ='';
+												
+						html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
+						html += '<ol class="carousel-indicators">';
+						
+						for (var j = 0; j < img.length; j++) {
+							html += '<li data-target="#carousel-example-generic" data-slide-to="'+j+'"';
+							
+							if (j == 0) {
+								html +=	' class="active';
+								}
+							html +='"></li>';
+	
+							}
+						
+							html +='</ol>';
+							html += '<div class="carousel-inner" role="listbox">';
+							
+						for (var i = 0; i < img.length; i++) {
+							html += '<div style="max-height:500px; overflow:hidden;" class="item';
+
+							if (i == 0) {
+								html += ' active';
+								}
+								html += '">';
+								html+='<img style="width: 100%" src="/resources/img/product/'+img[i]+'">';
+								html+='<div class="carousel-caption"></div></div>';
+							}
+			
+							html += '</div>';
+							html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
+							html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
+							html += '<span class="sr-only">Previous</span></a>';
+							html += '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
+							html += '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+							html += '<span class="sr-only">Next</span></a></div>';
+						
+							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
 					});
 </script>
 				<div class='view'>

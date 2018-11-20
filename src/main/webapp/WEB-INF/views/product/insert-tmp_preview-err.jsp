@@ -110,7 +110,7 @@ file-box-container {
 											data-content="제목은 구매자가 귀하의 상품을 찾는 데 도움이 됩니다. 정확히 진술하십시오. 검색하는 데 사용될 단어를 포함 하십시오.">제품
 											명</a>
 									</div>
-									<div class="col-md-9" >
+									<div class="col-md-9">
 										<input required type="text" class="form-control"
 											id="productName" name="productName"
 											placeholder="제품명을 입력해 주세요" data-vc="2,50">
@@ -153,71 +153,34 @@ file-box-container {
 											data-vc="1,50"></textarea>
 									</div>
 								</div>
+
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span>사진
 									</div>
-									<div class="col-md-9" id="file-box-container" data-img>
-										<div>
-											<div class="fileBox">
-												<label for="productImage" class="btn btn-default"><span>+</span>1번
-													사진</label> <input name="productImage" required type="file"
-													id="productImage" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview" name="preview">
-											</div>
-											<div class="fileBox">
-												<label for="productImage2" class="btn btn-default"><span>+</span>2번
-													사진</label> <input name="productImage2" required type="file"
-													id="productImage2" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview2" name="preview">
-											</div>
-											<div class="fileBox">
-												<label for="productImage3" class="btn btn-default"><span>+</span>3번
-													사진</label> <input name="productImage3" required type="file"
-													id="productImage3" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview3" name="preview">
-											</div>
-										</div>
-										<div>
-											<div class="fileBox">
-												<label for="productImage4" class="btn btn-default"><span>+</span>4번
-													사진</label> <input name="productImage4" required type="file"
-													id="productImage4" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview4" name="preview">
-											</div>
-											<div class="fileBox">
-												<label for="productImage5" class="btn btn-default">+
-													5번 사진</label> <input name="productImage5" required type="file"
-													id="productImage5" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview5" name="preview">
-											</div>
-											<div class="fileBox">
-												<label for="productImage6" class="btn btn-default">+
-													6번 사진</label> <input name="productImage6" required type="file"
-													id="productImage6" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview6" name="preview">
-											</div>
-										</div>
-										<div>
-											<div class="fileBox">
-												<label for="productImage7" class="btn btn-default">+
-													7번 사진</label> <input name="productImage7" required type="file"
-													id="productImage7" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview7" name="preview">
-											</div>
-											<div class="fileBox">
-												<label for="productImage8" class="btn btn-default">+
-													8번 사진</label> <input name="productImage8" required type="file"
-													id="productImage8" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview8" name="preview">
-											</div>
-											<div class="fileBox">
-												<label for="productImage9" class="btn btn-default">+
-													9번 사진</label> <input name="productImage9" required type="file"
-													id="productImage9" class="uploadBtn"> <img
-													src="/img/icon-img.png" id="preview9" name="preview">
-											</div>
-										</div>
+									<div class="col-md-9" id="file-box-container" data-pi>
+
+										<script type="text/javascript">
+									window.addEventListener('load', function() {
+									var html ="";
+									
+									for(var i=0;i<3;i++){  
+										html+= '<div>';
+										for(var j=0;j<3;j++){
+											
+											html+='<div class="fileBox"><label for="productImage" class="btn btn-default">';
+											html+='<span>+</span>사진</label>';
+											html+='<input name="productImage" required type="file" id="productImage" class="uploadBtn">';
+											html+='<img src="/img/icon-img.png" id="preview" name="preview" data-img></div>';
+											
+									}
+										html+='</div>';
+									}
+									
+									document.querySelector('[data-pi]').insertAdjacentHTML('beforeEnd', html);
+								});
+								</script>
+
 									</div>
 								</div>
 
@@ -302,7 +265,7 @@ file-box-container {
 	<script>
 	window.addEventListener('load', function() {
 		var fileInputs = document.querySelectorAll('.uploadBtn');
-		var previews = document.querySelectorAll('*[name=preview]');
+		var previews = document.querySelectorAll('[data-img]');
 		
 		fileInputs.forEach((e, i) => {
 			e.onchange = function(event) {
