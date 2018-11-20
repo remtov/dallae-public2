@@ -95,8 +95,8 @@ window.addEventListener('load',function(){
 	
 		document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
 	
-	}
-});
+	}    
+});      
 ajaxUtil.send();   
 });
 </script>
