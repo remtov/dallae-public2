@@ -200,7 +200,7 @@ function save(){
 	var userAddress = document.querySelector('#userAddress').value;
 	var userAddress2 = document.querySelector('#userAddress2').value;
 	
-
+	
 
 	var valis = document.querySelectorAll('*[data-vali]');
 	/* 이메일검사 */
@@ -217,7 +217,12 @@ function save(){
 			return false;
 		}
 	});
-
+	var id = $("#userId").val();
+	var checkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+	if(checkid.test(id)){
+		alert("한글을 아이디로 하실수 없습니다");
+		 return false; 
+	};
 	if (emailVal.match(regExp) != null) {
 		
 	} else {
