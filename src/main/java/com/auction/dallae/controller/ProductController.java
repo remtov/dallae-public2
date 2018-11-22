@@ -17,12 +17,18 @@ import com.auction.dallae.fileupload.Util;
 import com.auction.dallae.fileupload.UtilLocal;
 import com.auction.dallae.service.ProductService;
 import com.auction.dallae.vo.Product;
+import com.auction.dallae.vo.ProductBidding;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	
+	private ProductBiddingController productBiddingController;
+	
+	private ProductBidding productBidding;
 
 	@RequestMapping(value = "/productlist", method = RequestMethod.GET)
 	@ResponseBody
@@ -66,6 +72,8 @@ public class ProductController {
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
+		int num = product.getProductNumber();
+		
 		return productService.insertProduct(product);
 	}
 

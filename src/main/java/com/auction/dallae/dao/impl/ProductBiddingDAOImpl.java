@@ -12,30 +12,30 @@ import com.auction.dallae.vo.ProductBidding;
 public class ProductBiddingDAOImpl implements ProductBiddingDAO{
 
 	@Autowired
-	private SqlSessionTemplate SqlSessionTemplate;
+	private SqlSessionTemplate sqlSessionTemplate;
 	@Override
 	public List<ProductBidding> getProductBiddingList(ProductBidding ProductBidding) {
-		return SqlSessionTemplate.selectList("SQL.ProductBiddingSQL.getProductBiddingList", ProductBidding);
+		return sqlSessionTemplate.selectList("SQL.ProductBiddingSQL.getProductBiddingList", ProductBidding);
 	}
 
 	@Override
-	public ProductBidding getProductBidding(Integer ProductNumber) {
-		return SqlSessionTemplate.selectOne("SQL.ProductBiddingSQL.getProductBidding", ProductNumber);
+	public ProductBidding getProductBidding(Integer productNumber) {
+		return sqlSessionTemplate.selectOne("SQL.ProductBiddingSQL.getProductBidding", productNumber);
 	}
 
 	@Override
-	public int insertProductBidding(ProductBidding ProductBidding) {
-		return SqlSessionTemplate.insert("SQL.ProductBiddingSQL.insertProductBidding", ProductBidding);
+	public int insertProductBidding(ProductBidding productBidding) {
+		return sqlSessionTemplate.insert("SQL.ProductBiddingSQL.insertProductBidding", productBidding);
 	}
 
 	@Override
-	public int updateProductBidding(ProductBidding ProductBidding) {
-		return SqlSessionTemplate.delete("SQL.ProductBiddingSQL.deleteProductBidding", ProductBidding);
+	public int updateProductBidding(ProductBidding productBidding) {
+		return sqlSessionTemplate.delete("SQL.ProductBiddingSQL.deleteProductBidding", productBidding);
 	}
 
 	@Override
-	public int deleteProductBidding(Integer ProductNumber) {
-		return SqlSessionTemplate.update("SQL.ProductBiddingSQL.updateProductBidding", ProductNumber);
+	public int deleteProductBidding(Integer productNumber) {
+		return sqlSessionTemplate.update("SQL.ProductBiddingSQL.updateProductBidding", productNumber);
 	}
 
 

@@ -9,9 +9,9 @@ public interface ProductBiddingDAO {
 
 	public ProductBidding getProductBidding(Integer productNumber);
 
-	public int insertProductBidding(ProductBidding ProductBidding);
+	public int insertProductBidding(ProductBidding productBidding);
 
-	public int updateProductBidding(ProductBidding ProductBidding);
+	public int updateProductBidding(ProductBidding productBidding);
 
 	public int deleteProductBidding(Integer productNumber);
 

@@ -2,56 +2,56 @@ package com.auction.dallae.vo;
 
 public class ProductBidding {
 	private Integer productNumber;
-	private Integer BidCount;
-	private String BiddingId;
-	private Integer BiddingStatus;
+	private Integer bidCount;
+	private String biddingId;
+	private String biddingDate;
+	private Integer biddingStatus;
 	
-	@Override
-	public String toString() {
-		return "ProductBidding [productNumber=" + productNumber + ", BidCount=" + BidCount + ", BiddingId=" + BiddingId + ", BiddingStatus=" + BiddingStatus + "]";
+	public ProductBidding() {};
+	public ProductBidding(Integer productNumber, Integer bidCount, String biddingId, String biddingDate,
+			Integer biddingStatus) {
+		super();
+		this.productNumber = productNumber;
+		this.bidCount = bidCount;
+		this.biddingId = biddingId;
+		this.biddingDate = biddingDate;
+		this.biddingStatus = biddingStatus;
 	}
-
 	public Integer getProductNumber() {
 		return productNumber;
 	}
-
 	public void setProductNumber(Integer productNumber) {
 		this.productNumber = productNumber;
 	}
-
 	public Integer getBidCount() {
-		return BidCount;
+		return bidCount;
 	}
-
 	public void setBidCount(Integer bidCount) {
-		BidCount = bidCount;
+		this.bidCount = bidCount;
 	}
-
 	public String getBiddingId() {
-		return BiddingId;
+		return biddingId;
 	}
-
 	public void setBiddingId(String biddingId) {
-		BiddingId = biddingId;
+		this.biddingId = biddingId;
 	}
-
+	public String getBiddingDate() {
+		return biddingDate;
+	}
+	public void setBiddingDate(String biddingDate) {
+		this.biddingDate = biddingDate;
+	}
 	public Integer getBiddingStatus() {
-		return BiddingStatus;
+		return biddingStatus;
 	}
-
 	public void setBiddingStatus(Integer biddingStatus) {
-		BiddingStatus = biddingStatus;
+		this.biddingStatus = biddingStatus;
+	}
+	@Override
+	public String toString() {
+		return "ProductBidding [productNumber=" + productNumber + ", bidCount=" + bidCount + ", biddingId=" + biddingId
+				+ ", biddingDate=" + biddingDate + ", biddingStatus=" + biddingStatus + "]";
 	}
 
-	public ProductBidding(Integer productNumber, Integer bidCount, String biddingId, Integer biddingStatus) {
-		this.productNumber = productNumber;
-		BidCount = bidCount;
-		BiddingId = biddingId;
-		BiddingStatus = biddingStatus;
-	}
-
-	public ProductBidding() {
-		
-	}
 
 }
