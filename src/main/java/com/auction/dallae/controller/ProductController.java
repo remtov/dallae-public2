@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.auction.dallae.fileupload.PM;
 import com.auction.dallae.fileupload.Util;
 import com.auction.dallae.fileupload.UtilLocal;
+import com.auction.dallae.service.ProductBiddingService;
 import com.auction.dallae.service.ProductService;
 import com.auction.dallae.vo.Product;
 import com.auction.dallae.vo.ProductBidding;
@@ -25,8 +26,8 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	
-	private ProductBiddingController productBiddingController;
+	@Autowired
+	private ProductBiddingService productBiddingService;
 	
 	private ProductBidding productBidding;
 
@@ -65,6 +66,7 @@ public class ProductController {
 		System.out.println(productNumber);
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		product.setProductNumber(productNumber);
+		
 		return productService.updateProduct(product);
 	}
 
@@ -72,8 +74,8 @@ public class ProductController {
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
-		int num = product.getProductNumber();
-		
+		productBidding.setProductNumber(product.getProductNumber());
+		productBiddingService.insertProductBidding(productBidding);
 		return productService.insertProduct(product);
 	}
 
