@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.auction.dallae.fileupload.PM;
-import com.auction.dallae.fileupload.Util;
 import com.auction.dallae.service.SellerInfoService;
+import com.auction.dallae.utils.fileupload.PM;
+import com.auction.dallae.utils.fileupload.Util;
 import com.auction.dallae.vo.SellerInfo;
 
 

@@ -1,4 +1,4 @@
-package com.auction.dallae.fileupload;
+package com.auction.dallae.utils.fileupload;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;

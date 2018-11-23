@@ -1,4 +1,4 @@
-package com.auction.dallae.fileupload;
+package com.auction.dallae.utils.fileupload;
 
 
 
@@ -19,7 +19,6 @@ public class Util {
 
 	public static Map<String, Object> saveFile(MultipartHttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
-
 		Map<String, Object> data = request.getParameterMap();
 		Iterator<String> it = data.keySet().iterator();
 		uploadPath= request.getSession().getServletContext().getRealPath("/") +"/resources/img/product";

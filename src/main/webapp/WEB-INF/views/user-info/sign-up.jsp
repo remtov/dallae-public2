@@ -41,7 +41,7 @@
 						</p>
 						<p>
 							아이디 <input style="width: 200px" type="text" id="userId"
-								oninput="checkId()" class="form-control" placeholder="아이디"
+								oninput="checkId2()" class="form-control" placeholder="아이디"
 								data-vc="2,30">
 						</p>
 						<p>
@@ -194,8 +194,8 @@ function save() {
       }
    });
    var idCheck = 0;
-
-   function checkId() {
+}
+   function checkId2() {
       var userId = document.querySelector('#userId').value;
       $.ajax({
          data: {
@@ -216,7 +216,7 @@ function save() {
          }
       });
    }
-}
+
 </script>
 </body>
 </html>

@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.auction.dallae.fileupload.PM;
-import com.auction.dallae.fileupload.Util;
-import com.auction.dallae.fileupload.UtilLocal;
 import com.auction.dallae.service.ProductBiddingService;
 import com.auction.dallae.service.ProductService;
+import com.auction.dallae.utils.fileupload.PM;
+import com.auction.dallae.utils.fileupload.Util;
+import com.auction.dallae.utils.fileupload.UtilLocal;
 import com.auction.dallae.vo.Product;
 import com.auction.dallae.vo.ProductBidding;
 

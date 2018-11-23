@@ -1,5 +1,6 @@
 package com.auction.dallae.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,11 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.auction.dallae.service.UserInfoService;
+import com.auction.dallae.utils.sha.SHAUtils;
 import com.auction.dallae.vo.UserInfo;
 
 @Controller
 public class UserInfoController {
 
+	@Autowired
+	public  SHAUtils shautil;
+	
 	@Autowired
 	public UserInfoService userInfoService;
 
@@ -46,8 +51,8 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/userinfo", method = RequestMethod.POST)
 	@ResponseBody
-	public int insertUserInfo(@RequestBody UserInfo userInfo) {
-
+	public int insertUserInfo(@RequestBody UserInfo userInfo) throws UnsupportedEncodingException {
+		userInfo.setUserPassword(shautil.makeEcnStr(userInfo.getUserPassword()));
 		return userInfoService.insertUserInfo(userInfo);
 	}
 
@@ -108,8 +113,8 @@ public class UserInfoController {
 	// 로그인 처리
 	@RequestMapping(value = "/dologin", method = RequestMethod.POST)
 	public @ResponseBody UserInfo logInProcess(@RequestBody UserInfo userInfo, HttpSession httpSession,
-			HttpServletRequest httpServletRequest) {
-
+			HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
+		userInfo.setUserPassword(shautil.makeEcnStr(userInfo.getUserPassword()));
 		UserInfo loginUser = userInfoService.login(userInfo);
 		if (httpSession.getAttribute("userlogininfo") != null) {
 			httpSession.removeAttribute("userlogininfo");

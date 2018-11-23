@@ -1,4 +1,4 @@
-package com.auction.dallae.fileupload;
+package com.auction.dallae.utils.fileupload;
 
 import java.lang.reflect.Method;
 import java.util.Iterator;

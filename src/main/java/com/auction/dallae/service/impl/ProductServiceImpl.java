@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.auction.dallae.dao.impl.ProductDAOImpl;
-import com.auction.dallae.fileupload.Util;
 import com.auction.dallae.service.ProductService;
+import com.auction.dallae.utils.fileupload.Util;
 import com.auction.dallae.vo.Product;
 
 
