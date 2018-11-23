@@ -171,7 +171,7 @@ file-box-container {
 											html+='<div class="fileBox"><label for="productImage" class="btn btn-default">';
 											html+='<span>+</span>사진</label>';
 											html+='<input name="productImage" required type="file" id="productImage" class="uploadBtn">';
-											html+='<img src="/img/icon-img.png" id="preview" name="preview" data-img></div>';
+											html+='<img src="/img/icon-img.png" name="preview" data-img="1"></div>';
 											
 									}
 										html+='</div>';
@@ -265,7 +265,7 @@ file-box-container {
 	<script>
 	window.addEventListener('load', function() {
 		var fileInputs = document.querySelectorAll('.uploadBtn');
-		var previews = document.querySelectorAll('[data-img]');
+		var previews = document.querySelectorAll('*[data-img="1"]');
 		
 		fileInputs.forEach((e, i) => {
 			e.onchange = function(event) {
