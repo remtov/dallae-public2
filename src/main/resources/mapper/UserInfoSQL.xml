@@ -12,19 +12,16 @@
 			<if test="userId!=null"> and userId like '%'||#{userId}||'%'</if>
 			<if test="userPassword!=null"> and userPassword like '%'||#{userPassword}||'%'</if>
 			<if test="userEmail!=null"> and userEmail like '%'||#{userEmail}||'%'</if>
-			
 			<if test="userNickName!=null"> and userNickName like '%'||#{userNickName}||'%'</if>
 			<if test="userPhoneNum!=null"> and userPhoneNum like '%'||#{userPhoneNum}||'%'</if>
 			<if test="userSignUpDate!=null"> and userSignUpDate like '%'||#{userSignUpDate}||'%'</if>
 			<if test="userAddress!=null"> and userAddress like '%'||#{userAddress}||'%'</if>
 			<if test="userAddress2!=null"> and userAddress2 like '%'||#{userAddress2}||'%'</if>
-			
 			<if test="userLevel!=null"> and userLevel like '%'||#{userLevel}||'%'</if>
 			<if test="userPoint!=null"> and userPoint like '%'||#{userPoint}||'%'</if>
 			<if test="userCreditLevel!=null"> and userCreditLevel like '%'||#{userCreditLevel}||'%'
 			</if>
 			<if test="userImage!=null"> and userImage like '%'||#{userImage}||'%'</if>
-
 		</where>
 		order by userNumber
 	</select>
@@ -35,19 +32,18 @@
 			userNumber = #{userNumber}
 		</where>
 	</select>
+
 	<insert id="insertUserInfo" parameterType="userInfo">
 		INSERT INTO USERINFO
 		(USERNUMBER,
 		USERNAME,
 		USERID,
 		USERPASSWORD,
-
 		USEREMAIL,
 		USERNICKNAME,
 		USERPHONENUM,
 		USERSIGNUPDATE,
 		USERADDRESS,
-
 		USERADDRESS2,
 		USERLEVEL,
 		USERPOINT,
@@ -70,41 +66,38 @@
 		5,
 		null
 		)
-
 	</insert>
+
 	<update id="updateUserInfo" parameterType="userInfo">
 		update USERINFO
 		<set>
-
-
 			<if test="userName!=null">USERNAME=#{userName},</if>
 			<if test="userId!=null">USERID=#{userId},</if>
 			<if test="userPassword!=null">USERPASSWORD=#{userPassword},</if>
 			<if test="userEmail!=null">USEREMAIL=#{userEmail},</if>
 			<if test="userNickName!=null">USERNICKNAME=#{userNickName},</if>
-
 			<if test="userPhoneNum!=null">USERPHONENUM=#{userPhoneNum},</if>
-
 			<if test="userAddress!=null">USERADDRESS=#{userAddress},</if>
-
 			<if test="userAddress2!=null">USERADDRESS2=#{userAddress2},</if>
 			<if test="userLevel!=null">USERLEVEL=#{userLevel},</if>
 			<if test="userPoint!=null">USERPOINT=#{userPoint},</if>
 			<if test="userCreditLevel!=null">USERCREDITLEVEL=#{userCreditLevel},</if>
 			<if test="userImage!=null">USERIMAGE=#{userImage},</if>
-
 		</set>
 		where userNumber=#{userNumber}
 	</update>
+
 	<delete id="deleteUserInfo" parameterType="userInfo">
 		delete from userInfo
 		where userNumber=#{userNumber}
 	</delete>
+
 	<select id="login" resultType="userInfo">
 		select * from userInfo where
 		userId = #{userId} and userPassword =
 		#{userPassword}
 	</select>
+
 	<update id="keepLogin">
 		update userInfo set sessionKey = #{sessionId},
 		sessionLimit = #{next} where
@@ -118,17 +111,16 @@
 			userName = #{userName} AND userPhoneNum=#{userPhoneNum}
 		</where>
 	</select>
-<!-- 선생님이 도와주실때 적어주신구문>>>> -->
-	<select id="getIdCnt" resultType="int"
-		parameterType="userInfo">
+
+	<!-- 선생님이 도와주실 때 적어주신 구문 -->
+	<select id="getIdCnt" resultType="int" parameterType="userInfo">
 		select count(userId) from userInfo
 		<where>
 			<if test="userName!=null"> and userName = #{userName} </if>
 			<if test="userPhoneNum!=null"> and userPhoneNum = #{userPhoneNum} </if>
 		</where>
 	</select>
-<!-- <<<<선생님이 도와주실때 적어주신구문 지금은 필요없을 수도 있다.-->	
-	
+
 	<select id="getPassword" resultType="userInfo"
 		parameterType="userInfo">
 		select userPassword from userInfo
@@ -136,8 +128,8 @@
 			userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
 			userId=#{userId}
 		</where>
-
 	</select>
+
 	<select id="getLogin" resultType="userInfo"
 		parameterType="userInfo">
 		select

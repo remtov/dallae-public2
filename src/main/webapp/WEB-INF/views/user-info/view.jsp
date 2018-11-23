@@ -221,17 +221,13 @@ window.addEventListener('load', function() {
 	   };
 	   params = JSON.stringify(params);
 	   var conf = {
-	      url: '/updatevil/' + $ {
-	         userinfo.userNumber
-	      },
+	      url: '/updatevil/' + ${userinfo.userNumber},
 	      method: 'PUT',
 	      param: params,
 	      success: function(res) {
 	         if (res == 1) {
 	            alert("성공하였습니다.");
-	            location.href = "/userinfo/" + $ {
-	               userinfo.userNumber
-	            };
+	            location.href = "/userinfo/" + ${userinfo.userNumber};
 	         }
 	      }
 	   };

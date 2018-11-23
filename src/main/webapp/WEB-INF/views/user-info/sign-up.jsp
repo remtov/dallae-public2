@@ -65,9 +65,9 @@
 								id="userNickName" placeholder="별명" data-vc="2,30">
 						</p>
 						<p>
-							전화번호 <input style="max-width: 300px;" type="number"
+							전화번호 <input style="max-width: 300px;" type="text"
 								class="form-control" id="userPhoneNum"
-								placeholder="예)01012345678" adress-vali="2">
+								placeholder="예)01012345678" data-vc="2,30">
 						</p>
 					</div>
 					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
@@ -130,6 +130,29 @@ function execPostCode() {
    }).open();
 }
 
+var idDuplicationCheck = 0
+function checkId2() {
+   var userId = document.querySelector('#userId').value;
+   $.ajax({
+      data: {
+         userId: userId
+      },
+      url: "/check-id",
+      success: function(res) {
+         if (userId == "" && res == '0') {
+            $("#userId").css("background-color", "#FFCECE");
+            idDuplicationCheck = 0;
+         } else if (res == '1') {
+            $("#userId").css("background-color", "#FFCECE");
+            idDuplicationCheck = 0;
+         } else {
+            $("#userId").css("background-color", "#B0F6AC");
+            idDuplicationCheck = 1;
+         }
+      }
+   });
+}
+
 function save() {
    var userName = document.querySelector('#userName').value;
    var userId = document.querySelector('#userId').value;
@@ -145,15 +168,18 @@ function save() {
    var id = $("#userId").val();
    var checkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
    var confirmPassword = document.querySelector("#confirmPassword").value;
-
+   
    valis.forEach((e) => {
       var length = e.getAttribute('data-vali');
       if (e.value.trim().length < length) {
          e.focus();
-         alert('우편번호와 주소가 정상적으로 등록되지 않았습니다.');
+         alert('우편번호와 주소가 정상적으로 입력되지 않았습니다.');
          return false;
       } else if (checkid.test(id)) {
-         alert("한글을 아이디로 하실수 없습니다");
+         alert("한글을 아이디로 가입 하실 수 없습니다");
+         return false;
+      } else if (idDuplicationCheck == 0) {
+         alert("사용중인 아이디 입니다.");
          return false;
       } else if (emailVal.match(regExp) == null) {
          alert('이메일 주소 형식이 올바르지 않습니다. 확인 부탁드립니다.');
@@ -175,7 +201,6 @@ function save() {
             userAddress2: userAddress2
          };
          params = JSON.stringify(params);
-   
          if (valiCheck()) {
             var conf = {
                url: '/userinfo',
@@ -188,35 +213,12 @@ function save() {
                   };
                }
             };
-         }
+         };
          var ajaxUtil = new AjaxUtil(conf);
          ajaxUtil.send();
       }
    });
-   var idCheck = 0;
 }
-   function checkId2() {
-      var userId = document.querySelector('#userId').value;
-      $.ajax({
-         data: {
-            userId: userId
-         },
-         url: "/check-id",
-         success: function(res) {
-            if (userId == "" && res == '0') {
-               $("#userId").css("background-color", "#FFCECE");
-               idCheck = 0;
-            } else if (res == '1') {
-               $("#userId").css("background-color", "#FFCECE");
-               idCheck = 0;
-            } else {
-               $("#userId").css("background-color", "#B0F6AC");
-               idCheck = 1;
-            }
-         }
-      });
-   }
-
 </script>
 </body>
 </html>

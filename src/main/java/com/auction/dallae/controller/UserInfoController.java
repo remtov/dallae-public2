@@ -24,42 +24,38 @@ import com.auction.dallae.vo.UserInfo;
 public class UserInfoController {
 
 	@Autowired
-	public  SHAUtils shautil;
-	
+	public SHAUtils shaUtil;
+
 	@Autowired
 	public UserInfoService userInfoService;
 
 	@RequestMapping(value = "/userinfolist", method = RequestMethod.GET)
 	public @ResponseBody List<UserInfo> getUserInfoList(@ModelAttribute UserInfo userInfo) {
-		
 		return userInfoService.getUserInfoList(userInfo);
 	}
 
 	@RequestMapping(value = "/userinfo/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfo(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
-
 		return "user-info/view";
 	}
 
 	@RequestMapping(value = "/userinfo_my-page/{userNumber}", method = RequestMethod.GET)
 	public String getUserInfoMyPage(Model model, @PathVariable Integer userNumber) {
 		model.addAttribute("getUserInfo", userInfoService.getUserInfo(userNumber));
-
 		return "user-info/my-page_shop";
 	}
 
 	@RequestMapping(value = "/userinfo", method = RequestMethod.POST)
 	@ResponseBody
 	public int insertUserInfo(@RequestBody UserInfo userInfo) throws UnsupportedEncodingException {
-		userInfo.setUserPassword(shautil.makeEcnStr(userInfo.getUserPassword()));
+		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
 		return userInfoService.insertUserInfo(userInfo);
 	}
 
 	@RequestMapping(value = "/delete/{userNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public int deleteUserInfo(@PathVariable Integer userNumber) {
-
 		return userInfoService.deleteUserInfo(userNumber);
 	}
 
@@ -69,14 +65,20 @@ public class UserInfoController {
 		userInfo.setUserNumber(userNumber);
 		return userInfoService.updateUserInfo(userInfo);
 	}
-
+	
+	@RequestMapping(value = "/updatevil/{userId}", method = RequestMethod.PUT)
+	@ResponseBody
+	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber) {
+		userInfo.setUserNumber(userNumber);
+		return userInfoService.updateUserInfo(userInfo);
+	}
+	
 	@RequestMapping(value = "/update/{userNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
 			HttpSession httpSession, HttpServletRequest httpServletRequest) {
 		userInfo.setUserNumber(userNumber);
 		userInfoService.updateUserInfo(userInfo);
-
 		UserInfo loginUser = userInfoService.login(userInfo);
 		if (httpSession.getAttribute("userlogininfo") != null) {
 			httpSession.removeAttribute("userlogininfo");
@@ -86,23 +88,19 @@ public class UserInfoController {
 		} else {
 			httpSession.setAttribute("userlogininfo", null);
 		}
-
 		return userInfoService.updateUserInfo(userInfo);
-
 	}
 
 	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public @ResponseBody UserInfo getUserInfo2(@ModelAttribute UserInfo userInfo) {
-
 		return userInfoService.getId(userInfo);
 	}
 
-	@RequestMapping(value = "/findpass", method = RequestMethod.GET)
+	@RequestMapping(value = "/updatepass", method = RequestMethod.GET)
 	public @ResponseBody UserInfo getUserInfo3(@ModelAttribute UserInfo userInfo) {
-
 		return userInfoService.getPassword(userInfo);
 	}
-
+		
 	// 로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public @ResponseBody Integer logOut(HttpSession httpSession) {
@@ -114,7 +112,7 @@ public class UserInfoController {
 	@RequestMapping(value = "/dologin", method = RequestMethod.POST)
 	public @ResponseBody UserInfo logInProcess(@RequestBody UserInfo userInfo, HttpSession httpSession,
 			HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
-		userInfo.setUserPassword(shautil.makeEcnStr(userInfo.getUserPassword()));
+		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
 		UserInfo loginUser = userInfoService.login(userInfo);
 		if (httpSession.getAttribute("userlogininfo") != null) {
 			httpSession.removeAttribute("userlogininfo");
@@ -126,10 +124,9 @@ public class UserInfoController {
 		}
 		return userInfoService.login(userInfo);
 	}
-	@RequestMapping(value = "check-id", method = RequestMethod.GET)
-    public @ResponseBody int idCheck(@ModelAttribute UserInfo userInfo) {
-		
-        return userInfoService.checkId(userInfo);
-    }
 
+	@RequestMapping(value = "check-id", method = RequestMethod.GET)
+	public @ResponseBody int idCheck(@ModelAttribute UserInfo userInfo) {
+		return userInfoService.checkId(userInfo);
+	}
 }

@@ -77,7 +77,7 @@
 							<p>
 								비밀번호를 잊어버리셨습니까?
 								<button class="btn btn-default btn-xs" type="button"
-									onclick="forgetPass()">비밀번호 찾기</button>
+									onclick="forgetPass()">비밀번호 변경</button>
 							</p>
 							<p style="color: gray;">
 								<b>테스트</b><br> id:admin pw:123 _ 관리자 테스트를 할 수 있습니다.<br>
@@ -90,7 +90,7 @@
 			</c:choose>
 		</div>
 	</div>
-<script>
+	<script>
 		function enter(ent) {
 			var code = ent.which ? ent.which : event.keyCode;
 			if (code == 13) {
@@ -120,7 +120,6 @@
 							logout();
 							location.href = "/url/user-info:login";
 							alert('로그인에 실패하였습니다.');
-
 						}
 						;
 					}
@@ -136,14 +135,14 @@
 		function forgetId() {
 			location.href = "/url/user-info:find-id"
 		}
-		
+
 		function signUp() {
 			location.href = "/url/user-info:sign-up"
 		}
 		function forgetPass() {
-			location.href = "/url/user-info:find-password"
+			location.href = "/url/user-info:update-password"
 		}
-</script>
+	</script>
 </body>
 </html>
 
