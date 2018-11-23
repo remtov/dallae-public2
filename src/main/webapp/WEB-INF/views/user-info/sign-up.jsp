@@ -1,18 +1,15 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Insert title here</title>
+<title>here</title>
 <style>
 </style>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
-	/* 동의해야 인서트가 가능하도록 */
+	/* 필수체크동의 */
 	function agreeCheck(frm) {
 		if (frm.checkButton.disabled == true) {
 			frm.checkButton.disabled = false
@@ -20,31 +17,23 @@
 			frm.checkButton.disabled = true
 		}
 	}
-	
 </script>
-
-
 </head>
 <body>
 	<div class="view-container">
 		<div class="container">
 			<form class="form-horizontal" name="form">
-
 				<div class="row"
 					style="border: 1px solid #d6d6d6; padding: 30px; margin-top: 30px; margin-bottom: 30px;">
 					<h2>
 						<button type="button" class="btn btn-default"
 							onclick="history.back()">X</button>
 						<b>회원가입</b>
-
 					</h2>
-
 					이미 회원입니까?
 					<button class="btn btn-default btn-xs" type="button"
 						onclick="location.href='/url/user-info:login'">로그인</button>
-
 					<hr>
-
 					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<p>
 							이름 <input type="text" id="userName" class="form-control"
@@ -82,7 +71,7 @@
 						</p>
 					</div>
 					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
-						<!-- 진석이 주소API영역 -->
+						<!--주소API-->
 						<p>
 							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
 								id="postCode" placeholder="우편번호" disabled class="form-control"
@@ -95,7 +84,6 @@
 								data-vali="2"> <input type="text" id="userAddress2"
 								placeholder="상세주소" class="form-control" data-vc="2,33">
 						</p>
-						<!-- 진석이 주소API영역 -->
 						<p>
 							<textarea class="form-control" cols="20" rows="5"
 								style="width: 100%; height: 200px;" readonly="readonly">
@@ -113,153 +101,122 @@
 			</form>
 		</div>
 	</div>
-
-
-
-
-
-
 	<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
-	<script>
-		/* 배진석 주소API추가 */
-		function execPostCode() {
-			new daum.Postcode({
-				oncomplete : function(data) {
-					var fullAddr = ''; // 최종 주소 변수
-					var extraAddr = ''; // 조합형 주소 변수
-					if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-						fullAddr = data.roadAddress;
-					} else { // 사용자가 지번 주소를 선택했을 경우(J)
-						fullAddr = data.jibunAddress;
-					}
-					if (data.userSelectedType === 'R') {
-						if (data.bname !== '') {
-							extraAddr += data.bname;
-						}
-						if (data.buildingName !== '') {
-							extraAddr += (extraAddr !== '' ? ', '
-									+ data.buildingName : data.buildingName);
-						}
-						fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')'
-								: '');
-					}
-					document.getElementById('postCode').value = data.zonecode; //5자리 새우편번호 사용
-					document.getElementById('userAddress').value = fullAddr;
-					document.getElementById('userAddress2').focus();
-				}
-			}).open();
-		}
+<script>
+/* 주소API */
+function execPostCode() {
+   new daum.Postcode({
+      oncomplete: function(data) {
+         var fullAddr = ''; // 최종 주소 변수
+         var extraAddr = ''; // 조합형 주소 변수
+         if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+            fullAddr = data.roadAddress;
+         } else { // 사용자가 지번 주소를 선택했을 경우(J)
+            fullAddr = data.jibunAddress;
+         }
+         if (data.userSelectedType === 'R') {
+            if (data.bname !== '') {
+               extraAddr += data.bname;
+            }
+            if (data.buildingName !== '') {
+               extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
+         }
+         document.getElementById('postCode').value = data.zonecode; //5자리 새우편번호 사용
+         document.getElementById('userAddress').value = fullAddr;
+         document.getElementById('userAddress2').focus();
+      }
+   }).open();
+}
 
-		function save() {
+function save() {
+   var userName = document.querySelector('#userName').value;
+   var userId = document.querySelector('#userId').value;
+   var userPassword = document.querySelector('#userPassword').value;
+   var userEmail = document.querySelector('#userEmail').value;
+   var userNickName = document.querySelector('#userNickName').value;
+   var userPhoneNum = document.querySelector('#userPhoneNum').value;
+   var userAddress = document.querySelector('#userAddress').value;
+   var userAddress2 = document.querySelector('#userAddress2').value;
+   var valis = document.querySelectorAll('*[data-vali]');
+   var emailVal = $("#userEmail").val();
+   var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+   var id = $("#userId").val();
+   var checkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+   var confirmPassword = document.querySelector("#confirmPassword").value;
 
-			var userName = document.querySelector('#userName').value;
-			var userId = document.querySelector('#userId').value;
-			var userPassword = document.querySelector('#userPassword').value;
-			var userEmail = document.querySelector('#userEmail').value;
-			var userNickName = document.querySelector('#userNickName').value;
-			var userPhoneNum = document.querySelector('#userPhoneNum').value;
-			var userAddress = document.querySelector('#userAddress').value;
-			var userAddress2 = document.querySelector('#userAddress2').value;
+   valis.forEach((e) => {
+      var length = e.getAttribute('data-vali');
+      if (e.value.trim().length < length) {
+         e.focus();
+         alert('우편번호와 주소가 정상적으로 등록되지 않았습니다.');
+         return false;
+      } else if (checkid.test(id)) {
+         alert("한글을 아이디로 하실수 없습니다");
+         return false;
+      } else if (emailVal.match(regExp) == null) {
+         alert('이메일 주소 형식이 올바르지 않습니다. 확인 부탁드립니다.');
+         return false;
+      } else if (userPassword.trim() !== confirmPassword.trim()) {
+         alert("비밀번호가 다릅니다.");
+         var passFocus = document.querySelector('#Password');
+         passFocus.focus();
+         return false;
+      } else {
+         var params = {
+            userName: userName,
+            userId: userId,
+            userPassword: userPassword,
+            userEmail: userEmail,
+            userNickName: userNickName,
+            userPhoneNum: userPhoneNum,
+            userAddress: userAddress,
+            userAddress2: userAddress2
+         };
+         params = JSON.stringify(params);
+   
+         if (valiCheck()) {
+            var conf = {
+               url: '/userinfo',
+               method: 'POST',
+               param: params,
+               success: function(res) {
+                  if (res == 1) {
+                     alert('회원가입이 완료 되셨습니다.');
+                     location.href = "/";
+                  };
+               }
+            };
+         }
+         var ajaxUtil = new AjaxUtil(conf);
+         ajaxUtil.send();
+      }
+   });
+   var idCheck = 0;
 
-			var valis = document.querySelectorAll('*[data-vali]');
-	
-			var emailVal = $("#userEmail").val();
-			var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-		
-			var id = $("#userId").val();
-			var checkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-	
-			var confirmPassword = document.querySelector("#confirmPassword").value;
-			
-	valis.forEach((e) => {
-		var length = e.getAttribute('data-vali');
-		
-		if(e.value.trim().length < length){
-			e.focus();
-			alert('우편번호와 주소가 정상적으로 등록되지 않았습니다.');
-			return false;
-		}else if(checkid.test(id)) {
-			alert("한글을 아이디로 하실수 없습니다");
-			return false;
-		}else if (emailVal.match(regExp) == null) { 
-			alert('이메일 주소 형식이 올바르지 않습니다. 확인 부탁드립니다.');
-			return false;
-		}else if (userPassword.trim() !== confirmPassword.trim()) {
-			alert("비밀번호가 다릅니다.");
-			var passFocus = document.querySelector('#Password');
-			passFocus.focus();
-			return false;
-			
-			
-			
-		} else {
-			
-			var params = {
-					userName : userName,
-					userId : userId,
-					userPassword : userPassword,
-					userEmail : userEmail,
-
-					userNickName : userNickName,
-					userPhoneNum : userPhoneNum,
-
-					userAddress : userAddress,
-					userAddress2 : userAddress2
-				};
-			params = JSON.stringify(params);
-
-			if (valiCheck()) {
-				var conf = {
-					url : '/userinfo',
-					method : 'POST',
-					param : params,
-					success : function(res) {
-						if (res == 1) {
-							alert('회원가입이 완료 되셨습니다.');
-							location.href = "/";
-						}
-						;
-					}
-
-				};
-			}
-			var ajaxUtil = new AjaxUtil(conf);
-			ajaxUtil.send();
-
-		}
-	
-
-	});
-				
-			var idCheck = 0;
-
-		function checkId() {
-			var userId = document.querySelector('#userId').value;
-
-			$.ajax({
-				data : {
-					userId : userId
-				},
-				url : "/check-id",
-				success : function(res) {
-					if (userId == "" && res == '0') {
-						$("#userId").css("background-color", "#FFCECE");
-						idCheck = 0;
-					} else if (res == '1') {
-						$("#userId").css("background-color", "#FFCECE");
-						idCheck = 0;
-					} else {
-						$("#userId").css("background-color", "#B0F6AC");
-						idCheck = 1;
-					}
-				}
-			});
-		}
-		}
-	</script>
+   function checkId() {
+      var userId = document.querySelector('#userId').value;
+      $.ajax({
+         data: {
+            userId: userId
+         },
+         url: "/check-id",
+         success: function(res) {
+            if (userId == "" && res == '0') {
+               $("#userId").css("background-color", "#FFCECE");
+               idCheck = 0;
+            } else if (res == '1') {
+               $("#userId").css("background-color", "#FFCECE");
+               idCheck = 0;
+            } else {
+               $("#userId").css("background-color", "#B0F6AC");
+               idCheck = 1;
+            }
+         }
+      });
+   }
+}
+</script>
 </body>
 </html>
-
-
-
-

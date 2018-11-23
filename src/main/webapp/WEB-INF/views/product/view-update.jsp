@@ -5,11 +5,6 @@
 <html>
 <head>
 <style>
-div {
-	/* border: 1px solid red; */
-	
-}
-
 #insert_my-form-btn {
 	margin-bottom: 50px;
 }
@@ -47,20 +42,10 @@ h4 {
 	overflow: hidden;
 	clip: re
 }
-/* 파일버튼 바꾸기 css */
 </style>
-
-
 </head>
 <body>
-
-
-
 	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
-	<!-- 관리자 판매자만 보이는영역 -->
-	<!-- 연 회색 바디 -->
-
-	<!-- 컨텐츠 컨테이너 -->
 	<div class="view-container">
 		<div class="container">
 			<div class="common_title-line">
@@ -70,17 +55,11 @@ h4 {
 					</a></small>
 				</h3>
 			</div>
-
-
 			<form id="i-form" enctype="multipart/form-data" method="POST">
-				<!-- 폼 분할 -->
 				<h4>경매 물품정보 수정</h4>
-
 				<h2>${product.productCategory}><b>${product.productName}</b><small>마감일
 						: ${product.productEndDate}</small>
 				</h2>
-
-
 				<div style="overflow: auto;">
 					<div style="width: 33%; float: left;">
 						<div class="fileBox">
@@ -92,7 +71,6 @@ h4 {
 								src="/resources/img/product/${product.productImage}"
 								id="preview">
 						</div>
-
 						<div class="fileBox">
 							<label for="productImage2" class="btn btn-default"
 								style="width: 100%;"><span>+</span>2번 사진</label> <input
@@ -155,25 +133,15 @@ h4 {
 						</div>
 					</div>
 				</div>
-
-
-
-
 				<div style="overflow: auto; margin-top: 10px;">
 					<div style="float: left;">
 						<img style="width: 50px; height: auto;"
 							src="/img/icon_profile.png">
 					</div>
-
 					<div style="margin-left: 10px; float: left;">
 						<p>
 							<b>판매자 ID : ${userId}</b><br> '${userId}' 님의 신용점수
 							${userlogininfo.userPoint} 점 <br>
-
-
-
-
-
 						</p>
 					</div>
 					<div style="float: right;">
@@ -182,15 +150,11 @@ h4 {
 							${product.userCreditLevel} </span> <img src="/img/icon-level-1.png"
 							style="width: 50px; height: auto;">
 					</div>
-
 				</div>
-
 				<hr style="clear: both;">
-
 				<h3>
 					<span class="label label-info">판매중</span>
 				</h3>
-
 				<input required data-vc="2,50" class="form-control" type="text"
 					name="productName" value="${product.productName}"><br>
 				<p>
@@ -198,20 +162,13 @@ h4 {
 						name="productCondition" value="${product.productCondition}">
 					| 등록일 : ${product.productDate}
 				</p>
-
-
 				<p>
 					시작가 : <input required data-vc="1,11" type="number"
 						style="width: 100px;" name="productLowestPrice"
 						value="${product.productLowestPrice}"> 원
-
 				</p>
-
 				<textarea required data-vc="1,600" rows="10" class="form-control"
 					name="productDesc">${product.productDesc}</textarea>
-
-
-
 				<p style="">
 					제품수량 : <input style="margin-bottom: 10px; width: 50px;"
 						data-vc="1,3" required type="number" name="productQuantity"
@@ -220,7 +177,6 @@ h4 {
 						style="margin-bottom: 10px;" required data-vc="1,20" type="text"
 						name="productBrand" value="${product.productBrand}">
 				</p>
-
 				<button class="btn btn-default btn-lg" type="button"
 					onclick="updateBtn(${product.productNumber})">수정</button>
 				<button class="btn btn-danger btn-lg" type="button"
@@ -229,14 +185,10 @@ h4 {
 			</form>
 			<p><%@ include file="/WEB-INF/views/common/content-final.jspf"%></p>
 		</div>
-
 	</div>
-
-
-
 	<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
-
-	<script>
+	
+<script>
 window.addEventListener('load', function() {
 	var fileInputs = document.querySelectorAll('.uploadBtn');
 	var previews = document.querySelectorAll('*[name=preview]');
@@ -246,11 +198,8 @@ window.addEventListener('load', function() {
 			let url = URL.createObjectURL(event.target.files[0]);   
 			console.log(url);
 			previews[i].src = url;
-			
 		};
-
 	});
-		
 });
 	
 function imgVali() {
@@ -263,10 +212,10 @@ function imgVali() {
 			return false;
 		}
 	}
-	
 	return true;
 }
-	function deleteBtn(dsa){
+
+function deleteBtn(dsa){
 		$.ajax({
 			url : '/product/'+${product.productNumber},
 			type : 'DELETE',
@@ -276,8 +225,8 @@ function imgVali() {
 			}
 		})
 	}
-	
-		function updateBtn(){
+
+function updateBtn(){
 		var form = document.querySelector('#i-form');
 		var formData = new FormData(form);
 		if(valiCheck() ){
@@ -292,9 +241,8 @@ function imgVali() {
 					alert('성공');
 				}
 			});
-			}
 		}
-	</script>
-
+}
+</script>
 </body>
 </html>

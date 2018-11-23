@@ -21,13 +21,12 @@ h4 {
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
-
+				<!-- 데이터베이스 날짜형변환 -->
 				<c:set var="endTime" value="${product.productEndDate}" />
 				<fmt:parseDate var="endTimeDate" value="${endTime}"
 					pattern="yyyy-MM-dd HH:mm:ss" />
 				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
 					integerOnly="true" />
-
 				<h3>경매 보기</h3>
 				<h3>${product.productCategory}><b>${product.productName}</b><small><font
 						color="#e53a6f"> | 마감시까지 <b id="days-output"></b>일<b
@@ -107,9 +106,8 @@ h4 {
 						
 							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
 					});
-</script>
-				<div class='view'>
-				</div>
+				</script>
+				<div class='view'></div>
 				<div style="overflow: auto; margin-top: 10px;">
 					<div style="float: left;">
 						<img style="width: 50px; height: auto;"
@@ -121,8 +119,6 @@ h4 {
 								href="/userinfo_my-page/${product.userNumber}">판매자 ID : <b>${product.userId}</b>
 								님의 페이지로 가기
 							</a> <br> 게시물 번호: ${product.productNumber} <br>
-
-
 						</p>
 					</div>
 					<div style="float: right;">
@@ -131,32 +127,20 @@ h4 {
 							${product.userCreditLevel} </span> <img src="/img/icon-level-1.png"
 							style="width: 50px; height: auto;">
 					</div>
-
 				</div>
-
 				<hr style="clear: both;">
-
 				<h3>
 					<span class="label label-info">판매중</span>
 				</h3>
-
-
 				<h3>${product.productName}</h3>
 				<p>상태 : ${product.productCondition} | 등록일 :
 					${product.productDate}</p>
-
-
 				<p>시작가 : ${product.productLowestPrice} 원</p>
-
 				<p>${product.productDesc}</p>
-
-
-
 				<p>
 					제품수량 : <b>${product.productQuantity}</b> 개<br> 브랜드명 :
 					${product.productBrand}
 				</p>
-
 				<c:set var="userId" value="${userlogininfo.userId}"></c:set>
 				<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 				<c:choose>
@@ -164,7 +148,6 @@ h4 {
 						<!-- 관리자이거나 해당본인일경우 -->
 						<button class="btn btn-default btn-lg" type="button"
 							onclick="updateBtn(${product.productNumber})">수정</button>
-
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -173,9 +156,6 @@ h4 {
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
 	</div>
-
-
-	
 	<script>
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;

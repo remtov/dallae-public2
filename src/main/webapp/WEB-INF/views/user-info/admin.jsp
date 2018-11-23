@@ -1,45 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 <title>관리자 페이지</title>
-<style>
-div {
-	/* border: 3px solid red; */
-	
-}
-</style>
-<script>
-	</script>
-
 </head>
-
-
 <body>
-
-
-
 	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
 		<c:when test="${userLevel>2.5}">
-
-
-			<!-- 관리자만보이는영역 -->
-
-			<!-- 회색바탕 -->
 			<div class="view-container">
-				<!-- 컨텐츠컨테이너 -->
 				<div class="container">
-
 					<h3>관리자 페이지</h3>
 					<p>모든 컨텐츠와 회원정보를 편집하거나 관리할 수 있는 페이지 입니다.</p>
-
-
-					<!-- 검색창영역 -->
 					<hr style="clear: both;">
-
 					<div style="width: 28%; float: left;">
 						<select class="form-control input" id="search-select_user-info">
 							<option value="#">선택하세요</option>
@@ -56,30 +32,23 @@ div {
 							<option value="userLevel">권한</option>
 							<option value="userPoint">포인트</option>
 							<option value="userCreditLevel">신용등급</option>
-
 						</select>
 					</div>
-
 					<div style="width: 38%; float: left; margin: 0px 5px 0px 5px;">
-						<input class="form-control input" type="text" id="search-value_user-info">
+						<input class="form-control input" type="text"
+							id="search-value_user-info">
 					</div>
-
-
 					<div style="width: 28%; float: left;">
-						<button class="btn btn-default btn btn-block" type="button" onclick="search()">검색</button>
+						<button class="btn btn-default btn btn-block" type="button"
+							onclick="search()">검색</button>
 					</div>
-
-
-					<!-- 검색창영역 -->
-
 				</div>
-				<!-- 우측컨텐츠 -->
-				<div class="container" style="margin-top: 20px; background-color: white;">
+				<div class="container"
+					style="margin-top: 20px; background-color: white;">
 					<div class="table-responsive">
 						<table class="table table-hover">
 							<thead>
 								<tr>
-
 									<th>번호</th>
 									<th>이름</th>
 									<th>아이디</th>
@@ -89,44 +58,33 @@ div {
 									<th>폰번호</th>
 									<th>주소</th>
 									<th>상세주소</th>
-
 									<th>권한등급</th>
 									<th>신용점수</th>
 									<th>신용등급</th>
 									<th>사진</th>
 								</tr>
 							</thead>
-
 							<tbody id="user-info_div">
 							</tbody>
 						</table>
 					</div>
-
 					<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
-
 				</div>
 			</div>
-
 		</c:when>
 		<c:otherwise>
-			<!-- 세션없는 사람에게 보이는 영역 -->
 			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
-			<!-- 세션없는 사람에게 보이는 영역 -->
 		</c:otherwise>
 	</c:choose>
-	<script>
+<script>
 	function search(){
-
 		var ser =document.querySelector('#search-select_user-info').value;	
 		var tex = document.querySelector('#search-value_user-info').value;
-		
 		var params = ser + '=' + tex;
-
 		var conf = {
 		url : '/userinfolist?' + params,
 		method:'GET',
 		success : function(res){ 
-			
 			res = JSON.parse(res);
 			document.querySelector('#user-info_div').innerHTML = '';
 			var html = '';
@@ -153,8 +111,7 @@ div {
 		var ajaxUtil = new AjaxUtil(conf);
 		ajaxUtil.send();
 	}
-		
  window.addEventListener('load',search);
- </script>
+</script>
 </body>
 </html>

@@ -15,7 +15,6 @@
 }
 </style>
 <script src="/resources/js/AjaxUtil.js"></script>
-
 </head>
 <body>
 	<div class="view-container">
@@ -27,6 +26,5 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-	
 </body>
 </html>
