@@ -11,7 +11,7 @@ package com.auction.dallae.utils.fileupload;
 
 	public class UtilLocal {
 
-		public static final String uploadPath = "C:\\Users\\hyunGoo\\git\\dallae\\src\\main\\webapp\\resources\\img\\product";
+		public static final String uploadPath = "C:\\jsp_study\\workspace\\git\\dallae\\src\\main\\webapp\\resources\\img\\product";
 
 		public static Map<String, Object> saveFile(MultipartHttpServletRequest request){
 			Map<String, Object> map = new HashMap<String, Object>();
