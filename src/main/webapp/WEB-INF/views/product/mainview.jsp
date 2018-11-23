@@ -21,7 +21,7 @@ h4 {
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
-				<!-- 데이터베이스 날짜형변환 -->
+				<!-- 데이터베이스 날짜 형 변환 -->
 				<c:set var="endTime" value="${product.productEndDate}" />
 				<fmt:parseDate var="endTimeDate" value="${endTime}"
 					pattern="yyyy-MM-dd HH:mm:ss" />
@@ -145,7 +145,7 @@ h4 {
 				<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 				<c:choose>
 					<c:when test="${userLevel>2.5||userId==product.userId}">
-						<!-- 관리자이거나 해당본인일경우 -->
+						<!-- 관리자나 같은 아이디일 경우 버튼이 보여서 뷰 업데이트 페이지로 갈 수 있음 -->
 						<button class="btn btn-default btn-lg" type="button"
 							onclick="updateBtn(${product.productNumber})">수정</button>
 					</c:when>
