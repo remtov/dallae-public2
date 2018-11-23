@@ -10,18 +10,15 @@
 #insert_myform-btn {
 	margin-bottom: 50px;
 }
-
 h4 {
 	margin-bottom: 20px;
 }
-
 #myform .row {
 	margin-top: 20px;
 	width: 100%;
 	padding: 5px;
 }
-
-/* 파일버튼> */
+/* 파일버튼 */
 .fileBox {
 	padding: 5px;
 	width: 100%;
@@ -76,21 +73,15 @@ file-box-container {
 		$('[data-toggle="popover"]').popover()
 	})
 	$('#example').popover(options)
-	
 </script>
-
 </head>
 <body>
 	<div class="view-container">
 		<div class="container">
-
 			<c:set var="userLevel" value="${userlogininfo}"></c:set>
 			<c:choose>
 				<c:when test="${userlogininfo.userLevel>1.5}">
-
 					<form id="myform" enctype="multipart/form-data" method="POST">
-						<!-- 판매자,관리자 영역 -->
-
 						<div class="container">
 							<div class="inner-box">
 								<div class="common_title-line">
@@ -100,7 +91,6 @@ file-box-container {
 										</a></small>
 									</h3>
 								</div>
-
 								<h4>경매 물품정보 작성</h4>
 								<div class="row">
 									<div class="col-md-3">
@@ -116,7 +106,6 @@ file-box-container {
 											placeholder="제품명을 입력해 주세요" data-vc="2,50">
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span>제품 분류
@@ -137,7 +126,6 @@ file-box-container {
 										</select>
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span> <a tabindex="0" role="button" type="button"
@@ -146,21 +134,18 @@ file-box-container {
 											data-content="새 것 인지 패키지 포장도 포함 되는지, 생활 기스가 존재 하는지, 누락 되거나 손상된 부분, 주름이나 찢김, 마모, 불완전성에 대한 내용을 한글 50글자내로 작성하여 주십시오.">제품
 											상태</a>
 									</div>
-
 									<div class="col-md-9">
 										<textarea class="form-control" rows="2" id="productCondition"
 											name="productCondition" placeholder="제품의 상태(자세히)"
 											data-vc="1,50"></textarea>
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span>사진
 									</div>
 									<div class="col-md-9" id="file-box-container" data-pi>
-
-										<script type="text/javascript">
+								<script type="text/javascript">
 									window.addEventListener('load', function() {
 									var html ="";
 									
@@ -172,18 +157,14 @@ file-box-container {
 											html+='<span>+</span>사진</label>';
 											html+='<input name="productImage" required type="file" id="productImage" class="uploadBtn">';
 											html+='<img src="/img/icon-img.png" id="preview" name="preview" data-img></div>';
-											
 									}
 										html+='</div>';
 									}
-									
 									document.querySelector('[data-pi]').insertAdjacentHTML('beforeEnd', html);
 								});
 								</script>
-
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span> <a tabindex="0" role="button" type="button"
@@ -198,7 +179,6 @@ file-box-container {
 											name="productDesc" placeholder="제품의 설명" data-vc="1,2000"></textarea>
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span>제품 수량
@@ -209,7 +189,6 @@ file-box-container {
 											placeholder="판매 수량 (숫자)" data-vc="1,3" required>
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span>시작가격설정
@@ -220,7 +199,6 @@ file-box-container {
 											placeholder="제품의 최저가" data-vc="1,10">
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span>제품 브랜드
@@ -231,7 +209,6 @@ file-box-container {
 											data-vc="1,20">
 									</div>
 								</div>
-
 								<div style="display: none">
 									<input class="form-control" type="text" id="userId"
 										name="userId" value="${userlogininfo.userId}"> <input
@@ -241,7 +218,6 @@ file-box-container {
 										class="form-control" type="text" id="userNumber"
 										name="userNumber" value="${userlogininfo.userNumber}">
 								</div>
-
 								<div class="row">
 									<div class="col-md-3"></div>
 									<div class="col-md-9">
@@ -261,7 +237,6 @@ file-box-container {
 			</c:choose>
 		</div>
 	</div>
-
 	<script>
 	window.addEventListener('load', function() {
 		var fileInputs = document.querySelectorAll('.uploadBtn');
@@ -275,6 +250,7 @@ file-box-container {
 			};
 		});
 	});
+
 	function imgsVali() {
 		var imgs = document.querySelectorAll('input[type="file"]');
 		for(img of imgs){
