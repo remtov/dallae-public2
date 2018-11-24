@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
+/* div {
+	border: 1px solid red;
+} */
 #insert_my-form-btn {
 	margin-bottom: 50px;
 }
@@ -42,6 +46,93 @@ h4 {
 	overflow: hidden;
 	clip: re
 }
+
+.view-update_middle-content {
+	overflow: auto;
+}
+
+.view-update_middle-content--33 {
+	width: 33%;
+	float: left;
+}
+
+#view-update_file-box--1 {
+	width: 100%;
+}
+
+.fileBox img {
+	width: 100%;
+}
+
+.view-update_middle-content--33-margin {
+	width: 33%;
+	margin: 0px 1px 0px 1px;
+	float: left;
+}
+
+.view-update_seller-info {
+	overflow: auto;
+	margin-top: 10px;
+}
+
+.view-update_seller-info--pic {
+	float: left;
+}
+
+.view-update_seller-info--pic>img {
+	width: 50px;
+	height: auto;
+}
+
+.view-update_seller-info--id {
+	margin-left: 10px;
+	float: left;
+}
+
+.view-update_seller-info--lv {
+	float: right;
+}
+
+.view-update_seller-info--lv>img {
+	width: 50px;
+	height: auto;
+}
+
+.view-update_seller-info--lv>span {
+	font-size: 0.8em;
+}
+
+.view-update_seller-info--lv>b {
+	font-size: 1.5em;
+	color: #f4969b;
+}
+
+hr {
+	clear: both;
+	visibility: hidden;
+}
+
+#productLowestPrice {
+	width: 100px;
+}
+
+#productQuantity {
+	margin-bottom: 10px;
+	width: 50px;
+}
+
+#productBrand {
+	margin-bottom: 10px;
+	width: 150px;
+}
+
+#button-left {
+	float: left;
+}
+
+#button-rignt {
+	float: right;
+}
 </style>
 </head>
 <body>
@@ -53,120 +144,169 @@ h4 {
 				<!-- 관리자나 같은 아이디일 경우 페이지를 볼 수 있음-->
 				<div class="container">
 					<div class="inner-box2">
-						<div class="common_title-line">
-							<h3>
-								나의 달래 : 경매 보기 <small><a href="#" style="color: gray;">${sessionScope.userlogininfo.userName}
-										<span class="badge">${sessionScope.userlogininfo.userNumber}</span>
-								</a></small>
-							</h3>
-						</div>
+						<h4>
+							<b>경매 수정</b> <small><a href="#"><b>${sessionScope.userlogininfo.userName}</b>(${sessionScope.userlogininfo.userId})
+									<span class="badge">No.${sessionScope.userlogininfo.userNumber}</span>
+							</a></small>
+						</h4>
 						<form id="i-form" enctype="multipart/form-data" method="POST">
-							<h4>경매 물품정보 수정</h4>
 							<h2>${product.productCategory}><b>${product.productName}</b><small>마감일
 									: ${product.productEndDate}</small>
 							</h2>
-							<div style="overflow: auto;">
-								<div style="width: 33%; float: left;">
+
+							<c:set var="productImageSplited"
+								value="${fn:split(product.productImage,'|')}" />
+							<div class="view-update_middle-content">
+								<div class="view-update_middle-content--33">
 									<div class="fileBox">
-										<label for="productImage" class="btn btn-default"
-											style="width: 100%;"><span>+</span>1<br>
-										<img name="preview" style="width: 100%"
-											src="/resources/img/product/${product.productImage}"
-											id="preview"></label> <input name="productImage" required
-											type="file" id="productImage" class="uploadBtn"
-											name="productImage" value="${product.productImage}">
+										<p>
+											<label for="productImage" id="view-update_file-box--1"
+												class="btn btn-default"> <span>+</span>1<br> <img
+												name="preview" src="/img/product/${productImageSplited[0]}"
+												id="preview" onError="this.src='/img/icon-img.png'">
+											</label>
+										</p>
+										<p>
+											<input name="productImage" required type="file"
+												id="productImage" class="uploadBtn" name="productImage"
+												value="${productImageSplited[0]}">
+										</p>
 									</div>
 									<div class="fileBox">
-										<label for="productImage2" class="btn btn-default"
-											style="width: 100%;"><span>+</span>2<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview2"></label> <input
-											name="productImage2" required type="file" id="productImage2"
-											class="uploadBtn">
+										<p>
+											<label for="productImage2" class="btn btn-default"><span>+</span>2<br>
+												<img name="preview"
+												src="/img/product/${productImageSplited[1]}" id="preview2"
+												onError="this.src='/img/icon-img.png'"></label>
+										</p>
+										<p>
+											<input name="productImage2" required type="file"
+												id="productImage2" class="uploadBtn"
+												value="${productImageSplited[1]}">
+										</p>
 									</div>
 									<div class="fileBox">
-										<label for="productImage3" class="btn btn-default"
-											style="width: 100%;"><span>+</span>3<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview3"></label> <input
-											name="productImage3" required type="file" id="productImage3"
-											class="uploadBtn">
-									</div>
-								</div>
-								<div style="width: 33%; float: left;">
-									<div class="fileBox">
-										<label for="productImage4" class="btn btn-default"
-											style="width: 100%;"><span>+</span>4<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview4"></label> <input
-											name="productImage4" required type="file" id="productImage4"
-											class="uploadBtn">
-									</div>
-									<div class="fileBox">
-										<label for="productImage5" class="btn btn-default"
-											style="width: 100%;">+ 5<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview5"></label> <input
-											name="productImage5" required type="file" id="productImage5"
-											class="uploadBtn">
-									</div>
-									<div class="fileBox">
-										<label for="productImage6" class="btn btn-default"
-											style="width: 100%;">+ 6<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview6"></label> <input
-											name="productImage6" required type="file" id="productImage6"
-											class="uploadBtn">
+										<p>
+											<label for="productImage3" class="btn btn-default"><span>+</span>3<br>
+												<img name="preview"
+												src="/img/product/${productImageSplited[2]}" id="preview3"
+												onError="this.src='/img/icon-img.png'"></label>
+										</p>
+										<p>
+											<input name="productImage3" required type="file"
+												id="productImage3" class="uploadBtn"
+												value="${productImageSplited[2]}">
+										</p>
 									</div>
 								</div>
-								<div style="width: 33%; float: left;">
+								<div class="view-update_middle-content--33-margin">
 									<div class="fileBox">
-										<label for="productImage7" class="btn btn-default"
-											style="width: 100%;">+ 7<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview7"></label> <input
-											name="productImage7" required type="file" id="productImage7"
-											class="uploadBtn">
+										<p>
+											<label for="productImage4" class="btn btn-default"><span>+</span>4<br>
+												<img name="preview"
+												src="/img/product/${productImageSplited[3]}" id="preview4"
+												onError="this.src='/img/icon-img.png'"></label>
+										</p>
+										<p>
+											<input name="productImage4" required type="file"
+												id="productImage4" class="uploadBtn"
+												value="${productImageSplited[3]}">
+										</p>
 									</div>
 									<div class="fileBox">
-										<label for="productImage8" class="btn btn-default"
-											style="width: 100%;">+ 8<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview8" name="preview"></label> <input
-											name="productImage8" required type="file" id="productImage8"
-											class="uploadBtn">
+										<p>
+											<label for="productImage5" class="btn btn-default">+
+												5<br> <img name="preview"
+												src="/img/product/${productImageSplited[4]}" id="preview5"
+												onError="this.src='/img/icon-img.png'">
+											</label>
+										</p>
+										<p>
+											<input name="productImage5" required type="file"
+												id="productImage5" class="uploadBtn"
+												value="${productImageSplited[4]}">
+										</p>
 									</div>
 									<div class="fileBox">
-										<label for="productImage9" class="btn btn-default"
-											style="width: 100%;">+ 9<br>
-										<img name="preview" style="width: 100%"
-											src="/img/icon-img.png" id="preview9"></label> <input
-											name="productImage9" required type="file" id="productImage9"
-											class="uploadBtn">
+										<p>
+											<label for="productImage6" class="btn btn-default">+
+												6<br> <img name="preview"
+												src="/img/product/${productImageSplited[5]}" id="preview6"
+												onError="this.src='/img/icon-img.png'">
+											</label>
+										</p>
+										<p>
+											<input name="productImage6" required type="file"
+												id="productImage6" class="uploadBtn"
+												value="${productImageSplited[5]}">
+										</p>
+									</div>
+								</div>
+								<div class="view-update_middle-content--33">
+									<div class="fileBox">
+										<p>
+											<label for="productImage7" class="btn btn-default">+
+												7<br> <img name="preview"
+												src="/img/product/${productImageSplited[6]}" id="preview7"
+												onError="this.src='/img/icon-img.png'">
+											</label>
+										</p>
+										<p>
+											<input name="productImage7" required type="file"
+												id="productImage7" class="uploadBtn"
+												value="${productImageSplited[6]}">
+										</p>
+									</div>
+									<div class="fileBox">
+										<p>
+											<label for="productImage8" class="btn btn-default">+
+												8<br> <img name="preview"
+												src="/img/product/${productImageSplited[7]}"
+												onError="this.src='/img/icon-img.png'" id="preview8"
+												name="preview">
+											</label>
+										</p>
+										<p>
+											<input name="productImage8" required type="file"
+												id="productImage8" class="uploadBtn"
+												value="${productImageSplited[7]}">
+										</p>
+									</div>
+									<div class="fileBox">
+										<p>
+											<label for="productImage9" class="btn btn-default">+
+												9<br> <img name="preview"
+												src="/img/product/${productImageSplited[8]}"
+												onError="this.src='/img/icon-img.png'" id="preview9">
+											</label>
+										</p>
+										<p>
+											<input name="productImage9" required type="file"
+												id="productImage9" class="uploadBtn"
+												value="${productImageSplited[8]}">
+										</p>
 									</div>
 								</div>
 							</div>
-							<div style="overflow: auto; margin-top: 10px;">
-								<div style="float: left;">
-									<img style="width: 50px; height: auto;"
-										src="/img/icon_profile.png">
+
+							<div class="view-update_seller-info">
+								<div class="view-update_seller-info--pic">
+									<img src="/img/icon_profile.png">
 								</div>
-								<div style="margin-left: 10px; float: left;">
+								<div class="view-update_seller-info--id">
 									<p>
 										판매자 <b>ID : ${product.userId}</b><br> 판매자 회원 <b>No.
 											${product.userNumber}</b><br>
 									</p>
 								</div>
-								<div style="float: right;">
-									<span style="font-size: 0.8em;">판매자 신용등급 (최고LV 10) : </span><span
-										style="font-size: 1.5em; color: #f4969b;"> LV
-										${product.userCreditLevel} </span> <img src="/img/icon-level-1.png"
-										style="width: 50px; height: auto;">
+								<div class="view-update_seller-info--lv">
+									<span>판매자 신용등급 (최고LV 10) : </span> <b> LV
+										${product.userCreditLevel} </b> <img src="/img/icon-level-1.png">
 								</div>
 							</div>
-							<hr style="clear: both;">
+							<hr>
 							<h3>
-								<span class="label label-info">판매중</span>
+								<span class="label label-info">경매중</span>
 							</h3>
 							<input required data-vc="2,50" class="form-control" type="text"
 								name="productName" value="${product.productName}"><br>
@@ -177,24 +317,30 @@ h4 {
 							</p>
 							<p>
 								시작가 : <input required data-vc="1,11" type="number"
-									style="width: 100px;" name="productLowestPrice"
+									id="productLowestPrice" name="productLowestPrice"
 									value="${product.productLowestPrice}"> 원
 							</p>
-							<textarea required data-vc="1,600" rows="10" class="form-control"
-								name="productDesc">${product.productDesc}</textarea>
-							<p style="">
-								제품수량 : <input style="margin-bottom: 10px; width: 50px;"
-									data-vc="1,3" required type="number" name="productQuantity"
-									value="${product.productQuantity}"> 개<br> 브랜드명 : <input
-									style="margin-bottom: 10px; width: 150px;"
-									style="margin-bottom: 10px;" required data-vc="1,20"
-									type="text" name="productBrand" value="${product.productBrand}">
+							<p>
+								<textarea required data-vc="1,600" rows="10"
+									class="form-control" name="productDesc">${product.productDesc}</textarea>
 							</p>
-							<button class="btn btn-default btn-lg" type="button"
-								onclick="updateBtn(${product.productNumber})">수정</button>
-							<button class="btn btn-danger btn-lg" type="button"
-								onclick="deleteBtn(${product.productNumber})">주의! 데이터가
-								삭제됩니다.</button>
+							<p>
+								제품수량 : <input data-vc="1,3" required type="number"
+									name="productQuantity" id="productQuantity"
+									value="${product.productQuantity}"> 개
+							</p>
+							<p>
+								브랜드명 : <input required data-vc="1,20" type="text"
+									name="productBrand" id="productBrand"
+									value="${product.productBrand}">
+							</p>
+							<p>
+								<button class="btn btn-danger btn-lg" type="button"
+									onclick="deleteBtn(${product.productNumber})" id="button-left">삭제</button>
+								<button class="btn btn-primary btn-lg" type="button"
+									onclick="updateBtn(${product.productNumber})" id="button-rignt">수정</button>
+							</p>
+							<hr>
 						</form>
 					</div>
 					<p><%@ include file="/WEB-INF/views/common/content-final.jspf"%></p>
@@ -247,11 +393,11 @@ function deleteBtn(dsa){
 function updateBtn(){
 		var form = document.querySelector('#i-form');
 		var formData = new FormData(form);
-		if(valiCheck() ){
+		if(valiCheck()){
 			$.ajax({
 				url : '/product/'+${product.productNumber},
-				contentType : false,//헤더 지우기
-				processData : false,//쿼리스트링 형식으로 바꾸지 않기
+				contentType : false,
+				processData : false,
 				data : formData,
 				type : 'POST',
 				success : function(){

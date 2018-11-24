@@ -85,14 +85,11 @@ file-box-container {
 					<form id="myform" enctype="multipart/form-data" method="POST">
 						<div class="container">
 							<div class="inner-box2">
-								<div class="common_title-line">
-									<h3>
-										나의 달래 : 경매 등록 <small><a href="#"><b>${sessionScope.userlogininfo.userName}</b>(${sessionScope.userlogininfo.userId})
-												<span class="badge">No.${sessionScope.userlogininfo.userNumber}</span>
-										</a></small>
-									</h3>
-								</div>
-								<h4>경매 물품정보 작성</h4>
+								<h4>
+									<b>경매 등록</b> <small><a href="#"><b>${sessionScope.userlogininfo.userName}</b>(${sessionScope.userlogininfo.userId})
+											<span class="badge">No.${sessionScope.userlogininfo.userNumber}</span>
+									</a></small>
+								</h4>
 								<div class="row">
 									<div class="col-md-3">
 										<span>*</span> <a tabindex="0" role="button" type="button"
@@ -149,19 +146,19 @@ file-box-container {
 										<div>
 											<div class="fileBox">
 												<label for="productImage" class="btn btn-default"><span>+</span>1<br>
-												<img src="/img/icon-img.png" id="preview" name="preview"></label>
+													<img src="/img/icon-img.png" id="preview" name="preview"></label>
 												<input name="productImage" required type="file"
 													id="productImage" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage2" class="btn btn-default"><span>+</span>2<br>
-												<img src="/img/icon-img.png" id="preview2" name="preview"></label>
+													<img src="/img/icon-img.png" id="preview2" name="preview"></label>
 												<input name="productImage2" required type="file"
 													id="productImage2" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage3" class="btn btn-default"><span>+</span>3<br>
-												<img src="/img/icon-img.png" id="preview3" name="preview"></label>
+													<img src="/img/icon-img.png" id="preview3" name="preview"></label>
 												<input name="productImage3" required type="file"
 													id="productImage3" class="uploadBtn">
 											</div>
@@ -169,21 +166,21 @@ file-box-container {
 										<div>
 											<div class="fileBox">
 												<label for="productImage4" class="btn btn-default"><span>+</span>4<br>
-												<img src="/img/icon-img.png" id="preview4" name="preview"></label>
+													<img src="/img/icon-img.png" id="preview4" name="preview"></label>
 												<input name="productImage4" required type="file"
 													id="productImage4" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage5" class="btn btn-default">+
-													5<br>
-												<img src="/img/icon-img.png" id="preview5" name="preview">
+													5<br> <img src="/img/icon-img.png" id="preview5"
+													name="preview">
 												</label> <input name="productImage5" required type="file"
 													id="productImage5" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage6" class="btn btn-default">+
-													6<br>
-												<img src="/img/icon-img.png" id="preview6" name="preview">
+													6<br> <img src="/img/icon-img.png" id="preview6"
+													name="preview">
 												</label> <input name="productImage6" required type="file"
 													id="productImage6" class="uploadBtn">
 											</div>
@@ -191,22 +188,22 @@ file-box-container {
 										<div>
 											<div class="fileBox">
 												<label for="productImage7" class="btn btn-default">+
-													7<br>
-												<img src="/img/icon-img.png" id="preview7" name="preview">
+													7<br> <img src="/img/icon-img.png" id="preview7"
+													name="preview">
 												</label> <input name="productImage7" required type="file"
 													id="productImage7" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage8" class="btn btn-default">+
-													8<br>
-												<img src="/img/icon-img.png" id="preview8" name="preview">
+													8<br> <img src="/img/icon-img.png" id="preview8"
+													name="preview">
 												</label> <input name="productImage8" required type="file"
 													id="productImage8" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage9" class="btn btn-default">+
-													9<br>
-												<img src="/img/icon-img.png" id="preview9" name="preview">
+													9<br> <img src="/img/icon-img.png" id="preview9"
+													name="preview">
 												</label> <input name="productImage9" required type="file"
 													id="productImage9" class="uploadBtn">
 											</div>
