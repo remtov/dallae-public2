@@ -75,7 +75,7 @@ window.addEventListener('load',function(){
 	html += ' active';
 	}
 	html += '">';
-	html += '<a onclick="goPage('+ response[i].productNumber+')"><img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[i].productImage+'" alt="해당 경매가 마감되었습니다."></a>';
+	html += '<a onclick="goPage('+ response[i].productNumber+')"><img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[i].productImage+'" alt="해당 이미지의 연결이 끊겼습니다."></a>';
 	html += '<div class="carousel-caption" >';
 	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);">'
 			+ daysRound+ ' 일'+hoursRound+' 시'+minutesRound+' 분'+secondsRound+'초 뒤에 경매가 종료됩니다. '

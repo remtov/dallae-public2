@@ -146,8 +146,9 @@ h4 {
 				<c:choose>
 					<c:when test="${userLevel>2.5||userId==product.userId}">
 						<!-- 관리자나 같은 아이디일 경우 버튼이 보여서 뷰 업데이트 페이지로 갈 수 있음 -->
-						<button class="btn btn-default btn-lg" type="button"
-							onclick="updateBtn(${product.productNumber})">수정</button>
+						<button style="float: right;" class="btn btn-primary btn-lg"
+							type="button" onclick="updateBtn(${product.productNumber})">수정</button>
+						<hr style="visibility: hidden;">
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>

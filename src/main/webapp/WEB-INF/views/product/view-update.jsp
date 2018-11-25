@@ -393,6 +393,7 @@ function deleteBtn(dsa){
 function updateBtn(){
 		var form = document.querySelector('#i-form');
 		var formData = new FormData(form);
+		
 		if(valiCheck()){
 			$.ajax({
 				url : '/product/'+${product.productNumber},
