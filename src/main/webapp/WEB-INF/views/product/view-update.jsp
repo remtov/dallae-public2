@@ -311,14 +311,28 @@ hr {
 							<input required data-vc="2,50" class="form-control" type="text"
 								name="productName" value="${product.productName}"><br>
 							<p>
+								카테고리 :
+								<select id="productCategory" name="productCategory">
+									<option value="none">선택</option>
+									<option value="fashion">패션</option>
+									<option value="digital">디지털</option>
+									<option value="rareCollection">희귀수집품</option>
+									<option value="healthBeauty">건강 및 미용</option>
+									<option value="motorPartz">모터츠파츠</option>
+									<option value="toyHobby">완구,취미</option>
+									<option value="sports">스포츠</option>
+									<option value="life">생활</option>
+								</select>
+							</p>
+							<p>
 								상태 : <input required data-vc="1,30" type="text"
 									name="productCondition" value="${product.productCondition}">
 								| 등록일 : ${product.productDate}
 							</p>
 							<p>
-								시작가 : <input required data-vc="1,11" type="number"
+								가격 : <input required data-vc="1,11" type="number"
 									id="productLowestPrice" name="productLowestPrice"
-									value="${product.productLowestPrice}"> 원
+									value="${product.productLowestPrice}" disabled> 원
 							</p>
 							<p>
 								<textarea required data-vc="1,600" rows="10"

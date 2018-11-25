@@ -18,5 +18,23 @@ public interface ProductService {
 
 	public List<Product> getProductUserId(Product product);
 
-	List<Product> getProductListEndDate(Product product);
+	public List<Product> getProductListEndDate(Product product);
+
+	/* 홈 컨트롤러 탔음 */
+
+	public Product getProductCategoryFashion(Product product);
+
+	public Product getProductCategoryDigital(Product product);
+
+	public Product getProductCategoryRareCollection(Product product);
+
+	public Product getProductCategoryHealthBeauty(Product product);
+
+	public Product getProductCategoryMotorPartz(Product product);
+
+	public Product getProductCategoryToyHobby(Product product);
+
+	public Product getProductCategorySports(Product product);
+
+	public Product getProductCategoryLife(Product product);
 }

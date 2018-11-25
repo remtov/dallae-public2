@@ -34,17 +34,85 @@
 
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">
-		select * from 
-		(SELECT * FROM PRODUCT WHERE productEnddate >= 
+		select * from
+		(SELECT * FROM PRODUCT WHERE productEnddate >=
 		to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
 		order by productEnddate asc)
-		WHERE rownum <![CDATA[<]]> 9
+		WHERE rownum <![CDATA[<]]>
+		9
 	</select>
+
+	<select id="getProductCategoryFashion" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='fashion' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryDigital" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='digital' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryRareCollection" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='rareCollection' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryHealthBeauty" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='healthBeauty' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryMotorPartz" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='motorPartz' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryToyHobby" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='toyHobby' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategorySports" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='sports' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryLife" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='life' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	
 	<select id="getProduct" resultType="product"
 		parameterType="product">
 		select * from product where productNumber
 		=#{productNumber}
 	</select>
+
 	<insert id="insertProduct" parameterType="product">
 		insert into product(
 		ProductNumber,
@@ -67,7 +135,8 @@
 		#{productName},
 		#{productCategory},
 		#{productQuantity},
-		to_char(SYSDATE,'YYYY-MM-DD HH24:mi:ss'),
+		to_char(SYSDATE,'YYYY-MM-DD
+		HH24:mi:ss'),
 		to_char(SYSDATE+3,'YYYY-MM-DD HH24:mi:ss'),
 		#{productLowestPrice},
 		#{productImage},

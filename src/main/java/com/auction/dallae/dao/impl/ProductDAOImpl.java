@@ -58,6 +58,49 @@ public class ProductDAOImpl implements ProductDAO {
 
 		return SqlSessionTemplate.selectList("SQL.ProductSQL.getProductListEndDate", product);
 	}
+	
+	/*카테고리별 매물조회*/
+	@Override
+	public Product getProductCategoryFashion(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryFashion", product);
+	}
+	@Override
+	public Product getProductCategoryDigital(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryDigital", product);
+	}
+	@Override
+	public Product getProductCategoryRareCollection(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryRareCollection", product);
+	}
+	@Override
+	public Product getProductCategoryHealthBeauty(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryHealthBeauty", product);
+	}
+	@Override
+	public Product getProductCategoryMotorPartz(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryMotorPartz", product);
+	}
+	@Override
+	public Product getProductCategoryToyHobby(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryToyHobby", product);
+	}
+	@Override
+	public Product getProductCategorySports(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategorySports", product);
+	}
+	@Override
+	public Product getProductCategoryLife(Product product) {
+
+		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getProductCategoryLife", product);
+	}
+
 
 
 }

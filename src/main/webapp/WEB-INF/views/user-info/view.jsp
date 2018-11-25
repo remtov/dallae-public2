@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -51,7 +50,9 @@ table {
 				</p>
 			</div>
 			<c:set value="${getUserInfo}" var="userinfo" />
+			
 			<div style="padding: 20px; background-color: white;">
+
 				<h2>
 					My Page>ID<b> ${userinfo.userId} </b><small>님의 페이지 입니다.
 						${userinfo.userSignUpDate} <b> No.${userinfo.userNumber}</b>
@@ -124,7 +125,7 @@ table {
 			</div>
 		</div>
 	</div>
-<script>
+	<script>
 window.addEventListener('load', function() {
 	   var params = {
 	      userId: '${userinfo.userId}'

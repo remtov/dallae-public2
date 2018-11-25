@@ -12,7 +12,6 @@ public class Product {
 	private String productDate;
 	private String productEndDate;
 	private Integer productLowestPrice;
-	
 	private String productImage;
 	private String productDesc;
 	private String productBrand;

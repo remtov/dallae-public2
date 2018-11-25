@@ -111,7 +111,7 @@ file-box-container {
 									<div class="col-md-3">
 										<select id="productCategory" class="form-control"
 											name="productCategory">
-											<option value="none">대분류</option>
+											<option value="none">선택</option>
 											<option value="fashion">패션</option>
 											<option value="digital">디지털</option>
 											<option value="rareCollection">희귀수집품</option>
@@ -119,7 +119,6 @@ file-box-container {
 											<option value="motorPartz">모터츠파츠</option>
 											<option value="toyHobby">완구,취미</option>
 											<option value="sports">스포츠</option>
-											<option value="homeGarden">홈,가든</option>
 											<option value="life">생활</option>
 										</select>
 									</div>
@@ -238,10 +237,10 @@ file-box-container {
 									<div class="col-md-3">
 										<span>*</span>시작가격설정
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<input required type="number" class="form-control"
 											id="productLowestPrice" name="productLowestPrice"
-											placeholder="제품의 최저가" data-vc="1,10">
+											placeholder="단위 '원'" data-vc="1,10">
 									</div>
 								</div>
 								<div class="row">

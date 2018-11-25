@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,22 +25,16 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private ProductBiddingService productBiddingService;
-	
+
 	private ProductBidding productBidding;
 
 	@RequestMapping(value = "/productlist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductList() {
 		return productService.getProductList(null);
-	}
-	
-	@RequestMapping(value = "/productlistenddate", method = RequestMethod.GET)
-	@ResponseBody
-	public List<Product> getProductListEndDate() {
-		return productService.getProductListEndDate(null);
 	}
 
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
@@ -62,10 +57,10 @@ public class ProductController {
 	@ResponseBody
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
 			@PathVariable Integer productNumber) {
-		System.out.println(productNumber);
+		/*System.out.println(productNumber);*/
 		Product product = PM.MapToVo(UtilLocal.saveFile(multipartHttpServletRequest), Product.class);
 		product.setProductNumber(productNumber);
-		
+
 		return productService.updateProduct(product);
 	}
 
@@ -73,8 +68,8 @@ public class ProductController {
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product = PM.MapToVo(UtilLocal.saveFile(multipartHttpServletRequest), Product.class);
-		productBidding.setProductNumber(product.getProductNumber());
-		productBiddingService.insertProductBidding(productBidding);
+		/* productBidding.setProductNumber(product.getProductNumber()); */
+		/* productBiddingService.insertProductBidding(productBidding); */
 		return productService.insertProduct(product);
 	}
 
@@ -84,5 +79,13 @@ public class ProductController {
 
 		return productService.getProductUserId(product);
 	}
+
+	@RequestMapping(value = "/productlistenddate", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductListEndDate() {
+		return productService.getProductListEndDate(null);
+	}
+
+
 
 }

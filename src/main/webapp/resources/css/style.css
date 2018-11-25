@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.sentence-cut {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .view-container {
 	width: 100%;
 	background-color: #f6f6f6;
