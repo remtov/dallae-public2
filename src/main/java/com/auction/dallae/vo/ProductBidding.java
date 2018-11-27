@@ -1,5 +1,8 @@
 package com.auction.dallae.vo;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("bidding")
 public class ProductBidding {
 	private Integer productNumber;
 	private Integer bidCount;

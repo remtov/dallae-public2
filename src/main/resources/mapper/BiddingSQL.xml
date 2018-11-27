@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQL.BiddingSQL">
+	<select id="getBidding" resultType="bidding"
+		parameterType="bidding">
+		select * from productbidding
+		where ProductNumber=#{productNumber}
+	</select>
+	<insert id="inserBidding" parameterType="bidding">
+		INSERT INTO USERINFO
+		VALUES(#{productNumber},0,to_char(SYSDATE,'YYYY-MM-DD
+		HH24:mi:ss'),#{biddingid},0
+		)
+	</insert>
+	<update id="updateBidding" parameterType="bidding">
+		update product
+		<set>
+			<if test="bidcount !=null">bidcount =
+				#{bidcount},
+			</if>
+			<if test="biddingid !=null">biddingid =
+				#{biddingid},
+			</if>
+		</set>
+		where ProductNumber=#{productNumber}
+	</update>
+	
+	<update id="updateBiddingEnd" parameterType="bidding">
+		update bidding
+		<set>
+			<if test="biddingstatus !=null">biddingstatus =
+				#{biddingstatus},
+			</if>
+		</set>
+		where ProductNumber=#{productNumber}
+	</update>
+	<delete id="deleteBidding" parameterType="bidding">
+		delete from
+		bidding
+		where ProductNumber=#{productNumber}
+	</delete>
+	
+	</mapper>
