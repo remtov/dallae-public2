@@ -18,7 +18,7 @@ public interface UserInfoDAO {
 
 	public UserInfo getId(UserInfo userInfo);
 
-	public UserInfo getPassword(UserInfo userInfo);
+	public int getPassword(UserInfo userInfo);
 
 	public UserInfo login(UserInfo userInfo);
 	

@@ -58,9 +58,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Override
-	public UserInfo getPassword(UserInfo userInfo) {
+	public int getPassword(UserInfo userInfo) {
 		
-		return sqlSession.selectOne("SQL.UserInfo.getPassword",userInfo);
+		return sqlSession.update("SQL.UserInfo.getPassword",userInfo);
 	}
 
 	@Override

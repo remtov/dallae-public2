@@ -121,14 +121,21 @@
 		</where>
 	</select>
 
-	<select id="getPassword" resultType="userInfo"
+	<update id="getPassword"
 		parameterType="userInfo">
-		select count(1) from userInfo
+		update userinfo
+		set userPassword =#{userPassword}
+		<where>
+		userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
+			userId=#{userId}
+		</where>
+		
+		<!-- select count(1) from userInfo
 		<where>
 			userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
 			userId=#{userId}
-		</where>
-	</select>
+		</where> -->
+	</update>
 
 	<select id="getLogin" resultType="userInfo"
 		parameterType="userInfo">

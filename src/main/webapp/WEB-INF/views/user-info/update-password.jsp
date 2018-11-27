@@ -80,39 +80,27 @@
        var userPhoneNum = document.querySelector('#userPhoneNum').value
        var userPassword = document.querySelector('#userPassword').value
        var confirmPassword = document.querySelector('#confirmPassword').value
-       var params = '';
-       params = 'userName=' + userName + '&userPhoneNum=' + userPhoneNum + '&userId=' + userId;
+       if(userPassword.trim()!=confirmPassword.trim()){
+    	   alert('비밀번호와 비밀번호 확인이 일치하지 않습니다');
+
+    	   return false;
+       }
+       
+       var params = {userId:userId,userName:userName,userPhoneNum:userPhoneNum,userPassword:userPassword};
+       params = JSON.stringify(params);
       
        var conf = {
           url: '/updatepass',
-          param: params,
-          success: function(res) {
-             if (res == '') {
-                alert('아이디, 폰 번호, 회원 이름이 일치하지 않습니다.');
+          param: params, 
+          method:'PUT',
+          success: function(res) {   
+             if (res == 0) {
+                alert('아이디 , 폰 번호 혹은 회원 이름이 일치하지 않습니다.');
                 return false;
-             } else if (userPassword.trim() !== confirmPassword.trim()) {
-                alert("비밀번호가 다릅니다.");
-                var passFocus = document.querySelector('#Password');
-                passFocus.focus();
-                return false;
-             } else if (res != ''){
-                var params = {	
-                   userPassword: userPassword
-                };
-                params = JSON.stringify(params);
-                var conf = {
-                   url: '/updatevil/'+userId,
-                   method: 'PUT',
-                   param: params,
-                   success: function(res) {
-                      if (res == 1) {
-                         alert("성공하였습니다.");
-                      };
-                   }
-                }
-                var ajaxUtil = new AjaxUtil(conf);
-                ajaxUtil.send();
-                location.href = "/url/user-info:login";
+             } else if (res==1){
+            	 alert('비밀번호 변경이 완료 되었습니다.')
+      			location.href='/url/user-info:login'
+           
              }
           }
        }

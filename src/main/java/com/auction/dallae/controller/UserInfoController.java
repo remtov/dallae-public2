@@ -48,7 +48,7 @@ public class UserInfoController {
 
 	@RequestMapping(value = "/userinfo", method = RequestMethod.POST)
 	@ResponseBody
-	public int insertUserInfo(@RequestBody UserInfo userInfo) throws UnsupportedEncodingException {
+	public Integer insertUserInfo(@RequestBody UserInfo userInfo) throws UnsupportedEncodingException {
 		userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));
 		return userInfoService.insertUserInfo(userInfo);
 	}
@@ -97,11 +97,13 @@ public class UserInfoController {
 		return userInfoService.getId(userInfo);
 	}
 
-	@RequestMapping(value = "/updatepass", method = RequestMethod.GET)
-	public @ResponseBody UserInfo getUserInfo3(@ModelAttribute UserInfo userInfo) throws UnsupportedEncodingException {
+	@RequestMapping(value = "/updatepass", method = RequestMethod.PUT)
+	@ResponseBody
+	public Integer getUserInfo3(@RequestBody UserInfo userInfo) throws UnsupportedEncodingException {
 		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
+		System.out.println(userInfo +"바보");
 		return userInfoService.getPassword(userInfo);
-	}
+	}   
 		
 	// 로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)

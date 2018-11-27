@@ -55,7 +55,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
-	public UserInfo getPassword(UserInfo userInfo) {
+	public int getPassword(UserInfo userInfo) {
 
 		return userInfoDAO.getPassword(userInfo);
 	}
