@@ -123,7 +123,7 @@
 
 	<select id="getPassword" resultType="userInfo"
 		parameterType="userInfo">
-		select userPassword from userInfo
+		select count(1) from userInfo
 		<where>
 			userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
 			userId=#{userId}

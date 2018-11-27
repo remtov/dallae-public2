@@ -95,7 +95,7 @@
                 var passFocus = document.querySelector('#Password');
                 passFocus.focus();
                 return false;
-             } else (res != ''){
+             } else if (res != ''){
                 var params = {	
                    userPassword: userPassword
                 };
