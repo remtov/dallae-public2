@@ -76,7 +76,8 @@ public class UserInfoController {
 	@RequestMapping(value = "/update/{userNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
-			HttpSession httpSession, HttpServletRequest httpServletRequest) {
+			HttpSession httpSession, HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
+		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
 		userInfo.setUserNumber(userNumber);
 		userInfoService.updateUserInfo(userInfo);
 		UserInfo loginUser = userInfoService.login(userInfo);
