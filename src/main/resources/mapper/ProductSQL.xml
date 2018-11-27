@@ -152,8 +152,7 @@
 		#{productName},
 		#{productCategory},
 		#{productQuantity},
-		to_char(SYSDATE,'YYYY-MM-DD
-		HH24:mi:ss'),
+		to_char(SYSDATE,'YYYY-MM-DD HH24:mi:ss'),
 		to_char(SYSDATE+3,'YYYY-MM-DD HH24:mi:ss'),
 		#{productLowestPrice},
 		#{productImage},
