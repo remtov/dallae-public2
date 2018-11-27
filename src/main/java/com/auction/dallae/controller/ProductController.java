@@ -1,10 +1,12 @@
 package com.auction.dallae.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.auction.dallae.service.ProductBiddingService;
 import com.auction.dallae.service.ProductService;
 import com.auction.dallae.utils.fileupload.PM;
-import com.auction.dallae.utils.fileupload.Util;
 import com.auction.dallae.utils.fileupload.UtilLocal;
 import com.auction.dallae.vo.Product;
 import com.auction.dallae.vo.ProductBidding;
@@ -89,6 +91,20 @@ public class ProductController {
 	@ResponseBody
 	public List<Product> getProductListEndDate() {
 		return productService.getProductListEndDate(null);
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Locale locale, Model model, @ModelAttribute Product product) {
+		model.addAttribute("getProductCategoryFashion", productService.getProductCategoryFashion(product));
+		model.addAttribute("getProductCategoryDigital", productService.getProductCategoryDigital(product));
+		model.addAttribute("getProductCategoryRareCollection", productService.getProductCategoryRareCollection(product));
+		model.addAttribute("getProductCategoryHealthBeauty", productService.getProductCategoryHealthBeauty(product));
+		model.addAttribute("getProductCategoryMotorPartz", productService.getProductCategoryMotorPartz(product));
+		model.addAttribute("getProductCategoryToyHobby", productService.getProductCategoryToyHobby(product));
+		model.addAttribute("getProductCategorySports", productService.getProductCategorySports(product));
+		model.addAttribute("getProductCategoryLife", productService.getProductCategoryLife(product));
+
+		return "home";
 	}
 
 

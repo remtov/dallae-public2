@@ -105,6 +105,16 @@
 			var ajaxUtil = new AjaxUtil(conf);
 			ajaxUtil.send();
 		}
+		function forgetId() {
+			location.href = "/url/user-info:find-id"
+		}
+
+		function signUp() {
+			location.href = "/url/user-info:sign-up"
+		}
+		function forgetPass() {
+			location.href = "/url/user-info:update-password"
+		}
 </script>
 </body>
 </html>

@@ -15,7 +15,6 @@ h4 {
 	margin-bottom: 20px;
 }
 </style>
-
 </head>
 <body>
 	<div class="view-container">

@@ -20,7 +20,7 @@
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
-				<h3>경매 보기</h3>
+				<h3>전체 경매물품 목록입니다</h3>
 				<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 			</div>
 		</div>

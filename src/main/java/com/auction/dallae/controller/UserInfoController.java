@@ -77,7 +77,8 @@ public class UserInfoController {
 	@ResponseBody
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
 			HttpSession httpSession, HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
-		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
+		/*userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));*/
+		System.out.println(userInfo +"바보");
 		userInfo.setUserNumber(userNumber);
 		userInfoService.updateUserInfo(userInfo);
 		UserInfo loginUser = userInfoService.login(userInfo);
@@ -100,8 +101,8 @@ public class UserInfoController {
 	@RequestMapping(value = "/updatepass", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer getUserInfo3(@RequestBody UserInfo userInfo) throws UnsupportedEncodingException {
-		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
-		System.out.println(userInfo +"바보");
+		userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));
+		
 		return userInfoService.getPassword(userInfo);
 	}   
 		
@@ -116,7 +117,7 @@ public class UserInfoController {
 	@RequestMapping(value = "/dologin", method = RequestMethod.POST)
 	public @ResponseBody UserInfo logInProcess(@RequestBody UserInfo userInfo, HttpSession httpSession,
 			HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
-		userInfo.setUserPassword(shaUtil.makeEcnStr(userInfo.getUserPassword()));
+		userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));
 		UserInfo loginUser = userInfoService.login(userInfo);
 		if (httpSession.getAttribute("userlogininfo") != null) {
 			httpSession.removeAttribute("userlogininfo");

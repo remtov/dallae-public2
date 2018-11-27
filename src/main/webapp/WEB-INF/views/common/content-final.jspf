@@ -17,14 +17,8 @@ hr {
 <script src="/resources/js/AjaxUtil.js"></script>
 
 <script>
-
-
-
 var kk=0;
-
 window.addEventListener('load', loadba)
-		
-
 
 function loadba() {
 	kk++;
@@ -56,10 +50,10 @@ function loadba() {
 	        html += '<h4>시작가격 : ' + res[i].productLowestPrice + ' 원</h4>';
 	        html += '<h4>현재가격 : ' + res[i].productLowestPrice * 3 / 2 + ' 원</h4>';
 	        html += '<p>제품브랜드 : ' + res[i].productBrand + ' | 판매자 : ' + res[i].userId + ' | 제품수량 : ' + res[i].productQuantity + ' | 분류 : ' + res[i].productCategory + ' | 신용등급 : ' + res[i].userCreditLevel + ' | 등록일 : ' + res[i].productDate + ' | 마감일 : ' + res[i].productEndDate + '</p>';
-	        html += '<div style="height:50px;overflow:hidden; text-overflow: ellipsis;">'
+	        html += '<div style="height:50px;overflow:hidden;">'
 	        html += '<p>' + res[i].productCondition + '</p>';
 	        html += '</div>'
-	        html += '<div style="height:60px;overflow:hidden; text-overflow: ellipsis;">'
+	        html += '<div style="height:60px;overflow:hidden;">'
 	        html += '<p>' + res[i].productDesc + '</p>';
 	        html += '</div>'
 	        html += '<p style="margin-top:10px;"><a href="#" class="btn btn-primary" role="button">입찰하기</a>';

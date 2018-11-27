@@ -73,7 +73,7 @@
 		<set>
 			<if test="userName!=null">USERNAME=#{userName},</if>
 			<if test="userId!=null">USERID=#{userId},</if>
-			<if test="userPassword!=null">USERPASSWORD=#{userPassword},</if>
+	<!-- <if test="userPassword!=null">USERPASSWORD=#{userPassword},</if> -->
 			<if test="userEmail!=null">USEREMAIL=#{userEmail},</if>
 			<if test="userNickName!=null">USERNICKNAME=#{userNickName},</if>
 			<if test="userPhoneNum!=null">USERPHONENUM=#{userPhoneNum},</if>
@@ -121,20 +121,16 @@
 		</where>
 	</select>
 
-	<update id="getPassword"
-		parameterType="userInfo">
+	<update id="getPassword" parameterType="userInfo">
 		update userinfo
 		set userPassword =#{userPassword}
 		<where>
-		userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
-			userId=#{userId}
-		</where>
-		
-		<!-- select count(1) from userInfo
-		<where>
 			userName = #{userName} AND userPhoneNum=#{userPhoneNum} AND
 			userId=#{userId}
-		</where> -->
+		</where>
+
+		<!-- select count(1) from userInfo <where> userName = #{userName} AND userPhoneNum=#{userPhoneNum} 
+			AND userId=#{userId} </where> -->
 	</update>
 
 	<select id="getLogin" resultType="userInfo"

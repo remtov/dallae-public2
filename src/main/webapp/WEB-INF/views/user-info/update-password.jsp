@@ -46,7 +46,7 @@
 				<p>
 					폰번호 <input onkeypress="enter(event)" class="form-control"
 						type="number" id="userPhoneNum"
-						placeholder="핸드폰 번호를 입력하세요. 예)01012345678">
+						placeholder="등록하신 핸드폰 번호를 입력하세요. ex)01012345678">
 				</p>
 				<hr>
 				<p></p>
