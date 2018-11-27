@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>이미지 슬라이더</title>
+<style>
+#home-title_end-message {
+	width: 100%;
+	text-align: center;
+}
+
+#home-title_end-message img {
+	margin-top: 30px;
+}
+
+#home-title_end-message button {
+	margin-bottom: 30px;
+}
+
+#dropDown-img {
+	width: 100%;
+}
+
+#carousel-example-generic {
+	width: 100%;
+}
+
+div>.carousel-control p {
+	padding-top: 200px;
+	font-size: 1.5em;
+}
+</style>
+</head>
+<script src="/resources/js/AjaxUtil.js"></script>
+<script>
+window.addEventListener('load',function(){
+	var ajaxUtil = new AjaxUtil( {
+		url : '/productlistenddate',
+		success : function(response){
+		response = JSON.parse(response);
+			
+		var html = '';
+		
+		html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
+		html += '<ol class="carousel-indicators">';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="1"></li>';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="3"></li>';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="4"></li>';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="5"></li>';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="6"></li>';
+		html += '<li data-target="#carousel-example-generic" data-slide-to="7"></li></ol>';
+
+		html += '<div class="carousel-inner" role="listbox">';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item active">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[0].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption" style="background-color:rgba(255,255,255,0.5);">';
+		html += '<h3><b>"'+ response[0].productName +'"</b>의 현재 입찰가'+response[0].productLowestPrice+'원</h3><p>'
+				'마감시까지 '+ response[0].productEndDate +'일 시 분 초 남았습니다. 에 경매가 종료됩니다. </p><button class="btn btn-danger" onclick="goPage('
+				+ response[0].productNumber + ')">입찰</button><button class="btn btn-default" onclick="goPage('
+				+ response[0].productNumber + ')">더보기</button></div></div>';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[1].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[2].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[3].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[4].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[5].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+		
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[6].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+
+		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[7].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<div class="carousel-caption">';
+		html += '</div></div>';
+		
+		
+		html += '</div>';
+
+		html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
+		html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
+		html += '<span class="sr-only">Previous</span></a>';
+		html += '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
+		html += '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+		html += '<span class="sr-only">Next</span></a></div>';
+		
+			document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
+	}
+});
+	ajaxUtil.send();
+});
+
+</script>
+</head>
+<body>
+	<div id="productlistEnddateDiv"></div>
+
+
+	<script>
+		function goPage(productNumber) {
+			location.href = '/product/' + productNumber;
+		}
+	</script>
+</body>
+</html>
+
+
+
+

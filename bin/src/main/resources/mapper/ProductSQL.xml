@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQL.ProductSQL">
+	<select id="getProductList" resultType="product"
+		parameterType="product">
+		select * from product
+		<where>
+			productEnddate
+			>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+			<if test="productNumber!=null"> and productNumber like '%'||#{productNumber}||'%'</if>
+			<if test="productName!=null"> and productName like '%'||#{productName}||'%'</if>
+			<if test="productCategory!=null"> and productCategory like '%'||#{productCategory}||'%'
+			</if>
+			<if test="productQuantity!=null"> and productQuantity like '%'||#{productQuantity}||'%'
+			</if>
+			<if test="productDate!=null"> and productDate like '%'||#{productDate}||'%'</if>
+			<if test="productEndDate!=null"> and productEndDate like '%'||#{productEndDate}||'%'</if>
+			<if test="productLowestPrice!=null"> and productLowestPrice like
+				'%'||#{productLowestPrice}||'%'</if>
+			<if test="productImage!=null"> and productImage like '%'||#{productImage}||'%'</if>
+			<if test="productDesc!=null"> and productDesc like '%'||#{productDesc}||'%'</if>
+			<if test="productBrand!=null"> and productBrand like '%'||#{productBrand}||'%'</if>
+			<if test="productCondition!=null"> and productCondition like '%'||#{productCondition}||'%'
+			</if>
+			<if test="userId!=null"> and userId like '%'||#{userId}||'%'</if>
+			<if test="userCreditLevel!=null"> and userCreditLevel like '%'||#{userCreditLevel}||'%'
+			</if>
+			<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
+		</where>
+		order by productEnddate asc
+	</select>
+
+	<select id="getProductListEndDate" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT WHERE productEnddate >=
+		to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+		order by productEnddate asc)
+		WHERE rownum <![CDATA[<]]>
+		9
+	</select>
+
+	<select id="getProductCategoryFashion" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='fashion' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryDigital" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='digital' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryRareCollection" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='rareCollection' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryHealthBeauty" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='healthBeauty' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryMotorPartz" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='motorPartz' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryToyHobby" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='toyHobby' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategorySports" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='sports' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	<select id="getProductCategoryLife" resultType="product"
+		parameterType="product">
+		select * from
+		(SELECT * FROM PRODUCT 
+		where PRODUCTCATEGORY='life' 
+		order by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]> 2
+	</select>
+	
+	<select id="getProduct" resultType="product"
+		parameterType="product">
+		select * from product where productNumber
+		=#{productNumber}
+	</select>
+
+	<insert id="insertProduct" parameterType="product">
+		insert into product(
+		ProductNumber,
+		ProductName,
+		ProductCategory,
+		ProductQuantity,
+		ProductDate,
+		ProductEndDate,
+		ProductLowestPrice,
+		ProductImage,
+		ProductDesc,
+		ProductBrand,
+		ProductCondition,
+		UserId,
+		UserCreditLevel,
+		UserNumber
+		)
+		values(
+		SEQ_Product_ProductNum.nextval,
+		#{productName},
+		#{productCategory},
+		#{productQuantity},
+		to_char(SYSDATE,'YYYY-MM-DD
+		HH24:mi:ss'),
+		to_char(SYSDATE+3,'YYYY-MM-DD HH24:mi:ss'),
+		#{productLowestPrice},
+		#{productImage},
+		#{productDesc},
+		#{productBrand},
+		#{productCondition},
+		#{userId},
+		#{userCreditLevel},
+		#{userNumber}
+		)
+	</insert>
+	<update id="updateProduct" parameterType="product">
+		update product
+		<set>
+			<if test="productName !=null">ProductName =
+				#{productName},
+			</if>
+			<if test="productCategory !=null">ProductCategory =
+				#{productCategory},
+			</if>
+
+			<if test="productQuantity !=null">ProductQuantity =
+				#{productQuantity},
+			</if>
+			<if test="productDate !=null">ProductDate =
+				#{productDate},
+			</if>
+			<if test="productEndDate !=null">productEndDate =
+				#{productEndDate},
+			</if>
+			<if test="productLowestPrice !=null">ProductLowestPrice =
+				#{productLowestPrice},
+			</if>
+			<if test="productImage !=null">ProductImage =
+				#{productImage},
+			</if>
+			<if test="productDesc !=null">ProductDesc =
+				#{productDesc},
+			</if>
+			<if test="productBrand !=null">ProductBrand =
+				#{productBrand},
+			</if>
+			<if test="productCondition !=null">ProductCondition =
+				#{productCondition},
+			</if>
+			<if test="userId !=null">userId =
+				#{userId},
+			</if>
+			<if test="userCreditLevel !=null">userCreditLevel =
+				#{userCreditLevel},
+			</if>
+			<if test="userNumber !=null">userNumber =
+				#{userNumber},
+			</if>
+		</set>
+		where ProductNumber=#{productNumber}
+	</update>
+	<delete id="deleteProduct" parameterType="product">
+		delete from
+		product
+		where ProductNumber=#{productNumber}
+	</delete>
+	<select id="getProductUserId" resultType="product"
+		parameterType="product">
+		select * from product where userId=#{userId}
+	</select>
+</mapper>

@@ -20,6 +20,11 @@ public class ProductDAOImpl implements ProductDAO {
 
 		return SqlSessionTemplate.selectList("SQL.ProductSQL.getProductList", product);
 	}
+	@Override
+	public List<Product> getNum(Product product) {
+
+		return SqlSessionTemplate.selectList("SQL.ProductSQL.getNum", product);
+	}
 
 	@Override
 	public Product getProduct(Integer productNumber) {

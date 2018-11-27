@@ -1,0 +1,94 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>이미지 슬라이더</title>
+
+<style>
+#home-title_end-message {
+	width: 100%;
+	text-align: center;
+}
+
+#home-title_end-message img {
+	margin-top: 30px;
+}
+
+#home-title_end-message button {
+	margin-bottom: 30px;
+}
+
+#dropDown-img {
+	width: 100%;
+}
+
+#carousel-example-generic {
+	width: 100%;
+}
+
+div>.carousel-control p {
+	padding-top: 200px;
+	font-size: 1.5em;
+}
+</style>
+</head>
+<body>
+	<div id="dropDown-img">
+		<div id="carousel-example-generic" class="carousel slide"
+			data-ride="carousel">
+			<ol class="carousel-indicators">
+				<%
+					for (int j = 0; j < 8; j++) {
+				%>
+				<li data-slide-to="<%=j%>"></li>
+				<%
+					}
+				%>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<%
+					for (int i = 1; i < 9; i++) {
+				%>
+				<div class="item <%if (i == 1) {%>active<%}%>">
+					<div>
+						<div id="home-title_end-message">
+							<h3>
+								<b>마감임박! </b> 마감시 ${productEndDate}에 경매가 종료됩니다.
+							</h3>
+							<p>
+								${productName} | <b>${productLowestPrice}</b> | ${productBrand}
+							</p>
+							<button class="btn btn-danger" onclick="location.href='#'">입찰</button>
+							<button class="btn btn-default"
+								onclick="location.href='/product/${productNumber}'">더보기</button>
+						</div>
+						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
+					</div>
+				</div>
+				<%
+					}
+				%>
+			</div>
+			<div>
+				<a class="left carousel-control" href="#carousel-example-generic"
+					role="button" data-slide="prev"> <span aria-hidden="true">
+						<p>&lt;</p>
+				</span>
+				</a> <a class="right carousel-control" href="#carousel-example-generic"
+					role="button" data-slide="next"> <span aria-hidden="true">
+						<p>&gt;</p>
+				</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+		function goPage(productNumber) {
+			location.href = '/product/' + productNumber;
+		}
+	</script>
+</body>
+</html>

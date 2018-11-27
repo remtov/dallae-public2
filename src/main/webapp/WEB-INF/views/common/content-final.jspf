@@ -17,11 +17,25 @@ hr {
 <script src="/resources/js/AjaxUtil.js"></script>
 
 <script>
-window.addEventListener('load', function() {
+
+
+
+var kk=0;
+
+window.addEventListener('load', loadba)
+		
+
+
+function loadba() {
+	kk++;
+	var params = {startNum:(kk-1)*8+1,endNum:kk*8}
+	params = JSON.stringify(params);
 	  var au = new AjaxUtil({
 	    url: '/productlist',
+	    param : params,
+	    method : 'POST',
 	    success: function(res) {
-	      res = JSON.parse(res);
+	      res = JSON.parse(res); 
 
 	      var html = '';
 	      for (var i = 0; i < res.length; i++) {
@@ -34,7 +48,7 @@ window.addEventListener('load', function() {
 	        
 			var imgs = res[i].productImage;
 			var img = imgs.split('|');
-			
+			 
 			html += img[0];
 		    html += '"></a>';
 	        html += '<div class="caption" style="overflow: hidden; text-overflow: ellipsis;">';
@@ -55,12 +69,19 @@ window.addEventListener('load', function() {
 	          html += '</div>';
 	        }
 	      }
+	   
 	      document.querySelector('#product-div').insertAdjacentHTML('beforebegin', html);
 	    }
 	  });
-	  au.send();
+	  au.send(); 
+	};
+
+	$(window).scroll(function(){  
+	    if($(window).scrollTop() >= $(document).height() - $(window).height()){
+	       loadba();
+	    } 
 	});
-</script>
+</script> 
 </head>
 <body>
 

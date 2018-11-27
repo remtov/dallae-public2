@@ -32,6 +32,23 @@
 		order by productEnddate asc
 	</select>
 
+<select id="getNum" resultType="product"
+		parameterType="product">
+		select rnum,a.*
+ from 
+		
+ (select ROWNUM AS rnum,b.*
+ from product b
+		where
+			productEnddate
+			>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') 
+		order by productEnddate asc) a
+		<where> 
+		rnum BETWEEN #{startNum} and #{endNum}
+		</where>
+		
+
+</select>
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">
 		select * from

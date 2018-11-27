@@ -1,0 +1,148 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<head>
+<style>
+div {
+	/* border: 3px solid red; */
+	
+}
+</style>
+</head>
+<body>
+
+
+
+
+
+
+	<div style="border: 1px solid #f6f6f6;">
+		<c:set var="userid" value="${userlogininfo.signupId}"></c:set>
+		<c:choose>
+			<c:when test="${not empty sessionScope.userlogininfo}">
+				<!-- 세션이있는 모든사람들에게 보이는 메뉴 -->
+		
+				<div class="container">
+					<div id="left_img-profile--div">
+						<img src="/img/icon_profile.png">
+
+						<!-- 버튼 -->
+						<div class="btn-group">
+
+							<button type="button" class="btn btn-default dropdown-toggle"
+								data-toggle="dropdown" aria-expanded="false">
+								<b>${sessionScope.userlogininfo.signupName}</b>님 <span
+									class="caret"></span>
+							</button>
+
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/url/SignUp:MyPage">계정설정</a></li>
+								<li><a onclick="logout()">로그아웃</a></li>
+								<!-- 관리자에 해당하는 내용분기점 -->
+								<c:if test="${userlogininfo.signupId =='관리자'}">
+									<li class="divider"></li>
+									<li><a href="/url/SignUp:Admin">관리자 페이지</a></li>
+								</c:if>
+								<!-- 관리자에 해당하는 내용분기점 -->
+
+							</ul>
+						</div>
+						<!--버튼 -->
+
+					</div>
+				</div>
+
+
+				<ul class="nav nav-pills nav-stacked">
+
+
+
+				</ul>
+
+
+
+
+				<!-- 공지사항팝업영역 -->
+				<h4>
+					<strong>공지사항</strong>
+				</h4>
+				<a data-toggle="modal" data-target="#myModal">공지사항 보기</a>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Dallae 판매팀 최신 공지</h4>
+							</div>
+							<div class="modal-body">
+								<p>2018 년 10 월 9 일 12:31:34 PM</p>
+
+								<p>Summer Seller 업데이트에 발표 된 바와 같이 , 우리는 최근 markdown sale
+									이벤트를 만들기 전에 판매자가 동일한 가격으로 14 일 동안 항목을 나열하도록 요구하는 변경 작업을 수행했습니다.
+									이 정책은 가격 인하 기능을 악용하는 일부 판매자로부터 고객이 겪고있는 부정적인 경험을 줄이기 위해
+									제정되었습니다. 이것이 판매자 커뮤니티 전체를 대표하지 않는다는 것을 알고 있습니다. 우리는 귀하의 의견을 듣고
+									그리고 우리는 집행 기관이 고객에게 가치를 제공하는 판매자를위한 도전이었다 알고 있습니다. 즉시 시작하여 상장
+									직후에 다시 markdown 이벤트를 작성할 수 있습니다.</p>
+
+								<p>우리가 휴일로 이사 할 때, 우리의 가장 큰 우선 순위는 쉽고 성공적인 판매 시즌을 보장하는 것입니다.
+									우리는 2019 년에이 기능의 변경이 필요한지 계속 평가할 것입니다. 항상 그렇듯이 Dallae에서 판매 해
+									주셔서 감사합니다. 달래 (Dallae) 팀</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">닫기</button>
+								<button type="button" class="btn btn-primary">공지사항 페이지로</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 공지사항팝업영역 -->
+
+				<div class="admin-left_ad">
+					<img
+						src="https://creative.mathads.com/0001/78/d9/a7/df/53a237f3c1e60b88c5596641ba181524.jpg">
+				</div>
+
+
+
+				<div class="admin-left_download">
+					<button class="btn btn-default btn-lg btn-block">
+						<img src="/img/logo.png"> &nbsp;앱 다운로드
+					</button>
+
+				</div>
+
+
+
+				<!-- 여기까지 세션이있는사람에대한 화면내용 -->
+			</c:when>
+			<c:otherwise>
+
+
+
+				<!-- 여기는 세션이 없는 사람에 대한 내용 -->
+
+
+				<!-- 여기는 세션이 없는 사람에대한 내용 -->
+
+			</c:otherwise>
+		</c:choose>
+
+
+
+
+	</div>
+
+
+
+
+
+</body>
+</html>

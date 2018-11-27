@@ -6,6 +6,8 @@ import com.auction.dallae.vo.Product;
 
 public interface ProductDAO {
 	public List<Product> getProductList(Product product);
+	
+	public List<Product> getNum(Product product);
 
 	public Product getProduct(Integer productNumber);
 

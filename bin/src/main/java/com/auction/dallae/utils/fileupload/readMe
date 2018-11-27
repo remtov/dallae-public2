@@ -1,0 +1,29 @@
+UtilLocal.java 파일은 테스트용 
+--집에서 사용할때 	
+public static final String uploadPath = "C:\\Users\\koitt03-A\\git\\dallae\\src\\main\\webapp\\resources\\img\\product";
+이부분을 집에 로컬 경로로 바꿔주셔야 합니다.
+
+
+Util.java 파일은 AWS업로드용입니다. 
+
+Product 컨트롤러에
+
+///////////////
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.POST)
+	@ResponseBody
+	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest, @PathVariable Integer productNumber) {
+		System.out.println(productNumber);
+		Product product =PM.MapToVo(///////UtilLocal/////////.saveFile(multipartHttpServletRequest), Product.class);
+		product.setProductNumber(productNumber);
+		return productService.updateProduct(product);
+	}
+	@RequestMapping(value = "/product", method = RequestMethod.POST)
+	@ResponseBody
+	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
+		Product product =PM.MapToVo(///////UtilLocal////////.saveFile(multipartHttpServletRequest), Product.class);
+		return productService.insertProduct(product);
+	}
+	
+	///////////
+	
+이 부분에서 UtilLocal부분을 Util로 바꾸어서 프로젝트 완성시 제출하면 됨

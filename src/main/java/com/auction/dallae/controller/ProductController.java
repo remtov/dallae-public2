@@ -36,6 +36,11 @@ public class ProductController {
 	public List<Product> getProductList() {
 		return productService.getProductList(null);
 	}
+	@RequestMapping(value = "/productlist", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Product> getProductList2(@RequestBody Product product) {
+		return productService.getNum(product);
+	}
 
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {

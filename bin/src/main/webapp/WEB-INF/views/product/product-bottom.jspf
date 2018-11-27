@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<script>
+function valiCheck(){
+	var vcs = document.querySelectorAll('*[data-vc]');
+	for(vc of vcs){
+		var sp = vc.getAttribute('data-vc');
+		var min = sp.split(',')[0];
+		var max = sp.split(',')[1];
+		
+		if(vc.value.trim().length<min){
+			alert('커서가 가게 될 곳에'+min+'글자 이상으로 맞춰서 작성 해 주십시오.');
+			vc.focus();
+			return false;
+		}
+		
+		if(vc.value.trim().length>max){
+			alert('커서가 가게 될 곳에'+max+'글자 이하로 맞춰서 작성 해 주십시오.');
+			vc.focus();
+			return false;
+		}
+	}
+	return true;
+}		
+</script>
+</body>
+</html>
