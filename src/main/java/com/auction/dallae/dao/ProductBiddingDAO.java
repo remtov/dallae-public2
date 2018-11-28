@@ -1,19 +1,19 @@
 package com.auction.dallae.dao;
 
-import java.util.List;
 
 import com.auction.dallae.vo.ProductBidding;
 
 public interface ProductBiddingDAO {
-	public List<ProductBidding> getProductBiddingList(ProductBidding ProductBidding);
+	public ProductBidding getBidding(Integer productNumber);
 
-	public ProductBidding getProductBidding(Integer productNumber);
+	public int inserBidding(ProductBidding ProductBidding);
 
-	public int insertProductBidding(ProductBidding productBidding);
+	public int updateBidding(ProductBidding productBidding);
 
-	public int updateProductBidding(ProductBidding productBidding);
+	public int updateBiddingEnd(ProductBidding productBidding);
 
-	public int deleteProductBidding(Integer productNumber);
+	public int deleteBidding(Integer productNumber);
+
 
 
 }

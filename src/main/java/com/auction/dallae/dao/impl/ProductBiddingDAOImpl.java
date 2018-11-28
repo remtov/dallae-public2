@@ -14,28 +14,28 @@ public class ProductBiddingDAOImpl implements ProductBiddingDAO{
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	@Override
-	public List<ProductBidding> getProductBiddingList(ProductBidding ProductBidding) {
-		return sqlSessionTemplate.selectList("SQL.ProductBiddingSQL.getProductBiddingList", ProductBidding);
+	public ProductBidding getBidding(Integer productNumber) {
+		return sqlSessionTemplate.selectOne("SQL.BiddingSQL.getBidding", productNumber);
 	}
 
 	@Override
-	public ProductBidding getProductBidding(Integer productNumber) {
-		return sqlSessionTemplate.selectOne("SQL.ProductBiddingSQL.getProductBidding", productNumber);
+	public int inserBidding(ProductBidding ProductBidding) {
+		return sqlSessionTemplate.insert("SQL.BiddingSQL.inserBidding", ProductBidding);
 	}
 
 	@Override
-	public int insertProductBidding(ProductBidding productBidding) {
-		return sqlSessionTemplate.insert("SQL.ProductBiddingSQL.insertProductBidding", productBidding);
+	public int updateBidding(ProductBidding productBidding) {
+		return sqlSessionTemplate.update("SQL.BiddingSQL.updateBidding", productBidding);
 	}
 
 	@Override
-	public int updateProductBidding(ProductBidding productBidding) {
-		return sqlSessionTemplate.delete("SQL.ProductBiddingSQL.deleteProductBidding", productBidding);
+	public int updateBiddingEnd(ProductBidding productBidding) {
+		return sqlSessionTemplate.update("SQL.BiddingSQL.updateBiddingEnd", productBidding);
 	}
 
 	@Override
-	public int deleteProductBidding(Integer productNumber) {
-		return sqlSessionTemplate.update("SQL.ProductBiddingSQL.updateProductBidding", productNumber);
+	public int deleteBidding(Integer productNumber) {
+		return sqlSessionTemplate.delete("SQL.BiddingSQL.deleteBidding", productNumber);
 	}
 
 

@@ -16,30 +16,30 @@ public class ProductBiddingServiceImpl implements ProductBiddingService {
 	@Autowired
 	private ProductBiddingDAOImpl productBiddingDAOImpl;
 
+
 	@Override
-	public List<ProductBidding> getProductBiddingList(ProductBidding productBidding) {
-		return productBiddingDAOImpl.getProductBiddingList(productBidding);
+	public ProductBidding getBidding(Integer productNumber) {
+		return productBiddingDAOImpl.getBidding(productNumber);
 	}
 
 	@Override
-	public ProductBidding getProductBidding(Integer productNumber) {
-		return productBiddingDAOImpl.getProductBidding(productNumber);
+	public int inserBidding(ProductBidding ProductBidding) {
+		return productBiddingDAOImpl.inserBidding(ProductBidding);
 	}
 
 	@Override
-	public int insertProductBidding(ProductBidding productBidding) {
-		return productBiddingDAOImpl.insertProductBidding(productBidding);
-		
+	public int updateBidding(ProductBidding productBidding) {
+		return productBiddingDAOImpl.updateBidding(productBidding);
 	}
 
 	@Override
-	public int deleteProductBidding(Integer productNumber) {
-		return productBiddingDAOImpl.deleteProductBidding(productNumber);
+	public int updateBiddingEnd(ProductBidding productBidding) {
+		return productBiddingDAOImpl.updateBiddingEnd(productBidding);
 	}
 
 	@Override
-	public int updateProductBidding(ProductBidding ProductBidding) {
-		return productBiddingDAOImpl.updateProductBidding(ProductBidding);
+	public int deleteBidding(Integer productNumber) {
+		return productBiddingDAOImpl.deleteBidding(productNumber);
 	}
 
 }

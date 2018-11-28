@@ -20,31 +20,27 @@ public class ProductBiddingController {
 	@Autowired
 	private ProductBiddingService productBiddingService;
 	
-	@RequestMapping(value = "/productbiddingList", method = RequestMethod.GET)
-	@ResponseBody
-	public List<ProductBidding> getProductBiddingList() {
-		return productBiddingService.getProductBiddingList(null);
-		
-	}
+
 	@RequestMapping(value = "/productbidding/{productNumber}", method = RequestMethod.GET)
-	public ModelAndView getProduct(@PathVariable Integer productNumber) {
-		return new ModelAndView("product/view", "productBidding", productBiddingService.getProductBidding(productNumber));
+	@ResponseBody
+	public  ProductBidding getProduct(@PathVariable Integer productNumber) {
+		return productBiddingService.getBidding(productNumber);
 	}
 	@RequestMapping(value = "/productbidding/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Integer deleteProduct(@PathVariable Integer productNumber) {
-		return productBiddingService.deleteProductBidding(productNumber);
+		return productBiddingService.deleteBidding(productNumber);
 	}
 	@RequestMapping(value = "/productbidding/{productNumber}", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer updateProduct(@RequestBody ProductBidding productBidding , @PathVariable Integer productNumber) {
 		productBidding.setProductNumber(productNumber);
-		return productBiddingService.updateProductBidding(productBidding);
+		return productBiddingService.updateBidding(productBidding);
 	}
 	@RequestMapping(value = "/productbidding", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer insertProduct(@RequestBody ProductBidding productBidding) {
-		return productBiddingService.insertProductBidding(productBidding);
+		return productBiddingService.updateBiddingEnd(productBidding);
 	}
 	
 }

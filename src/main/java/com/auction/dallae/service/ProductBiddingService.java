@@ -5,14 +5,15 @@ import java.util.List;
 import com.auction.dallae.vo.ProductBidding;
 
 public interface ProductBiddingService {
+	
+	public ProductBidding getBidding(Integer productNumber);
 
-	public List<ProductBidding> getProductBiddingList(ProductBidding productBidding);
+	public int inserBidding(ProductBidding ProductBidding);
 
-	public ProductBidding getProductBidding(Integer productNumber);
+	public int updateBidding(ProductBidding productBidding);
 
-	public int insertProductBidding(ProductBidding ProductBidding);
+	public int updateBiddingEnd(ProductBidding productBidding);
 
-	public int deleteProductBidding(Integer productNumber);
+	public int deleteBidding(Integer productNumber);
 
-	public int updateProductBidding(ProductBidding ProductBidding);
 }
