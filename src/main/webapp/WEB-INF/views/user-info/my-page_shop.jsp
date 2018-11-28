@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8" />
 <title>MY PAGE</title>
+<script>
+
+</script>
 </head>
 <body>
 	<div class="view-container">
@@ -28,10 +31,12 @@
 										style="width: 70px;"></a>
 								</div>
 								<div style="width: 70%; float: left;">
-									<p>${userinfo.userName},${userinfo.userAddress}</p>
+									<p>
+										<b style="font-size: 1.3em">${userinfo.userName}</b>,${userinfo.userAddress}
+									</p>
 									<p style="clear: both;">
 										신용점수 <b>${userinfo.userPoint}</b> | 신용등급 LV <b>${userinfo.userCreditLevel}</b>
-										권한등급 LV <b>${userinfo.userLevel}</b> | 가입일 :
+										권한등급 LV <b>${userinfo.userLevel}</b> <br> 가입일 :
 										${userinfo.userSignUpDate}
 									</p>
 								</div>
@@ -41,13 +46,20 @@
 							<div class="col-md-6"
 								style="padding: 10px; border: 1px solid #f6f6f6;">
 								이메일 : ${userinfo.userEmail}
-								<p style="margin-top: 5px;">폰번호 : ${userinfo.userPhoneNum} |
-									주소 : ${userinfo.userAddress}${userinfo.userAddress2}" |</p>
+								<p style="margin-top: 5px;">주소 :
+									"${userinfo.userAddress}..." |</p>
+								<hr style="clear:both;">
+								<p class="pull-right">
+									<button class="btn btn-primary btn-lg"
+										onclick="alertContact();">판매자와 <b>연락하기</b></button>
+								</p>
 							</div>
 						</div>
 					</div>
 					<hr style="clear: both;">
-					<h2>판매 품목</h2>
+					<h3>
+						<b>'${userinfo.userId}'</b> 님의 판매 품목입니다.
+					</h3>
 					<div id="product-div"></div>
 					<%@ include file="/WEB-INF/views/common/footer.jspf"%>
 				</div>
@@ -62,6 +74,7 @@
 	window.addEventListener('load', function() {
 	    var params = {
 	        userId: '${userinfo.userId}'
+	        
 	    };
 	    params = JSON.stringify(params);
 	    var ajaxUtil = new AjaxUtil({
@@ -113,6 +126,10 @@
 
 	function goPage(productNumber) {
 	    location.href = '/product/' + productNumber;
+	}
+	
+	function alertContact() {
+		alert('판매자와 연락하기 test-1 ${userinfo.userPhoneNum}');
 	}
 	</script>
 </body>

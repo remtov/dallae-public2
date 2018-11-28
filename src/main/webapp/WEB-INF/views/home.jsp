@@ -29,6 +29,7 @@
 
 .home-content_img-small>div {
 	overflow: hidden;
+	margin-bottom: 5px;
 }
 
 .home-content_img-small>div>a>img {
@@ -85,21 +86,25 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${fashion.productNumber}"><img onError="this.src='/img/icon-img.png'"
+								<a href="/product/${fashion.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${fashionSplitedImg[0]}"></a>
 							</div>
 
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${fashion.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${fashion.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${fashionSplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${fashion.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${fashion.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${fashionSplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${fashion.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${fashion.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${fashionSplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -134,21 +139,25 @@ div {
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 
 							<div class="home-content_img-big">
-								<a href="/product/${digital.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${digital.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${digitalSplitedImg[0]}"></a>
 							</div>
 
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${digital.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${digital.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${digitalSplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${digital.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${digital.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${digitalSplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${digital.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${digital.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${digitalSplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -186,20 +195,24 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${rareCollection.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${rareCollection.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${rareCollectionSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${rareCollection.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${rareCollection.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${rareCollectionSplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${rareCollection.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${rareCollection.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${rareCollectionSplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${rareCollection.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${rareCollection.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${rareCollectionSplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -232,20 +245,24 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${healthBeauty.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${healthBeauty.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${healthBeautySplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${healthBeauty.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${healthBeauty.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${healthBeautySplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${healthBeauty.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${healthBeauty.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${healthBeautySplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${healthBeauty.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${healthBeauty.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${healthBeautySplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -282,20 +299,24 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${motorPartz.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${motorPartz.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${motorPartzSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${motorPartz.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${motorPartz.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${motorPartzSplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${motorPartz.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${motorPartz.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${motorPartzSplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${motorPartz.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${motorPartz.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${motorPartzSplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -328,20 +349,24 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${toyHobby.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${toyHobby.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${toyHobbySplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${toyHobby.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${toyHobby.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${toyHobbySplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${toyHobby.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${toyHobby.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${toyHobbySplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${toyHobby.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${toyHobby.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${toyHobbySplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -378,20 +403,24 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${sports.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${sports.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${sportsSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${sports.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${sports.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${sportsSplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${sports.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${sports.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${sportsSplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${sports.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${sports.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${sportsSplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -410,8 +439,8 @@ div {
 							<p style="padding: 20px 0px 20px 20px;">
 								<a href="#" class="btn btn-primary" role="button"> 입찰하기</a> <a
 									style="margin-left: 10px;"
-									href="/product/${sports.productNumber}"
-									class="btn btn-default" role="button"> 더보기 </a>
+									href="/product/${sports.productNumber}" class="btn btn-default"
+									role="button"> 더보기 </a>
 							</p>
 						</div>
 					</div>
@@ -424,20 +453,24 @@ div {
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
-								<a href="/product/${life.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+								<a href="/product/${life.productNumber}"><img
+									onError="this.src='/img/icon-img.png'"
 									src="/img/product/${lifeSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
-									<a href="/product/${life.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${life.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${lifeSplitedImg[1]}"></a>
 								</div>
 								<div>
-									<a href="/product/${life.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${life.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${lifeSplitedImg[2]}"></a>
 								</div>
 								<div>
-									<a href="/product/${life.productNumber}"><img onError="this.src='/img/icon-img.png'" onError="this.src='/img/icon-img.png'"
+									<a href="/product/${life.productNumber}"><img
+										onError="this.src='/img/icon-img.png'"
 										src="/img/product/${lifeSplitedImg[3]}"></a>
 								</div>
 							</div>
@@ -464,7 +497,7 @@ div {
 					</div>
 				</div>
 			</div>
-			
+
 			<hr>
 			<h2>
 				전체 매물들<small>최신 매물 순</small>
