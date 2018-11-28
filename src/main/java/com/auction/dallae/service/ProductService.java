@@ -22,7 +22,7 @@ public interface ProductService {
 
 	public List<Product> getProductListEndDate(Product product);
 
-	/* 홈 컨트롤러 탔음 */
+	/* 홈화면 카테고리별 최고가격매물*/
 
 	public Product getProductCategoryFashion(Product product);
 
@@ -39,4 +39,16 @@ public interface ProductService {
 	public Product getProductCategorySports(Product product);
 
 	public Product getProductCategoryLife(Product product);
+	
+	
+	/* 카테고리별 리스트 */
+	public List<Product> getProductCategoryFashionList(Product product);
+	public List<Product> getProductCategoryDigitalList(Product product);
+	public List<Product> getProductCategoryRareCollectionList(Product product);
+	public List<Product> getProductCategoryHealthBeautyList(Product product);
+	public List<Product> getProductCategoryMotorPartzList(Product product);
+	public List<Product> getProductCategoryToyHobbyList(Product product);
+	public List<Product> getProductCategorySportsList(Product product);
+	public List<Product> getProductCategoryLifeList(Product product);
+	
 }

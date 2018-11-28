@@ -355,4 +355,46 @@ a img:hover {
 	height: auto;
 }
 
-/* 마이페이지 */
+/* 커먼 */
+
+.no-session_box {
+	width: 100%;
+	margin: auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.no-session_box button {
+	margin-bottom: 10px;
+}
+
+.no-session_container {
+	border: 1px solid #d6d6d6;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 100px;
+	max-width: 500px;
+	padding: 20px;
+	height: 200px;
+}
+
+.no-session_container>h2 {
+	text-align: center;
+}
+
+.no-session_container>h2>.btn-default {
+	float: left;
+}
+
+.no-session_container>h2>.btn-primary {
+	float: right;
+}
+
+.no-session_container>p {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.no-session_container>h2 {
+	float: center;
+}

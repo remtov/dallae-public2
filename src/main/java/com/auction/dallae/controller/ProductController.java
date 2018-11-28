@@ -38,6 +38,7 @@ public class ProductController {
 	public List<Product> getProductList() {
 		return productService.getProductList(null);
 	}
+
 	@RequestMapping(value = "/productlist", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Product> getProductList2(@RequestBody Product product) {
@@ -64,7 +65,7 @@ public class ProductController {
 	@ResponseBody
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
 			@PathVariable Integer productNumber) {
-		/*System.out.println(productNumber);*/
+		/* System.out.println(productNumber); */
 		Product product = PM.MapToVo(UtilLocal.saveFile(multipartHttpServletRequest), Product.class);
 		product.setProductNumber(productNumber);
 
@@ -92,12 +93,13 @@ public class ProductController {
 	public List<Product> getProductListEndDate() {
 		return productService.getProductListEndDate(null);
 	}
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, @ModelAttribute Product product) {
+	public String getProductCategory(Locale locale, Model model, @ModelAttribute Product product) {
 		model.addAttribute("getProductCategoryFashion", productService.getProductCategoryFashion(product));
 		model.addAttribute("getProductCategoryDigital", productService.getProductCategoryDigital(product));
-		model.addAttribute("getProductCategoryRareCollection", productService.getProductCategoryRareCollection(product));
+		model.addAttribute("getProductCategoryRareCollection",
+				productService.getProductCategoryRareCollection(product));
 		model.addAttribute("getProductCategoryHealthBeauty", productService.getProductCategoryHealthBeauty(product));
 		model.addAttribute("getProductCategoryMotorPartz", productService.getProductCategoryMotorPartz(product));
 		model.addAttribute("getProductCategoryToyHobby", productService.getProductCategoryToyHobby(product));
@@ -106,7 +108,47 @@ public class ProductController {
 
 		return "home";
 	}
-
-
+/*카테고리 리스트*/
+	@RequestMapping(value = "/productcategoryfashionlist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryFashionList() {
+		return productService.getProductCategoryFashionList(null);
+	}
+	@RequestMapping(value = "/productcategorydigitallist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryDigitalList() {
+		return productService.getProductCategoryDigitalList(null);
+	}
+	@RequestMapping(value = "/productcategoryrarecollectionlist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryRareCollectionList() {
+		return productService.getProductCategoryRareCollectionList(null);
+	}
+	@RequestMapping(value = "/productcategoryhealthbeautylist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryHealthBeautyList() {
+		return productService.getProductCategoryHealthBeautyList(null);
+	}
+	@RequestMapping(value = "/productcategorymotorpartzlist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryMotorPartzList() {
+		return productService.getProductCategoryMotorPartzList(null);
+	}
+	@RequestMapping(value = "/productcategorytoyhobbylist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryToyHobbyList() {
+		return productService.getProductCategoryToyHobbyList(null);
+	}
+	@RequestMapping(value = "/productcategorysportslist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategorySportsList() {
+		return productService.getProductCategorySportsList(null);
+	}
+	@RequestMapping(value = "/productcategorylifelist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Product> getProductCategoryLifeList() {
+		return productService.getProductCategoryLifeList(null);
+	}
+	
 
 }

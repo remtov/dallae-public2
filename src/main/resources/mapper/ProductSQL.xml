@@ -32,23 +32,24 @@
 		order by productEnddate asc
 	</select>
 
-<select id="getNum" resultType="product"
-		parameterType="product">
+	<select id="getNum" resultType="product" parameterType="product">
 		select rnum,a.*
- from 
-		
- (select ROWNUM AS rnum,b.*
- from product b
-		where
-			productEnddate
-			>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') 
-		order by productEnddate asc) a
-		<where> 
-		rnum BETWEEN #{startNum} and #{endNum}
-		</where>
-		
+		from
 
-</select>
+		(select ROWNUM AS rnum,b.*
+		from product b
+		where
+		productEnddate
+		>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
+
+
+	</select>
+	<!-- 마감일순8개조회_홈화면 -->
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">
 		select * from
@@ -59,71 +60,130 @@
 		9
 	</select>
 
+	<!-- 카테고리별-최고가격_홈화면 -->
 	<select id="getProductCategoryFashion" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='fashion' 
+		(SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='fashion'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
 	<select id="getProductCategoryDigital" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='digital' 
+		(SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='digital'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
-	<select id="getProductCategoryRareCollection" resultType="product"
-		parameterType="product">
+	<select id="getProductCategoryRareCollection"
+		resultType="product" parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='rareCollection' 
+		(SELECT * FROM PRODUCT
+		where
+		PRODUCTCATEGORY='rareCollection'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
 	<select id="getProductCategoryHealthBeauty" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='healthBeauty' 
+		(SELECT * FROM PRODUCT
+		where
+		PRODUCTCATEGORY='healthBeauty'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE
+		rownum <![CDATA[<]]>
+		2
 	</select>
 	<select id="getProductCategoryMotorPartz" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='motorPartz' 
+		(SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='motorPartz'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
 	<select id="getProductCategoryToyHobby" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='toyHobby' 
+		(SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='toyHobby'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
 	<select id="getProductCategorySports" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='sports' 
+		(SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='sports'
 		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
 	<select id="getProductCategoryLife" resultType="product"
 		parameterType="product">
 		select * from
-		(SELECT * FROM PRODUCT 
-		where PRODUCTCATEGORY='life' 
-		order by PRODUCTLOWESTPRICE desc)
-		WHERE rownum <![CDATA[<]]> 2
+		(SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='life'
+		order
+		by PRODUCTLOWESTPRICE desc)
+		WHERE rownum <![CDATA[<]]>
+		2
 	</select>
-	
+
+	<!-- 카테고리 리스트 -->
+	<select id="getProductCategoryFashionList" resultType="product"
+		parameterType="product">
+		SELECT * FROM PRODUCT
+		where
+		PRODUCTCATEGORY='fashion'
+	</select>
+	<select id="getProductCategoryDigitalList" resultType="product"
+		parameterType="product">
+		SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='digital'
+	</select>
+	<select id="getProductCategoryRareCollectionList"
+		resultType="product" parameterType="product">
+		SELECT * FROM PRODUCT
+		where
+		PRODUCTCATEGORY='rareCollection'
+	</select>
+	<select id="getProductCategoryHealthBeautyList"
+		resultType="product" parameterType="product">
+		SELECT * FROM PRODUCT
+		where
+		PRODUCTCATEGORY='healthBeauty'
+	</select>
+	<select id="getProductCategoryMotorPartzList"
+		resultType="product" parameterType="product">
+		SELECT * FROM PRODUCT
+		where
+		PRODUCTCATEGORY='motorPartz'
+	</select>
+	<select id="getProductCategoryToyHobbyList" resultType="product"
+		parameterType="product">
+		SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='toyHobby'
+	</select>
+	<select id="getProductCategorySportsList" resultType="product"
+		parameterType="product">
+		SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='sports'
+	</select>
+	<select id="getProductCategoryLifeList" resultType="product"
+		parameterType="product">
+		SELECT * FROM PRODUCT
+		where PRODUCTCATEGORY='life'
+	</select>
+
 	<select id="getProduct" resultType="product"
 		parameterType="product">
 		select * from product where productNumber
@@ -152,7 +212,8 @@
 		#{productName},
 		#{productCategory},
 		#{productQuantity},
-		to_char(SYSDATE,'YYYY-MM-DD HH24:mi:ss'),
+		to_char(SYSDATE,'YYYY-MM-DD
+		HH24:mi:ss'),
 		to_char(SYSDATE+3,'YYYY-MM-DD HH24:mi:ss'),
 		#{productLowestPrice},
 		#{productImage},

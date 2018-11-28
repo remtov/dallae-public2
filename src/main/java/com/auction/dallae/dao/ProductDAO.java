@@ -21,21 +21,25 @@ public interface ProductDAO {
 
 	List<Product> getProductListEndDate(Product product);
 
-	/* 홈 컨트롤러 탔음 */
+	/* 홈화면최고가격 */
 	public Product getProductCategoryFashion(Product product);
-
 	public Product getProductCategoryDigital(Product product);
-
 	public Product getProductCategoryRareCollection(Product product);
-
 	public Product getProductCategoryHealthBeauty(Product product);
-
 	public Product getProductCategoryMotorPartz(Product product);
-
 	public Product getProductCategoryToyHobby(Product product);
-
 	public Product getProductCategorySports(Product product);
-
 	public Product getProductCategoryLife(Product product);
+	
+	/* 카테고리별 페이지 */
+	public List<Product> getProductCategoryFashionList(Product product);
+	public List<Product> getProductCategoryDigitalList(Product product);
+	public List<Product> getProductCategoryRareCollectionList(Product product);
+	public List<Product> getProductCategoryHealthBeautyList(Product product);
+	public List<Product> getProductCategoryMotorPartzList(Product product);
+	public List<Product> getProductCategoryToyHobbyList(Product product);
+	public List<Product> getProductCategorySportsList(Product product);
+	public List<Product> getProductCategoryLifeList(Product product);
+	
 
 }

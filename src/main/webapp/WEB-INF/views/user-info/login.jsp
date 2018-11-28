@@ -39,7 +39,7 @@
 						<p>
 							판매자 인증을 받으시겠습니까?
 							<button class="btn btn-primary btn-xs" type="button"
-								onclick="location.href='#'">인증</button>
+								onclick="location.href='/url/user-info:seller-certification'">인증</button>
 						</p>
 					</div>
 				</c:when>
