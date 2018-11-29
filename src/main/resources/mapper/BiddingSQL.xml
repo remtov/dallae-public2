@@ -10,9 +10,8 @@
 	</select>
 	<insert id="inserBidding" parameterType="bidding">
 		INSERT INTO USERINFO
-		VALUES(#{productNumber},0,to_char(SYSDATE,'YYYY-MM-DD
-		HH24:mi:ss'),#{biddingid},0
-		)
+		(productNumber,bidCount,biddingId,biddingDate,biddingStatus)
+		VALUES(#{productNumber},0,#{biddingId, jdbcType=VARCHAR},#{biddingid},0)<!-- #{biddingId, jdbcType=VARCHAR}이건 null insert 하는방법 -->
 	</insert>
 	<update id="updateBidding" parameterType="bidding">
 		update product

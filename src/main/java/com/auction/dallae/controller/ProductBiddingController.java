@@ -21,25 +21,31 @@ public class ProductBiddingController {
 	private ProductBiddingService productBiddingService;
 	
 
-	@RequestMapping(value = "/productbidding/{productNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.GET)
 	@ResponseBody
-	public  ProductBidding getProduct(@PathVariable Integer productNumber) {
+	public  ProductBidding getbidding(@PathVariable Integer productNumber) {
 		return productBiddingService.getBidding(productNumber);
 	}
-	@RequestMapping(value = "/productbidding/{productNumber}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
-	public Integer deleteProduct(@PathVariable Integer productNumber) {
+	public Integer deletebidding(@PathVariable Integer productNumber) {
 		return productBiddingService.deleteBidding(productNumber);
 	}
-	@RequestMapping(value = "/productbidding/{productNumber}", method = RequestMethod.POST)
+	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.POST)
 	@ResponseBody
-	public Integer updateProduct(@RequestBody ProductBidding productBidding , @PathVariable Integer productNumber) {
+	public Integer updatebidding(@RequestBody ProductBidding productBidding , @PathVariable Integer productNumber) {
 		productBidding.setProductNumber(productNumber);
 		return productBiddingService.updateBidding(productBidding);
 	}
-	@RequestMapping(value = "/productbidding", method = RequestMethod.POST)
+	@RequestMapping(value = "/biddingend/{productNumber}", method = RequestMethod.PUT)
 	@ResponseBody
-	public Integer insertProduct(@RequestBody ProductBidding productBidding) {
+	public Integer updateendbidding(@RequestBody ProductBidding productBidding , @PathVariable Integer productNumber) {
+		productBidding.setProductNumber(productNumber);
+		return productBiddingService.updateBidding(productBidding);
+	}
+	@RequestMapping(value = "/bidding", method = RequestMethod.PUT)
+	@ResponseBody
+	public Integer insertbidding(@RequestBody ProductBidding productBidding) {
 		return productBiddingService.updateBiddingEnd(productBidding);
 	}
 	
