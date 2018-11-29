@@ -19,7 +19,7 @@
 			success : function(data) {
 				console.log(data.key);
 				$("#key").val(data.key);
-				$("#div01").html("<img src='captchaImage/"+data.captchaImageName+"'>");
+				$("#div01").html("<img src='captchaImage/"+data.captchaImageName+"'>l");
 			}
 		});
 		$("#btn01").on("click",function(){
