@@ -1,4 +1,4 @@
-<%-- <!--121행에서 빨간 오류나서 테스트를 위해 전체 주석처리함 --캡차API 로직을 처리하는 JSP-->
+<!--121행에서 빨간 오류나서 테스트를 위해 전체 주석처리함 --캡차API 로직을 처리하는 JSP-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ page import="java.io.*"%>
@@ -118,7 +118,7 @@
 		return result;
 	}%>
 <%
-	String dirPath = request.getServletContext().getRealPath("captchaImage") + "\\";
+	String dirPath = request.getSession().getServletContext().getRealPath("captchaImage") + "\\";
 	System.out.println(dirPath);
 	
 	String captchaImageName = null;
@@ -139,4 +139,4 @@
 	}
 	 
 %>
-<%=result%> --%>
+<%=result%> 
