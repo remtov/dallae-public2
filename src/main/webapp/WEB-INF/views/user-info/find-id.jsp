@@ -105,7 +105,7 @@ var onloadCallback=function(){
 				url : '/findid',
 				param : params,
 				success : function(res) {
-					if(typeof(greCAPTCHA)!='undifined'){
+					if(typeof(greCAPTCHA)!='undefined'){
 						if(greCAPTCHA.getResponse()==""){
 							alert("스팸 방지코드를 확인해주세요");
 							return;
