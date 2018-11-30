@@ -7,6 +7,15 @@
 <meta charset="UTF-8" />
 <title>ID 찾기</title>
 </head>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script type="text/javascript">
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
+</script>
 <body>
 	<div class="find-container">
 		<div class="container">
@@ -69,6 +78,10 @@
 								<button class="btn btn-default btn-xs" type="button"
 									onclick="forgetPass()">비밀번호 찾기</button>
 							</p>
+							<div id="html_element"></div>
+							<p>
+							
+							</p>
 						</div>
 					</form>
 				</c:otherwise>
@@ -92,6 +105,12 @@
 				url : '/findid',
 				param : params,
 				success : function(res) {
+					if(typeof(greCAPTCHA)!='undifined'){
+						if(greCAPTCHA.getResponse()==""){
+							alert("스팸 방지코드를 확인해주세요");
+							return;
+						}
+					}
 
 					if (res != '') {
 						res = JSON.parse(res);
