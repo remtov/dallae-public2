@@ -24,9 +24,9 @@ setInterval(function(){
 			var biddingId = res.biddingId.split('|');
 			var max =biddingId.length;
 			for(var i=0;i<max;i++){
-				html='<div><div style="width:100px;float:left;">'biddingDate[i]'</div><div style="width:100px;float:left;">'res.biddingId[i]'</div><br></div>';
+				html+='<div><div style="width:100px;float:left;">'biddingDate[i]'</div><div style="width:100px;float:left;">'res.biddingId[i]'</div><br></div>';
 			}
-			
+			html+=${product.productLowestPrice}+(biddingId.length*200)
 			document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
 		}
 	});
