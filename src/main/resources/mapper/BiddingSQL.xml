@@ -11,7 +11,7 @@
 	<insert id="inserBidding" parameterType="bidding">
 		INSERT INTO USERINFO
 		(productNumber,bidCount,biddingId,biddingDate,biddingStatus)
-		VALUES(#{productNumber},0,#{biddingId, jdbcType=VARCHAR},#{biddingid},0)<!-- #{biddingId, jdbcType=VARCHAR}이건 null insert 하는방법 -->
+		VALUES(#{productNumber},0,#{biddingId, jdbcType=VARCHAR},#{biddingDate, jdbcType=VARCHAR},0)<!-- #{biddingId, jdbcType=VARCHAR}이건 null insert 하는방법 -->
 	</insert>
 	<update id="updateBidding" parameterType="bidding">
 		update product
