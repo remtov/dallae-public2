@@ -1,4 +1,4 @@
-package com.auction.dallae.utils.fileupload;
+/*package com.auction.dallae.utils.fileupload;
 
 	import java.io.File;
 	import java.io.IOException;
@@ -64,3 +64,4 @@ package com.auction.dallae.utils.fileupload;
 
 		}
 	}
+*/
