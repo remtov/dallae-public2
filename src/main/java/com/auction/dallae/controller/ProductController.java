@@ -39,13 +39,13 @@ public class ProductController {
 		return productService.getProductList(null);
 	}
 
-	@RequestMapping(value = "/productlist", method = RequestMethod.POST)
+	@RequestMapping(value = "/productlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
 	public List<Product> getProductList2(@RequestBody Product product) {
 		return productService.getNum(product);
 	}
 
-	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) // 필요없는지 확인 후 제거 할 것
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
 	}
@@ -65,7 +65,6 @@ public class ProductController {
 	@ResponseBody
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
 			@PathVariable Integer productNumber) {
-		/* System.out.println(productNumber); */
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		product.setProductNumber(productNumber);
 
@@ -108,47 +107,54 @@ public class ProductController {
 
 		return "home";
 	}
-/*카테고리 리스트*/
+
+	/* 카테고리 리스트 */
 	@RequestMapping(value = "/productcategoryfashionlist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryFashionList() {
 		return productService.getProductCategoryFashionList(null);
 	}
+
 	@RequestMapping(value = "/productcategorydigitallist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryDigitalList() {
 		return productService.getProductCategoryDigitalList(null);
 	}
+
 	@RequestMapping(value = "/productcategoryrarecollectionlist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryRareCollectionList() {
 		return productService.getProductCategoryRareCollectionList(null);
 	}
+
 	@RequestMapping(value = "/productcategoryhealthbeautylist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryHealthBeautyList() {
 		return productService.getProductCategoryHealthBeautyList(null);
 	}
+
 	@RequestMapping(value = "/productcategorymotorpartzlist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryMotorPartzList() {
 		return productService.getProductCategoryMotorPartzList(null);
 	}
+
 	@RequestMapping(value = "/productcategorytoyhobbylist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryToyHobbyList() {
 		return productService.getProductCategoryToyHobbyList(null);
 	}
+
 	@RequestMapping(value = "/productcategorysportslist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategorySportsList() {
 		return productService.getProductCategorySportsList(null);
 	}
+
 	@RequestMapping(value = "/productcategorylifelist", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Product> getProductCategoryLifeList() {
 		return productService.getProductCategoryLifeList(null);
 	}
-	
 
 }
