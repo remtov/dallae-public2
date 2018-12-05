@@ -31,17 +31,28 @@ public class ProductBiddingController {
 		return productBiddingService.deleteBidding(productNumber);
 	}
 
-	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.POST)
+	@RequestMapping(value = "/bidding/{productNumber}/{bidCount}/{productName}", method = RequestMethod.POST)
 	@ResponseBody
-	public Integer updatebidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber) {
+	public Integer updatebidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber 
+			, @PathVariable Integer bidCount , @PathVariable String productName) {
 		String curTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 		productBidding.setProductNumber(productNumber);
-		return productBiddingService.updateBidding(productBidding);
+		ProductBidding pds = productBiddingService.getBidding(productNumber);
+		String biddate = pds.getBiddingDate()+"|"+curTime;
+		productBidding.setBiddingDate(biddate);
+		String bidid = pds.getBiddingId()+"|"+productName;
+		productBidding.setBiddingId(bidid);
+		if(pds.getBidCount()>bidCount) {
+			return 0;
+		}else {
+			return productBiddingService.updateBidding(productBidding);
+		}
+		
 	}
 
 	@RequestMapping(value = "/biddingend/{productNumber}", method = RequestMethod.PUT)
 	@ResponseBody
-	public Integer updateendbidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber) {
+	public Integer updateendbidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber ) {
 		productBidding.setProductNumber(productNumber);
 		return productBiddingService.updateBidding(productBidding);
 	}
