@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.auction.dallae">   
+	<logger name="shop.dallae">   
 		<level value="debug" /> 
 	</logger>
 	<logger name="jdbc.sqlonly">   
