@@ -35,7 +35,6 @@
 	<select id="getNum" resultType="product" parameterType="product">
 		select rnum,a.*
 		from
-
 		(select ROWNUM AS rnum,b.*
 		from product b
 		where
@@ -46,8 +45,6 @@
 		<where>
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
-
-
 	</select>
 	<!-- 마감일순8개조회_홈화면 -->
 	<select id="getProductListEndDate" resultType="product"
@@ -141,47 +138,120 @@
 	<!-- 카테고리 리스트 -->
 	<select id="getProductCategoryFashionList" resultType="product"
 		parameterType="product">
-		SELECT * FROM PRODUCT
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
 		where
 		PRODUCTCATEGORY='fashion'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
+	
 	<select id="getProductCategoryDigitalList" resultType="product"
 		parameterType="product">
-		SELECT * FROM PRODUCT
-		where PRODUCTCATEGORY='digital'
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
+		where
+		PRODUCTCATEGORY='digital'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
-	<select id="getProductCategoryRareCollectionList"
+		<select id="getProductCategoryRareCollectionList"
 		resultType="product" parameterType="product">
-		SELECT * FROM PRODUCT
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
 		where
 		PRODUCTCATEGORY='rareCollection'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
+	
 	<select id="getProductCategoryHealthBeautyList"
 		resultType="product" parameterType="product">
-		SELECT * FROM PRODUCT
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
 		where
 		PRODUCTCATEGORY='healthBeauty'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
 	<select id="getProductCategoryMotorPartzList"
 		resultType="product" parameterType="product">
-		SELECT * FROM PRODUCT
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
 		where
 		PRODUCTCATEGORY='motorPartz'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
+	
 	<select id="getProductCategoryToyHobbyList" resultType="product"
 		parameterType="product">
-		SELECT * FROM PRODUCT
-		where PRODUCTCATEGORY='toyHobby'
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
+		where
+		PRODUCTCATEGORY='toyHobby'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
+	
 	<select id="getProductCategorySportsList" resultType="product"
 		parameterType="product">
-		SELECT * FROM PRODUCT
-		where PRODUCTCATEGORY='sports'
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
+		where
+		PRODUCTCATEGORY='sports'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
+	
 	<select id="getProductCategoryLifeList" resultType="product"
 		parameterType="product">
-		SELECT * FROM PRODUCT
-		where PRODUCTCATEGORY='life'
+		select rnum,a.*
+		from
+		(select ROWNUM AS rnum,b.*
+		from product b
+		where
+		PRODUCTCATEGORY='life'
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
 
 	<select id="getProduct" resultType="product"

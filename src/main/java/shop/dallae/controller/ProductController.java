@@ -109,52 +109,53 @@ public class ProductController {
 	}
 
 	/* 카테고리 리스트 */
-	@RequestMapping(value = "/productcategoryfashionlist", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/productcategoryfashionlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryFashionList() {
-		return productService.getProductCategoryFashionList(null);
+	public List<Product> getProductCategoryFashionList(@RequestBody Product product) {
+		return productService.getProductCategoryFashionList(product);
 	}
 
-	@RequestMapping(value = "/productcategorydigitallist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategorydigitallist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryDigitalList() {
-		return productService.getProductCategoryDigitalList(null);
+	public List<Product> getProductCategoryDigitalList(@RequestBody Product product) {
+		return productService.getProductCategoryDigitalList(product);
 	}
 
-	@RequestMapping(value = "/productcategoryrarecollectionlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategoryrarecollectionlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryRareCollectionList() {
-		return productService.getProductCategoryRareCollectionList(null);
+	public List<Product> getProductCategoryRareCollectionList(@RequestBody Product product) {
+		return productService.getProductCategoryRareCollectionList(product);
 	}
 
-	@RequestMapping(value = "/productcategoryhealthbeautylist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategoryhealthbeautylist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryHealthBeautyList() {
-		return productService.getProductCategoryHealthBeautyList(null);
+	public List<Product> getProductCategoryHealthBeautyList(@RequestBody Product product) {
+		return productService.getProductCategoryHealthBeautyList(product);
 	}
 
-	@RequestMapping(value = "/productcategorymotorpartzlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategorymotorpartzlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryMotorPartzList() {
-		return productService.getProductCategoryMotorPartzList(null);
+	public List<Product> getProductCategoryMotorPartzList(@RequestBody Product product) {
+		return productService.getProductCategoryMotorPartzList(product);
 	}
 
-	@RequestMapping(value = "/productcategorytoyhobbylist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategorytoyhobbylist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryToyHobbyList() {
-		return productService.getProductCategoryToyHobbyList(null);
+	public List<Product> getProductCategoryToyHobbyList(@RequestBody Product product) {
+		return productService.getProductCategoryToyHobbyList(product);
 	}
 
-	@RequestMapping(value = "/productcategorysportslist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategorysportslist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategorySportsList() {
-		return productService.getProductCategorySportsList(null);
+	public List<Product> getProductCategorySportsList(@RequestBody Product product) {
+		return productService.getProductCategorySportsList(product);
 	}
 
-	@RequestMapping(value = "/productcategorylifelist", method = RequestMethod.GET)
+	@RequestMapping(value = "/productcategorylifelist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
-	public List<Product> getProductCategoryLifeList() {
-		return productService.getProductCategoryLifeList(null);
+	public List<Product> getProductCategoryLifeList(@RequestBody Product product) {
+		return productService.getProductCategoryLifeList(product);
 	}
 
 }

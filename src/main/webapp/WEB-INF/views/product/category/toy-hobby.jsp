@@ -27,7 +27,7 @@ function loadba() {
 	  var au = new AjaxUtil({
 	    url: '/productcategorytoyhobbylist',
 	    param : params,
-	    method : 'GET',
+	    method : 'POST',
 	    success: function(res) {
 	      res = JSON.parse(res); 
 
