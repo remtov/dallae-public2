@@ -20,6 +20,21 @@
 	text-align: center;
 }
 </style>
+<script type="text/javascript">
+	var newWindow;
+
+	function openNewWindow() {
+		newWindow = window.open("/url/tmp:popup:child-window_opener",
+				"newWindow", "height=200, width=400, resizable=yes");
+	}
+
+	function recieve() {
+		var txt = "<font color='red'>자식창에서 받아온 값</font>";
+		document.getElementById("process").innerHTML = txt;
+		document.myform.receiver.value = newWindow.document.myform.sender.value;
+	}
+</script>
+
 </head>
 <body>
 	<div class="find-container">
@@ -45,6 +60,14 @@
 					</div>
 				</c:when>
 				<c:otherwise>
+					<form name="myform">
+						<input type="button" value="자식창 열기" onclick="openNewWindow()"><br>
+						부모창 Sender : <input type="text" name="sender" size="10"><br>
+						부모창 Receiver : <input type="text" name="receiver" size="10"><span
+							id="process"></span><br /> <input type="button" value="받아오기"
+							onclick="recieve()">
+					</form>
+					
 					<form id="certification">
 						<div class="inner-box3">
 
@@ -57,15 +80,16 @@
 							</h2>
 							<p>
 
-								<input class="btn btn-default" value="인증절차1" type="button"
-									onclick="alert1()" />alert-test1 test 설명 설명alert-test1 test 설명
-								설명alert-test1 test 설명 설명
+								<input class="btn btn-default" value="휴대본 본인인증" type="button"
+									onclick="window.open('https://www.skbroadband.com/popup/Identify_Popup.do','seller-certification','width=430,height=500,location=no,status=no,scrollbars=yes');" />
+								본인인증을 위한 절차 1번
 							</p>
 							<p>
 
-								<input class="btn btn-default" value="인증절차2" type="button"
-									onclick="alert2()" />alert-test2alert-test1 test 설명
-								설명alert-test1 test 설명 설명
+
+								<input class="btn btn-default" value="인증2" type="button"
+									onclick="window.open('https://www.skbroadband.com/popup/Identify_Popup.do','seller-certification','width=430,height=500,location=no,status=no,scrollbars=yes');" />
+								본인인증을 위한 절차 2번
 							</p>
 						</div>
 					</form>

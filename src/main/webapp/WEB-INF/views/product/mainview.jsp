@@ -27,7 +27,7 @@ h4 {
 				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
 					integerOnly="true" />
 				<h3>경매 보기</h3>
-				<h3>${product.productCategory}><b>${product.productName}</b><small><font
+				<h3><a href="/url/product:category:${product.productCategory}">${product.productCategory}</a>><b>${product.productName}</b><small><font
 						color="#e53a6f"> | 마감시까지 <b id="days-output"></b>일<b
 							id="hours-output"></b>시간 <b id="minutes-output"></b>분<b
 							id="seconds-output"></b>초 남았습니다.
