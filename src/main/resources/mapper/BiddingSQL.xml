@@ -8,6 +8,7 @@
 		select * from productbidding
 		where ProductNumber=#{productNumber}
 	</select>
+	
 	<insert id="inserBidding" parameterType="bidding">
 		INSERT INTO productbidding
 		(

@@ -10,6 +10,8 @@ public interface ProductDAO {
 	public List<Product> getNum(Product product);
 
 	public Product getProduct(Integer productNumber);
+	
+	public Product getProductImage(String productImage);
 
 	public int insertProduct(Product product);
 

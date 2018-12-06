@@ -10,6 +10,8 @@ public interface ProductService {
 
 	public List<Product> getNum(Product product);
 	
+	public Product getProductImage(String productImage);
+	
 	public Product getProduct(Integer productNumber);
 
 	public int insertProduct(Product product);

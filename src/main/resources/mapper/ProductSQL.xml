@@ -31,7 +31,12 @@
 		</where>
 		order by productEnddate asc
 	</select>
-
+	<select id="getproductImage" resultType="product"
+		parameterType="product">
+		select * from product
+		where
+		productImage=#{productImage}
+	</select>
 	<select id="getNum" resultType="product" parameterType="product">
 		select rnum,a.*
 		from
@@ -150,7 +155,7 @@
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
 	</select>
-	
+
 	<select id="getProductCategoryDigitalList" resultType="product"
 		parameterType="product">
 		select rnum,a.*
@@ -165,7 +170,7 @@
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
 	</select>
-		<select id="getProductCategoryRareCollectionList"
+	<select id="getProductCategoryRareCollectionList"
 		resultType="product" parameterType="product">
 		select rnum,a.*
 		from
@@ -179,7 +184,7 @@
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
 	</select>
-	
+
 	<select id="getProductCategoryHealthBeautyList"
 		resultType="product" parameterType="product">
 		select rnum,a.*
@@ -208,7 +213,7 @@
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
 	</select>
-	
+
 	<select id="getProductCategoryToyHobbyList" resultType="product"
 		parameterType="product">
 		select rnum,a.*
@@ -223,7 +228,7 @@
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
 	</select>
-	
+
 	<select id="getProductCategorySportsList" resultType="product"
 		parameterType="product">
 		select rnum,a.*
@@ -238,7 +243,7 @@
 			rnum BETWEEN #{startNum} and #{endNum}
 		</where>
 	</select>
-	
+
 	<select id="getProductCategoryLifeList" resultType="product"
 		parameterType="product">
 		select rnum,a.*
@@ -282,7 +287,8 @@
 		#{productName},
 		#{productCategory},
 		#{productQuantity},
-		to_char(SYSDATE,'YYYY-MM-DD	HH24:mi:ss'),
+		to_char(SYSDATE,'YYYY-MM-DD
+		HH24:mi:ss'),
 		to_char(SYSDATE+3,'YYYY-MM-DD HH24:mi:ss'),
 		#{productLowestPrice},
 		#{productImage},

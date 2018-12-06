@@ -150,4 +150,10 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getProductCategoryLifeList(Product product) {
 		return productDAOImpl.getProductCategoryLifeList(product);
 	}
+
+	@Override
+	public Product getProductImage(String productImage) {
+		
+		return productDAOImpl.getProductImage(productImage);
+	}
 }
