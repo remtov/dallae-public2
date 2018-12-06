@@ -77,19 +77,15 @@ public class UserInfoController {
 	@ResponseBody
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
 			HttpSession httpSession, HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
-		/*userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));*/
-		System.out.println(userInfo +"테스트 테스트");
 		userInfo.setUserNumber(userNumber);
-		userInfoService.updateUserInfo(userInfo);
-		UserInfo loginUser = userInfoService.login(userInfo);
-		if (httpSession.getAttribute("userlogininfo") != null) {
-			httpSession.removeAttribute("userlogininfo");
+		if(userInfo.getUserPassword()!=null) {
+			if(userInfo.getPaww()!=null) {
+				userInfo.setPaww(SHAUtils.makeEcnStr(userInfo.getPaww()));
+			}
+		userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));
 		}
-		if (loginUser != null) {
-			httpSession.setAttribute("userlogininfo", loginUser);
-		} else {
-			httpSession.setAttribute("userlogininfo", null);
-		}
+		System.out.println(userInfo +"테스트 테스트");
+	
 		return userInfoService.updateUserInfo(userInfo);
 	}
 

@@ -105,9 +105,15 @@ window.addEventListener('load', function() {
 								ID<input style="width: 80px;" class="form-control" type="text"
 									id="userId" value="${userlogininfo.userId}" data-vali="2">
 								<p style="margin-top: 5px;">
-									<button
-										onclick="location.href='/url/user-info:update-password'"
-										class="btn btn-default">비밀번호 변경</button>
+									기존 비밀번호<input style="width: 250px;" class="form-control"
+										type="text" id="userPassword"
+										placeholder="비밀번호 변경 하실 경우 입력하세요"> 새 비밀번호<input
+										style="width: 250px;" class="form-control" type="text"
+										id="userPasswordNew" placeholder="비밀번호 변경 하실 경우 입력하세요">
+									새 비밀번호 확인<input style="width: 250px;" class="form-control"
+										type="text" id="userPasswordNewConfirm"
+										placeholder="비밀번호 변경 하실 경우 입력하세요">
+
 								</p>
 								<p style="margin-top: 5px;">
 									별명 <input style="width: 200px;" class="form-control"
@@ -153,52 +159,76 @@ window.addEventListener('load', function() {
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<script>
-function save(){
-	var userName = document.querySelector('#userName').value;
-	var userId = document.querySelector('#userId').value;
-	var userNickName = document.querySelector('#userNickName').value;
-	var userEmail = document.querySelector('#userEmail').value;
-	var userPhoneNum = document.querySelector('#userPhoneNum').value;
-	var userAddress = document.querySelector('#userAddress').value;
-	var userAddress2 = document.querySelector('#userAddress2').value;
-	
-	var valis = document.querySelectorAll('*[data-vali]');
-	
-	valis.forEach((e) => {
-		var length = e.getAttribute('data-vali');
-		if(e.value.trim().length < length){
-			e.focus();
-			alert(e.id + '은(는) ' + length + '이상의 글자로 채워 주셔야 합니다.');
-			return false;
-		}
-	});
+<script>
+function save() {
+	   var userPassword = document.querySelector('#userPassword').value;
+	   var userPasswordNew = document.querySelector('#userPasswordNew').value;
+	   var userPasswordNewConfirm = document.querySelector('#userPasswordNewConfirm').value;
+	   var userName = document.querySelector('#userName').value;
+	   var userId = document.querySelector('#userId').value;
+	   var userNickName = document.querySelector('#userNickName').value;
+	   var userEmail = document.querySelector('#userEmail').value;
+	   var userPhoneNum = document.querySelector('#userPhoneNum').value;
+	   var userAddress = document.querySelector('#userAddress').value;
+	   var userAddress2 = document.querySelector('#userAddress2').value;
+	   var valis = document.querySelectorAll('*[data-vali]');
+	   valis.forEach((e) => {
+	      var length = e.getAttribute('data-vali');
+	      if (e.value.trim().length < length) {
+	         e.focus();
+	         alert(e.id + '은(는) ' + length + '이상의 글자로 채워 주셔야 합니다.');
+	         return true;
+	      }
+	   });
+	   if (userPassword.trim() != '') {
+	      if (userPasswordNew.trim() == userPasswordNewConfirm.trim()) {
+	         var params = {
+	            userName: userName,
+	            userId: userId,
+	            userEmail: userEmail,
+	            userNickName: userNickName,
+	            userPhoneNum: userPhoneNum,
+	            userAddress: userAddress,
+	            userAddress2: userAddress2,
+	            userPassword: userPasswordNew,
+	            paww: userPassword
+	         }
+	      } else {
+	         alert('새 비밀번호와 비밀번호 확인이 다릅니다.')
+	      }
+	   } else {
+	      var params = {
+	         userName: userName,
+	         userId: userId,
+	         userEmail: userEmail,
+	         userNickName: userNickName,
+	         userPhoneNum: userPhoneNum,
+	         userAddress: userAddress,
+	         userAddress2: userAddress2
+	      }
+	   }
+	   params = JSON.stringify(params);
+	   var conf = {
+	      url: '/update/' + ${
+	         userlogininfo.userNumber
+	      },
+	      method: 'PUT',
+	      param: params,
+	      success: function(res) {
+	         /* alert(res) */
+	         if (res == 1) {
+	            alert('회원수정이 완료 되셨습니다.');
+	            location.href = "/url/user-info:my-page";
+	         };
+	      }
+	   };
+	   var ajaxUtil = new AjaxUtil(conf);
+	   ajaxUtil.send();
+	}
 
-	var params={userName:userName,userId:userId,userEmail:userEmail,userNickName:userNickName,
-			userPhoneNum:userPhoneNum,userAddress:userAddress,userAddress2:userAddress2};
-	 params = JSON.stringify(params); 
-	
-		var conf = {
-				url : '/update/'+${userlogininfo.userNumber},
-				method :'PUT',
-				param : params,
-				success:function(res){
-					if(res==1){
-						alert('회원수정이 완료 되셨습니다.');
-						location.href="/url/user-info:my-page";
-					};  
-				}
-		
-		};
-		var ajaxUtil = new AjaxUtil(conf);
-		ajaxUtil.send();
-	
-}
-
-function goPage(productNumber) {
-	location.href = '/productupdate/' + productNumber;
-}
-
+	function goPage(productNumber) {
+	   location.href = '/productupdate/' + productNumber;
+	}
 </script>
 </body>
 </html>

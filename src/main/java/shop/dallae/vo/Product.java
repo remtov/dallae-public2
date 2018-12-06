@@ -22,6 +22,7 @@ public class Product {
 	private Integer startNum;
 	private Integer endNum;
 
+
 	public Integer getProductNumber() {
 		return productNumber;
 	}

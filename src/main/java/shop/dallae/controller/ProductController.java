@@ -75,8 +75,9 @@ public class ProductController {
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
-		/* productBidding.setProductNumber(product.getProductNumber()); */
-		/* productBiddingService.insertProductBidding(productBidding); */
+		productBidding.setProductNumber(product.getProductNumber());
+		productBiddingService.inserBidding(productBidding);
+		
 		return productService.insertProduct(product);
 	}
 

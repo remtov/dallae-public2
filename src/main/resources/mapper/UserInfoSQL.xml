@@ -73,7 +73,7 @@
 		<set>
 			<if test="userName!=null">USERNAME=#{userName},</if>
 			<if test="userId!=null">USERID=#{userId},</if>
-	<!-- <if test="userPassword!=null">USERPASSWORD=#{userPassword},</if> -->
+			<if test="userPassword!=null">USERPASSWORD=#{userPassword},</if>
 			<if test="userEmail!=null">USEREMAIL=#{userEmail},</if>
 			<if test="userNickName!=null">USERNICKNAME=#{userNickName},</if>
 			<if test="userPhoneNum!=null">USERPHONENUM=#{userPhoneNum},</if>
@@ -82,9 +82,9 @@
 			<if test="userLevel!=null">USERLEVEL=#{userLevel},</if>
 			<if test="userPoint!=null">USERPOINT=#{userPoint},</if>
 			<if test="userCreditLevel!=null">USERCREDITLEVEL=#{userCreditLevel},</if>
-			<if test="userImage!=null">USERIMAGE=#{userImage},</if>
+			<if test="userImage!=null">USERIMAGE=#{userImage}</if>
 		</set>
-		where userNumber=#{userNumber}
+		<where> userNumber=#{userNumber} <if test="paww!=null"> and userPassword=#{paww}</if></where>
 	</update>
 
 	<delete id="deleteUserInfo" parameterType="userInfo">
