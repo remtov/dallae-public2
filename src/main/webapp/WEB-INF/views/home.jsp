@@ -80,7 +80,7 @@ div {
 				<!-- 카테고리 1열 -->
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:fashion">${fashion.productCategory}</a></li>
+						<li><b><a href="/url/product:category:fashion">${fashion.productCategory}</a></b></li>
 						<li class="active">${fashion.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -132,7 +132,7 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:digital">${digital.productCategory}</a></li>
+						<li><b><a href="/url/product:category:digital">${digital.productCategory}</a></b></li>
 						<li class="active">${digital.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -189,7 +189,7 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:rare-collection">${rareCollection.productCategory}</a></li>
+						<li><b><a href="/url/product:category:rare-collection">${rareCollection.productCategory}</a></b></li>
 						<li class="active">${rareCollection.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -239,7 +239,7 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:health-beauty">${healthBeauty.productCategory}</a></li>
+						<li><b><a href="/url/product:category:health-beauty">${healthBeauty.productCategory}</a></b></li>
 						<li class="active">${healthBeauty.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -293,7 +293,7 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:motor-partz">${motorPartz.productCategory}</a></li>
+						<li><b><a href="/url/product:category:motor-partz">${motorPartz.productCategory}</a></b></li>
 						<li class="active">${motorPartz.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -343,7 +343,7 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:toy-hobby">${toyHobby.productCategory}</a></li>
+						<li><b><a href="/url/product:category:toy-hobby">${toyHobby.productCategory}</a></b></li>
 						<li class="active">${toyHobby.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -397,7 +397,7 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:sports">${sports.productCategory}</a></li>
+						<li><b><a href="/url/product:category:sports">${sports.productCategory}</a></b></li>
 						<li class="active">${sports.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -447,7 +447,7 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><a href="/url/product:category:life">${life.productCategory}</a></li>
+						<li><b><a href="/url/product:category:life">${life.productCategory}</a></b></li>
 						<li class="active">${life.productName}</li>
 					</ol>
 					<div style="background-color: white;">

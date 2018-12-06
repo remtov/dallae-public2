@@ -78,7 +78,7 @@ public class UserInfoController {
 	public Integer updateUserInfo2(@RequestBody UserInfo userInfo, @PathVariable Integer userNumber,
 			HttpSession httpSession, HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
 		/*userInfo.setUserPassword(SHAUtils.makeEcnStr(userInfo.getUserPassword()));*/
-		/*System.out.println(userInfo +"test message");*/
+		System.out.println(userInfo +"테스트 테스트");
 		userInfo.setUserNumber(userNumber);
 		userInfoService.updateUserInfo(userInfo);
 		UserInfo loginUser = userInfoService.login(userInfo);

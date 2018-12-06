@@ -158,11 +158,11 @@ function save(){
 	var userName = document.querySelector('#userName').value;
 	var userId = document.querySelector('#userId').value;
 	var userNickName = document.querySelector('#userNickName').value;
-	
 	var userEmail = document.querySelector('#userEmail').value;
 	var userPhoneNum = document.querySelector('#userPhoneNum').value;
 	var userAddress = document.querySelector('#userAddress').value;
 	var userAddress2 = document.querySelector('#userAddress2').value;
+	
 	var valis = document.querySelectorAll('*[data-vali]');
 	
 	valis.forEach((e) => {
