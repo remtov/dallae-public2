@@ -75,10 +75,12 @@ public class ProductController {
 	@ResponseBody
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
+		System.out.println(product.getProductNumber());
+		int a = productService.insertProduct(product);
 		productBidding.setProductNumber(product.getProductNumber());
 		productBiddingService.inserBidding(productBidding);
 		
-		return productService.insertProduct(product);
+		return a;
 	}
 
 	@RequestMapping(value = "/product_id", method = RequestMethod.POST)

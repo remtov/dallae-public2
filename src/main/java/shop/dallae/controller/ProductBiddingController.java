@@ -60,7 +60,7 @@ public class ProductBiddingController {
 	@RequestMapping(value = "/bidding", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer insertbidding(@RequestBody ProductBidding productBidding) {
-		return productBiddingService.updateBiddingEnd(productBidding);
+		return productBiddingService.inserBidding(productBidding);
 	}
 
 }

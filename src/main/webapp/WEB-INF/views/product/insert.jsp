@@ -323,8 +323,12 @@ file-box-container {
 						success : function() {
 							location.href = '/url/product:list';
 							alert('성공');
+						
+						
 						}
 					});
+					
+					
 				//}
 			}
 		}
