@@ -23,6 +23,15 @@
 	float: center;
 }
 </style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script type="text/javascript">
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
+</script>
 </head>
 <div class="find-container">
 	<div class="container">
@@ -94,6 +103,12 @@
           param: params, 
           method:'PUT',
           success: function(res) {   
+        	  if(typeof(greCAPTCHA)!='undefined'){
+					if(greCAPTCHA.getResponse()==""){
+						alert("스팸 방지코드를 확인해주세요");
+						return;
+					}
+				}
              if (res == 0) {
                 alert('아이디 , 폰 번호 혹은 회원 이름이 일치하지 않습니다.');
                 return false;

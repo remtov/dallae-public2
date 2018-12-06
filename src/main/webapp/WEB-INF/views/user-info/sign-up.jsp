@@ -7,6 +7,15 @@
 <title>here</title>
 <style>
 </style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script type="text/javascript">
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
+</script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 	/* 필수체크동의 */
@@ -207,6 +216,12 @@ function save() {
                method: 'POST',
                param: params,
                success: function(res) {
+            		if(typeof(greCAPTCHA)!='undefined'){
+						if(greCAPTCHA.getResponse()==""){
+							alert("스팸 방지코드를 확인해주세요");
+							return;
+						}
+					}
                   if (res == 1) {
                      alert('회원가입이 완료 되셨습니다.');
                      location.href = "/";

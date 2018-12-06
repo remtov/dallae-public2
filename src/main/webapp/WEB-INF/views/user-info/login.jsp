@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8" />
 <title>Login</title>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script type="text/javascript">
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
+</script>
 </head>
 <body>
 	<div class="find-container">
@@ -113,6 +122,13 @@
 					method : 'POST',
 					param : params,
 					success : function(res) {
+						if(typeof(greCAPTCHA)!='undefined'){
+							if(greCAPTCHA.getResponse()==""){
+								alert("스팸 방지코드를 확인해주세요");
+								return;
+							}
+						}
+
 						if (res != '') {
 							alert('로그인이 완료되셨습니다.');
 							location.href = "/";

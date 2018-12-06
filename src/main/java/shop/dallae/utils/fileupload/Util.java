@@ -27,7 +27,6 @@ public class Util {
 			String key = it.next();
 			map.put(key, data.get(key));
 		}
-
 		Map<String, MultipartFile> files = request.getFileMap();
 		it = request.getFileMap().keySet().iterator();
 		String dataName = "";
@@ -37,21 +36,18 @@ public class Util {
 			key = it.next();
 			System.out.println(key);
 			String fileName = files.get(key).getOriginalFilename();
-
 			if (!fileName.equals("")) {
 				String extensionName = fileName.substring(fileName.lastIndexOf("."));// 확장자명 뽑아옴
 				String lastFileName = System.currentTimeMillis() +"num"+ cnt + extensionName;// 이름=업로드시간+확장자명
 				File uploadFile = new File(uploadPath, lastFileName);
 				try {
-					files.get(key).transferTo(uploadFile);
+					files.get(key).transferTo(uploadFile);//여러 사진  넣는곳
 					dataName += lastFileName + "|";
 					cnt++;
 				} catch (IllegalStateException | IOException e) {
 					e.printStackTrace();
 				}
-
 			}
-
 		}
 		dataName = dataName.substring(0, dataName.length() - 1);
 		map.put("productImage", dataName);
