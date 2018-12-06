@@ -17,26 +17,32 @@ type="button" data-update>입찰 하기</button>
 
 	var html ='';
 	$.ajax({
-		url : '/bidding'+${product.productNumber},
+		url : '/bidding/'+${product.productNumber},
 		type : 'GET',
 		success : function(res){
 			var biddingDate = res.biddingDate.split('|');
 			var biddingId = res.biddingId.split('|');
 			var max =biddingId.length;
 			for(var i=0;i<max;i++){
-				html+='<div><div style="width:100px;float:left;">'biddingDate[i]'</div><div style="width:100px;float:left;">'res.biddingId[i]'</div><br></div>';
+				html+='<div><div style="width:100px;float:left;">'+biddingDate[i]+'</div><div style="width:100px;float:left;">'+res.biddingId[i]+'</div><br></div><br>';
 			}
-			html+=res.bidCount+'번 비딩';
+			html+='<div class="bidCount">'+res.bidCount+'번 비딩<div>';
 			html+=${product.productLowestPrice}+(biddingId.length*200);
 			document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
 		}
 	});
+	var bc =${'.bidCount'};
 $('[data-update]').click(function()){
 	$.ajax({
-		url : '/biddingudt'+${product.productNumber},
+		url : '/biddingudt/'+${product.productNumber}+'/'+bc+'/'+${product.productName},
 		type : 'PUT',
-		success : function(){
-			alert('입찰에 성공하셨습니다');
+		success : function(res){
+			if(res==0){
+				alert("이가격에 입찰한사람이 있습니다");
+				
+			}else{
+				alert("입찰에성공하셨습니다");
+			}
 		}
 	});
 }
