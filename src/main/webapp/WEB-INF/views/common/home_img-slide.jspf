@@ -80,7 +80,7 @@ window.addEventListener('load',function(){
 	var imgs = response[i].productImage;
 	var img = imgs.split('|');
 		
-	html += img[0]+'" alt="해당 이미지의 연결이 끊겼습니다."></a>';
+	html += img[0]+'" onError="this.src=\'/img/icon-img.png\'"></a>';
 	html += '<div class="carousel-caption" >';
 	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> 마감임박! "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);">'
 			+ daysRound+ '일 '+hoursRound+'시 '+minutesRound+'분 '+secondsRound+'초 뒤에 경매가 종료됩니다. '

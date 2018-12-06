@@ -17,7 +17,31 @@
 		window.opener.document.getElementById("process").innerHTML = txt;
 		window.close();
 	}
+
+	function send2() {
+		$("#certificationYN", opener.document).val('Y');
+		opener.$("#name").val($("#name").val());
+		opener.$("#name").html($("#name").val());
+
+		opener.$("#cell_phone1").val($("#cell_phone1").val());
+		opener.$("#cell_phone2").val($("#cell_phone2").val());
+		opener.$("#cell_phone3").val($("#cell_phone3").val());
+		opener.nameCheck($("#name").val());
+		self.close();
+	}
 </script>
+<body>
+	<!-- 자식창에서 완료 후 찍히는 로직
+	alert("인증이 완료되었습니다.");
+$("#certificationYN", opener.document).val('Y');
+opener.$("#name").val($("#name").val());
+opener.$("#name").html($("#name").val());
+
+opener.$("#cell_phone1").val($("#cell_phone1").val());
+opener.$("#cell_phone2").val($("#cell_phone2").val());
+opener.$("#cell_phone3").val($("#cell_phone3").val());
+opener.nameCheck($("#name").val()); self.close(); } }
+-->
 </head>
 <form name="myform">
 	자식창 Sender : <input type="text" name="sender" size="10"><br>

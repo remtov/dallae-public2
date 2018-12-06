@@ -91,7 +91,7 @@ h4 {
 								html += ' active';
 								}
 								html += '">';
-								html+='<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+img[i]+'">';
+								html+='<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/img/icon-img.png\'" src="/resources/img/product/'+img[i]+'">';
 								html+='<div class="carousel-caption"></div></div>';
 							}
 			
