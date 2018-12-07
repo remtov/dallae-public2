@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8" />
 <title>본인 인증</title>
-<!-- 제이쿼리 -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <style>
 .inner-box3 {
 	border: 1px solid #d6d6d6;
@@ -21,6 +19,15 @@
 	text-align: center;
 }
 </style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script type="text/javascript">
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
+</script>
 <script type="text/javascript">
 var newWindow;
 
@@ -111,6 +118,8 @@ function recieve() {
 			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
 		</c:otherwise>
 	</c:choose>
+
+
 	<script>
 		function enter(ent) {
 			var code = ent.which ? ent.which : event.keyCode;
