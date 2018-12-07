@@ -53,7 +53,7 @@ public class ProductBiddingController {
 	@RequestMapping(value = "/biddingend/{productNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateendbidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber ) {
-		productBidding.setProductNumber(productNumber);
+		productBidding.setProductNumber(productNumber);      
 		return productBiddingService.updateBidding(productBidding);
 	}
 
