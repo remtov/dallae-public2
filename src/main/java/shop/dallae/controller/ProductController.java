@@ -28,6 +28,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
+
 	@Autowired
 	private ProductBiddingService productBiddingService;
 
@@ -39,12 +40,20 @@ public class ProductController {
 		return productService.getProductList(null);
 	}
 
+	
 	@RequestMapping(value = "/productlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
 	public List<Product> getProductList2(@RequestBody Product product) {
 		return productService.getNum(product);
 	}
+	@RequestMapping(value = "/productsearch", method = RequestMethod.POST)
+	public Model getProduct(@RequestBody Product product,Model model) {
 
+		System.out.println("바보");
+		System.out.println(model.addAttribute("productser", productService.getSer(product)));
+		return model.addAttribute("productser", productService.getSer(product));
+		
+	}
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) // 필요없는지 확인 후 제거 할 것
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
