@@ -36,8 +36,8 @@
 
 	function openNewWindow() {
 		newWindow = window.open(
-				"https://www.skbroadband.com/popup/Identify_Popup.do",
-				"newWindow", "height=200, width=400, resizable=yes");
+				"/url/user-info/seller-certification_popup",
+				"popup1", "width=360, height=640, resizable=yes");
 	}
 </script>
 
