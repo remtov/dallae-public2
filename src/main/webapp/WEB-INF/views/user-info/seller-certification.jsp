@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>본인 인증</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
 .inner-box3 {
 	border: 1px solid #d6d6d6;
@@ -19,33 +20,25 @@
 	text-align: center;
 }
 </style>
-<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script
+	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
+	async defer></script>
 <script type="text/javascript">
-var onloadCallback=function(){
-	greCAPTCHA.render('html_element',{
-		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
-		'theme':'light'
-	});
-};
+	var onloadCallback = function() {
+		greCAPTCHA.render('html_element', {
+			'sitekey' : '6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+			'theme' : 'light'
+		});
+	};
 </script>
 <script type="text/javascript">
-var newWindow;
+	var newWindow;
 
-function openNewWindow() {
-   newWindow = window.open("https://www.skbroadband.com/popup/Identify_Popup.do", "newWindow", "height=200, width=400, resizable=yes");
-}
-
-function recieve() {
-   var txt = "<font color='red'>인증창에서 받아온 값</font>";
-   document.getElementById("process").innerHTML = txt;
-   document.myform.receiver.value = $("#certificationYN", opener.document).val('Y');
-   document.myform.receiver2.value = opener.$("#name").val($("#name").val());
-   document.myform.receiver3.value = opener.$("#name").html($("#name").val());
-   document.myform.receiver4.value = opener.$("#cell_phone1").val($("#cell_phone1").val());
-   document.myform.receiver5.value = opener.$("#cell_phone2").val($("#cell_phone2").val());
-   document.myform.receiver6.value = opener.$("#cell_phone3").val($("#cell_phone3").val());
-   document.myform.receiver7.value = opener.nameCheck($("#name").val());
-}
+	function openNewWindow() {
+		newWindow = window.open(
+				"https://www.skbroadband.com/popup/Identify_Popup.do",
+				"newWindow", "height=200, width=400, resizable=yes");
+	}
 </script>
 
 </head>
@@ -94,18 +87,25 @@ function recieve() {
 											onclick="openNewWindow()" />
 									</p>
 									<p>
-										인증 후 받아온 값 :<br> <input type="text" name="receiver"
-											size="10"><input type="text"
-											name="receiver2" size="10"> <input
-											type="text" name="receiver3" size="10"> <input
-											type="text" name="receiver4" size="10"> <input
-											type="text" name="receiver5" size="10"> <input
-											type="text" name="receiver6" size="10"> <input
-											type="text" name="receiver7" size="10"> <span
-											id="process"></span> <input class="btn btn-default"
-											type="button" value="인증창의 완료후 값 받아오기 테스트" onclick="recieve()">
-
+										<input class="form-control" type="text" disabled id="name" />
 									</p>
+									<p>
+										<input id="name" class="form-control" type="text" disabled
+											id="cell_phone1" />
+									</p>
+									<p>
+										<input class="form-control" type="text" disabled
+											id="cell_phone2" />
+									</p>
+									<p>
+										<input class="form-control" type="text" disabled
+											id="cell_phone3" />
+									</p>
+									<p>
+										<input class="form-control" type="text" disabled
+											id="certificationYN" />
+									</p>
+
 								</div>
 							</form>
 						</c:otherwise>

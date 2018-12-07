@@ -209,9 +209,7 @@ function save() {
 	   }
 	   params = JSON.stringify(params);
 	   var conf = {
-	      url: '/update/' + ${
-	         userlogininfo.userNumber
-	      },
+	      url:'/update/'+${userlogininfo.userNumber},
 	      method: 'PUT',
 	      param: params,
 	      success: function(res) {
