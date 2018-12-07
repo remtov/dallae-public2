@@ -161,4 +161,10 @@ public class ProductDAOImpl implements ProductDAO {
 		return SqlSessionTemplate.selectOne("SQL.ProductSQL.getproductImage", productImage);
 	}
 
+	@Override
+	public List<Product> getSer(Product product) {
+		
+		return SqlSessionTemplate.selectList("SQL.ProductSQL.ser", product);
+	}
+
 }
