@@ -16,7 +16,7 @@ var onloadCallback=function(){
 	});
 };
 </script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 	/* 필수체크동의 */
 	function agreeCheck(frm) {
@@ -26,7 +26,7 @@ var onloadCallback=function(){
 			frm.checkButton.disabled = true
 		}
 	}
-</script>
+</script> -->
 </head>
 <body>
 	<div class="view-container">
@@ -79,19 +79,51 @@ var onloadCallback=function(){
 								placeholder="예)01012345678" data-vc="2,30">
 						</p>
 					</div>
-					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+				<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<!--주소API-->
 						<p>
 							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
 								id="postCode" placeholder="우편번호" disabled class="form-control"
-								data-vali="2" /> <input type="button" class="btn btn-default"
+								data-vali="2" /> 
+								<input type="button" class="btn btn-default"
 								onclick="execPostCode()" value="우편번호 찾기" />
 						</p>
 						<p>
 							주소 <input style="margin-bottom: 5px;" type="text"
 								id="userAddress" placeholder="주소" class="form-control" disabled
-								data-vali="2"> <input type="text" id="userAddress2"
+								data-vali="2"> 
+								<input type="text" id="userAddress2"
 								placeholder="상세주소" class="form-control" data-vc="2,33">
+						</p>
+						<p>
+							<textarea class="form-control" cols="20" rows="5"
+								style="width: 100%; height: 200px;" readonly="readonly">
+						<%@ include file="/WEB-INF/views/common/terms.jspf"%> 
+						</textarea>
+						</p>
+						<p>
+							<input type="checkbox" name="agree" id="agree"
+								onClick="agreeCheck(this.form)"> 약관 동의 체크하시고 가입을 완료하세요.
+						</p>
+						<input class="btn btn-primary btn-block" type="button"
+							name="checkButton" onclick="save()" disabled value="확인">
+					</div> --%>
+					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+						<!--주소API-->
+						<p>
+							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
+								id="postCode" placeholder="우편번호" disabled class="postcodify_postcode5"
+								data-vali="2" /> 
+								<input type="button" class="postcodify_search_button"
+								onclick="execPostCode()" value="우편번호 찾기" />
+						</p>
+						<p>
+							주소 <input style="margin-bottom: 5px;" type="text"
+								id="userAddress" placeholder="주소" class="postcodify_address" disabled
+								data-vali="2"> 
+								<input type="text" id="userAddress2"
+								placeholder="상세주소" class="postcodify_details" data-vc="2,33">
+								<input type="text" name="" class="postcodify_extra_info" value="" /><br />
 						</p>
 						<p>
 							<textarea class="form-control" cols="20" rows="5"
