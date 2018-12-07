@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>휴대폰 SMS 본인 인증(무료) | SK브로드밴드</title>
 <link rel="shortcut icon" type="image/x-icon"
-	href="/img/comm/favicon.ico">
+	href="/resources/img/comm/favicon.ico">
 <link rel="stylesheet" href="/common/css/vin/base.css" type="text/css">
 <link rel="stylesheet" href="/common/css/vin/common.css" type="text/css">
 <link rel="stylesheet" href="/common/css/vin/content.css"

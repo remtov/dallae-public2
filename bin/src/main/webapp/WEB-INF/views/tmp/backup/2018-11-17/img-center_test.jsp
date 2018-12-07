@@ -25,7 +25,7 @@
 </head>
 <BODY>
 	<div id="img_container">
-		<img src="/img/middle-img-3.jpg">
+		<img src="/resources/img/middle-img-3.jpg">
 	</div>
 </BODY>
 </HTML>

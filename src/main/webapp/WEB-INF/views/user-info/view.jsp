@@ -41,6 +41,7 @@ table {
 </style>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div>
@@ -62,7 +63,7 @@ table {
 					<div class="col-md-6"
 						style="padding: 10px; border: 1px solid #f6f6f6;">
 						<div style="width: 30%; float: left;">
-							<a href="#"><img src="/img/icon_profile.png"
+							<a href="#"><img src="/resources/img/icon_profile.png"
 								style="width: 70px;"></a>
 						</div>
 						<div style="width: 70%; float: left;">
@@ -109,8 +110,8 @@ table {
 								value="${userinfo.userAddress2}" id="userAddress2">
 						</p>
 						<p style="margin-top: 30px;" class="my-page_follow-line">
-							팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
-								src="/img/facebook.png"> <img src="/img/instagram.png">
+							팔로윙 0명 | 팔로워 0명 | <img src="/resources/img/kakao.png"> <img
+								src="/resources/img/facebook.png"> <img src="/resources/img/instagram.png">
 						</p>
 						<input class="btn btn-primary btn-lg btn-block" type="button"
 							name="checkButton" value="수정 " onclick="updateBtn()"> <input
@@ -236,5 +237,6 @@ window.addEventListener('load', function() {
 	   ajaxUtil.send();
 	}
 </script>
+<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>

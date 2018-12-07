@@ -156,7 +156,7 @@ file-box-container {
 											html+='<div class="fileBox"><label for="productImage" class="btn btn-default">';
 											html+='<span>+</span>사진</label>';
 											html+='<input name="productImage" required type="file" id="productImage" class="uploadBtn">';
-											html+='<img src="/img/icon-img.png" id="preview" name="preview" data-img></div>';
+											html+='<img src="/resources/img/icon-img.png" id="preview" name="preview" data-img></div>';
 									}
 										html+='</div>';
 									}

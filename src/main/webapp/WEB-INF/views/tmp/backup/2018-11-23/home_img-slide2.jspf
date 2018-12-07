@@ -57,7 +57,7 @@ window.addEventListener('load',function(){
 		html += '<div class="carousel-inner" role="listbox">';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item active">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[0].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[0].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption" style="background-color:rgba(255,255,255,0.5);">';
 		html += '<h3><b>"'+ response[0].productName +'"</b>의 현재 입찰가'+response[0].productLowestPrice+'원</h3><p>'
 				'마감시까지 '+ response[0].productEndDate +'일 시 분 초 남았습니다. 에 경매가 종료됩니다. </p><button class="btn btn-danger" onclick="goPage('
@@ -65,37 +65,37 @@ window.addEventListener('load',function(){
 				+ response[0].productNumber + ')">더보기</button></div></div>';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[1].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[1].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[2].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[2].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[3].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[3].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[4].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[4].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[5].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[5].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 		
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[6].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[6].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 
 		html += '<div style="max-height:500px; overflow:hidden;" class="item">';
-		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[7].productImage+'" alt="해당 경매가 마감되었습니다.">';
+		html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[7].productImage+'" alt="해당 경매가 마감되었습니다.">';
 		html += '<div class="carousel-caption">';
 		html += '</div></div>';
 		

@@ -38,7 +38,7 @@ function loadba() {
 	        };
 	        html += '<div class="col-sm-6 col-md-3">';
 	        html += '<div class="thumbnail">';
-	        html += '<a onclick="goPage(' + res[i].productNumber + ')"><img style="width:100%;" onError="this.src=\'/img/icon-img.png\'" src="/resources/img/product/';
+	        html += '<a onclick="goPage(' + res[i].productNumber + ')"><img style="width:100%;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/';
 	        
 			var imgs = res[i].productImage;
 			var img = imgs.split('|');

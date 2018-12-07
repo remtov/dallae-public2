@@ -65,7 +65,7 @@ div>.carousel-control p {
 							<button class="btn btn-default"
 								onclick="location.href='/product/${productNumber}'">더보기</button>
 						</div>
-						<img style="width: 100%;" src="/img/mainSlide-<%=i%>.jpg">
+						<img style="width: 100%;" src="/resources/img/mainSlide-<%=i%>.jpg">
 					</div>
 				</div>
 				<%

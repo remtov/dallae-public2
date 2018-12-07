@@ -18,32 +18,32 @@
 	<div id="navBar">
 		<div
 			style="left: 0%; width: 40%; float: left; display: inline-block; position: absolute; text-align: center;">
-			<img src="/img/favi.png" alt="Nav1" /> <br /> <span
+			<img src="/resources/img/favi.png" alt="Nav1" /> <br /> <span
 				style="font-size: 80%">Nav1</span>
 		</div>
 		<div
 			style="left: 40%; width: 40%; float: left; display: inline-block; position: absolute; text-align: center;">
-			<img src="/img/favi.png" alt="Nav2" /> <br /> <span
+			<img src="/resources/img/favi.png" alt="Nav2" /> <br /> <span
 				style="font-size: 80%">Nav2</span>
 		</div>
 		<div
 			style="left: 80%; width: 40%; float: left; display: inline-block; position: absolute; text-align: center;">
-			<img src="/img/favi.png" alt="Nav3" /> <br /> <span
+			<img src="/resources/img/favi.png" alt="Nav3" /> <br /> <span
 				style="font-size: 80%">Nav3</span>
 		</div>
 		<div
 			style="left: 120%; width: 40%; float: left; display: inline-block; position: absolute; text-align: center;">
-			<img src="/img/favi.png" alt="Nav4" /> <br /> <span
+			<img src="/resources/img/favi.png" alt="Nav4" /> <br /> <span
 				style="font-size: 80%">Nav4</span>
 		</div>
 		<div
 			style="left: 160%; width: 40%; float: left; display: inline-block; position: absolute; text-align: center;">
-			<img src="/img/favi.png" alt="Nav5" /> <br /> <span
+			<img src="/resources/img/favi.png" alt="Nav5" /> <br /> <span
 				style="font-size: 80%">Nav5</span>
 		</div>
 		<div
 			style="left: 200%; width: 40%; float: left; display: inline-block; position: absolute; text-align: center;">
-			<img src="/img/favi.png" alt="Nav6" /> <br /> <span
+			<img src="/resources/img/favi.png" alt="Nav6" /> <br /> <span
 				style="font-size: 80%">Nav6</span>
 		</div>
 	</div>

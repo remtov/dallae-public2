@@ -34,22 +34,6 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-	<jsp-config>
-		<jsp-property-group>
-			<url-pattern>*.jsp</url-pattern>
-			<include-prelude>/WEB-INF/views/common/head.jspf</include-prelude>
-			<include-coda>/WEB-INF/views/common/bottom.jspf</include-coda>
-			<trim-directive-whitespaces>true</trim-directive-whitespaces>
-		</jsp-property-group>
-
-		<jsp-property-group>
-			<url-pattern>*popup.jsp</url-pattern>
-			<include-prelude></include-prelude>
-			<include-coda></include-coda>
-			<trim-directive-whitespaces>true</trim-directive-whitespaces>
-		</jsp-property-group>
-	</jsp-config>
-
 	<session-config>
 		<session-timeout>180</session-timeout>
 	</session-config>

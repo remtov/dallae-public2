@@ -17,6 +17,7 @@ h4 {
 </style>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -91,7 +92,7 @@ h4 {
 								html += ' active';
 								}
 								html += '">';
-								html+='<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/img/icon-img.png\'" src="/resources/img/product/'+img[i]+'">';
+								html+='<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/'+img[i]+'">';
 								html+='<div class="carousel-caption"></div></div>';
 							}
 			
@@ -110,7 +111,7 @@ h4 {
 				<div style="overflow: auto; margin-top: 10px;">
 					<div style="float: left;">
 						<img style="width: 50px; height: auto;"
-							src="/img/icon_profile.png">
+							src="/resources/img/icon_profile.png">
 					</div>
 					<div style="margin-left: 10px; float: left;">
 						<p>
@@ -123,7 +124,7 @@ h4 {
 					<div style="float: right;">
 						<span style="font-size: 0.8em;">판매자 신용등급 (최고LV 10) : </span><span
 							style="font-size: 1.5em; color: #f4969b;"> LV
-							${product.userCreditLevel} </span> <img src="/img/icon-level-1.png"
+							${product.userCreditLevel} </span> <img src="/resources/img/icon-level-1.png"
 							style="width: 50px; height: auto;">
 					</div>
 				</div>
@@ -156,6 +157,7 @@ h4 {
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 	<script>
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;

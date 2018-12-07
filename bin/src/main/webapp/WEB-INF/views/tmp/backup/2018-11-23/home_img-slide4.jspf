@@ -149,7 +149,7 @@ alert('now의 값은?'+now);
 	html += ' active';
 	}
 	html += '">';
-	html += '<img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'+response[i].productImage+'" alt="해당 경매가 마감되었습니다.">';
+	html += '<img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'+response[i].productImage+'" alt="해당 경매가 마감되었습니다.">';
 	html += '<div class="carousel-caption" >';
 	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);">'
 			+ daysArray[i]+ ' 일'+hoursArray[i]+' 시'+minutesArray[i]+' 분'+secondsArray[i]+'초 뒤에 경매가 종료됩니다. '

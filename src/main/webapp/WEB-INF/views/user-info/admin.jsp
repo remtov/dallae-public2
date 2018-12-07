@@ -8,6 +8,7 @@
 <title>관리자 페이지</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
 		<c:when test="${userLevel>2.5}">
@@ -76,6 +77,7 @@
 			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
 		</c:otherwise>
 	</c:choose>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 <script>
 	function search(){
 		var ser =document.querySelector('#search-select_user-info').value;	

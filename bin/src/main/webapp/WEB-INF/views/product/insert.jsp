@@ -145,19 +145,19 @@ file-box-container {
 										<div>
 											<div class="fileBox">
 												<label for="productImage" class="btn btn-default"><span>+</span>1<br>
-													<img src="/img/icon-img.png" id="preview" name="preview"></label>
+													<img src="/resources/img/icon-img.png" id="preview" name="preview"></label>
 												<input name="productImage" required type="file"
 													id="productImage" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage2" class="btn btn-default"><span>+</span>2<br>
-													<img src="/img/icon-img.png" id="preview2" name="preview"></label>
+													<img src="/resources/img/icon-img.png" id="preview2" name="preview"></label>
 												<input name="productImage2" required type="file"
 													id="productImage2" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage3" class="btn btn-default"><span>+</span>3<br>
-													<img src="/img/icon-img.png" id="preview3" name="preview"></label>
+													<img src="/resources/img/icon-img.png" id="preview3" name="preview"></label>
 												<input name="productImage3" required type="file"
 													id="productImage3" class="uploadBtn">
 											</div>
@@ -165,20 +165,20 @@ file-box-container {
 										<div>
 											<div class="fileBox">
 												<label for="productImage4" class="btn btn-default"><span>+</span>4<br>
-													<img src="/img/icon-img.png" id="preview4" name="preview"></label>
+													<img src="/resources/img/icon-img.png" id="preview4" name="preview"></label>
 												<input name="productImage4" required type="file"
 													id="productImage4" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage5" class="btn btn-default">+
-													5<br> <img src="/img/icon-img.png" id="preview5"
+													5<br> <img src="/resources/img/icon-img.png" id="preview5"
 													name="preview">
 												</label> <input name="productImage5" required type="file"
 													id="productImage5" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage6" class="btn btn-default">+
-													6<br> <img src="/img/icon-img.png" id="preview6"
+													6<br> <img src="/resources/img/icon-img.png" id="preview6"
 													name="preview">
 												</label> <input name="productImage6" required type="file"
 													id="productImage6" class="uploadBtn">
@@ -187,21 +187,21 @@ file-box-container {
 										<div>
 											<div class="fileBox">
 												<label for="productImage7" class="btn btn-default">+
-													7<br> <img src="/img/icon-img.png" id="preview7"
+													7<br> <img src="/resources/img/icon-img.png" id="preview7"
 													name="preview">
 												</label> <input name="productImage7" required type="file"
 													id="productImage7" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage8" class="btn btn-default">+
-													8<br> <img src="/img/icon-img.png" id="preview8"
+													8<br> <img src="/resources/img/icon-img.png" id="preview8"
 													name="preview">
 												</label> <input name="productImage8" required type="file"
 													id="productImage8" class="uploadBtn">
 											</div>
 											<div class="fileBox">
 												<label for="productImage9" class="btn btn-default">+
-													9<br> <img src="/img/icon-img.png" id="preview9"
+													9<br> <img src="/resources/img/icon-img.png" id="preview9"
 													name="preview">
 												</label> <input name="productImage9" required type="file"
 													id="productImage9" class="uploadBtn">

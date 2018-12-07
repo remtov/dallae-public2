@@ -96,14 +96,14 @@ h4 {
 										style="width: 100%;"><span>+</span>2번 사진</label> <input
 										name="productImage2" required type="file" id="productImage2"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview2">
+										src="/resources/img/icon-img.png" id="preview2">
 								</div>
 								<div class="fileBox">
 									<label for="productImage3" class="btn btn-default"
 										style="width: 100%;"><span>+</span>3번 사진</label> <input
 										name="productImage3" required type="file" id="productImage3"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview3">
+										src="/resources/img/icon-img.png" id="preview3">
 								</div>
 							</div>
 							<div style="width: 33%; float: left;">
@@ -112,21 +112,21 @@ h4 {
 										style="width: 100%;"><span>+</span>4번 사진</label> <input
 										name="productImage4" required type="file" id="productImage4"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview4">
+										src="/resources/img/icon-img.png" id="preview4">
 								</div>
 								<div class="fileBox">
 									<label for="productImage5" class="btn btn-default"
 										style="width: 100%;">+ 5번 사진</label> <input
 										name="productImage5" required type="file" id="productImage5"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview5">
+										src="/resources/img/icon-img.png" id="preview5">
 								</div>
 								<div class="fileBox">
 									<label for="productImage6" class="btn btn-default"
 										style="width: 100%;">+ 6번 사진</label> <input
 										name="productImage6" required type="file" id="productImage6"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview6">
+										src="/resources/img/icon-img.png" id="preview6">
 								</div>
 							</div>
 							<div style="width: 33%; float: left;">
@@ -135,21 +135,21 @@ h4 {
 										style="width: 100%;">+ 7번 사진</label> <input
 										name="productImage7" required type="file" id="productImage7"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview7">
+										src="/resources/img/icon-img.png" id="preview7">
 								</div>
 								<div class="fileBox">
 									<label for="productImage8" class="btn btn-default"
 										style="width: 100%;">+ 8번 사진</label> <input
 										name="productImage8" required type="file" id="productImage8"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview8">
+										src="/resources/img/icon-img.png" id="preview8">
 								</div>
 								<div class="fileBox">
 									<label for="productImage9" class="btn btn-default"
 										style="width: 100%;">+ 9번 사진</label> <input
 										name="productImage9" required type="file" id="productImage9"
 										class="uploadBtn"> <img style="width: 100%"
-										src="/img/icon-img.png" id="preview9">
+										src="/resources/img/icon-img.png" id="preview9">
 								</div>
 							</div>
 						</div>
@@ -160,7 +160,7 @@ h4 {
 						<div style="overflow: auto; margin-top: 10px;">
 							<div style="float: left;">
 								<img style="width: 50px; height: auto;"
-									src="/img/icon_profile.png">
+									src="/resources/img/icon_profile.png">
 							</div>
 
 							<div style="margin-left: 10px; float: left;">
@@ -177,7 +177,7 @@ h4 {
 							<div style="float: right;">
 								<span style="font-size: 0.8em;">판매자 신용등급 (최고LV 10) : </span><span
 									style="font-size: 1.5em; color: #f4969b;"> LV
-									${product.userCreditLevel} </span> <img src="/img/icon-level-1.png"
+									${product.userCreditLevel} </span> <img src="/resources/img/icon-level-1.png"
 									style="width: 50px; height: auto;">
 							</div>
 

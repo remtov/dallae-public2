@@ -533,7 +533,7 @@ var skbSite = {
     showLayerLoading: function (target, isFull, top, css) {
         top = top || '30%';
         var loadingStyle = isFull ? 'style="position:fixed;z-index:9999;top:0;left:0;height:100%;width:100%;text-align:center;"' : ' style="position:absolute;width:100%;height:100%;padding-top:0;padding-bottom:0;"';
-        var loadingDiv = '<div class="loading"' + loadingStyle + '><img src="/common/img/vin/common/spinner_60.gif" style="position:absolute;left:50%;margin-left:-30px;margin-top:-30px;top:' + top + '" alt="로딩 중"></div>';
+        var loadingDiv = '<div class="loading"' + loadingStyle + '><img src="/common/resources/img/vin/common/spinner_60.gif" style="position:absolute;left:50%;margin-left:-30px;margin-top:-30px;top:' + top + '" alt="로딩 중"></div>';
         var $target = $(target);
 
         if ($target.find('.loading').length == 0) {

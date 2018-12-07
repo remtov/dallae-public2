@@ -17,6 +17,7 @@ var onloadCallback=function(){
 </script>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="find-container">
 		<div class="container">
 			<c:choose>
@@ -159,6 +160,7 @@ var onloadCallback=function(){
 			location.href = "/url/user-info:update-password"
 		}
 	</script>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
 

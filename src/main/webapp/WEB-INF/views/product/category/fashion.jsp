@@ -78,6 +78,7 @@ params = JSON.stringify(params);
 	</script> 
 	</head>
 	<body>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -99,5 +100,6 @@ params = JSON.stringify(params);
 			location.href = '/product/' + productNumber;
 		}
 	</script>
-
+<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
+</html>

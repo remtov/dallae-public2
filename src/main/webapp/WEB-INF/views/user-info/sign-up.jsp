@@ -30,6 +30,7 @@ var onloadCallback=function(){
 </script> -->
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<form class="form-horizontal" name="form">
@@ -144,7 +145,7 @@ var onloadCallback=function(){
 			</form>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
+	<%@ include file="/WEB-INF/views/common/product-bottom.jspf"%>
 <!-- jQuery와 Postcodify를 로딩한다 -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
@@ -275,5 +276,6 @@ function save() {
    });
 }
 </script>
+<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>

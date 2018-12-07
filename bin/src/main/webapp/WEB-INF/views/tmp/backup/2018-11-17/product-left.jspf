@@ -25,7 +25,7 @@ div {
 		
 				<div class="container">
 					<div id="left_img-profile--div">
-						<img src="/img/icon_profile.png">
+						<img src="/resources/img/icon_profile.png">
 
 						<!-- 버튼 -->
 						<div class="btn-group">
@@ -114,7 +114,7 @@ div {
 
 				<div class="admin-left_download">
 					<button class="btn btn-default btn-lg btn-block">
-						<img src="/img/logo.png"> &nbsp;앱 다운로드
+						<img src="/resources/img/logo.png"> &nbsp;앱 다운로드
 					</button>
 
 				</div>

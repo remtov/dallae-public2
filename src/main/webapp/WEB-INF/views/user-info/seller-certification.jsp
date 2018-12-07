@@ -36,13 +36,14 @@
 
 	function openNewWindow() {
 		newWindow = window.open(
-				"/url/user-info/seller-certification_popup",
+				"/url/user-info:seller-certification_popup",
 				"popup1", "width=360, height=640, resizable=yes");
 	}
 </script>
 
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<c:set var="userid" value="${userlogininfo.userId}"></c:set>
 	<c:choose>
 		<c:when test="${not empty sessionScope.userlogininfo}">
@@ -158,6 +159,7 @@
 			alert('인증2 테스트');
 		}
 	</script>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
 

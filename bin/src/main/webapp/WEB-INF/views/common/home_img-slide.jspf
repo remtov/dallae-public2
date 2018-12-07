@@ -75,7 +75,7 @@ window.addEventListener('load',function(){
 	html += ' active';
 	}
 	html += '">';
-	html += '<a onclick="goPage('+ response[i].productNumber+')"><img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'
+	html += '<a onclick="goPage('+ response[i].productNumber+')"><img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'
 	
 	var imgs = response[i].productImage;
 	var img = imgs.split('|');
