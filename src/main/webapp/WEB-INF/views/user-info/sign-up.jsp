@@ -7,7 +7,9 @@
 <title>here</title>
 <style>
 </style>
-<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script
+	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
+	async defer></script>
 <script type="text/javascript">
 var onloadCallback=function(){
 	greCAPTCHA.render('html_element',{
@@ -17,7 +19,7 @@ var onloadCallback=function(){
 };
 </script>
 
-<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>-->
 <script type="text/javascript">
 	/* 필수체크동의 */
 	function agreeCheck(frm) {
@@ -27,10 +29,10 @@ var onloadCallback=function(){
 			frm.checkButton.disabled = true
 		}
 	}
-</script> -->
+</script>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<form class="form-horizontal" name="form">
@@ -81,7 +83,7 @@ var onloadCallback=function(){
 								placeholder="예)01012345678" data-vc="2,30">
 						</p>
 					</div>
-				<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+					<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<!--주소API-->
 						<p>
 							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
@@ -114,18 +116,17 @@ var onloadCallback=function(){
 						<!--주소API-->
 						<p>
 							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
-								id="postCode" placeholder="우편번호" disabled class="postcodify_postcode5"
-								data-vali="2" /> 
-								<input type="button" class="btn btn-default"
+								id="postCode" placeholder="우편번호" disabled
+								class="postcodify_postcode5" data-vali="2" /> <input
+								type="button" class="btn btn-default"
 								id="postcodify_search_button" value="우편번호 찾기" />
 						</p>
 						<p>
 							주소 <input style="margin-bottom: 5px;" type="text"
-								id="userAddress" placeholder="주소" class="postcodify_address" disabled
-								data-vali="2"> 
-								<input type="text" id="userAddress2"
-								placeholder="상세주소" class="postcodify_details" data-vc="2,33">
-								<input type="text" id="userAddress2"
+								id="userAddress" placeholder="주소" class="postcodify_address"
+								disabled data-vali="2"> <input type="text"
+								id="userAddress2" placeholder="상세주소" class="postcodify_details"
+								data-vc="2,33"> <input type="text" id="userAddress2"
 								placeholder="참고항목" class="postcodify_extra_info" data-vc="2,33">
 						</p>
 						<p>
@@ -146,13 +147,13 @@ var onloadCallback=function(){
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/product-bottom.jspf"%>
-<!-- jQuery와 Postcodify를 로딩한다 -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	<!-- jQuery와 Postcodify를 로딩한다 -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
-<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
-<script>
+	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+	<script>
 /* 주소API */
 /* function execPostCode() {
    new daum.Postcode({
@@ -276,6 +277,6 @@ function save() {
    });
 }
 </script>
-<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
