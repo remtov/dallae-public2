@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>휴대폰 SMS 본인 인증(무료) | SK브로드밴드</title>
+<title>휴대폰 SMS 본인 인증 | Dallae옥션</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script type="text/javascript">
@@ -244,302 +244,266 @@
 </script>
 </head>
 
-<body class="popup" onload=";fn_pageLog('1');" onunload="">
+<body class="popup">
+	<%@ include file="/WEB-INF/views/common/head-popup.jspf"%>
 	<div class="find-container">
 		<div class="container">
 
-			<div id="pop-wrap" tabindex=0>
 
-				<form id="BusinessModel" action="/popup/Identify_Popup.do"
-					method="post" onsubmit="return false;">
-					<input type="hidden" name="cpId" value="SKBM2008">
-					<!-- 회원사 ID -->
-					<input type="hidden" name="urlCode" value="001001">
-					<!-- URL 코드 -->
-					<input type="hidden" name="certNum" value="20181207161205921208">
-					<!-- 요청번호 -->
-					<input type="hidden" name="date" value="20181207161205">
-					<!-- 요청일시 -->
-					<input type="hidden" id="phoneNo" name="phoneNo" value="">
-					<!-- 전화번호 -->
+			<div class="inner-box">
+				<h2>
+					<button type="button" class="btn btn-default"
+						onclick="self.close()">X</button>
+					휴대폰 <b>본인인증</b>
+					<button type="button" class="btn btn-primary"
+						onclick="location.href='/url/user-info:seller-certification'">인증</button>
+				</h2>
 
 
-					<input type="hidden" id="nation" name="nation" value="0">
-					<!-- 국적구분 -->
+				<!-- contents -->
+				<div class="pop_contents">
+					<div class="agree_box" id="uiPhoneAgree">
+						<dl>
+							<dt>
+								<span class="chk_wrap"> <input type="checkbox" name="chk"
+									id="terms1"><label for="terms1">개인정보 이용동의</label>
+								</span>
+							</dt>
+							<dd>
+								<a href="#none" target="_blank" title="새 창"
+									onclick="javascript:fn_cert_popup('/popup/Agreement_Popup','개인정보 이용동의');return false;">전문보기
+									&gt;</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<span class="chk_wrap"> <input type="checkbox" name="chk"
+									id="terms2"><label for="terms2">통신사 이용약관 동의</label>
+								</span>
+							</dt>
+							<dd>
+								<a href="#none" target="_blank" title="새 창"
+									onclick="javascript:fn_cert_popup('/popup/Agency_Popup','통신사 이용약관 동의');return false;">전문보기
+									&gt;</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<span class="chk_wrap"> <input type="checkbox" name="chk"
+									id="terms3"><label for="terms3">고유 식별 정보 처리동의</label>
+								</span>
+							</dt>
+							<dd>
+								<a href="#none" target="_blank" title="새 창"
+									onclick="javascript:fn_cert_popup('/popup/UniqueIdenAgree_Popup','고유 식별 정보 처리동의');return false;">전문보기
+									&gt;</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>
+								<span class="chk_wrap"> <input type="checkbox" name="chk"
+									id="terms4"><label for="terms4">서비스 이용약관 동의</label>
+								</span>
+							</dt>
+							<dd>
+								<a href="#none" target="_blank" title="새 창"
+									onclick="javascript:fn_cert_popup('/popup/ServiceUseAgree_Popup','서비스 이용약관 동의');return false;">전문보기
+									&gt;</a>
+							</dd>
+						</dl>
+						<dl class="all_check">
+							<dt>
+								<span class="chk_wrap"> <input type="checkbox"
+									name="all_check" id="terms5" data-check-all="#uiPhoneAgree"><label
+									for="terms5">전체동의</label>
+								</span>
+							</dt>
+							<dd>
+								<a href="#none" target="_blank" title="새 창"
+									onclick="javascript:fn_cert_popup('/popup/Policy_Popup','개인정보 취급방침');return false;"><em>*</em>
+									개인정보 취급방침</a>
+							</dd>
+						</dl>
+					</div>
+					<fieldset>
+						<legend>휴대폰 인증을 위한 정보 입력 후, 발송된 인증번호를 입력하여 본인인증을 완료 합니다</legend>
+						<div class="input_form_wrap layer_inner sms_confirm tit_bg">
+							<div class="input_form_header">
+								<h2 class="tit03 titSpa_m fl titSmt_xl txt_l">
+									휴대폰 가입정보<span class="t01_decs">본인 소유의 휴대폰 정보를 입력하세요.</span>
+								</h2>
 
-					<!--본인인증 한페이지에서 합치는 변수 -->
-					<input type="hidden" name="certNum">
-					<!--  <input type="hidden" id="cell_phone1" name="cell_phone1">
-        <input type="hidden" id="cell_phone2" name="cell_phone2">
-        <input type="hidden" id="cell_phone3" name="cell_phone"> -->
-					<input type="hidden" id="check_1" name="check_1"> <input
-						type="hidden" id="check_2" name="check_2"> <input
-						type="hidden" id="check_3" name="check_3">
-
-
-
-
-
-					<article id="pop_wrap" class="win_pop">
-						<header id="pop_header">
-							<h1 class="pop_tit">휴대폰 본인 인증</h1>
-						</header>
-						<div id="pop_container">
-							<!-- contents -->
-							<div class="pop_contents">
-								<div class="agree_box" id="uiPhoneAgree">
-									<dl>
-										<dt>
-											<span class="chk_wrap"> <input type="checkbox"
-												name="chk" id="terms1"><label for="terms1">개인정보
-													이용동의</label>
+							</div>
+							<div class="input_form_conts">
+								<dl>
+									<dt>
+										<label for="name">고객명</label>
+									</dt>
+									<dd>
+										<span class="input_txt input_sec_num"> <input
+											type="text" title="고객명 입력" id="name" name="name">
+										</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>성별</dt>
+									<dd>
+										<div class="group_radio">
+											<span class="rad_wrap"> <input type="radio"
+												name="gender" id="male" checked title="성별 - 남" value="0">
+												<label for="male">남</label>
+											</span> <span class="rad_wrap"> <input type="radio"
+												name="gender" id="female" title="성별 - 여" value="1">
+												<label for="female">여</label>
 											</span>
-										</dt>
-										<dd>
-											<a href="#none" target="_blank" title="새 창"
-												onclick="javascript:fn_cert_popup('/popup/Agreement_Popup','개인정보 이용동의');return false;">전문보기
-												&gt;</a>
-										</dd>
-									</dl>
-									<dl>
-										<dt>
-											<span class="chk_wrap"> <input type="checkbox"
-												name="chk" id="terms2"><label for="terms2">통신사
-													이용약관 동의</label>
-											</span>
-										</dt>
-										<dd>
-											<a href="#none" target="_blank" title="새 창"
-												onclick="javascript:fn_cert_popup('/popup/Agency_Popup','통신사 이용약관 동의');return false;">전문보기
-												&gt;</a>
-										</dd>
-									</dl>
-									<dl>
-										<dt>
-											<span class="chk_wrap"> <input type="checkbox"
-												name="chk" id="terms3"><label for="terms3">고유
-													식별 정보 처리동의</label>
-											</span>
-										</dt>
-										<dd>
-											<a href="#none" target="_blank" title="새 창"
-												onclick="javascript:fn_cert_popup('/popup/UniqueIdenAgree_Popup','고유 식별 정보 처리동의');return false;">전문보기
-												&gt;</a>
-										</dd>
-									</dl>
-									<dl>
-										<dt>
-											<span class="chk_wrap"> <input type="checkbox"
-												name="chk" id="terms4"><label for="terms4">서비스
-													이용약관 동의</label>
-											</span>
-										</dt>
-										<dd>
-											<a href="#none" target="_blank" title="새 창"
-												onclick="javascript:fn_cert_popup('/popup/ServiceUseAgree_Popup','서비스 이용약관 동의');return false;">전문보기
-												&gt;</a>
-										</dd>
-									</dl>
-									<dl class="all_check">
-										<dt>
-											<span class="chk_wrap"> <input type="checkbox"
-												name="all_check" id="terms5" data-check-all="#uiPhoneAgree"><label
-												for="terms5">전체동의</label>
-											</span>
-										</dt>
-										<dd>
-											<a href="#none" target="_blank" title="새 창"
-												onclick="javascript:fn_cert_popup('/popup/Policy_Popup','개인정보 취급방침');return false;"><em>*</em>
-												개인정보 취급방침</a>
-										</dd>
-									</dl>
-								</div>
-								<fieldset>
-									<legend>휴대폰 인증을 위한 정보 입력 후, 발송된 인증번호를 입력하여 본인인증을 완료
-										합니다</legend>
-									<div class="input_form_wrap layer_inner sms_confirm tit_bg">
-										<div class="input_form_header">
-											<h2 class="tit03 titSpa_m fl titSmt_xl txt_l">
-												휴대폰 가입정보<span class="t01_decs">본인 소유의 휴대폰 정보를 입력하세요.</span>
-											</h2>
-
 										</div>
-										<div class="input_form_conts">
-											<dl>
-												<dt>
-													<label for="name">고객명</label>
-												</dt>
-												<dd>
-													<span class="input_txt input_sec_num"> <input
-														type="text" title="고객명 입력" id="name" name="name">
-													</span>
-												</dd>
-											</dl>
-											<dl>
-												<dt>성별</dt>
-												<dd>
-													<div class="group_radio">
-														<span class="rad_wrap"> <input type="radio"
-															name="gender" id="male" checked title="성별 - 남" value="0">
-															<label for="male">남</label>
-														</span> <span class="rad_wrap"> <input type="radio"
-															name="gender" id="female" title="성별 - 여" value="1">
-															<label for="female">여</label>
-														</span>
-													</div>
-												</dd>
-											</dl>
-											<dl>
-												<dt>
-													<label for="birthDay">생년월일</label>
-												</dt>
-												<dd>
-													<span class="input_txt input_sec_num"> <input
-														type="text" title="생년월일 입력" id="birthDay" name="birthDay"
-														onkeyup="javascript:checkNum('birthDay')" maxlength="8"
-														onkeyup="checkNum('birthDay')">
-													</span> <span class="form_guide"> 예) 19900808</span>
-												</dd>
-											</dl>
-											<dl>
-												<dt>
-													<label for="sel_tel_type">휴대폰 번호</label>
-												</dt>
-												<dd>
-													<div class="input_tel">
-														<div class="selects telecom">
-															<select title="통신사 선택" class="ui_selectbox"
-																data-class="select_custom" name="phoneCorp"
-																id="phoneCorp">
-																<option value="">통신사</option>
-																<option value="SKT">SKT</option>
-																<option value="KTF">KT</option>
-																<option value="LGT">LG U+</option>
-																<option value="SKM">SKT 알뜰폰</option>
-																<option value="KTM">KT 알뜰폰</option>
-																<option value="LGM">LG U+ 알뜰폰</option>
-															</select>
-														</div>
-													</div>
-													<div class="input_btn_container input_tel">
-														<div class="selects">
-															<select id="cell_phone1" name="cell_phone1"
-																title="휴대폰 번호 앞자리 선택" class="ui_selectbox"
-																data-class="select_custom">
-																<option value="010">010</option>
-																<option value="011">011</option>
-																<option value="016">016</option>
-																<option value="017">017</option>
-																<option value="018">018</option>
-																<option value="019">019</option>
-															</select>
-														</div>
-														<span class="input_txt tel_num"> <input type="text"
-															id="tel2" name="tel2" title="휴대폰 번호 뒷 8자리 입력"
-															maxlength="8" onkeyup="checkNum('tel2')"> <input
-															type="hidden" name="cell_phone2" id="cell_phone2" /> <input
-															type="hidden" name="cell_phone3" id="cell_phone3" />
-														</span>
-														<button type="button" class="btn gray h50"
-															onclick="fn_send(); return false;">
-															<span>인증번호 발송</span>
-														</button>
-													</div>
-												</dd>
-											</dl>
-											<dl>
-												<dt>
-													<label for="smsNum">인증번호 입력</label>
-												</dt>
-												<dd>
-													<span class="input_txt input_sec_num"> <input
-														type="text" title="인증번호 입력" id="smsNum" name="smsNum"
-														maxlength="6" onkeyup="javascript:checkNum('smsNum')">
-													</span>
-												</dd>
-											</dl>
-											<dl>
-												<dt>
-													<label for="sec_txt">보안문자 입력</label>
-												</dt>
-												<dd>
-													<p class="sec_input_txt">아래 이미지의 보안문자를 입력해주세요.</p>
-													<div class="sec_wrap">
-														<div class="sec_view">
-															<span class="sec_txt"><img src="/simpleCaptcha.do"
-																alt="보안문자" id="captcha_img"></span>
-															<div class="sec_btn_wrap">
-																<button type="button" class="btn sound"
-																	onclick="javascript:fn_audio();">
-																	<span>음성으로 듣기</span>
-																</button>
-																<button type="button" class="btn refresh"
-																	onclick="javascript:fn_captcha();">
-																	<span>새로고침</span>
-																</button>
-															</div>
-														</div>
-														<span class="input_txt"> <input type="text"
-															title="보안문자 입력" id="captcha-text" name="answer"
-															maxlength="5">
-														</span>
-													</div>
-												</dd>
-											</dl>
-										</div>
-										<div class="guide_list">
-											<ul class="bull_list min layer_min">
-												<li class="square">입력하신 정보가 가입자 본인 명의로 가입된 휴대폰이 아닐 경우
-													인증이 되지 않습니다.</li>
-												<li class="square">본인 명의로 가입된 휴대폰 번호의 본인확인 서비스는 하루 3번까지
-													이용할 수 있습니다.</li>
-												<li class="square">휴대폰 문자로 발송된 번호는 비밀번호가 아닌 본인확인을 위한 인증
-													번호입니다.</li>
-												<li class="square">입력하신 정보는 암호화 되어 사용되며, 본인여부 확인에만
-													사용됩니다.</li>
-											</ul>
-										</div>
-										<div class="input_form_footer">
-											<div class="btn_wrap narrow">
-												<button type="button" class="btn submit h60"
-													onclick="javascript:fn_send_sms();">
-													<span>확인</span>
-												</button>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<label for="birthDay">생년월일</label>
+									</dt>
+									<dd>
+										<span class="input_txt input_sec_num"> <input
+											type="text" title="생년월일 입력" id="birthDay" name="birthDay"
+											onkeyup="javascript:checkNum('birthDay')" maxlength="8"
+											onkeyup="checkNum('birthDay')">
+										</span> <span class="form_guide"> 예) 19900808</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<label for="sel_tel_type">휴대폰 번호</label>
+									</dt>
+									<dd>
+										<div class="input_tel">
+											<div class="selects telecom">
+												<select title="통신사 선택" class="ui_selectbox"
+													data-class="select_custom" name="phoneCorp" id="phoneCorp">
+													<option value="">통신사</option>
+													<option value="SKT">SKT</option>
+													<option value="KTF">KT</option>
+													<option value="LGT">LG U+</option>
+													<option value="SKM">SKT 알뜰폰</option>
+													<option value="KTM">KT 알뜰폰</option>
+													<option value="LGM">LG U+ 알뜰폰</option>
+												</select>
 											</div>
 										</div>
-									</div>
-								</fieldset>
+										<div class="input_btn_container input_tel">
+											<div class="selects">
+												<select id="cell_phone1" name="cell_phone1"
+													title="휴대폰 번호 앞자리 선택" class="ui_selectbox"
+													data-class="select_custom">
+													<option value="010">010</option>
+													<option value="011">011</option>
+													<option value="016">016</option>
+													<option value="017">017</option>
+													<option value="018">018</option>
+													<option value="019">019</option>
+												</select>
+											</div>
+											<span class="input_txt tel_num"> <input type="text"
+												id="tel2" name="tel2" title="휴대폰 번호 뒷 8자리 입력" maxlength="8"
+												onkeyup="checkNum('tel2')"> <input type="hidden"
+												name="cell_phone2" id="cell_phone2" /> <input type="hidden"
+												name="cell_phone3" id="cell_phone3" />
+											</span>
+											<button type="button" class="btn gray h50"
+												onclick="fn_send(); return false;">
+												<span>인증번호 발송</span>
+											</button>
+										</div>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<label for="smsNum">인증번호 입력</label>
+									</dt>
+									<dd>
+										<span class="input_txt input_sec_num"> <input
+											type="text" title="인증번호 입력" id="smsNum" name="smsNum"
+											maxlength="6" onkeyup="javascript:checkNum('smsNum')">
+										</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<label for="sec_txt">보안문자 입력</label>
+									</dt>
+									<dd>
+										<p class="sec_input_txt">아래 이미지의 보안문자를 입력해주세요.</p>
+										<div class="sec_wrap">
+											<div class="sec_view">
+												<span class="sec_txt"><img src="/simpleCaptcha.do"
+													alt="보안문자" id="captcha_img"></span>
+												<div class="sec_btn_wrap">
+													<button type="button" class="btn sound"
+														onclick="javascript:fn_audio();">
+														<span>음성으로 듣기</span>
+													</button>
+													<button type="button" class="btn refresh"
+														onclick="javascript:fn_captcha();">
+														<span>새로고침</span>
+													</button>
+												</div>
+											</div>
+											<span class="input_txt"> <input type="text"
+												title="보안문자 입력" id="captcha-text" name="answer"
+												maxlength="5">
+											</span>
+										</div>
+									</dd>
+								</dl>
 							</div>
-							<!-- //contents -->
+							<div class="guide_list">
+								<ul class="bull_list min layer_min">
+									<li class="square">입력하신 정보가 가입자 본인 명의로 가입된 휴대폰이 아닐 경우 인증이
+										되지 않습니다.</li>
+									<li class="square">본인 명의로 가입된 휴대폰 번호의 본인확인 서비스는 하루 3번까지
+										이용할 수 있습니다.</li>
+									<li class="square">휴대폰 문자로 발송된 번호는 비밀번호가 아닌 본인확인을 위한 인증
+										번호입니다.</li>
+									<li class="square">입력하신 정보는 암호화 되어 사용되며, 본인여부 확인에만 사용됩니다.</li>
+								</ul>
+							</div>
+							<div class="input_form_footer">
+								<div class="btn_wrap narrow">
+									<button type="button" class="btn submit h60"
+										onclick="javascript:fn_send_sms();">
+										<span>확인</span>
+									</button>
+								</div>
+							</div>
 						</div>
-					</article>
-				</form>
-
-
-				<script>
-					$(function() {
-						$("select").change(function() {
-							$(this).removeClass("no_empty")
-							if ($(this).find("option:selected").index() != 0) {
-								$(this).addClass("no_empty")
-							}
-						});
-
-						vcui.require([ 'ui/selectbox' ], function() {
-							$('.ui_selectbox').vcSelectbox();
-						});
-					});
-				</script>
-
+					</fieldset>
+				</div>
+				<!-- //contents -->
 
 			</div>
 
-			<script type="text/javascript" src="/resources/js/vin/vcui.js"></script>
-			<script type="text/javascript"
-				src="/resources/js/vin/vcui.common-ui.js"></script>
-			<script type="text/javascript" src="/resources/js/vin/skb.site.js"></script>
-		</div>
 
+		</div>
 	</div>
+
+	<script>
+		$(function() {
+			$("select").change(function() {
+				$(this).removeClass("no_empty")
+				if ($(this).find("option:selected").index() != 0) {
+					$(this).addClass("no_empty")
+				}
+			});
+
+			vcui.require([ 'ui/selectbox' ], function() {
+				$('.ui_selectbox').vcSelectbox();
+			});
+		});
+	</script>
+
+	<script type="text/javascript" src="/resources/js/vin/vcui.js"></script>
+	<script type="text/javascript"
+		src="/resources/js/vin/vcui.common-ui.js"></script>
+	<script type="text/javascript" src="/resources/js/vin/skb.site.js"></script>
 </body>
 </html>
