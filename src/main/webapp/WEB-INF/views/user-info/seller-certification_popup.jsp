@@ -345,7 +345,7 @@ hr {
 										autocomplete="off" checked> 남
 									</label> <label class="btn btn-default btn-lg"> <input
 										type="radio" type="radio" name="gender" id="female"
-										title="성별 - 여" value="1" autocomplete="off"> 여
+										title="성별 - 여" value="1" autocomplete="off" > 여
 									</label>
 								</div>
 							</dd>
@@ -358,7 +358,7 @@ hr {
 								<span class="input_txt input_sec_num"> <input
 									class="form-control" type="text" title="생년월일 입력" id="birthDay"
 									name="birthDay" onkeyup="javascript:checkNum('birthDay')"
-									maxlength="8" onkeyup="checkNum('birthDay')">
+									maxlength="8" onkeyup="checkNum('birthDay')" onkeypress="enter(event)">
 								</span> <span class="form_guide"> 예) 19900808</span>
 							</dd>
 						</dl>
@@ -421,10 +421,10 @@ hr {
 								<span class="input_txt input_sec_num"> <input
 									class="form-control" type="text" title="인증번호 입력" id="smsNum"
 									name="smsNum" maxlength="6" onkeypress="enter(event)">
-									<button type="button" class="btn btn-primary"
+									<button type="button" class="btn btn-default"
 										onclick="javascript:fn_send_sms();"
 										style="margin-top: 5px; float: right; margin-bottom: 10px;">
-										<span style="font-size: 1.5em;">↵</span>
+										<b style="font-size: 1.5em;">↵</b>
 									</button>
 
 								</span>
@@ -437,7 +437,7 @@ hr {
 						<ul>
 							<li>현제 페이지는 실제로 인증번호가 발송되지 않습니다.(API미설치한 상태)</li>
 							<li>인증번호 입력란에 숫자를 무작위로 입력하십시오</li>
-							<li>입력하신 정보는 암호화 되어 사용되며, 본인여부 확인에만 사용됩니다.</li>
+							<li>입력하신 정보는 암호화 되어 사용되며, 테스트용도로 사용됩니다.</li>
 						</ul>
 					</div>
 				</form>

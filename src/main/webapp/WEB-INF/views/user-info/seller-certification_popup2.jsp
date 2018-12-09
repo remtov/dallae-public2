@@ -8,45 +8,14 @@
 <title>계좌 인증 | Dallae옥션</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
+hr {
+	clear: both;
+}
 </style>
 
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/base.css?1530003556000"
-	type="text/css" />
 
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/layout.css?1523528865000"
-	type="text/css" />
-
-
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/common.css?1529660015000"
-	type="text/css" />
-
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/common_section.css?1525758538000"
-	type="text/css" />
-
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/common_popup.css?1538996400000"
-	type="text/css" />
-
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/common_promotion.css?1460864789000"
-	type="text/css" />
-
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/print.css?1514529677000"
-	type="text/css" media="print" />
-
-<link rel="stylesheet" type="text/css" href="/css/hover.css" />
 <!--<![endif]-->
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/cm.css?1525582273000"
-	type="text/css" />
-<link rel="stylesheet"
-	href="https://simg.wooribank.com/css/css3.css?1366707921000"
-	type="text/css" />
+
 <script type="text/javascript"
 	src="https://simg.wooribank.com/js/com/jquery-1.7.1.min.js?1363353990000"></script>
 <script type="text/javascript"
@@ -272,75 +241,120 @@
 	<div class="find-container">
 		<div class="container">
 			<div class="inner-box">
-				<h2>계좌조회</h2>
-				<div>
-					<ul>
-						<li>비밀번호가 있는 예금계좌를 영업점이나 인터넷뱅킹에서 등록하신 경우 조회 가능합니다.</li>
-						<li>인터넷뱅킹 가입하신 고객님께서는 ‘계좌등록/해제’에서 계좌등록과 해제가 가능합니다.</li>
-						<!-- <li>고객님의 안전한 금융거래를 위해 조회시작 후 10분 동안 이용이 없는 경우 자동종료됩니다.</li> 2013-10-29 한인경 계장님 요청-->
-					</ul>
-				</div>
+				<h2 style="text-align: center;">
+					<button style="float: left;" type="button" class="btn btn-default"
+						onclick="self.close()">X</button>
+					계좌<b>인증</b> <span class="pull-right">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript: doSubmit() ;return false;;">인증</button>
+					</span>
+				</h2>
+
+
 
 				<form name="parentFrm" id="parentFrm" method="post">
-
-
-					<input type=hidden name=CUR_CD_3 value='KRW' /> <label for="pup01">계좌번호</label>
-					<input title="계좌번호 입력" id="pup01" style="width: 133px;"
-						name="AccNO" class='default' type="text" mask="-" paste="on"
-						onBlur='return CurrencyAcctCheck()' datatype="N" maxlength=20
-						notnull="true" colname='계좌번호' /> <label for="pup02">계좌비밀번호</label>
-
-					<input type="password" id="pup03" name="PSNBIZPENO_7"
-						autocomplete="off" maxlength="6" datatype=N enc='on'
-						style="width: 92px;" minlength=5 colname=생년월일/사업자번호 notnull=true
-						class=default />
-
-
-					<script>
-						transkey.Tk_pup03 = new TransKey("Tk_pup03", 0, 0,
-								transkey_surl, "number", 6, "password", "pup03");
-						transkey.Tk_pup03.useTransKey = false
-						transkey.Tk_pup03.addEvent("focus", "onfocus");
-						transkey.transkey_inputs = transkey.transkey_inputs
-								+ "Tk_pup03:PSNBIZPENO_7,";
-						transkey.transkey_i = transkey.transkey_i + 1;
-					</script>
-
-					<span class="i-dsc">(개인은 생년월일 6자리, 기업은 사업자번호 뒤 5자리 입력)</span> <label
-						for="pup04">통화</label>
-					<select name="CURCD_3" disabled onchange="moveFocus('');"
-						id="pup04" title="통화 선택">
-						<option value=''>선택하세요.</option>
-						<option value='KRW'>KRW (한국)</option>
-						<option value='USD'>USD (미국)</option>
-						<option value='JPY'>JPY (일본)</option>
-						<option value='EUR'>EUR (유럽연합)</option>
-						<option value='GBP'>GBP (영국)</option>
-						<option value='CAD'>CAD (캐나다)</option>
-						<option value='CHF'>CHF (스위스)</option>
-						<option value='HKD'>HKD (홍콩)</option>
-						<option value='CNY'>CNY (중국)</option>
-						<option value='THB'>THB (태국)</option>
-						<option value='IDR'>IDR (인도네시아)</option>
-						<option value='SEK'>SEK (스웨덴)</option>
-						<option value='AUD'>AUD (호주)</option>
-						<option value='DKK'>DKK (덴마크)</option>
-						<option value='NOK'>NOK (노르웨이)</option>
-						<option value='SAR'>SAR (사우디)</option>
-						<option value='KWD'>KWD (쿠웨이트)</option>
-						<option value='BHD'>BHD (바레인)</option>
-						<option value='AED'>AED (U.A.E)</option>
-						<option value='SGD'>SGD (싱가포르)</option>
-						<option value='NZD'>NZD (뉴질랜드)</option>
-						<option value='TWD'>TWD (대만)</option>
-						<option value='PHP'>PHP (필리핀)</option>
+					<label for="pup00">은행명</label>
+					<select name="bankCode" id="pup00" class="form-control">
+						<option value="none">선택하세요</option>
+						<option value="002">산업은행</option>
+						<option value="003">기업은행</option>
+						<option value="020">우리은행</option>
+						<option value="004">하나은행</option>
+						<option value="011">농협</option>
+						<option value="071">우체국</option>
+						<option value="088">신한은행</option>
+						<option value="005">외환은행</option>
+						<option value="023">SC제일은행</option>
+						<option value="054">HSBC</option>
+						<option value="027">씨티은행</option>
+						<option value="050">상호저축은행</option>
+						<option value="032">부산은행</option>
+						<option value="045">새마을금고</option>
+						<option value="034">대구은행</option>
+						<option value="007">광주은행</option>
+						<option value="039">경남은행</option>
 					</select>
-					<span class="i-dsc">(외화예금 조회시에만 선택)</span>
+					<p>
+						<input type=hidden name=CUR_CD_3 value='KRW' />
+					</p>
+					<p style="margin-top: 10px;">
+						<label for="pup01">계좌번호</label> <input class="form-control"
+							title="계좌번호 입력" id="pup01" name="AccNO" class='default'
+							type="text" mask="-" paste="on"
+							onBlur='return CurrencyAcctCheck()' datatype="N" maxlength=20
+							notnull="true" colname='계좌번호' onkeypress="enter(event)"/>
+					</p>
+					<p>
+						<label for="pup02">계좌비밀번호</label> <input class="form-control"
+							type="password" id="pup02" name="PASSWORDNO" autocomplete="off"
+							maxlength="6" datatype=N enc='on' minlength=4 colname=계좌비밀번호
+							notnull=true class=default onkeypress="enter(event)"/>
+					</p>
+					<p>
+						<label for="pup03">생년월일/사업자번호</label> <input class="form-control"
+							type="password" id="pup03" name="PSNBIZPENO_7" autocomplete="off"
+							maxlength="6" datatype=N enc='on' minlength=5 colname=생년월일/사업자번호
+							notnull=true class=default onkeypress="enter(event)"/>
+					</p>
+					<p>
 
+						<script>
+							transkey.Tk_pup03 = new TransKey("Tk_pup03", 0, 0,
+									transkey_surl, "number", 6, "password",
+									"pup03");
+							transkey.Tk_pup03.useTransKey = false
+							transkey.Tk_pup03.addEvent("focus", "onfocus");
+							transkey.transkey_inputs = transkey.transkey_inputs
+									+ "Tk_pup03:PSNBIZPENO_7,";
+							transkey.transkey_i = transkey.transkey_i + 1;
+						</script>
+
+						<span class="i-dsc">(개인은 생년월일 6자리, 기업은 사업자번호 뒤 5자리 입력)</span> <label
+							for="pup04" style="display: none;">통화</label>
+
+						<select name="CURCD_3" disabled onchange="moveFocus('');"
+							id="pup04" title="통화 선택" style="display: none;">
+							<option value=''>선택하세요.</option>
+							<option value='KRW'>KRW (한국)</option>
+							<option value='USD'>USD (미국)</option>
+							<option value='JPY'>JPY (일본)</option>
+							<option value='EUR'>EUR (유럽연합)</option>
+							<option value='GBP'>GBP (영국)</option>
+							<option value='CAD'>CAD (캐나다)</option>
+							<option value='CHF'>CHF (스위스)</option>
+							<option value='HKD'>HKD (홍콩)</option>
+							<option value='CNY'>CNY (중국)</option>
+							<option value='THB'>THB (태국)</option>
+							<option value='IDR'>IDR (인도네시아)</option>
+							<option value='SEK'>SEK (스웨덴)</option>
+							<option value='AUD'>AUD (호주)</option>
+							<option value='DKK'>DKK (덴마크)</option>
+							<option value='NOK'>NOK (노르웨이)</option>
+							<option value='SAR'>SAR (사우디)</option>
+							<option value='KWD'>KWD (쿠웨이트)</option>
+							<option value='BHD'>BHD (바레인)</option>
+							<option value='AED'>AED (U.A.E)</option>
+							<option value='SGD'>SGD (싱가포르)</option>
+							<option value='NZD'>NZD (뉴질랜드)</option>
+							<option value='TWD'>TWD (대만)</option>
+							<option value='PHP'>PHP (필리핀)</option>
+						</select>
+						<span class="i-dsc" style="display: none;">(외화예금 조회시에만 선택)</span>
 					<div style="margin-bottom: 40px;">
-						<button class="btn btn-primary"
+
+						<button class="btn btn-default"
 							onclick="javascript: doSubmit() ;return false;"
-							style="float: right;">확인</button>
+							style="float: right;">
+							<b style="font-size: 1.5em;">↵</b>
+						</button>
+						<hr>
+						<ul>
+							<li>현제 페이지는 실제로 계좌가 조회되지는 않습니다.(API미설치한 상태)</li>
+							<li>입력란에 숫자를 무작위로 입력하십시오</li>
+							<li>입력하신 정보는 암호화 되어 사용되며, 테스트용도로 사용됩니다.</li>
+
+						</ul>
+
 					</div>
 
 				</form>
@@ -351,7 +365,14 @@
 
 	<script type="text/javascript"
 		src="https://simg.wooribank.com/js/com/wbCheck.js?1453103781000"></script>
-
+	<script>
+		function enter(ent) {
+			var code = ent.which ? ent.which : event.keyCode;
+			if (code == 13) {
+				doSubmit()
+			}
+		}
+	</script>
 </body>
 </html>
 
