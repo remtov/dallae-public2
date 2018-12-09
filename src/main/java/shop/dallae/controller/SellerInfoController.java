@@ -41,6 +41,7 @@ public class SellerInfoController {
 	@RequestMapping(value = "/sellerinfo", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer insertSellerInfo(@RequestBody SellerInfo sellerInfo) throws UnsupportedEncodingException {
+		System.out.println(sellerInfo);
 		return sellerInfoService.insertSellerInfo(sellerInfo);
 	}
 }

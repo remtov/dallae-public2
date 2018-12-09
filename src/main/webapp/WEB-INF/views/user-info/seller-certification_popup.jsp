@@ -130,7 +130,12 @@
 		$("#check_3").val(data.check_3);
 		$("#name").val(data.name);
 	}
-
+	function enter(ent) {
+		var code = ent.which ? ent.which : event.keyCode;
+		if (code == 13) {
+			fn_send_sms()
+		}
+	}
 	// sms 본인인증
 	function fn_send_sms() {
 		if (fn_valid_sms()) {
@@ -341,7 +346,7 @@ hr {
 							</dt>
 							<dd>
 								<span class="input_txt input_sec_num"> <input
-									class="form-control" type="text" title="고객명 입력" id="name"
+									class="form-control" type="text" title="고객명 입력" id="name" onkeypress="enter(event)"
 									name="name">
 								</span>
 							</dd>
@@ -410,7 +415,7 @@ hr {
 									<span class="input_txt tel_num"> <input
 										class="form-control" type="text" id="tel2" name="tel2"
 										title="휴대폰 번호 뒷 8자리 입력" maxlength="8"
-										onkeyup="checkNum('tel2')" /> <input type="hidden"
+										onkeypress="enter(event)"/> <input type="hidden"
 										name="cell_phone2" id="cell_phone2" /> <input type="hidden"
 										name="cell_phone3" id="cell_phone3" />
 									</span>

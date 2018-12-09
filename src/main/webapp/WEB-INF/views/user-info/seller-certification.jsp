@@ -180,11 +180,11 @@
 		}
 
 function summit() {
-	var sellerNumber = ${userlogininfo.userNumber};
-   var sellerAccountNumber = document.querySelector('#sellerAccountNumber').value;
-   var sellerBank = document.querySelector('#sellerBank').value;
-   var certificationYN = document.querySelector('#certificationYN').value;
-   var certificationYN2 = document.querySelector('#certificationYN2').value;
+	var sellerInfoNumber = ${userlogininfo.userNumber};
+	var sellerAccountNumber = document.querySelector('#sellerAccountNumber').value;
+	var sellerBank = document.querySelector('#sellerBank').value;
+	var certificationYN = document.querySelector('#certificationYN').value;
+	var certificationYN2 = document.querySelector('#certificationYN2').value;
 
        
       if (certificationYN!='Y'||certificationYN2!='Y') {
@@ -192,9 +192,9 @@ function summit() {
          return false;
       } else {
          var params = {
-        		 sellerNumber:sellerNumber,
+        		 sellerInfoNumber:sellerInfoNumber,
         		 sellerAccountNumber: sellerAccountNumber,
-        		 sellerBank: sellerBank,
+        		 sellerBank: sellerBank
                  };
          params = JSON.stringify(params);
          
@@ -210,7 +210,8 @@ function summit() {
 						}
 					}
                   if (res == 1) {
-                     alert(${userlogininfo.userId}+'님 인증에 성공하신 것을 축하드립니다.');
+                     alert('${userlogininfo.userId} 님 인증에 성공하신 것을 축하드립니다.');
+                     
                      location.href = "/";
                   };
                }

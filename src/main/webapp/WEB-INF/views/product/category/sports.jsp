@@ -44,7 +44,7 @@ function loadba() {
 			var img = imgs.split('|');
 			 
 			html += img[0];
-		    html += '"></a>';
+			html += '" onError="this.src=\'/resources/img/icon-img.png\'"></a>';
 	        html += '<div class="caption" style="overflow: hidden; text-overflow: ellipsis;">';
 	        html += '<h3>' + res[i].productName + '</h3>';
 	        html += '<h4>시작가격 : ' + res[i].productLowestPrice + ' 원</h4>';

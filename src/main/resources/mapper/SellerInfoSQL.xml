@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="SQL.sellerInfoSQL">
+<mapper namespace="SQL.SellerInfoSQL">
 	<select id="getSellerInfo" resultType="sellerInfo"
 		parameterType="sellerInfo">
 		select * from SellerInfo
@@ -10,7 +10,7 @@
 		ProductNumber=#{productNumber}
 	</select>
 
-	<insert id="inserSellerInfo" parameterType="sellerInfo">
+	<insert id="insertSellerInfo" parameterType="sellerInfo">
 		INSERT INTO
 		sellerInfo
 		(
@@ -20,10 +20,10 @@
 		SELLERPOINT
 		)
 		VALUES(
-		${userNumber},
-		${sellerAccountNumber},
-		${sellerBank},
-		0
+		${sellerInfoNumber},
+		'${sellerAccountNumber}',
+		'${sellerBank}',
+		50
 		)
 	</insert>
 
