@@ -7,17 +7,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>휴대폰 SMS 본인 인증 | Dallae옥션</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
-<script type="text/javascript">
-var onloadCallback=function(){
-	greCAPTCHA.render('html_element',{
-		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
-		'theme':'light'
-	});
-};
-</script>
 
+<script
+	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
+	async defer></script>
 <script type="text/javascript">
+	var onloadCallback = function() {
+		greCAPTCHA.render('html_element', {
+			'sitekey' : '6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+			'theme' : 'light'
+		});
+	};
 	$(document).ready(function() {
 		window.resizeTo(600, 930);
 		$('#terms5').change(function() {
@@ -202,11 +202,12 @@ var onloadCallback=function(){
 			alert("인증이 완료되었습니다.");
 			$("#certificationYN", opener.document).val('Y');
 			opener.$("#name").val($("#name").val());
-			opener.$("#name").html($("#name").val());
+			opener.$("#gender").val($('input[name="gender"]:checked').val());
 
+			opener.$("#birthDay").val($("#birthDay").val());
+			opener.$("#phoneCorp").val($("#phoneCorp").val());
 			opener.$("#cell_phone1").val($("#cell_phone1").val());
-			opener.$("#cell_phone2").val($("#cell_phone2").val());
-			opener.$("#cell_phone3").val($("#cell_phone3").val());
+			opener.$("#tel2").val($("#tel2").val());
 			self.close();
 		}
 	}
@@ -350,11 +351,11 @@ hr {
 							<dd>
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-default btn-lg active"> <input
-										type="radio" name="gender" id="male" title="성별 - 남" value="0"
+										type="radio" name="gender" value="male" title="성별 - 남"
 										autocomplete="off" checked> 남
 									</label> <label class="btn btn-default btn-lg"> <input
-										type="radio" type="radio" name="gender" id="female"
-										title="성별 - 여" value="1" autocomplete="off" > 여
+										type="radio" name="gender" value="female" title="성별 - 여"
+										autocomplete="off"> 여
 									</label>
 								</div>
 							</dd>
@@ -367,7 +368,8 @@ hr {
 								<span class="input_txt input_sec_num"> <input
 									class="form-control" type="text" title="생년월일 입력" id="birthDay"
 									name="birthDay" onkeyup="javascript:checkNum('birthDay')"
-									maxlength="8" onkeyup="checkNum('birthDay')" onkeypress="enter(event)">
+									maxlength="8" onkeyup="checkNum('birthDay')"
+									onkeypress="enter(event)">
 								</span> <span class="form_guide"> 예) 19900808</span>
 							</dd>
 						</dl>

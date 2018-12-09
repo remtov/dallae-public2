@@ -7,14 +7,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>계좌 인증 | Dallae옥션</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script
+	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
+	async defer></script>
 <script type="text/javascript">
-var onloadCallback=function(){
-	greCAPTCHA.render('html_element',{
-		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
-		'theme':'light'
-	});
-};
+	var onloadCallback = function() {
+		greCAPTCHA.render('html_element', {
+			'sitekey' : '6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+			'theme' : 'light'
+		});
+	};
 </script>
 <style>
 hr {
@@ -124,7 +126,7 @@ hr {
 	src="https://simg.wooribank.com/js/sec/realip/ktb.js?1447589667000"></script>
 <script type="text/javascript">
 	var TNK_SR = '58e06c67bff307a06598281354897be6';
-	var nua = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36';
+
 	var ripkey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtr28JWV0jGn7AddbIeb4wVleDLXTW1P8V6e7F0OWtdGGxSEJIc74Q1GUU1kj8nV0pOf72TlpOWH0c1WGBCyV5O2kw2rImc+OAO62ZfEFo6Z27wj0/klDN0lMVqsLRdDvjyODCOuccmODh9CM5Ar/vQ/rGhNI0RUq0fc7RRixwSrrLLJ6FdtmhDX48x6RCNCVkXNBCpYxrFeMo0O1WkhhPx6CmYbYjB1E486XXmupdCDdCb9MuEXQ8AgemAO43PD4VgAkG1ilqNXgUOeUTCEq7ahi3l9/a/q11BCd4NZG6eOWqoXZH/2DDtTbkbOePHj8iJo/v4/yK1AB/WZnTqzd1QIDAQAB';
 </script>
 <script type="text/javascript"
@@ -145,21 +147,14 @@ hr {
 			reset_submit();
 			return;
 		}
-		if (f.DIV.value == 'B') {
-			if (currValue == "") {
-				alert("통화코드를 선택하세요");
-				document.parentFrm.CURCD_3.focus();
-				return;
-			}
+		alert("인증이 완료되었습니다.");
+		$("#certificationYN2", opener.document).val('Y');
+		opener.$("#sellerBank").val($("#pup00").val());
+		opener.$("#sellerAccountNumber").val($("#pup01").val());
+		opener.$("#accountPass").val($("#pup02").val());
 
-			if (currValue == "KRW")
-				f.DIV.value = "A";
-		}
-		shotData();
-		if (navigator.platform.match('Win') == 'Win') {
-			DataSubmit(document.getElementById("parentFrm"));
-		}
-		$(document.parentFrm).submit();
+		self.close();
+
 	}
 
 	function uf_tab() {
@@ -259,51 +254,49 @@ hr {
 					</span>
 				</h2>
 
-
-
-				<form name="parentFrm" id="parentFrm" method="post">
+				<form name="parentFrm" id="parentFrm">
 					<label for="pup00">은행명</label>
 					<select name="bankCode" id="pup00" class="form-control">
 						<option value="none">선택하세요</option>
-						<option value="002">산업은행</option>
-						<option value="003">기업은행</option>
-						<option value="020">우리은행</option>
-						<option value="004">하나은행</option>
-						<option value="011">농협</option>
-						<option value="071">우체국</option>
-						<option value="088">신한은행</option>
-						<option value="005">외환은행</option>
-						<option value="023">SC제일은행</option>
-						<option value="054">HSBC</option>
-						<option value="027">씨티은행</option>
-						<option value="050">상호저축은행</option>
-						<option value="032">부산은행</option>
-						<option value="045">새마을금고</option>
-						<option value="034">대구은행</option>
-						<option value="007">광주은행</option>
-						<option value="039">경남은행</option>
+						<option value="산업">산업</option>
+						<option value="기업">기업</option>
+						<option value="우리">우리</option>
+						<option value="하나">하나</option>
+						<option value="농협">농협</option>
+						<option value="우체국">우체국</option>
+						<option value="신한">신한</option>
+						<option value="외환">외환</option>
+						<option value="SC제일">SC제일</option>
+						<option value="HSBC">HSBC</option>
+						<option value="씨티">씨티</option>
+						<option value="상호저축">상호저축</option>
+						<option value="부산">부산</option>
+						<option value="새마을금고">새마을금고</option>
+						<option value="대구">대구</option>
+						<option value="광주">광주</option>
+						<option value="경남">경남</option>
 					</select>
 					<p>
 						<input type=hidden name=CUR_CD_3 value='KRW' />
 					</p>
 					<p style="margin-top: 10px;">
 						<label for="pup01">계좌번호</label> <input class="form-control"
-							title="계좌번호 입력" id="pup01" name="AccNO" class='default'
-							type="text" mask="-" paste="on"
-							onBlur='return CurrencyAcctCheck()' datatype="N" maxlength=20
-							notnull="true" colname='계좌번호' onkeypress="enter(event)"/>
+							title="계좌번호 입력" id="pup01" name="AccNO" type="text" mask="-"
+							paste="on" onBlur='return CurrencyAcctCheck()' datatype="N"
+							maxlength=20 notnull="true" colname='계좌번호'
+							onkeypress="enter(event)" />
 					</p>
 					<p>
 						<label for="pup02">계좌비밀번호</label> <input class="form-control"
-							type="password" id="pup02" name="PASSWORDNO" autocomplete="off"
+							type="password" id="pup02" name="passwordNo" autocomplete="off"
 							maxlength="6" datatype=N enc='on' minlength=4 colname=계좌비밀번호
-							notnull=true class=default onkeypress="enter(event)"/>
+							notnull=true onkeypress="enter(event)" />
 					</p>
 					<p>
 						<label for="pup03">생년월일/사업자번호</label> <input class="form-control"
 							type="password" id="pup03" name="PSNBIZPENO_7" autocomplete="off"
 							maxlength="6" datatype=N enc='on' minlength=5 colname=생년월일/사업자번호
-							notnull=true class=default onkeypress="enter(event)"/>
+							notnull=true onkeypress="enter(event)" />
 					</p>
 					<p>
 
@@ -374,14 +367,7 @@ hr {
 
 	<script type="text/javascript"
 		src="https://simg.wooribank.com/js/com/wbCheck.js?1453103781000"></script>
-	<script>
-		function enter(ent) {
-			var code = ent.which ? ent.which : event.keyCode;
-			if (code == 13) {
-				doSubmit()
-			}
-		}
-	</script>
+
 </body>
 </html>
 
