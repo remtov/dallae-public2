@@ -7,6 +7,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>휴대폰 SMS 본인 인증 | Dallae옥션</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
+<script type="text/javascript">
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
