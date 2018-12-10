@@ -115,19 +115,23 @@ var onloadCallback=function(){
 					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<!--주소API-->
 						<p>
-							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
+							우편번호<br><input style="width: 200px; margin-bottom: 5px;" type="text"
 								id="postCode" placeholder="우편번호" disabled
-								class="postcodify_postcode5" data-vali="2" /> <input
+								class="postcodify_postcode5" 
+								style="height:30px;"
+								data-vali="2" /> 
+								<input
 								type="button" class="btn btn-default"
 								id="postcodify_search_button" value="우편번호 찾기" />
 						</p>
 						<p>
-							주소 <input style="margin-bottom: 5px;" type="text"
+							주소<br> <input style="margin-bottom: 5px;" type="text"
 								id="userAddress" placeholder="주소" class="postcodify_address"
-								disabled data-vali="2"> <input type="text"
+								disabled data-vali="2">
+								 <input type="text"
 								id="userAddress2" placeholder="상세주소" class="postcodify_details"
 								data-vc="2,33"> <input type="text" id="userAddress2"
-								placeholder="참고항목" class="postcodify_extra_info" data-vc="2,33">
+								placeholder="참고항목" disabled class="postcodify_extra_info" data-vc="2,33">
 						</p>
 						<p>
 							<textarea class="form-control" cols="20" rows="5"
