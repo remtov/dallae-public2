@@ -75,7 +75,7 @@ div {
 				value="${fn:split(life.productImage,'|')}" />
 
 			<h2 style="margin-left: 20px;">
-				카테고리별 최고가격 매물<small>카테고리별 인기 매물로 바꿀 예정 (비딩 카운터나 조회수로 하면 될 듯)</small>
+				카테고리별 최고가격 매물
 			</h2>
 			<div class="row">
 				<!-- 카테고리 1열 -->
