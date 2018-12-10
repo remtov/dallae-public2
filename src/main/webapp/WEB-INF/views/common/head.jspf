@@ -88,6 +88,7 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="검색 ↵"
 								id="search">
+							<button type="button" onclick="ser()">검색</button>	
 
 						</div>
 
@@ -166,16 +167,16 @@
 		};
 
 		function ser() {
-			var ser = document.querySelector('#search').value;
-			var params = {
-				ser : ser
-			};
+			var sers = document.querySelector('#search').value;
+			var params = {ser:sers};
 			params = JSON.stringify(params)
+			alert(params);
 			var conf = {
 				url : '/productsearch',
 				param : params,
 				method : 'POST',
 				success : function(res) {
+					
 					location.href = '/url/product:test';
 				}
 

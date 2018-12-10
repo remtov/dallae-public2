@@ -3,6 +3,8 @@ package shop.dallae.controller;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,11 +49,16 @@ public class ProductController {
 		return productService.getNum(product);
 	}
 	@RequestMapping(value = "/productsearch", method = RequestMethod.POST)
-	public Model getProduct(@RequestBody Product product,Model model) {
+	@ResponseBody
+	public String getProduct(@RequestBody Product product,HttpSession httpSession) {
 
 		System.out.println("바보");
-		System.out.println(model.addAttribute("productser", productService.getSer(product)));
-		return model.addAttribute("productser", productService.getSer(product));
+		System.out.println(productService.getSer(product));
+		if(httpSession.getAttribute("productser")!=null) {
+			httpSession.removeAttribute("productser");
+		}
+		httpSession.setAttribute("productser", productService.getSer(product));
+		return "product/test";
 		
 	}
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) // 필요없는지 확인 후 제거 할 것
