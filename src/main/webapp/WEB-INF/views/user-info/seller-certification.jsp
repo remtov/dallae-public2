@@ -59,16 +59,13 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/head.jspf"%>
-	<c:set var="userid" value="${userlogininfo.userId}"></c:set>
+
 	<c:choose>
 		<c:when test="${not empty sessionScope.userlogininfo}">
 			<!-- 로그인 된사람 -->
 			<div class="find-container">
-
 				<div class="container">
-					<c:set var="userNumber" value="${userlogininfo.userNumber}"></c:set>
 					<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
-
 					<c:choose>
 						<c:when test="${userLevel>1.5}">
 							<!-- 인증받은사람 -->
@@ -185,8 +182,6 @@ function summit() {
 	var sellerBank = document.querySelector('#sellerBank').value;
 	var certificationYN = document.querySelector('#certificationYN').value;
 	var certificationYN2 = document.querySelector('#certificationYN2').value;
-
-       
       if (certificationYN!='Y'||certificationYN2!='Y') {
          alert('죄송합니다. 인증이 완료되지 않아 권한을 올려 드릴 수 없습니다.');
          return false;
@@ -214,12 +209,29 @@ function summit() {
                   };
                }
             };
-         
          var ajaxUtil = new AjaxUtil(conf);
          ajaxUtil.send();
-         
-         
-      }
+       var userLevel = ${userlogininfo.userLevel};
+  	      var params = {
+  	      	userLevel:userLevel+1
+  	      } 
+  	      params = JSON.stringify(params);
+  	   var conf = {
+  	      url:'/update/'+${userlogininfo.userNumber},
+  	      method: 'PUT',
+  	      param: params,
+  	      success: function(res) {
+  	         /* alert(res) */
+  	         if (res == 1) {
+  	            alert('${userlogininfo.userId}의 권한이 상승되었습니다. 세션 재설정을 위하여 한번 더 로그인 부탁드립니다.');
+  	            logout();
+  	            
+  	         };
+  	      }
+  	   };
+  	   var ajaxUtil = new AjaxUtil(conf);
+  	   ajaxUtil.send();
+  	  }
    }
 
 
