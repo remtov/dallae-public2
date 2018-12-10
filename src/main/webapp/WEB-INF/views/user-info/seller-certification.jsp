@@ -211,14 +211,14 @@ function summit() {
 					}
                   if (res == 1) {
                      alert('${userlogininfo.userId} 님 인증에 성공하신 것을 축하드립니다.');
-                     
-                     location.href = "/";
                   };
                }
             };
          
          var ajaxUtil = new AjaxUtil(conf);
          ajaxUtil.send();
+         
+         
       }
    }
 
