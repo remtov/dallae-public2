@@ -87,6 +87,7 @@ public class ProductController {
 		int a = productService.insertProduct(product);
 		Product image =productService.getProductImage(product.getProductImage());
 		System.out.println(image.getProductNumber());
+		ProductBidding productBidding = new ProductBidding();
 		productBidding.setProductNumber(image.getProductNumber());
 		productBiddingService.inserBidding(productBidding);
 		
