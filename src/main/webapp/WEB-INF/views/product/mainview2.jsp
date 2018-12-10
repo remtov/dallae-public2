@@ -144,13 +144,13 @@ h4 {
 						
 							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
 							
-							/* html ='';
+							html ='';
 							$.ajax({
 								url : '/bidding/'+${product.productNumber},
 								type : 'GET',
 								success : function(res){
-									var biddingDate = res.biddingDate.split('|');
-									var biddingId = res.biddingId.split('|');
+									var biddingDate = res.biddingDate
+									var biddingId = res.biddingId.split(',');
 									var max =biddingId.length;
 									for(var i=0;i<max;i++){
 										html+='<div><div style="width:100px;float:left;">'+biddingDate[i]+'</div><div style="width:100px;float:left;">'+res.biddingId[i]+'</div><br></div><br>';
@@ -159,7 +159,7 @@ h4 {
 									html+=${product.productLowestPrice}+(biddingId.length*200);
 									document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
 								}
-							}); */
+							}); 
 					});
 				</script>
 				<div class='view'></div>
@@ -233,7 +233,7 @@ h4 {
 	</div>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 	<script>
-		/* function updateBtn(productNumber) {
+		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;
 		}
 		var bc = $('.bidCount').val();
@@ -250,20 +250,20 @@ h4 {
 					}
 				}
 			});
-		}); */
-		 // Get the modal
-        var modal = $('#myModal');
+		});
+		// Get the modal
+        var modal = document.getElementById('myModal');
  
         // Get the button that opens the modal
-        var btn = $("#myBtn");
+        var btn = document.getElementById("myBtn");
  
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];                                          
  
         // When the user clicks on the button, open the modal 
-        btn.onclick = function() {
+        $('#myBtn').click(function(){
             modal.style.display = "block";
-        }
+        });
  
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {

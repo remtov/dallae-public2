@@ -65,6 +65,11 @@ public class ProductController {
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
 	}
+	//테스트
+	@RequestMapping(value = "/producttest/{productNumber}", method = RequestMethod.GET) // 필요없는지 확인 후 제거 할 것
+	public ModelAndView getProducttest(@PathVariable Integer productNumber) {
+		return new ModelAndView("product/mainview2", "product", productService.getProduct(productNumber));
+	}
 
 	@RequestMapping(value = "/productupdate/{productNumber}", method = RequestMethod.GET)
 	public ModelAndView getProductupdate(@PathVariable Integer productNumber) {
