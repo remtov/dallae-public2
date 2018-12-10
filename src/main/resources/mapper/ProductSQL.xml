@@ -29,7 +29,7 @@
 			</if>
 			<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
 		</where>
-		order by productEnddate asc
+		order by productNumber desc
 	</select>
 	<select id="getproductImage" resultType="product"
 		parameterType="product">

@@ -144,7 +144,7 @@ h4 {
 						
 							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
 							
-							html ='';
+							/* html ='';
 							$.ajax({
 								url : '/bidding/'+${product.productNumber},
 								type : 'GET',
@@ -159,7 +159,7 @@ h4 {
 									html+=${product.productLowestPrice}+(biddingId.length*200);
 									document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
 								}
-							});
+							}); */
 					});
 				</script>
 				<div class='view'></div>
@@ -194,10 +194,11 @@ h4 {
 					<!-- Modal content -->
 					<div class="modal-content">
 						<span class="close">&times;</span>
-						<div class="bidding">
+						<p>아아아</p>
+						<!-- <div class="bidding">
 							<button style="float: right;" class="btn btn-primary btn-lg"
 								type="button" data-update>입찰 하기</button>
-						</div>
+						</div> -->
 					</div>
 
 				</div>
@@ -232,7 +233,7 @@ h4 {
 	</div>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 	<script>
-		function updateBtn(productNumber) {
+		/* function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;
 		}
 		var bc = $('.bidCount').val();
@@ -249,7 +250,7 @@ h4 {
 					}
 				}
 			});
-		});
+		}); */
 		 // Get the modal
         var modal = $('#myModal');
  
