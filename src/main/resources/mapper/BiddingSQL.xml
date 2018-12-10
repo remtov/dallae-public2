@@ -21,8 +21,8 @@
 		VALUES(
 		#{productNumber},
 		0,
-		#{biddingId,jdbcType=VARCHAR},
-		to_char(SYSDATE,'YYYY-MM-DD HH24:mi:ss'),
+		'',
+		'',
 		0
 		)
 		<!-- #{biddingId, jdbcType=VARCHAR}이건 null insert 하는방법 -->
