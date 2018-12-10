@@ -29,26 +29,25 @@
 			</if>
 			<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
 		</where>
-		order by productNumber desc
+		order by productnumber desc
 	</select>
 	<select id="getproductImage" resultType="product"
 		parameterType="product">
 		select * from product
-		where productImage = #{productImage}
+		where productImage =
+		#{productImage}
 	</select>
 	<select id="getNum" resultType="product" parameterType="product">
-		select rnum,a.*
-		from
+		select a.* from
 		(select ROWNUM AS rnum,b.*
-		from product b
+		from (select * from product order by productnumber
+		desc) b
 		where
 		productEnddate
 		>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
-		order by
-		productEnddate asc) a
-		<where>
-			rnum BETWEEN #{startNum} and #{endNum}
-		</where>
+		)
+		a where rnum BETWEEN #{startNum} and #{endNum}
+
 	</select>
 	<select id="ser" resultType="product" parameterType="product">
 	select * from
