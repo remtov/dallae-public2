@@ -38,9 +38,9 @@ public class ProductBiddingController {
 		String curTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 		productBidding.setProductNumber(productNumber);
 		ProductBidding pds = productBiddingService.getBidding(productNumber);
-		String biddate = pds.getBiddingDate()+"|"+curTime;
-		productBidding.setBiddingDate(biddate);
-		String bidid = pds.getBiddingId()+"|"+productName;
+		String biddate = pds.getBidsDate()+","+curTime;
+		productBidding.setBidsDate(biddate);
+		String bidid = pds.getBiddingId()+","+productName;
 		productBidding.setBiddingId(bidid);
 		if(pds.getBidCount()>bidCount) {
 			return 0;
