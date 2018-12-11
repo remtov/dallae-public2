@@ -148,13 +148,18 @@ h4 {
 							$.ajax({
 								url : '/bidding/'+${product.productNumber},
 								type : 'GET',
+								dataType:"json",
 								success : function(res){
-									var biddingDate = res.biddingDate
-									var biddingId = res.biddingId.split(',');
+									alert(biddingId.length);    
+									var biddsDate = res.biddsDate
+									var biddingId = res.biddingId
 									var max =biddingId.length;
-									for(var i=0;i<max;i++){
-										html+='<div><div style="width:100px;float:left;">'+biddingDate[i]+'</div><div style="width:100px;float:left;">'+res.biddingId[i]+'</div><br></div><br>';
+									if(max>0){
+										for(var i=0;i<max;i++){
+											html+='<div><div style="width:100px;float:left;">'+biddingDate[i]+'</div><div style="width:100px;float:left;">'+res.biddingId[i]+'</div><br></div><br>';
+										}
 									}
+									
 									html+='<div class="bidCount">'+res.bidCount+'번 비딩함<div>';
 									html+=${product.productLowestPrice}+(biddingId.length*200);
 									document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);

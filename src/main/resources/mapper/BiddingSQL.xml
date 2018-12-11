@@ -21,8 +21,8 @@
 		VALUES(
 		#{productNumber},
 		0,
-		'',
-		'',
+		'입찰한 아이디',
+		'입찰한 시간',
 		0
 		)
 		<!-- #{biddingId, jdbcType=VARCHAR}이건 null insert 하는방법 -->
