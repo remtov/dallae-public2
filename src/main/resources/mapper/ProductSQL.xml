@@ -40,14 +40,14 @@
 	<select id="getNum" resultType="product" parameterType="product">
 		select a.* from
 		(select ROWNUM AS rnum,b.*
-		from (select * from product order by productnumber
+		from (select * from product <if test="ser!=null">where productname like '%'||#{ser}||'%' 
+		or productdesc like '%'||#{ser}||'%' </if> order by productnumber
 		desc) b
 		where
 		productEnddate
 		>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
 		)
-		a where rnum BETWEEN #{startNum} and #{endNum} <if test="ser!=null">and (productname like '%'||#{ser}||'%' 
-		or productdesc like '%'||#{ser}||'%' )</if>
+		a where rnum BETWEEN #{startNum} and #{endNum} 
 
 	</select>
 	<select id="ser" resultType="product" parameterType="product">

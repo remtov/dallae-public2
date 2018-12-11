@@ -183,7 +183,7 @@
 				ser : sers
 			};
 			params = JSON.stringify(params)
-			alert(params);
+
 			var conf = {
 				url : '/productsearch',
 				param : params,
