@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>here</title>
+<title>가입</title>
 <style>
 </style>
 <script
@@ -50,38 +50,44 @@ var onloadCallback=function(){
 					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<p>
 							이름 <input type="text" id="userName" class="form-control"
-								style="width: 200px" placeholder="이름" data-vc="2,5">
+								style="width: 200px" placeholder="이름" data-vc="2,5"
+								onkeypress="enter(event)">
 						</p>
 						<p>
 							아이디 <input style="width: 200px" type="text" id="userId"
 								oninput="checkId2()" class="form-control" placeholder="아이디"
-								data-vc="2,30">
+								data-vc="2,30" onkeypress="enter(event)"><span
+								id="userIdComment"></span>
 						</p>
 						<p>
 							비밀번호 <input style="width: 200px" class="form-control"
 								type="password" id="userPassword" data-vc="2,30"
-								placeholder="비밀번호">
+								placeholder="비밀번호" onkeypress="enter(event)">
 						</p>
 						<p>
 							비밀번호 확인 <input style="width: 200px" class="form-control"
 								type="password" id="confirmPassword" data-vc="2,30"
-								placeholder="비밀번호 확인">
+								placeholder="비밀번호 확인" onkeypress="enter(event)">
 						</p>
 
 						<p>
 							이메일 <input style="max-width: 300px;" type="email" id="userEmail"
-								class="form-control" placeholder="예)abc@abc.abc" data-vc="2,30">
+								class="form-control" placeholder="예)abc@abc.abc" data-vc="2,30"
+								onkeypress="enter(event)">
 						</p>
 
 						<p>
 							별명 <input type="text" style="width: 200px" class="form-control"
-								id="userNickName" placeholder="별명" data-vc="2,30">
+								id="userNickName" placeholder="별명" data-vc="2,30"
+								onkeypress="enter(event)">
 						</p>
 						<p>
-							전화번호 <input style="max-width: 300px;" type="text"
+							전화번호 <input style="max-width: 300px;" type="number"
 								class="form-control" id="userPhoneNum"
-								placeholder="예)01012345678" data-vc="2,30">
+								placeholder="예)01012345678" data-vc="2,30"
+								onkeypress="numberEnter(event2)">
 						</p>
+
 					</div>
 					<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<!--주소API-->
@@ -115,23 +121,20 @@ var onloadCallback=function(){
 					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<!--주소API-->
 						<p>
-							우편번호<br><input style="width: 200px; margin-bottom: 5px;" type="text"
-								id="postCode" placeholder="우편번호" disabled
-								class="postcodify_postcode5" 
-								style="height:30px;"
-								data-vali="2" /> 
-								<input
-								type="button" class="btn btn-default"
+							우편번호<br> <input style="width: 200px; margin-bottom: 5px;"
+								type="text" id="postCode" placeholder="우편번호" disabled
+								class="postcodify_postcode5" style="height:30px;" data-vali="2" />
+							<input type="button" class="btn btn-default"
 								id="postcodify_search_button" value="우편번호 찾기" />
 						</p>
 						<p>
 							주소<br> <input style="margin-bottom: 5px;" type="text"
 								id="userAddress" placeholder="주소" class="postcodify_address"
-								disabled data-vali="2">
-								 <input type="text"
-								id="userAddress2" placeholder="상세주소" class="postcodify_details"
-								data-vc="2,33"> <input type="text" id="userAddress2"
-								placeholder="참고항목" disabled class="postcodify_extra_info" data-vc="2,33">
+								disabled> <input type="text" id="userAddress2"
+								placeholder="상세주소" class="postcodify_details" data-vc="2,33"
+								onkeypress="enter(event)"> <input type="text"
+								id="userAddress2Reference" placeholder="참고항목" disabled
+								class="postcodify_extra_info" data-vc="2,33">
 						</p>
 						<p>
 							<textarea class="form-control" cols="20" rows="5"
@@ -188,25 +191,53 @@ var onloadCallback=function(){
 var idDuplicationCheck = 0
 function checkId2() {
    var userId = document.querySelector('#userId').value;
+   var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+   var id = $("#userId").val();
+   var checkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+   
+   
    $.ajax({
       data: {
          userId: userId
       },
       url: "/check-id",
       success: function(res) {
-         if (userId == "" && res == '0') {
-            $("#userId").css("background-color", "#FFCECE");
+     	 if(checkid.test(id)){
+     		 $("#userIdComment").text("한글을 아이디로 가입 하실 수 없습니다").css("color", "#e53a6f");  
+     	}else if (userId == "" && res == '0') {
+     		$("#userIdComment").text("");
+     		$("#userId").css("background-color", "#FFCECE");
             idDuplicationCheck = 0;
          } else if (res == '1') {
+        	 $("#userIdComment").text("아이디가 중복 되었습니다.").css("color", "#e53a6f");
             $("#userId").css("background-color", "#FFCECE");
             idDuplicationCheck = 0;
-         } else {
-            $("#userId").css("background-color", "#B0F6AC");
+         }else {
+        	 $("#userIdComment").text("");
+            $("#userId").css("background-color", "#92cacc");
             idDuplicationCheck = 1;
          }
       }
    });
 }
+ function enter(ent) {
+		var code = ent.which ? ent.which : event.keyCode;
+		if (code == 13) {
+			save()
+		}
+	}
+ 
+ 
+ function numberEnter(ent) {
+		var code2 = ent.which ? ent.which : event2.keyCode;
+		if (code2 == 69) {
+			alert("문자는 입력할 수 없습니다.")
+			return false;
+		}else if(code2 == 13){
+			save()
+	}
+ } 
+ 
 
 function save() {
    var userName = document.querySelector('#userName').value;

@@ -89,7 +89,8 @@ function enter(ent) {
 }
 function searchEmpty() {
 $('#search-value_user-info').val('');
-}javascript:searchEmpty()
+}
+
 	function search(){
 		var ser =document.querySelector('#search-select_user-info').value;	
 		var tex = document.querySelector('#search-value_user-info').value;
