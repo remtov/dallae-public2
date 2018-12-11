@@ -6,7 +6,7 @@
 	String uri = request.getRequestURI();
 %>
 <!DOCTYPE html>
-<html lang="ko">
+
 <head>
 <meta name="description" content="환영합니다. 달래옥션 경매,중고,입찰,매물 전문 웹사이트입니다.">
 <meta name="author" content="ict1 erp5 달래">
