@@ -223,7 +223,7 @@ function save() {
    var id = $("#userId").val();
    var checkid = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
    var confirmPassword = document.querySelector("#confirmPassword").value;
-   
+  
    valis.forEach((e) => {
       var length = e.getAttribute('data-vali');
       if (e.value.trim().length < length) {
@@ -243,8 +243,10 @@ function save() {
          alert("비밀번호가 다릅니다.");
          var passFocus = document.querySelector('#Password');
          passFocus.focus();
-         return false;
-      } else {
+         
+      }return false;
+      })
+    	
          var params = {
             userName: userName,
             userId: userId,
@@ -262,24 +264,26 @@ function save() {
                method: 'POST',
                param: params,
                success: function(res) {
+            	   location.href = "/url/user-info:login";                     
+             	  alert('회원가입이 완료 되셨습니다.');
             		if(typeof(greCAPTCHA)!='undefined'){
 						if(greCAPTCHA.getResponse()==""){
 							alert("스팸 방지코드를 확인해주세요");
 							return;
 						}
 					}
-                  if (res == 1) {
-                     alert('회원가입이 완료 되셨습니다.');
-                     location.href = "/";
-                  };
+            
+                	  
+                    
+                 
                }
             };
          };
          var ajaxUtil = new AjaxUtil(conf);
          ajaxUtil.send();
       }
-   });
-}
+   
+
 </script>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>

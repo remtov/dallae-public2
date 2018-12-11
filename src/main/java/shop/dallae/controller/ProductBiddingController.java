@@ -18,19 +18,21 @@ public class ProductBiddingController {
 
 	@Autowired
 	private ProductBiddingService productBiddingService;
-
+	/*입찰조회*/
 	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.GET)
 	@ResponseBody
 	public ProductBidding getbidding(@PathVariable Integer productNumber) {
 		return productBiddingService.getBidding(productNumber);
 	}
-
+	
+	/*입찰기록삭제*/
 	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public Integer deletebidding(@PathVariable Integer productNumber) {
 		return productBiddingService.deleteBidding(productNumber);
 	}
 
+	/*입찰*/
 	@RequestMapping(value = "/bidding/{productNumber}/{bidCount}/{productName}", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer updatebidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber 
@@ -50,6 +52,7 @@ public class ProductBiddingController {
 		
 	}
 
+	/*입찰마감*/
 	@RequestMapping(value = "/biddingend/{productNumber}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer updateendbidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber ) {
@@ -57,6 +60,7 @@ public class ProductBiddingController {
 		return productBiddingService.updateBidding(productBidding);
 	}
 
+	/* 물품등록,입찰개시 */
 	@RequestMapping(value = "/bidding", method = RequestMethod.PUT)
 	@ResponseBody
 	public Integer insertbidding(@RequestBody ProductBidding productBidding) {
