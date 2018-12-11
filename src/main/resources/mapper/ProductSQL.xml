@@ -46,7 +46,8 @@
 		productEnddate
 		>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
 		)
-		a where rnum BETWEEN #{startNum} and #{endNum}
+		a where rnum BETWEEN #{startNum} and #{endNum} <if test="ser!=null">and (productname like '%'||#{ser}||'%' 
+		or productdesc like '%'||#{ser}||'%' )</if>
 
 	</select>
 	<select id="ser" resultType="product" parameterType="product">

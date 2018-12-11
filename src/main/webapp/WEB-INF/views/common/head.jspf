@@ -86,7 +86,7 @@
 					</ul>
 					<input type="text" class="form-control" placeholder="검색 ↵"
 						id="search" onkeypress="headEnter(event)"
-						style="margin-top: 7px; width: 40%; float: left;">
+						style="margin-top: 7px; width: 38%; float: left;">
 					<button type="button" class="btn btn-default btn-xs"
 						onclick="javascript:homeSearchEmpty()"
 						style="float: left; margin-top: 12px; margin-left: 5px;">x</button>

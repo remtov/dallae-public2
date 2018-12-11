@@ -51,13 +51,10 @@ public class ProductController {
 	@RequestMapping(value = "/productsearch", method = RequestMethod.POST)
 	@ResponseBody
 	public String getProduct(@RequestBody Product product,HttpSession httpSession) {
-
-		System.out.println("바보");
-		System.out.println(productService.getSer(product));
-		if(httpSession.getAttribute("productser")!=null) {
-			httpSession.removeAttribute("productser");
+		if(httpSession.getAttribute("ser")!=null) {
+			httpSession.removeAttribute("ser");
 		}
-		httpSession.setAttribute("productser", productService.getSer(product));
+		httpSession.setAttribute("ser", product.getSer());
 		return "product/test";
 		
 	}
