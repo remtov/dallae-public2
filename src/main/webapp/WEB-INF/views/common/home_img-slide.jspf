@@ -82,8 +82,8 @@ window.addEventListener('load',function(){
 		
 	html += img[0]+'" onError="this.src=\'/resources/img/icon-img.png\'"></a>';
 	html += '<div class="carousel-caption" >';
-	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> 마감임박! "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);">'
-			+ daysRound+ '일 '+hoursRound+'시 '+minutesRound+'분 '+secondsRound+'초 뒤에 경매가 종료됩니다. '
+	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> 마감임박! "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);"><b style="font-size:1.2em;">'
+			+ daysRound+ '일 '+hoursRound+'시 '+minutesRound+'분 '+secondsRound+'초 </b>뒤에 경매가 종료됩니다. '
 			+ '</span></p><button class="btn btn-danger" onclick="goPage('
 			+ response[i].productNumber + ')">입찰</button><button style="margin-left:5px;" class="btn btn-default" onclick="goPage('
 			+ response[i].productNumber + ')">더보기</button></div></div>';

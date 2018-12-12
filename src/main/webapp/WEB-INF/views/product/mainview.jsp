@@ -14,7 +14,7 @@
 h4 {
 	margin-bottom: 20px;
 }
-</style>
+</style>l
 </head>
 <body>
 <%@ include file="/WEB-INF/views/common/head.jspf"%>
@@ -39,7 +39,7 @@ h4 {
 				function closingTimeCalculation() {
 					 var now = new Date();
 					 var dday = new Date(${endTimeNumber}); 
-					console.log(dday)	
+				
 					 if (now.getTime() > dday.getTime()) {
 					    alert('마감된 상품입니다.')
 					    location.href = '/url/product:list';				

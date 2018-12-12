@@ -11,6 +11,10 @@
 <html>
 <head>
 <style>
+div {
+	border: 1px solid red;
+}
+
 h4 {
 	margin-bottom: 20px;
 }
@@ -168,55 +172,64 @@ h4 {
 					});
 				</script>
 				<div class='view'></div>
-				<div style="float: left; width: 50%; border: 1px solid red;">
+				<div style="float: left; width: 49%; border: 1px solid red;">
+					<h4>
+						<b>경매자</b> 정보
+					</h4>
 
 					<p>
-
+						ID :
 						<button class="btn btn-default" style="font-size: 1.2em;"
 							onclick="location.href='/userinfo_my-page/${product.userNumber}'">
-							ID : <b>${product.userId}</b>
-						</button>
-						<br> <span style="font-size: 1.5em; color: #f4969b;"><img
-							src="/resources/img/icon-level-1.png"
-							style="width: 30px; height: auto;">신용LV${product.userCreditLevel}
-						</span><br>(최고 10)
+							${product.userId}</button>
+						<br> 신용LV : <span style="font-size: 1.2em; color: #f4969b;">${product.userCreditLevel}/10
+							<img src="/resources/img/icon-level-1.png"
+							style="width: 30px; height: auto;">
+						</span>
 					</p>
 				</div>
 
-				<div style="float: left; width: 50%; border: 1px solid red;"></div>
+				<div style="float: right; width: 49%; border: 1px solid red;">
+					<h4>
+						<b>입찰</b> 정보
+					</h4>
+					<div style="overflow: auto; margin-top: 10px;">
+						(parent)<br> 입찰가 : <b>${product.productLowestPrice}</b> 원
 
-
-				<div style="overflow: auto; margin-top: 10px;">
-					<div style="float: left;"></div>
-					<div style="margin-left: 10px; float: left;"></div>
-					<div style="float: right;"></div>
-				</div>
-				<!-- Trigger/Open The Modal -->
-				<button style="float: right;" class="btn btn-primary btn-lg"
-					type="button">입찰 하기</button>
-
-				<!-- The Modal -->
-				<div id="myModal" class="modal">
-
-					<!-- Modal content -->
-					<div class="modal-content">
-						<span class="close">&times;</span>
-						<p>아아아</p>
-						<!-- <div class="bidding">
+						<div style="float: left;">left</div>
+						<div style="margin-left: 10px; float: left;">middle</div>
+						<div style="float: right;">right</div>
+					</div>
+					<!-- Trigger/Open The Modal -->
+					<button style="float: left;" class="btn btn-primary btn-lg"
+						type="button">입찰 하기</button>
+					<c:set var="endTime" value="${product.productEndDate}" />
+					<!-- The Modal -->
+					<div id="myModal" class="modal">
+						(#myModal)
+						<!-- Modal content -->
+						<div class="modal-content">
+							(#modal-content) <span class="close">&times;</span>
+							<p>아아아</p>
+							<!-- <div class="bidding">
 							<button style="float: right;" class="btn btn-primary btn-lg"
 								type="button" data-update>입찰 하기</button>
 						</div> -->
-					</div>
+						</div>
 
+					</div>
 				</div>
+
+
+
 				<hr style="clear: both;">
 				<h3>
 					<span class="label label-info">판매중</span>
 				</h3>
+				<br> 등록일 : ${product.productDate}
 				<h3>${product.productName}</h3>
-				<p>상태 : ${product.productCondition} | 등록일 :
-					${product.productDate}</p>
-				<p>시작가 : ${product.productLowestPrice} 원</p>
+				<p>상태 : ${product.productCondition}</p>
+
 				<p>${product.productDesc}</p>
 				<p>
 					제품수량 : <b>${product.productQuantity}</b> 개<br> 브랜드명 :
@@ -250,10 +263,10 @@ h4 {
 				type : 'PUT',
 				success : function(res){
 					if(res==0){
-						alert("이가격에 입찰한사람이 있습니다");
+						alert("이 가격에 입찰한 사람이 있습니다");
 						
 					}else{
-						alert("입찰에성공하셨습니다");
+						alert("입찰에 성공하셨습니다");
 					}
 				}
 			});
