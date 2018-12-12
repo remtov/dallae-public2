@@ -58,12 +58,12 @@ public class ProductController {
 		return "product/test";
 		
 	}
-	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) // 필요없는지 확인 후 제거 할 것
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) 
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
 	}
 	//테스트
-	@RequestMapping(value = "/producttest/{productNumber}", method = RequestMethod.GET) // 필요없는지 확인 후 제거 할 것
+	@RequestMapping(value = "/producttest/{productNumber}", method = RequestMethod.GET) // 
 	public ModelAndView getProducttest(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/mainview2", "product", productService.getProduct(productNumber));
 	}
@@ -84,8 +84,9 @@ public class ProductController {
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
 			@PathVariable Integer productNumber) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
+		System.out.println(product.getProductImage()+"바보");
 		product.setProductNumber(productNumber);
-
+		
 		return productService.updateProduct(product);
 	}
 

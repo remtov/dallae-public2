@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8" />
 <title>관리자 페이지</title>
+<style>
+div {
+	/* border: 1px solid red; */
+}
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/head.jspf"%>
@@ -46,10 +51,10 @@
 							onclick="javascript:searchEmpty()">x</button>
 					</div>
 				</div>
-				<div class="container"
-					style="margin-top: 20px; background-color: white;">
+				<div class="container" style="margin-top: 20px;">
 					<div class="table-responsive">
-						<table class="table table-hover">
+						<table class="table table-hover"
+							style="border: 1px solid #cccccc;">
 							<thead>
 								<tr>
 									<th>번호</th>
