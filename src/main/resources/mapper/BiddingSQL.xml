@@ -29,13 +29,16 @@
 	</insert>
 	
 	<update id="updateBidding" parameterType="bidding">
-		update product
+		update productBidding
 		<set>
-			<if test="bidcount !=null">bidcount =
-				bidcount+1,
+			<if test="bidCount !=null">bidCount =
+				#{bidCount},
 			</if>
-			<if test="biddingid !=null">biddingid =
-				#{biddingid},
+			<if test="bidsDate !=null">bidsDate =
+				#{bidsDate},
+			</if>
+			<if test="biddingId !=null">biddingId =
+				#{biddingId},
 			</if>
 		</set>
 		where ProductNumber=#{productNumber}
@@ -44,8 +47,8 @@
 	<update id="updateBiddingEnd" parameterType="bidding">
 		update bidding
 		<set>
-			<if test="biddingstatus !=null">biddingstatus =
-				#{biddingstatus},
+			<if test="biddingStatus !=null">biddingStatus =
+				#{biddingStatus},
 			</if>
 		</set>
 		where ProductNumber=#{productNumber}

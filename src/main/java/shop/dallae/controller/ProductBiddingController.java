@@ -34,20 +34,20 @@ public class ProductBiddingController {
 
 	/*입찰*/
 	@RequestMapping(value = "/bidding/{productNumber}/{bidCount}/{productName}", method = RequestMethod.POST)
-	@ResponseBody
-	public Integer updatebidding(@RequestBody ProductBidding productBidding, @PathVariable Integer productNumber 
-			, @PathVariable Integer bidCount , @PathVariable String productName) {
-		String curTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-		productBidding.setProductNumber(productNumber);
+	public Integer updatebidding(@PathVariable Integer productNumber, @PathVariable Integer bidCount , @PathVariable String productName) {
 		ProductBidding pds = productBiddingService.getBidding(productNumber);
-		String biddate = pds.getBidsDate()+","+curTime;
-		productBidding.setBidsDate(biddate);
-		String bidid = pds.getBiddingId()+","+productName;
-		productBidding.setBiddingId(bidid);
 		if(pds.getBidCount()>bidCount) {
 			return 0;
 		}else {
-			return productBiddingService.updateBidding(productBidding);
+			ProductBidding pBidding = new ProductBidding();
+			String curTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+			pBidding.setProductNumber(productNumber);
+			String bidsdate = pds.getBidsDate()+","+curTime;
+			pBidding.setBidsDate(bidsdate);
+			String bidid = pds.getBiddingId()+","+productName;
+			pBidding.setBiddingId(bidid);
+			pBidding.setBidCount(bidCount+1);
+			return productBiddingService.updateBidding(pBidding);
 		}
 		
 	}
