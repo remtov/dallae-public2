@@ -14,6 +14,14 @@
 h4 {
 	margin-bottom: 20px;
 }
+
+.dd {
+	border: 1px solid red;
+	overflow: scroll;
+	width: 300px;
+	height: 150px;
+	padding: 10px;
+}
 /* The Modal (background) */
 .modal {
 	display: none; /* Hidden by default */
@@ -241,6 +249,8 @@ h4 {
 		var bc;
 		// When the user clicks on the button, open the modal 
 		$('#myBtn').click(function(){
+			var session = "${sessionScope.userlogininfo.userLevel}"
+				if(session>0){
 			html ='';
 			$.ajax({
 				url : '/bidding/'+${product.productNumber},
@@ -250,10 +260,12 @@ h4 {
 					var bidsDate = res.bidsDate.split(",");
 					var biddingId = res.biddingId.split(",");
 					var max =biddingId.length;
-					if(max>0){       
+					if(max>0){
+						html+='<div class="dd">';
 						for(var i=0;i<max;i++){
 							html+='<div><div style="width:100px;float:left;">'+bidsDate[i]+'</div><div style="width:100px;float:left;">'+biddingId[i]+'</div><br></div><br>';
 						}
+						html+='</div>';
 					}
 					
 					html+='<div class="bidCount">'+res.bidCount+'</div>';
@@ -265,21 +277,34 @@ h4 {
 			}); 
 			
 		            modal.style.display = "block";
-		        });
-		
-		$('[data-update]').click(function(){
-			$.ajax({
-				url : '/bidding/'+${product.productNumber}+'/'+bc+'/'+'${product.productName}',
-				type : 'POST',
-				success : function(res){
-					if(res==0){
-						alert("이가격에 입찰한사람이 있습니다");
-						
-					}else{
-						alert("입찰에성공하셨습니다");
-					}
+		        
+				}else{
+					alert("로그인을 하셔야 합니다");
+					location.href = '/url/user-info:login';
 				}
 			});
+		
+		$('[data-update]').click(function(){
+			
+				$.ajax({
+					url : '/bidding/'+${product.productNumber}+'/'+bc+'/'
+					+'${product.productName}'+'/'+'${product.userId}'+'/'+'${userlogininfo.userId}',
+					type : 'POST',
+					success : function(res){
+						alert(res);
+						if(res==0){
+							alert("이가격에 입찰한사람이 있습니다");
+						}if(res==-1){
+							alert("판매자는 입찰하실수 없습니다");
+						}if(res==-2){
+							alert("맨 마지막 입찰자 입니다");
+						}else{
+							alert("입찰에성공하셨습니다");
+						}
+					}
+				});
+			
+			
 		});
 		
 

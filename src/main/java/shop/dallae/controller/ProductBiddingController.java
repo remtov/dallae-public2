@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.dallae.service.ProductBiddingService;
+import shop.dallae.service.ProductService;
+import shop.dallae.vo.Product;
 import shop.dallae.vo.ProductBidding;
 
 @Controller
@@ -18,6 +20,9 @@ public class ProductBiddingController {
 
 	@Autowired
 	private ProductBiddingService productBiddingService;
+	
+	@Autowired
+	private ProductService productService;
 	/*입찰조회*/
 	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.GET)
 	@ResponseBody
@@ -33,11 +38,19 @@ public class ProductBiddingController {
 	}
 
 	/*입찰*/
-	@RequestMapping(value = "/bidding/{productNumber}/{bidCount}/{productName}", method = RequestMethod.POST)
-	public Integer updatebidding(@PathVariable Integer productNumber, @PathVariable Integer bidCount , @PathVariable String productName) {
+	@RequestMapping(value = "/bidding/{productNumber}/{bidCount}/{productName}/{productUserId}/{userId}", method = RequestMethod.POST)
+	@ResponseBody
+	public Integer updatebidding(@PathVariable Integer productNumber, @PathVariable Integer bidCount , @PathVariable String productName,
+			@PathVariable String productUserId, @PathVariable String userId) {
+		Product pd = productService.getProduct(productNumber);
 		ProductBidding pds = productBiddingService.getBidding(productNumber);
+		
 		if(pds.getBidCount()>bidCount) {
 			return 0;
+		}else if(pd.getUserId()==productUserId) {
+			return -1;
+		}else if(pds.getBiddingId().substring(pds.getBiddingId().indexOf(",")-1, pds.getBiddingId().length())==userId) {
+			return -2;
 		}else {
 			ProductBidding pBidding = new ProductBidding();
 			String curTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
