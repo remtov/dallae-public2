@@ -1,0 +1,209 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String rootPath = request.getContextPath();
+	String uri = request.getRequestURI();
+%>
+<!DOCTYPE html>
+
+<head>
+<meta name="description" content="환영합니다. 달래옥션 경매,중고,입찰,매물 전문 웹사이트입니다.">
+<meta name="author" content="ict1 erp5 달래">
+<meta name="keyword" content="경매,중고,입찰,매물,auction,shopping">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>달래옥션 - Dallae Auction</title>
+
+<link href="<%=rootPath%>/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="icon" href="/resources/img/favi.png">
+<link rel="stylesheet" href="<%=rootPath%>/resources/css/style.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="<%=rootPath%>/resources/js/bootstrap.min.js"></script>
+
+<style>
+.head-nav_menu-img {
+	width: 40px;
+	height: auto;
+}
+
+.head-nav_menu-img ul {
+	z-index: 3;
+}
+
+.head-menu_menu-img--h17 {
+	height: 17px;
+	width: auto;
+}
+
+.navbar-brand>img {
+	margin-top: -5px;
+	height: 30px;
+	width: auto;
+}
+</style>
+<script>
+	function enter(ent) {
+		var code = ent.which ? ent.which : event.keyCode;
+		if (code == 13) {
+			ser()
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="navi">
+		<nav class="navbar navbar-default navbar-fixed-top">
+
+			<div class="navbar-header">
+				<!--햄버거버튼>>> -->
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- <<<햄버거버튼 -->
+				<!-- 로고>>> -->
+				<a class="navbar-brand" href="/"> <img alt="logo"
+					src="/resources/img/logo.png"></a>
+				<!-- <<<로고-->
+			</div>
+
+			<!-- 요소>>>-->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+
+				<!--  -->
+
+
+
+
+				<!-- 세션이 있는사람>>>-->
+				<c:set var="userid" value="${userlogininfo.userId}"></c:set>
+				<c:choose>
+					<c:when test="${not empty sessionScope.userlogininfo}">
+						<ul class="nav navbar-nav">
+							<li><a href="/url/product:insert">경매 등록</a></li>
+							<li><a href="/url/product:list">경매 보기</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false">
+									${sessionScope.userlogininfo.userName} 님 <img
+									src="/resources/img/icon_profile.png"
+									style="height: 17px; width: auto;"> <span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="/url/user-info:my-page">마이페이지</a></li>
+									<li><a onclick="logout()">로그아웃</a></li>
+									<!-- 관리자만>>> -->
+									<c:if test="${userlogininfo.userLevel>2.5}">
+										<li><a href="/url/user-info:admin">관리자 페이지</a></li>
+									</c:if>
+									<!-- <<<관리자만 -->
+								</ul></li>
+						</ul>
+					</c:when>
+					<c:otherwise>
+						<!-- 세션 없는 사람>>>-->
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/url/product:insert">경매 등록</a></li>
+							<li><a href="/url/product:list">경매 보기</a></li>
+							<li><a href="/url/user-info:login">로그인</a></li>
+							<li><a href="/url/user-info:sign-up">가입</a></li>
+						</ul>
+					</c:otherwise>
+				</c:choose>
+			</div>
+
+		</nav>
+	</div>
+
+	<script>
+		var AjaxUtil = function(conf) {
+			var xmlHttpRequest = new XMLHttpRequest();
+			var url = conf.url;
+			var method = conf.method ? conf.method : 'GET';
+			var param = conf.param ? conf.param : '{}';
+			var success = conf.success ? conf.success : function(res) {
+				alert(res);
+			}
+			var error = conf.error ? conf.error : function(res) {
+				alert(res);
+			}
+
+			xmlHttpRequest.onreadystatechange = function() {
+				if (xmlHttpRequest.readyState == 4) {
+					if (xmlHttpRequest.status == "200") {
+						success(xmlHttpRequest.responseText);
+					} else {
+						error(xmlHttpRequest.responseText);
+					}
+				}
+			}
+
+			if (method != 'GET') {
+				xmlHttpRequest.open(method, url);
+				xmlHttpRequest.setRequestHeader('content-Type',
+						'application/json; charset=UTF-8');
+			} else {
+				url = url + '?' + encodeURI(param);
+				xmlHttpRequest.open(method, url);
+			}
+
+			this.send = function() {
+				xmlHttpRequest.send(param);
+			}
+		};
+		function headEnter(ent) {
+			var code = ent.which ? ent.which : event.keyCode;
+			if (code == 13) {
+				ser()
+			}
+		}
+		function homeSearchEmpty() {
+			$('#search').val('');
+		}
+
+		function ser() {
+			var sers = document.querySelector('#search').value;
+			var params = {
+				ser : sers
+			};
+			params = JSON.stringify(params)
+
+			var conf = {
+				url : '/productsearch',
+				param : params,
+				method : 'POST',
+				success : function(res) {
+
+					location.href = '/url/product:test';
+				}
+
+			}
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
+		}
+		function logout() {
+			var conf = {
+				url : '/logout',
+				method : 'POST',
+				success : function(res) {
+
+					if (res == '1') {
+						location.href = '/url/user-info:login';
+					}
+				}
+			}
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
+		}
+	</script>
+</body>
