@@ -72,7 +72,10 @@
 				<!-- <<<햄버거버튼 -->
 				<!-- 로고>>> -->
 				<a class="navbar-brand" href="/"> <img alt="logo"
-					src="/resources/img/logo.png"></a>
+					src="/resources/img/logo.png">
+				</a>
+
+
 				<!-- <<<로고-->
 			</div>
 
@@ -80,17 +83,12 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 
-
-				<!--  -->
-
-
-
-
 				<!-- 세션이 있는사람>>>-->
 				<c:set var="userid" value="${userlogininfo.userId}"></c:set>
 				<c:choose>
 					<c:when test="${not empty sessionScope.userlogininfo}">
 						<ul class="nav navbar-nav">
+
 							<li><a href="/url/product:insert">경매 등록</a></li>
 							<li><a href="/url/product:list">경매 보기</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -108,16 +106,16 @@
 									</c:if>
 									<!-- <<<관리자만 -->
 								</ul></li>
+
+
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li style="margin: 15px 35px 0px 0px"><span ><b>관리자</b> 모드</span></li>
 						</ul>
 					</c:when>
 					<c:otherwise>
 						<!-- 세션 없는 사람>>>-->
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/url/product:insert">경매 등록</a></li>
-							<li><a href="/url/product:list">경매 보기</a></li>
-							<li><a href="/url/user-info:login">로그인</a></li>
-							<li><a href="/url/user-info:sign-up">가입</a></li>
-						</ul>
+
 					</c:otherwise>
 				</c:choose>
 			</div>

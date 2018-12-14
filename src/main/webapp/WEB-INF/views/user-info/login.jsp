@@ -132,7 +132,8 @@ var onloadCallback=function(){
 
 						if (res != '') {
 							alert('로그인이 완료되셨습니다.');
-							history.back();
+							location.href = document.referrer;//이동해 온 페이지경로를 로드한다.
+							
 						} else {
 							logout();
 							location.href = "/url/user-info:login";

@@ -44,7 +44,7 @@ div {
 <script src="//code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div id="home_container">
 		<%@ include file="/WEB-INF/views/common/home_img-slide.jspf"%>
 		<div class="container">
@@ -74,14 +74,15 @@ div {
 			<c:set var="lifeSplitedImg"
 				value="${fn:split(life.productImage,'|')}" />
 
-			<h2 style="margin-left: 20px;">
-				카테고리별 최고가격 매물
-			</h2>
+			<h3 style="margin-left: 20px;">
+				<b>카테고리</b>별 경매품<small> 최고가격</small>
+			</h3>
 			<div class="row">
 				<!-- 카테고리 1열 -->
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:fashion">${fashion.productCategory}</a></b></li>
+						<li><b><a href="/url/product:category:fashion"><button
+										class="btn btn-default">${fashion.productCategory}</button></a></b></li>
 						<li class="active">${fashion.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -133,7 +134,9 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${digital.productCategory}">${digital.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${digital.productCategory}"><button
+										class="btn btn-default">${digital.productCategory}</button></a></b></li>
 						<li class="active">${digital.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -190,7 +193,9 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${rareCollection.productCategory}">${rareCollection.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${rareCollection.productCategory}"><button
+										class="btn btn-default">${rareCollection.productCategory}</button></a></b></li>
 						<li class="active">${rareCollection.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -240,7 +245,9 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${healthBeauty.productCategory}">${healthBeauty.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${healthBeauty.productCategory}"><button
+										class="btn btn-default">${healthBeauty.productCategory}</button></a></b></li>
 						<li class="active">${healthBeauty.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -294,7 +301,9 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${motorPartz.productCategory}">${motorPartz.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${motorPartz.productCategory}"><button
+										class="btn btn-default">${motorPartz.productCategory}</button></a></b></li>
 						<li class="active">${motorPartz.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -344,7 +353,9 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${toyHobby.productCategory}">${toyHobby.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${toyHobby.productCategory}"><button
+										class="btn btn-default">${toyHobby.productCategory}</button></a></b></li>
 						<li class="active">${toyHobby.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -398,7 +409,9 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${sports.productCategory}">${sports.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${sports.productCategory}"><button
+										class="btn btn-default">${sports.productCategory}</button></a></b></li>
 						<li class="active">${sports.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -448,7 +461,9 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:${life.productCategory}">${life.productCategory}</a></b></li>
+						<li><b><a
+								href="/url/product:category:${life.productCategory}"><button
+										class="btn btn-default">${life.productCategory}</button></a></b></li>
 						<li class="active">${life.productName}</li>
 					</ol>
 					<div style="background-color: white;">
@@ -500,9 +515,9 @@ div {
 			</div>
 
 			<hr>
-			<h2>
-				전체 매물들<small>최신 매물 순</small>
-			</h2>
+			<h3>
+				<b>경매품</b> 리스트<small> 최신 매물 순</small>
+			</h3>
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
 		<%@ include file="/WEB-INF/views/common/footer.jspf"%>

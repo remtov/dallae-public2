@@ -19,14 +19,6 @@ div {
 	<c:choose>
 		<c:when test="${userLevel>2.5}">
 			<div class="view-container">
-
-				<h3>
-					<b>관리자</b> 페이지
-				</h3>
-				<p>모든 컨텐츠와 회원정보를 편집하거나 관리할 수 있는 페이지 입니다.</p>
-				<hr style="clear: both;">
-
-
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
 					<div class="panel panel-default">
@@ -45,8 +37,6 @@ div {
 							role="tabpanel" aria-labelledby="headingOne"
 							style="overflow: auto;">
 							<div class="panel-body">
-
-
 								<div style="width: 28%; float: left;">
 									<select class="form-control" id="search-select_user-info">
 										<option value="#">선택</option>
@@ -67,7 +57,8 @@ div {
 								</div>
 								<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
 									<input class="form-control" type="text"
-										id="search-value_user-info" onkeyup="enter(event)">
+										id="search-value_user-info" onkeyup="enter(event)"
+										placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요 ↵">
 								</div>
 								<div style="width: 8%; float: left;">
 									<button class="btn btn-default" type="button"
@@ -109,7 +100,10 @@ div {
 							<a class="collapsed" data-toggle="collapse"
 								data-parent="#accordion" href="#collapseTwo"
 								aria-expanded="false" aria-controls="collapseTwo">
-								Collapsible Group Item #2 </a>
+								<button class="btn btn-default btn-block">
+									<b>경매품</b> 리스트
+								</button>
+							</a>
 						</h4>
 					</div>
 					<div id="collapseTwo" class="panel-collapse collapse"
@@ -138,11 +132,12 @@ div {
 							</div>
 							<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
 								<input class="form-control" type="text"
-									id="search-value_product" onkeyup="enterProduct(eventProduct)">
+									id="search-value_product" onkeyup="enterProduct(eventProduct)"
+									placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요 ↵">
 							</div>
 							<div style="width: 8%; float: left;">
 								<button class="btn btn-default" type="button"
-									onclick="javascript:searchEmpty()">x</button>
+									onclick="javascript:searchEmptyProduct()">x</button>
 							</div>
 						</div>
 
@@ -153,19 +148,21 @@ div {
 									<tr>
 										<th>번호</th>
 										<th>이름</th>
-										<th>아이디</th>
-										<th>이메일</th>
-										<th>별명</th>
-										<th>폰번호</th>
-										<th>주소</th>
-										<th>상세주소</th>
-										<th>권한등급</th>
-										<th>신용점수</th>
-										<th>신용등급</th>
-
+										<th>분류</th>
+										<th>수량</th>
+										<th>등록일</th>
+										<th>마감시</th>
+										<th>가격</th>
+										<!-- <th>사진</th> -->
+										<th>설명</th>
+										<th>브랜드</th>
+										<th>상태</th>
+										<th>경매자</th>
+										<th>경매자신용등급</th>
+										<th>경매자번호</th>
 									</tr>
 								</thead>
-								<tbody id="user-info_div">
+								<tbody id="product_div">
 								</tbody>
 							</table>
 						</div>
@@ -212,19 +209,34 @@ div {
 	</c:choose>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 	<script>
+	
 function enter(ent) {
 	var code = ent.which ? ent.which : event.keyCode;
 	if (code != 0) {
 		search()
 	}
 }
+function enterProduct(eventProduct) {
+	var codeProduct = eventProduct.which ? eventProduct.which : event.keyCode;
+	if (codeProduct != 0) {
+		search()
+	}
+}
+
 function searchEmpty() {
 $('#search-value_user-info').val('');
 }
-
+function searchEmptyProduct() {
+	$('#search-value_product').val('');
+	}
+	
+window.addEventListener('load',search);
 	function search(){
 		var ser =document.querySelector('#search-select_user-info').value;	
 		var tex = document.querySelector('#search-value_user-info').value;
+		var serProduct =document.querySelector('#search-select_product').value;	
+		var texProduct = document.querySelector('#search-value_product').value;
+		
 		var params = ser + '=' + tex;
 		var conf = {
 		url : '/userinfolist?' + params,
@@ -246,16 +258,51 @@ $('#search-value_user-info').val('');
 				html += '<td>' +userInfo.userLevel+ '</td>';
 				html += '<td>' +userInfo.userPoint+ '</td>';
 				html += '<td>' +userInfo.userCreditLevel+ '</td>';
-				
 				html += '</tr>';
+		
  				} 
 			document.querySelector('#user-info_div').insertAdjacentHTML('afterbegin',html);
 		}
 	}
 		var ajaxUtil = new AjaxUtil(conf);
 		ajaxUtil.send();
+		
+		 var paramsProduct = serProduct + '=' + texProduct;
+		 var confProduct = {
+		url : '/productlist?' + paramsProduct,
+		method:'GET',
+		success : function(resProduct){ 
+			resProduct = JSON.parse(resProduct);
+			document.querySelector('#product_div').innerHTML = '';
+			var html = '';
+			for(var product of resProduct){
+				html += '<tr onclick="location.href=\'/product/'+product.userNumber+'\'">';
+				html += '<td>' +product.productNumber+ '</td>';
+				html += '<td>' +product.productName+ '</td>';
+				html += '<td>' +product.productCategory+ '</td>';
+				html += '<td>' +product.productQuantity+ '</td>';
+				html += '<td>' +product.productDate+ '</td>';
+				html += '<td>' +product.productEndDate+ '</td>';
+				html += '<td>' +product.productLowestPrice+ '</td>';
+				/* html += '<td>' +product.productImage+ '</td>'; */
+				html += '<td><div style="width:300px;white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">' +product.productDesc+ '</div></td>';
+				html += '<td>' +product.productBrand+ '</td>';
+				html += '<td>' +product.productCondition+ '</td>';
+				html += '<td>' +product.userId+ '</td>';
+				html += '<td>' +product.userCreditLevel+ '</td>';
+				html += '<td>' +product.userNumber+ '</td>';
+				html += '</tr>';
+
+ 				} 
+			document.querySelector('#product_div').insertAdjacentHTML('afterbegin',html);
+		}
 	}
- window.addEventListener('load',search);
+		 ajaxUtilProduct = new AjaxUtil(confProduct);
+		ajaxUtilProduct.send();
+		
+		
+	}
+ 
 </script>
 </body>
 </html>
