@@ -22,7 +22,7 @@
 		<div class="container">
 			<div class="inner-box">
 				<h3>검색 경매물품 목록입니다</h3>
-				<%@ include file="/WEB-INF/views/common/test2.jspf"%>
+				<%@ include file="/WEB-INF/views/common/all-search-results.jspf"%>
 			</div>
 		</div>
 	</div>

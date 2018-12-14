@@ -12,13 +12,30 @@ div {
 	
 }
 </style>
+<script>
+	 function searchValueUserInfoOpen(value){ 
+		 if(value!='#'){
+			 document.getElementById('search-value_user-info').disabled = 0;	 
+		 }else{
+			 document.getElementById('search-value_user-info').disabled = 1; 
+		 }
+	 }
+	 
+	 function searchValueProductOpen(value){ 
+		 if(value!='#'){
+			 document.getElementById('search-value_product').disabled = 0;	 
+		 }else{
+			 document.getElementById('search-value_product').disabled = 1; 
+		 }
+	 }
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/head-admin.jspf"%>
 	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
 		<c:when test="${userLevel>2.5}">
-			<div class="view-container">
+			<div class="view-container" style="padding: 10px 20px 10px 20px;">
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
 					<div class="panel panel-default">
@@ -34,11 +51,11 @@ div {
 							</h4>
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse in"
-							role="tabpanel" aria-labelledby="headingOne"
-							style="overflow: auto;">
+							role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
 								<div style="width: 28%; float: left;">
-									<select class="form-control" id="search-select_user-info">
+									<select class="form-control" id="search-select_user-info"
+										onchange="searchValueUserInfoOpen(value)">
 										<option value="#">선택</option>
 										<option value="userNumber">번호</option>
 										<option value="userName">이름</option>
@@ -58,7 +75,7 @@ div {
 								<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
 									<input class="form-control" type="text"
 										id="search-value_user-info" onkeyup="enter(event)"
-										placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요 ↵">
+										placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요" disabled>
 								</div>
 								<div style="width: 8%; float: left;">
 									<button class="btn btn-default" type="button"
@@ -66,7 +83,7 @@ div {
 								</div>
 							</div>
 
-							<div class="table-responsive">
+							<div class="table-responsive" style="height: 300px; background-color: #f6f6f6 !important; overflow: auto; ">
 								<table class="table table-hover"
 									style="border: 1px solid #cccccc;">
 									<thead>
@@ -78,11 +95,10 @@ div {
 											<th>별명</th>
 											<th>폰번호</th>
 											<th>주소</th>
-											<th>상세주소</th>
-											<th>권한등급</th>
-											<th>신용점수</th>
-											<th>신용등급</th>
-
+											<th>주소2</th>
+											<th>권한</th>
+											<th>신용</th>
+											<th>LV</th>
 										</tr>
 									</thead>
 									<tbody id="user-info_div">
@@ -109,10 +125,8 @@ div {
 					<div id="collapseTwo" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingTwo">
 						<div class="panel-body">
-
-
 							<div style="width: 28%; float: left;">
-								<select class="form-control" id="search-select_product">
+								<select class="form-control" id="search-select_product" onchange="searchValueProductOpen(value)">
 									<option value="#">선택</option>
 									<option value="productNumber">번호</option>
 									<option value="productName">이름</option>
@@ -133,7 +147,7 @@ div {
 							<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
 								<input class="form-control" type="text"
 									id="search-value_product" onkeyup="enterProduct(event)"
-									placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요 ↵">
+									placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요" disabled>
 							</div>
 							<div style="width: 8%; float: left;">
 								<button class="btn btn-default" type="button"
@@ -141,7 +155,7 @@ div {
 							</div>
 						</div>
 
-						<div class="table-responsive">
+						<div class="table-responsive" style="height: 300px; background-color: #f6f6f6 !important; overflow: auto; ">
 							<table class="table table-hover"
 								style="border: 1px solid #cccccc;">
 								<thead>
@@ -158,8 +172,8 @@ div {
 										<th>브랜드</th>
 										<th>상태</th>
 										<th>경매자</th>
-										<th>경매자신용등급</th>
-										<th>경매자번호</th>
+										<th>신용</th>
+										<th>경매자No</th>
 									</tr>
 								</thead>
 								<tbody id="product_div">
@@ -167,36 +181,32 @@ div {
 							</table>
 						</div>
 					</div>
-
-
-
-
-
 				</div>
-			</div>
+				<!-- 경매품리스트 -->
 
-			<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingThree">
-					<h4 class="panel-title">
-						<a class="collapsed" data-toggle="collapse"
-							data-parent="#accordion" href="#collapseThree"
-							aria-expanded="false" aria-controls="collapseThree">
-							<button class="btn btn-default btn-block">
-								<b>경매품</b> 리스트 - 섬네일
-							</button>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseThree" class="panel-collapse collapse"
-					role="tabpanel" aria-labelledby="headingThree">
-					<div class="panel-body">
-						<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse"
+								data-parent="#accordion" href="#collapseThree"
+								aria-expanded="false" aria-controls="collapseThree">
+								<button class="btn btn-default btn-block">
+									<b>경매품</b> 리스트 - 섬네일
+								</button>
+							</a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body" style="height: 300px; background-color: #f6f6f6 !important; overflow: auto; ">
+							<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+						</div>
 					</div>
 				</div>
+				<!-- 경매품리스트 섬네일-->
 			</div>
-
-
-
+			<!-- 전체 -->
 
 
 
@@ -276,7 +286,7 @@ window.addEventListener('load',search);
 			document.querySelector('#product_div').innerHTML = '';
 			var html = '';
 			for(var product of resProduct){
-				html += '<tr onclick="location.href=\'/product/'+product.userNumber+'\'">';
+				html += '<tr onclick="location.href=\'/product/'+product.productNumber+'\'">';
 				html += '<td>' +product.productNumber+ '</td>';
 				html += '<td>' +product.productName+ '</td>';
 				html += '<td>' +product.productCategory+ '</td>';

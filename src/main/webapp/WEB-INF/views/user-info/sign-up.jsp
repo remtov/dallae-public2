@@ -35,61 +35,68 @@ var onloadCallback=function(){
 	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
-			<form class="form-horizontal" name="form">
-				<div class="row"
-					style="border: 1px solid #d6d6d6; padding: 30px; margin-top: 30px; margin-bottom: 30px;">
-					<h2>
-						<button type="button" class="btn btn-default"
-							onclick="history.back()">X</button>
-						<b>회원가입</b>
-					</h2>
-					이미 회원입니까?
-					<button class="btn btn-default btn-xs" type="button"
-						onclick="location.href='/url/user-info:login'">로그인</button>
-					<hr>
-					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
-						<p>
-							이름 <input type="text" id="userName" class="form-control"
-								style="width: 200px" placeholder="이름" data-vc="2,5"
-								onkeypress="enter(event)">
-						</p>
-						<p>
-							아이디 <input style="width: 200px" type="text" id="userId"
-								oninput="checkId2()" class="form-control" placeholder="아이디"
-								data-vc="2,30" onkeypress="enter(event)"><span
-								id="userIdComment"></span>
-						</p>
-						<p>
-							비밀번호 <input style="width: 200px" class="form-control"
-								type="password" id="userPassword" data-vc="2,30"
-								placeholder="비밀번호" onkeypress="enter(event)">
-						</p>
-						<p>
-							비밀번호 확인 <input style="width: 200px" class="form-control"
-								type="password" id="confirmPassword" data-vc="2,30"
-								placeholder="비밀번호 확인" onkeypress="enter(event)">
-						</p>
+			<c:choose>
+				<c:when test="${not empty sessionScope.userlogininfo}">
+					<!-- 로그인 된 상태 -->
+					<%@ include file="/WEB-INF/views/common/logged-status.jspf"%>
+				</c:when>
+				<c:otherwise>
+					<form class="form-horizontal" name="form">
+						<div class="row"
+							style="border: 1px solid #d6d6d6; padding: 30px; margin-top: 30px; margin-bottom: 30px;">
+							<h2>
+								<button type="button" class="btn btn-default"
+									onclick="history.back()">X</button>
+								<b>회원가입</b>
+							</h2>
+							이미 회원입니까?
+							<button class="btn btn-default btn-xs" type="button"
+								onclick="location.href='/url/user-info:login'">로그인</button>
+							<hr>
+							<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+								<p>
+									이름 <input type="text" id="userName" class="form-control"
+										style="width: 200px" placeholder="이름" data-vc="2,5"
+										onkeypress="enter(event)">
+								</p>
+								<p>
+									아이디 <input style="width: 200px" type="text" id="userId"
+										oninput="checkId2()" class="form-control" placeholder="아이디"
+										data-vc="2,30" onkeypress="enter(event)"><span
+										id="userIdComment"></span>
+								</p>
+								<p>
+									비밀번호 <input style="width: 200px" class="form-control"
+										type="password" id="userPassword" data-vc="2,30"
+										placeholder="비밀번호" onkeypress="enter(event)">
+								</p>
+								<p>
+									비밀번호 확인 <input style="width: 200px" class="form-control"
+										type="password" id="confirmPassword" data-vc="2,30"
+										placeholder="비밀번호 확인" onkeypress="enter(event)">
+								</p>
 
-						<p>
-							이메일 <input style="max-width: 300px;" type="email" id="userEmail"
-								class="form-control" placeholder="예)abc@abc.abc" data-vc="2,30"
-								onkeypress="enter(event)">
-						</p>
+								<p>
+									이메일 <input style="max-width: 300px;" type="email"
+										id="userEmail" class="form-control"
+										placeholder="예)abc@abc.abc" data-vc="2,30"
+										onkeypress="enter(event)">
+								</p>
 
-						<p>
-							별명 <input type="text" style="width: 200px" class="form-control"
-								id="userNickName" placeholder="별명" data-vc="2,30"
-								onkeypress="enter(event)">
-						</p>
-						<p>
-							전화번호 <input style="max-width: 300px;" type="number"
-								class="form-control" id="userPhoneNum"
-								placeholder="예)01012345678" data-vc="2,30"
-								onkeypress="numberEnter(event2)">
-						</p>
+								<p>
+									별명 <input type="text" style="width: 200px" class="form-control"
+										id="userNickName" placeholder="별명" data-vc="2,30"
+										onkeypress="enter(event)">
+								</p>
+								<p>
+									전화번호 <input style="max-width: 300px;" type="number"
+										class="form-control" id="userPhoneNum"
+										placeholder="예)01012345678" data-vc="2,30"
+										onkeypress="numberEnter(event2)">
+								</p>
 
-					</div>
-					<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+							</div>
+							<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 						<!--주소API-->
 						<p>
 							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
@@ -118,39 +125,42 @@ var onloadCallback=function(){
 						<input class="btn btn-primary btn-block" type="button"
 							name="checkButton" onclick="save()" disabled value="확인">
 					</div> --%>
-					<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
-						<!--주소API-->
-						<p>
-							우편번호<br> <input style="width: 200px; margin-bottom: 5px;"
-								type="text" id="postCode" placeholder="우편번호" disabled
-								class="postcodify_postcode5" style="height:30px;" data-vali="2" />
-							<input type="button" class="btn btn-default"
-								id="postcodify_search_button" value="우편번호 찾기" />
-						</p>
-						<p>
-							주소<br> <input style="margin-bottom: 5px;" type="text"
-								id="userAddress" placeholder="주소" class="postcodify_address"
-								disabled> <input type="text" id="userAddress2"
-								placeholder="상세주소" class="postcodify_details" data-vc="2,33"
-								onkeypress="enter(event)"> <input type="text"
-								id="userAddress2Reference" placeholder="참고항목" disabled
-								class="postcodify_extra_info" data-vc="2,33">
-						</p>
-						<p>
-							<textarea class="form-control" cols="20" rows="5"
-								style="width: 100%; height: 200px;" readonly="readonly">
+							<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+								<!--주소API-->
+								<p>
+									우편번호<br> <input style="width: 200px; margin-bottom: 5px;"
+										type="text" id="postCode" placeholder="우편번호" disabled
+										class="postcodify_postcode5" style="height:30px;"
+										data-vali="2" /> <input type="button" class="btn btn-default"
+										id="postcodify_search_button" value="우편번호 찾기" />
+								</p>
+								<p>
+									주소<br> <input style="margin-bottom: 5px;" type="text"
+										id="userAddress" placeholder="주소" class="postcodify_address"
+										disabled> <input type="text" id="userAddress2"
+										placeholder="상세주소" class="postcodify_details" data-vc="2,33"
+										onkeypress="enter(event)"> <input type="text"
+										id="userAddress2Reference" placeholder="참고항목" disabled
+										class="postcodify_extra_info" data-vc="2,33">
+								</p>
+								<p>
+									<textarea class="form-control" cols="20" rows="5"
+										style="width: 100%; height: 200px;" readonly="readonly">
 						<%@ include file="/WEB-INF/views/common/terms.jspf"%> 
 						</textarea>
-						</p>
-						<p>
-							<input type="checkbox" name="agree" id="agree"
-								onClick="agreeCheck(this.form)"> 약관 동의 체크하시고 가입을 완료하세요.
-						</p>
-						<input class="btn btn-primary btn-block" type="button"
-							name="checkButton" onclick="save()" disabled value="확인">
-					</div>
-				</div>
-			</form>
+								</p>
+								<p>
+									<input type="checkbox" name="agree" id="agree"
+										onClick="agreeCheck(this.form)"> 약관 동의 체크하시고 가입을
+									완료하세요.
+								</p>
+								<input class="btn btn-primary btn-block" type="button"
+									name="checkButton" onclick="save()" disabled value="확인">
+							</div>
+						</div>
+					</form>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/product-bottom.jspf"%>

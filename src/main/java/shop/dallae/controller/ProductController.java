@@ -39,7 +39,7 @@ public class ProductController {
 
 	@RequestMapping(value = "/productlist", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Product> getProductList(@ModelAttribute Product product) {
+	public List<Product> getProductList(@ModelAttribute Product product) {//관리자페이지/검색포함
 		return productService.getProductList(product);
 	}
 
@@ -49,14 +49,14 @@ public class ProductController {
 	public List<Product> getProductList2(@RequestBody Product product) {
 		return productService.getNum(product);
 	}
-	@RequestMapping(value = "/productsearch", method = RequestMethod.POST)
+	@RequestMapping(value = "/productsearch", method = RequestMethod.POST)//헤드전체검색창
 	@ResponseBody
 	public String getProduct(@RequestBody Product product,HttpSession httpSession) {
 		if(httpSession.getAttribute("ser")!=null) {
 			httpSession.removeAttribute("ser");
 		}
 		httpSession.setAttribute("ser", product.getSer());
-		return "product/test";
+		return "product/product_all-search-results";
 		
 	}
 	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) 

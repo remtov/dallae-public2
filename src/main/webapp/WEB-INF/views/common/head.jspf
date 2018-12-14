@@ -190,7 +190,7 @@
 				method : 'POST',
 				success : function(res) {
 
-					location.href = '/url/product:test';
+					location.href = '/url/product:product_all-search-results';
 				}
 
 			}

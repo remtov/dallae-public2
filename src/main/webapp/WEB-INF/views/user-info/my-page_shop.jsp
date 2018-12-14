@@ -52,7 +52,7 @@
 								<hr style="clear:both;">
 								<p class="pull-right">
 									<button class="btn btn-primary btn-lg"
-										onclick="alertContact();">판매자와 <b>연락하기</b></button>
+										onclick="alertContact();">경매자와 <b>연락하기</b></button>
 								</p>
 							</div>
 						</div>
@@ -137,7 +137,7 @@
 	}
 	
 	function alertContact() {
-		alert('판매자와 연락하기 test-1 ${userinfo.userPhoneNum}');
+		alert('경매자와 연락하기 ${userinfo.userPhoneNum}');
 	}
 	</script>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
