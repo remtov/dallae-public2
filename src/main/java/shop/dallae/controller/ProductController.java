@@ -23,6 +23,7 @@ import shop.dallae.utils.fileupload.PM;
 import shop.dallae.utils.fileupload.Util;
 import shop.dallae.vo.Product;
 import shop.dallae.vo.ProductBidding;
+import shop.dallae.vo.UserInfo;
 
 @Controller
 public class ProductController {
@@ -38,8 +39,8 @@ public class ProductController {
 
 	@RequestMapping(value = "/productlist", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Product> getProductList() {
-		return productService.getProductList(null);
+	public List<Product> getProductList(@ModelAttribute Product product) {
+		return productService.getProductList(product);
 	}
 
 	

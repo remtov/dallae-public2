@@ -132,7 +132,7 @@ div {
 							</div>
 							<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
 								<input class="form-control" type="text"
-									id="search-value_product" onkeyup="enterProduct(eventProduct)"
+									id="search-value_product" onkeyup="enterProduct(event)"
 									placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요 ↵">
 							</div>
 							<div style="width: 8%; float: left;">
@@ -216,8 +216,8 @@ function enter(ent) {
 		search()
 	}
 }
-function enterProduct(eventProduct) {
-	var codeProduct = eventProduct.which ? eventProduct.which : event.keyCode;
+function enterProduct(entProduct) {
+	var codeProduct = entProduct.which ? entProduct.which : event.keyCode;
 	if (codeProduct != 0) {
 		search()
 	}
