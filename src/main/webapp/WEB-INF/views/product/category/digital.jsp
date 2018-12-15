@@ -98,15 +98,12 @@ hr {
 </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
 
-				<ol class="breadcrumb2">
-					<li><a href="/">home</a></li>
-					<li class="active">digital</li>
-				</ol>
+				<%@ include file="/WEB-INF/views/common/category-handler.jspf"%>
 
 				<div id="product-div"></div>
 			</div>
@@ -120,6 +117,6 @@ hr {
 			location.href = '/product/' + productNumber;
 		}
 	</script>
-<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>

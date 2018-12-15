@@ -137,7 +137,7 @@
 	}
 	
 	function alertContact() {
-		alert('경매자와 연락하기 ${userinfo.userPhoneNum}');
+		alert('낙찰된 경우에 한해서 070번호로 통화나 달래톡을 통하여 연락이 가능하십니다.');
 	}
 	</script>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>

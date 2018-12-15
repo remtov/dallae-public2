@@ -82,8 +82,8 @@ div {
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
 						<li><b><a href="/url/product:category:fashion"><button
-										class="btn btn-default">${fashion.productCategory}</button></a></b></li>
-						<li class="active">${fashion.productName}</li>
+										class="btn btn-default">패션 경매품 보러가기</button></a></b></li>
+
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -136,8 +136,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${digital.productCategory}"><button
-										class="btn btn-default">${digital.productCategory}</button></a></b></li>
-						<li class="active">${digital.productName}</li>
+										class="btn btn-default">디지털 경매품 보러가기</button></a></b></li>
+						
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -195,8 +195,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${rareCollection.productCategory}"><button
-										class="btn btn-default">${rareCollection.productCategory}</button></a></b></li>
-						<li class="active">${rareCollection.productName}</li>
+										class="btn btn-default">희귀품 경매품 보러가기</button></a></b></li>
+
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -247,8 +247,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${healthBeauty.productCategory}"><button
-										class="btn btn-default">${healthBeauty.productCategory}</button></a></b></li>
-						<li class="active">${healthBeauty.productName}</li>
+										class="btn btn-default">건강&#38;뷰티 경매품 보러가기</button></a></b></li>
+
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -303,8 +303,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${motorPartz.productCategory}"><button
-										class="btn btn-default">${motorPartz.productCategory}</button></a></b></li>
-						<li class="active">${motorPartz.productName}</li>
+										class="btn btn-default">모터파츠 경매품 보러가기</button></a></b></li>
+						
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -355,8 +355,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${toyHobby.productCategory}"><button
-										class="btn btn-default">${toyHobby.productCategory}</button></a></b></li>
-						<li class="active">${toyHobby.productName}</li>
+										class="btn btn-default">장난감&#38;취미 경매품 보러가기</button></a></b></li>
+						
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -411,8 +411,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${sports.productCategory}"><button
-										class="btn btn-default">${sports.productCategory}</button></a></b></li>
-						<li class="active">${sports.productName}</li>
+										class="btn btn-default">스포츠 경매품 보러가기</button></a></b></li>
+						
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
@@ -463,8 +463,8 @@ div {
 					<ol class="breadcrumb2">
 						<li><b><a
 								href="/url/product:category:${life.productCategory}"><button
-										class="btn btn-default">${life.productCategory}</button></a></b></li>
-						<li class="active">${life.productName}</li>
+										class="btn btn-default">생활 경매품 보러가기</button></a></b></li>
+						
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">

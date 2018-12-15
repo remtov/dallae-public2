@@ -36,6 +36,14 @@ div {
 			 document.getElementById('search-value_product-bidding').disabled = 1; 
 		 }
 	 }
+	 function searchValueSellerInfoOpen(value){ 
+		 if(value!='#'){
+			 document.getElementById('search-value_seller-info').disabled = 0;	 
+		 }else{
+			 document.getElementById('search-value_seller-info').disabled = 1; 
+		 }
+	 }
+	 
 </script>
 </head>
 <body>
@@ -64,7 +72,7 @@ div {
 								<div style="width: 28%; float: left;">
 									<select class="form-control" id="search-select_user-info"
 										onchange="searchValueUserInfoOpen(value)">
-										<option value="#">선택</option>
+										<option selected disabled>선택</option>
 										<option value="userNumber">번호</option>
 										<option value="userName">이름</option>
 										<option value="userId">아이디</option>
@@ -139,7 +147,7 @@ div {
 							<div style="width: 28%; float: left;">
 								<select class="form-control" id="search-select_product"
 									onchange="searchValueProductOpen(value)">
-									<option value="#">선택</option>
+									<option selected disabled>선택</option>
 									<option value="productNumber">번호</option>
 									<option value="productName">이름</option>
 									<option value="productCategory">분류</option>
@@ -241,7 +249,7 @@ div {
 							<div style="width: 28%; float: left;">
 								<select class="form-control" id="search-select_product-bidding"
 									onchange="searchValueProductBiddingOpen(value)">
-									<option value="#">선택</option>
+									<option selected disabled>선택</option>
 									<option value="productNumber">경매품번호</option>
 									<option value="bidCount">입찰수</option>
 									<option value="bidsDate">입찰시</option>
@@ -282,6 +290,64 @@ div {
 					</div>
 				</div>
 				<!-- 입찰 정보 -->
+
+
+
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFive">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse"
+								data-parent="#accordion" href="#collapseFive"
+								aria-expanded="false" aria-controls="collapseFive">
+								<button class="btn btn-default btn-block">
+									<b>경매자</b> 정보
+								</button>
+							</a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingFive">
+						<div class="panel-body">
+							<div style="width: 28%; float: left;">
+								<select class="form-control" id="search-select_seller-info"
+									onchange="searchValueSellerInfoOpen(value)">
+									<option selected disabled>선택</option>
+									<option value="sellerInfoNumber">경매자번호</option>
+									<option value="sellerAccountNumber">계좌번호</option>
+									<option value="sellerBank">은행</option>
+									<option value="sellerPoint">포인트</option>
+								</select>
+							</div>
+							<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
+								<input class="form-control" type="text"
+									id="search-value_seller-info" onkeyup="enterSellerInfo(event)"
+									placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요" disabled>
+							</div>
+							<div style="width: 8%; float: left;">
+								<button class="btn btn-default" type="button"
+									onclick="javascript:searchEmptySellerInfo()">x</button>
+							</div>
+						</div>
+
+						<div class="table-responsive"
+							style="height: 300px; background-color: #f6f6f6 !important; overflow: auto;">
+							<table class="table table-hover"
+								style="border: 1px solid #cccccc;">
+								<thead>
+									<tr>
+										<th>번호</th>
+										<th>계좌</th>
+										<th>은행</th>
+										<th>포인트</th>
+									</tr>
+								</thead>
+								<tbody id="sellerInfo_div">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- 경매자정보 -->
 			</div>
 			<!-- 전체 -->
 
@@ -315,6 +381,12 @@ function enterProductBidding(entProductBidding) {
 		search()
 	}
 }
+function enterSellerInfo(entSellerInfo) {
+	var codeSellerInfo = entSellerInfo.which ? entSellerInfo.which : event.keyCode;
+	if (codeSellerInfo != 0) {
+		search()
+	}
+}
 
 function searchEmpty() {
 $('#search-value_user-info').val('');
@@ -325,6 +397,9 @@ function searchEmptyProduct() {
 function searchEmptyProductBidding() {
 	$('#search-value_product-bidding').val('');
 	}
+function searchEmptySellerInfo() {
+	$('#search-value_seller-info').val('');
+	}
 	
 window.addEventListener('load',search);
 	function search(){
@@ -334,6 +409,8 @@ window.addEventListener('load',search);
 		var texProduct = document.querySelector('#search-value_product').value;
 		var serProductBidding =document.querySelector('#search-select_product-bidding').value;	
 		var texProductBidding = document.querySelector('#search-value_product-bidding').value;
+		var serSellerInfo =document.querySelector('#search-select_seller-info').value;	
+		var texSellerInfo = document.querySelector('#search-value_seller-info').value;
 		
 	/* 회원조회 */	
 		var params = ser + '=' + tex;
@@ -376,7 +453,7 @@ window.addEventListener('load',search);
 			document.querySelector('#product_div').innerHTML = '';
 			var html = '';
 			for(var product of resProduct){
-				html += '<tr onclick="location.href=\'/product/'+product.productNumber+'\'">';
+				html += '<tr onclick="location.href=\'/productupdate/'+product.productNumber+'\'">';
 				html += '<td>' +product.productNumber+ '</td>';
 				html += '<td>' +product.productName+ '</td>';
 				html += '<td>' +product.productCategory+ '</td>';
@@ -425,6 +502,29 @@ window.addEventListener('load',search);
 		 ajaxUtilProductBidding = new AjaxUtil(confProductBidding);
 		ajaxUtilProductBidding.send();
 		
+		/* 경매자정보조회 */
+		 var paramsSellerInfo = serSellerInfo + '=' + texSellerInfo;
+		 var confSellerInfo = {
+		url : '/sellerinfolist?' + paramsSellerInfo,
+		method:'GET',
+		success : function(resSellerInfo){ 
+			resSellerInfo = JSON.parse(resSellerInfo);
+			document.querySelector('#sellerInfo_div').innerHTML = '';
+			var html = '';
+			for(var sellerInfo of resSellerInfo){
+				html += '<tr>';
+				html += '<td>' +sellerInfo.sellerInfoNumber+ '</td>';
+				html += '<td>' +sellerInfo.sellerAccountNumber+ '</td>';
+				html += '<td>' +sellerInfo.sellerBank+ '</td>';
+				html += '<td>' +sellerInfo.sellerPoint+ '</td>';
+				html += '</tr>';
+				} 
+			document.querySelector('#sellerInfo_div').insertAdjacentHTML('afterbegin',html);
+		}
+	}
+		 ajaxUtilSellerInfo = new AjaxUtil(confSellerInfo);
+		ajaxUtilSellerInfo.send();
+				
 		
 	}
  

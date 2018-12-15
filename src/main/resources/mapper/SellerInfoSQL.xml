@@ -3,12 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SQL.SellerInfoSQL">
+	<select id="getSellerInfoList" resultType="sellerInfo" 
+		parameterType="sellerInfo"><!-- 전체검색 관리자페이지용 -->
+		select * from SellerInfo
+		<where>
+			<if test="sellerInfoNumber!=null"> and sellerInfoNumber like '%'||#{sellerInfoNumber}||'%'</if>
+			<if test="sellerAccountNumber!=null"> and sellerAccountNumber like '%'||#{sellerAccountNumber}||'%'</if>
+			<if test="sellerBank!=null"> and sellerBank like '%'||#{sellerBank}||'%'
+			</if>
+			<if test="sellerPoint!=null"> and sellerPoint like '%'||#{sellerPoint}||'%'
+			</if>
+		</where>
+		order by sellerInfoNumber DESC
+	</select>
+	
 	<select id="getSellerInfo" resultType="sellerInfo"
 		parameterType="sellerInfo">
 		select * from SellerInfo
 		where
 		ProductNumber=#{productNumber}
 	</select>
+
 
 	<insert id="insertSellerInfo" parameterType="sellerInfo">
 		INSERT INTO

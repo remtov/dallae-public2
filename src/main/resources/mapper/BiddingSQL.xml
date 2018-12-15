@@ -16,7 +16,7 @@
 			<if test="biddingStatus!=null"> and BIDDINGSTATUS like '%'||#{biddingStatus}||'%'</if>
 		
 		</where>
-		order by PRODUCTNUMBER
+		order by PRODUCTNUMBER DESC
 	</select>
 	
 	<select id="getBidding" resultType="bidding"

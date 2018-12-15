@@ -14,54 +14,10 @@
 h4 {
 	margin-bottom: 20px;
 }
-
-.dd {
-	border: 1px solid red;
-	overflow: scroll;
-	width: 300px;
-	height: 150px;
-	padding: 10px;
-}
-/* The Modal (background) */
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0, 0, 0); /* Fallback color */
-	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-	background-color: #fefefe;
-	margin: 15% auto; /* 15% from the top and centered */
-	padding: 20px;
-	border: 1px solid #888;
-	width: 50%; /* Could be more or less, depending on screen size */
-}
-/* The Close Button */
-.close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-}
-
-.close:hover, .close:focus {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-}
-</style>
+</style>l
 </head>
 <body>
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -72,20 +28,18 @@ h4 {
 				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
 					integerOnly="true" />
 				<h3>경매 보기</h3>
-				<h3>
-					<a href="/url/product:category:${product.productCategory}">${product.productCategory}</a>><b>${product.productName}</b><small>
-						No.${product.productNumber}</small>
+				<h3><a href="/url/product:category:${product.productCategory}">${product.productCategory}</a>><b>${product.productName}</b><small><font
+						color="#e53a6f"> | 마감시까지 <b id="days-output"></b>일<b
+							id="hours-output"></b>시간 <b id="minutes-output"></b>분<b
+							id="seconds-output"></b>초 남았습니다.
+					</font></small>
 				</h3>
-				<font color="#e53a6f" style="margin-bottom: 10px;">마감시까지 남은시간
-					: <b id="days-output"></b>일<b id="hours-output"></b>시간 <b
-					id="minutes-output"></b>분<b id="seconds-output"></b>초
-				</font>
 
 				<script type="text/javascript">
 				function closingTimeCalculation() {
 					 var now = new Date();
 					 var dday = new Date(${endTimeNumber}); 
-
+				
 					 if (now.getTime() > dday.getTime()) {
 					    alert('마감된 상품입니다.')
 					    location.href = '/url/product:list';				
@@ -151,51 +105,28 @@ h4 {
 							html += '<span class="sr-only">Next</span></a></div>';
 						
 							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
-							
-							
 					});
 				</script>
 				<div class='view'></div>
-				<div style="float: left; width: 50%; border: 1px solid red;">
-
-					<p>
-
-						<button class="btn btn-default" style="font-size: 1.2em;"
-							onclick="location.href='/userinfo_my-page/${product.userNumber}'">
-							ID : <b>${product.userId}</b>
-						</button>
-						<br> <span style="font-size: 1.5em; color: #f4969b;"><img
-							src="/resources/img/icon-level-1.png"
-							style="width: 30px; height: auto;">신용LV${product.userCreditLevel}
-						</span><br>(최고 10)
-					</p>
-				</div>
-
-				<div style="float: left; width: 50%; border: 1px solid red;"></div>
-
-
 				<div style="overflow: auto; margin-top: 10px;">
-					<div style="float: left;"></div>
-					<div style="margin-left: 10px; float: left;"></div>
-					<div style="float: right;"></div>
-				</div>
-				<!-- Trigger/Open The Modal -->
-				<button style="float: right;" class="btn btn-primary btn-lg"
-					type="button" id="myBtn">입찰 하기</button>
-
-				<!-- The Modal -->
-				<div id="myModal" class="modal">
-
-					<!-- Modal content -->
-					<div class="modal-content">
-						<span class="close">&times;</span>
-						<p>아아아</p>
-						<div class="bidding">
-							<button style="float: right;" class="btn btn-primary btn-lg"
-								type="button" data-update>입찰 하기</button>
-						</div>
+					<div style="float: left;">
+						<img style="width: 50px; height: auto;"
+							src="/resources/img/icon_profile.png">
 					</div>
-
+					<div style="margin-left: 10px; float: left;">
+						<p>
+							<a style="font-size: 1.2em;"
+								href="/userinfo_my-page/${product.userNumber}">판매자 ID : <b>${product.userId}</b>
+								님의 페이지로 가기
+							</a> <br> 게시물 번호: ${product.productNumber} <br>
+						</p>
+					</div>
+					<div style="float: right;">
+						<span style="font-size: 0.8em;">판매자 신용등급 (최고LV 10) : </span><span
+							style="font-size: 1.5em; color: #f4969b;"> LV
+							${product.userCreditLevel} </span> <img src="/resources/img/icon-level-1.png"
+							style="width: 50px; height: auto;">
+					</div>
 				</div>
 				<hr style="clear: both;">
 				<h3>
@@ -231,84 +162,6 @@ h4 {
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;
 		}
-		// Get the modal
-		var modal = document.querySelector('#myModal');                                     
-
-		// When the user clicks on <span> (x), close the modal
-
-		$('.close').click(function(){
-            modal.style.display = "none";   
-        });
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		    if (event.target == modal) {
-		        modal.style.display = "none";
-		    }
-		}
-		var bc;
-		// When the user clicks on the button, open the modal 
-		$('#myBtn').click(function(){
-			var session = "${sessionScope.userlogininfo.userLevel}"
-				if(session>0){
-			html ='';
-			$.ajax({
-				url : '/bidding/'+${product.productNumber},
-				type : 'GET',
-				dataType:"json",  
-				success : function(res){
-					var bidsDate = res.bidsDate.split(",");
-					var biddingId = res.biddingId.split(",");
-					var max =biddingId.length;
-					if(max>0){
-						html+='<div class="dd">';
-						for(var i=0;i<max;i++){
-							html+='<div><div style="width:100px;float:left;">'+bidsDate[i]+'</div><div style="width:100px;float:left;">'+biddingId[i]+'</div><br></div><br>';
-						}
-						html+='</div>';
-					}
-					
-					html+='<div class="bidCount">'+res.bidCount+'</div>';
-					html+=${product.productLowestPrice}+(biddingId.length*200);
-					document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
-					bc=$(".bidCount").text();
-					
-				}
-			}); 
-			
-		            modal.style.display = "block";
-		        
-				}else{
-					alert("로그인을 하셔야 합니다");
-					location.href = '/url/user-info:login';
-				}
-			});
-		
-		$('[data-update]').click(function(){
-			
-				$.ajax({
-					url : '/bidding/'+${product.productNumber}+'/'+bc+'/'
-					+'${product.productName}'+'/'+'${product.userId}'+'/'+'${userlogininfo.userId}',
-					type : 'POST',
-					success : function(res){
-						alert(res);
-						if(res==0){
-							alert("이가격에 입찰한사람이 있습니다");
-						}if(res==-1){
-							alert("판매자는 입찰하실수 없습니다");
-						}if(res==-2){
-							alert("맨 마지막 입찰자 입니다");
-						}else{
-							alert("입찰에성공하셨습니다");
-						}
-					}
-				});
-			
-			
-		});
-		
-
-
 	</script>
 </body>
 </html>

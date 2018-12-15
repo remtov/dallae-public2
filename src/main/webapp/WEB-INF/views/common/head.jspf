@@ -84,13 +84,15 @@
 						<!--  -->
 
 					</ul>
-					<input type="text" class="form-control" placeholder="검색 ↵"
-						id="search" onkeypress="headEnter(event)"
-						style="margin-top: 7px; width: 38%; float: left;">
-					<button type="button" class="btn btn-default btn-xs"
-						onclick="javascript:homeSearchEmpty()"
-						style="float: left; margin-top: 12px; margin-left: 5px;">x</button>
-
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="검색 ↵"
+								id="search" onkeypress="headEnter(event)"
+								style="width: 265px !important;">
+						</div>
+						<button type="button" class="btn btn-default btn-xs"
+							onclick="javascript:homeSearchEmpty()">x</button>
+					</form>
 
 					<!-- 세션이 있는사람>>>-->
 					<c:set var="userid" value="${userlogininfo.userId}"></c:set>
