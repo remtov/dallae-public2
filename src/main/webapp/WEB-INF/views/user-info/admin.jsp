@@ -13,6 +13,7 @@ div {
 }
 </style>
 <script>
+/* 셀렉트필수 잇풋활성화 */
 	 function searchValueUserInfoOpen(value){ 
 		 if(value!='#'){
 			 document.getElementById('search-value_user-info').disabled = 0;	 
@@ -26,6 +27,13 @@ div {
 			 document.getElementById('search-value_product').disabled = 0;	 
 		 }else{
 			 document.getElementById('search-value_product').disabled = 1; 
+		 }
+	 }
+	 function searchValueProductBiddingOpen(value){ 
+		 if(value!='#'){
+			 document.getElementById('search-value_product-bidding').disabled = 0;	 
+		 }else{
+			 document.getElementById('search-value_product-bidding').disabled = 1; 
 		 }
 	 }
 </script>
@@ -83,7 +91,8 @@ div {
 								</div>
 							</div>
 
-							<div class="table-responsive" style="height: 300px; background-color: #f6f6f6 !important; overflow: auto; ">
+							<div class="table-responsive"
+								style="height: 300px; background-color: #f6f6f6 !important; overflow: auto;">
 								<table class="table table-hover"
 									style="border: 1px solid #cccccc;">
 									<thead>
@@ -110,6 +119,8 @@ div {
 
 					</div>
 				</div>
+				<!-- 회원정보 -->
+				<!-- 경매품리스트 -->
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingTwo">
 						<h4 class="panel-title">
@@ -126,7 +137,8 @@ div {
 						role="tabpanel" aria-labelledby="headingTwo">
 						<div class="panel-body">
 							<div style="width: 28%; float: left;">
-								<select class="form-control" id="search-select_product" onchange="searchValueProductOpen(value)">
+								<select class="form-control" id="search-select_product"
+									onchange="searchValueProductOpen(value)">
 									<option value="#">선택</option>
 									<option value="productNumber">번호</option>
 									<option value="productName">이름</option>
@@ -155,7 +167,8 @@ div {
 							</div>
 						</div>
 
-						<div class="table-responsive" style="height: 300px; background-color: #f6f6f6 !important; overflow: auto; ">
+						<div class="table-responsive"
+							style="height: 300px; background-color: #f6f6f6 !important; overflow: auto;">
 							<table class="table table-hover"
 								style="border: 1px solid #cccccc;">
 								<thead>
@@ -180,11 +193,13 @@ div {
 								</tbody>
 							</table>
 						</div>
+
+
 					</div>
 				</div>
 				<!-- 경매품리스트 -->
 
-
+				<!-- 경매품리스트 섬네일 -->
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingThree">
 						<h4 class="panel-title">
@@ -199,12 +214,74 @@ div {
 					</div>
 					<div id="collapseThree" class="panel-collapse collapse"
 						role="tabpanel" aria-labelledby="headingThree">
-						<div class="panel-body" style="height: 300px; background-color: #f6f6f6 !important; overflow: auto; ">
+						<div class="panel-body"
+							style="height: 600px; background-color: #f6f6f6 !important; overflow: auto;">
 							<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 						</div>
 					</div>
 				</div>
 				<!-- 경매품리스트 섬네일-->
+
+
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFour">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse"
+								data-parent="#accordion" href="#collapseFour"
+								aria-expanded="false" aria-controls="collapseFour">
+								<button class="btn btn-default btn-block">
+									<b>입찰</b> 정보
+								</button>
+							</a>
+						</h4>
+					</div>
+					<div id="collapseFour" class="panel-collapse collapse"
+						role="tabpanel" aria-labelledby="headingFour">
+						<div class="panel-body">
+							<div style="width: 28%; float: left;">
+								<select class="form-control" id="search-select_product-bidding"
+									onchange="searchValueProductBiddingOpen(value)">
+									<option value="#">선택</option>
+									<option value="productNumber">경매품번호</option>
+									<option value="bidCount">입찰수</option>
+									<option value="bidsDate">입찰시</option>
+									<option value="biddingId">입찰자ID</option>
+									<option value="biddingStatus">상태</option>
+								</select>
+							</div>
+							<div style="width: 60%; float: left; margin: 0px 2% 0px 2%;">
+								<input class="form-control" type="text"
+									id="search-value_product-bidding"
+									onkeyup="enterProductBidding(event)"
+									placeholder="왼쪽의 요소를 선택한 뒤에 검색하세요" disabled>
+							</div>
+							<div style="width: 8%; float: left;">
+								<button class="btn btn-default" type="button"
+									onclick="javascript:searchEmptyProductBidding()">x</button>
+							</div>
+						</div>
+
+						<div class="table-responsive"
+							style="height: 300px; background-color: #f6f6f6 !important; overflow: auto;">
+							<table class="table table-hover"
+								style="border: 1px solid #cccccc;">
+								<thead>
+									<tr>
+										<th>경매품번호</th>
+										<th>입찰수</th>
+										<th>입찰시</th>
+										<th>입찰자ID</th>
+										<th>상태</th>
+									</tr>
+								</thead>
+								<tbody id="productBidding_div">
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+				<!-- 입찰 정보 -->
 			</div>
 			<!-- 전체 -->
 
@@ -232,12 +309,21 @@ function enterProduct(entProduct) {
 		search()
 	}
 }
+function enterProductBidding(entProductBidding) {
+	var codeProductBidding = entProductBidding.which ? entProductBidding.which : event.keyCode;
+	if (codeProductBidding != 0) {
+		search()
+	}
+}
 
 function searchEmpty() {
 $('#search-value_user-info').val('');
 }
 function searchEmptyProduct() {
 	$('#search-value_product').val('');
+	}
+function searchEmptyProductBidding() {
+	$('#search-value_product-bidding').val('');
 	}
 	
 window.addEventListener('load',search);
@@ -246,7 +332,10 @@ window.addEventListener('load',search);
 		var tex = document.querySelector('#search-value_user-info').value;
 		var serProduct =document.querySelector('#search-select_product').value;	
 		var texProduct = document.querySelector('#search-value_product').value;
+		var serProductBidding =document.querySelector('#search-select_product-bidding').value;	
+		var texProductBidding = document.querySelector('#search-value_product-bidding').value;
 		
+	/* 회원조회 */	
 		var params = ser + '=' + tex;
 		var conf = {
 		url : '/userinfolist?' + params,
@@ -277,6 +366,7 @@ window.addEventListener('load',search);
 		var ajaxUtil = new AjaxUtil(conf);
 		ajaxUtil.send();
 		
+		/* 경매품조회 */
 		 var paramsProduct = serProduct + '=' + texProduct;
 		 var confProduct = {
 		url : '/productlist?' + paramsProduct,
@@ -309,6 +399,31 @@ window.addEventListener('load',search);
 	}
 		 ajaxUtilProduct = new AjaxUtil(confProduct);
 		ajaxUtilProduct.send();
+		
+		/* 입찰정보조회 */
+		 var paramsProductBidding = serProductBidding + '=' + texProductBidding;
+		 var confProductBidding = {
+		url : '/biddinglist?' + paramsProductBidding,
+		method:'GET',
+		success : function(resProductBidding){ 
+			resProductBidding = JSON.parse(resProductBidding);
+			document.querySelector('#productBidding_div').innerHTML = '';
+			var html = '';
+			for(var productBidding of resProductBidding){
+				html += '<tr>';
+				html += '<td>' +productBidding.productNumber+ '</td>';
+				html += '<td>' +productBidding.bidCount+ '</td>';
+				html += '<td>' +productBidding.bidsDate+ '</td>';
+				html += '<td>' +productBidding.biddingId+ '</td>';
+				html += '<td>' +productBidding.biddingStatus+ '</td>';
+				html += '</tr>';
+
+ 				} 
+			document.querySelector('#productBidding_div').insertAdjacentHTML('afterbegin',html);
+		}
+	}
+		 ajaxUtilProductBidding = new AjaxUtil(confProductBidding);
+		ajaxUtilProductBidding.send();
 		
 		
 	}
