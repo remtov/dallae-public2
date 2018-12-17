@@ -31,7 +31,6 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-
 	@Autowired
 	private ProductBiddingService productBiddingService;
 
@@ -39,34 +38,37 @@ public class ProductController {
 
 	@RequestMapping(value = "/productlist", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Product> getProductList(@ModelAttribute Product product) {
+	public List<Product> getProductList(@ModelAttribute Product product) {// 관리자페이지/검색포함
 		return productService.getProductList(product);
 	}
 
-	
 	@RequestMapping(value = "/productlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
 	public List<Product> getProductList2(@RequestBody Product product) {
 		return productService.getNum(product);
 	}
-	@RequestMapping(value = "/productsearch", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/productsearch", method = RequestMethod.POST) // 헤드전체검색창
 	@ResponseBody
-	public String getProduct(@RequestBody Product product,HttpSession httpSession) {
-		if(httpSession.getAttribute("ser")!=null) {
+	public String getProduct(@RequestBody Product product, HttpSession httpSession) {
+		if (httpSession.getAttribute("ser") != null) {
 			httpSession.removeAttribute("ser");
 		}
 		httpSession.setAttribute("ser", product.getSer());
-		return "product/test";
-		
+		return "product/product_all-search-results";
+
 	}
-	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) 
+
+	// 아래컨트롤러 원본
+	@RequestMapping(value = "/product-origin/{productNumber}", method = RequestMethod.GET)
+	public ModelAndView getProductOrigin(@PathVariable Integer productNumber) {
+		return new ModelAndView("product/mainview-origin", "product", productService.getProduct(productNumber));
+	}
+
+	// 테스트중
+	@RequestMapping(value = "/product/{productNumber}", method = RequestMethod.GET) //
 	public ModelAndView getProduct(@PathVariable Integer productNumber) {
 		return new ModelAndView("product/mainview", "product", productService.getProduct(productNumber));
-	}
-	//테스트
-	@RequestMapping(value = "/producttest/{productNumber}", method = RequestMethod.GET) // 
-	public ModelAndView getProducttest(@PathVariable Integer productNumber) {
-		return new ModelAndView("product/mainview2", "product", productService.getProduct(productNumber));
 	}
 
 	@RequestMapping(value = "/productupdate/{productNumber}", method = RequestMethod.GET)
@@ -85,9 +87,9 @@ public class ProductController {
 	public Integer updateProduct(MultipartHttpServletRequest multipartHttpServletRequest,
 			@PathVariable Integer productNumber) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
-		System.out.println(product.getProductImage()+"바보");
+		System.out.println(product.getProductImage() + "바보");
 		product.setProductNumber(productNumber);
-		
+
 		return productService.updateProduct(product);
 	}
 
@@ -96,12 +98,12 @@ public class ProductController {
 	public Integer insertProduct(MultipartHttpServletRequest multipartHttpServletRequest) {
 		Product product = PM.MapToVo(Util.saveFile(multipartHttpServletRequest), Product.class);
 		int a = productService.insertProduct(product);
-		Product image =productService.getProductImage(product.getProductImage());
+		Product image = productService.getProductImage(product.getProductImage());
 		System.out.println(image.getProductNumber());
 		ProductBidding productBidding = new ProductBidding();
 		productBidding.setProductNumber(image.getProductNumber());
 		productBiddingService.inserBidding(productBidding);
-		
+
 		return a;
 	}
 
@@ -138,6 +140,7 @@ public class ProductController {
 	@RequestMapping(value = "/productcategoryfashionlist", method = RequestMethod.POST) // 스크롤페이징
 	@ResponseBody
 	public List<Product> getProductCategoryFashionList(@RequestBody Product product) {
+
 		return productService.getProductCategoryFashionList(product);
 	}
 
