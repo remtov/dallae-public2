@@ -3,6 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SQL.BiddingSQL">
+	<select id="getProductBiddingList" resultType="bidding"
+		parameterType="bidding">
+		SELECT * FROM PRODUCTBIDDING
+		<where>
+			<if test="productNumber!=null"> and PRODUCTNUMBER like '%'||#{productNumber}||'%'</if>
+			<if test="bidCount!=null"> and BIDCOUNT like '%'||#{bidCount}||'%'</if>
+			<if test="biddingId!=null"> and BIDSDATE like '%'||#{biddingId}||'%'
+			</if>
+			<if test="bidsDate!=null"> and BIDDINGID like '%'||#{bidsDate}||'%'
+			</if>
+			<if test="biddingStatus!=null"> and BIDDINGSTATUS like '%'||#{biddingStatus}||'%'</if>
+		
+		</where>
+		order by PRODUCTNUMBER DESC
+	</select>
+	
 	<select id="getBidding" resultType="bidding"
 		parameterType="bidding">
 		select * from productbidding

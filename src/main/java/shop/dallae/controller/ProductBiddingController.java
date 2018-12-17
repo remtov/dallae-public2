@@ -2,8 +2,11 @@ package shop.dallae.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,14 @@ public class ProductBiddingController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	/*관리자용 입찰전체조회*/
+	@RequestMapping(value = "/biddinglist", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ProductBidding> getBiddingList(@ModelAttribute ProductBidding productBidding) {//관리자페이지/검색포함
+		return productBiddingService.getBiddingList(productBidding);
+	}
+	
 	/*입찰조회*/
 	@RequestMapping(value = "/bidding/{productNumber}", method = RequestMethod.GET)
 	@ResponseBody

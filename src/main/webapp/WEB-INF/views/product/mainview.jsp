@@ -11,13 +11,61 @@
 <html>
 <head>
 <style>
+div {
+	/* border: 1px solid red; */
+	
+}
+
 h4 {
 	margin-bottom: 20px;
 }
-</style>l
+
+.dd {
+	border: 1px solid red;
+	overflow: scroll;
+	width: 300px;
+	height: 150px;
+	padding: 10px;
+}
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -27,19 +75,69 @@ h4 {
 					pattern="yyyy-MM-dd HH:mm:ss" />
 				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
 					integerOnly="true" />
-				<h3>경매 보기</h3>
-				<h3><a href="/url/product:category:${product.productCategory}">${product.productCategory}</a>><b>${product.productName}</b><small><font
-						color="#e53a6f"> | 마감시까지 <b id="days-output"></b>일<b
-							id="hours-output"></b>시간 <b id="minutes-output"></b>분<b
-							id="seconds-output"></b>초 남았습니다.
-					</font></small>
-				</h3>
+
+				<ol class="breadcrumb2">
+					<li><button onclick="location.href='/'"
+							class="btn btn-default">홈으로</button></li>
+					<li><button onclick="location.href='/url/product:list'"
+							class="btn btn-default">경매보기</button></li>
+					<li class="active"><select id="category-select-id"
+							name="categorySelect"
+							style="margin-top: 4px; width: 100px; height: 33px; display: inline !important;'"
+							class="form-control" onchange="selectCategoryAction()"
+							onclick="selectOnClickEvent()">
+
+							<option value="null">선택</option>
+							<option
+								<c:if test="${product.productCategory eq 'digital'}">selected </c:if>
+								value="digital">디지털</option>
+							<option
+								<c:if test="${product.productCategory eq 'fashion'}">selected </c:if>
+								value="fashion">패션</option>
+							<option
+								<c:if test="${product.productCategory eq 'healthBeauty'}">selected </c:if>
+								value="healthBeauty">건강&#38;뷰티</option>
+							<option
+								<c:if test="${product.productCategory eq 'life'}">selected </c:if>
+								value="life">생활</option>
+							<option
+								<c:if test="${product.productCategory eq 'motorPartz'}">selected </c:if>
+								value="motorPartz">모터파츠</option>
+							<option
+								<c:if test="${product.productCategory eq 'rareCollection'}">selected </c:if>
+								value="rareCollection">희귀품</option>
+							<option
+								<c:if test="${product.productCategory eq 'sports'}">selected </c:if>
+								value="sports">스포츠</option>
+							<option
+								<c:if test="${product.productCategory eq 'toyHobby'}">selected </c:if>
+								value="toyHobby">장난감&#38;취미</option>
+						</select> <script type="text/javascript">
+							function selectCategoryAction() {
+								var categorySelectId = document
+										.getElementById("category-select-id");
+								var categorySelectValue = categorySelectId.options[categorySelectId.selectedIndex].value;
+								var categorySelectText = categorySelectId.options[categorySelectId.selectedIndex].text;
+								if (categorySelectValue != 'null') {
+									location.href = '/url/product:category:'
+											+ categorySelectValue;
+								}
+							}
+							
+							function selectOnClickEvent(){
+								$('#category-select-id').val('null').change();
+							}
+						</script></li>
+					<li><button class="btn btn-default active">자세히보기</button></li>
+				</ol>
+
+
 
 				<script type="text/javascript">
 				function closingTimeCalculation() {
 					 var now = new Date();
 					 var dday = new Date(${endTimeNumber}); 
-				
+
 					 if (now.getTime() > dday.getTime()) {
 					    alert('마감된 상품입니다.')
 					    location.href = '/url/product:list';				
@@ -105,54 +203,89 @@ h4 {
 							html += '<span class="sr-only">Next</span></a></div>';
 						
 							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
+							
+							
 					});
 				</script>
+
+
 				<div class='view'></div>
-				<div style="overflow: auto; margin-top: 10px;">
-					<div style="float: left;">
-						<img style="width: 50px; height: auto;"
-							src="/resources/img/icon_profile.png">
-					</div>
-					<div style="margin-left: 10px; float: left;">
-						<p>
-							<a style="font-size: 1.2em;"
-								href="/userinfo_my-page/${product.userNumber}">판매자 ID : <b>${product.userId}</b>
-								님의 페이지로 가기
-							</a> <br> 게시물 번호: ${product.productNumber} <br>
-						</p>
-					</div>
-					<div style="float: right;">
-						<span style="font-size: 0.8em;">판매자 신용등급 (최고LV 10) : </span><span
-							style="font-size: 1.5em; color: #f4969b;"> LV
-							${product.userCreditLevel} </span> <img src="/resources/img/icon-level-1.png"
-							style="width: 50px; height: auto;">
-					</div>
+				<div id="seller-div">
+
+					<h3>
+						<small>No.${product.productNumber} </small><b>
+							${product.productName}</b><small> <font color="#e53a6f">경매
+								마감까지 남은시간 : <b id="days-output"></b>일<b id="hours-output"></b>시간
+								<b id="minutes-output"></b>분<b id="seconds-output"></b>초
+						</font>
+
+						</small>
+					</h3>
+
+					<p style="font-size: 1.3em;">
+						입찰가 : ${product.productLowestPrice} 원 | 경매자ID:<b>${product.userId}</b>
+						| 경매자신용도<b>LV${product.userCreditLevel}</b>/10
+					</p>
+
+					<p>
+
+						<button class="btn btn-default"
+							onclick="location.href='/userinfo_my-page/${product.userNumber}'">경매자페이지로</button>
+
+						<button style="float: right;" class="btn btn-primary"
+							type="button" id="myBtn">입찰 하기</button>
+					</p>
+
+
+					<hr style="clear: both;">
+					<h4>
+						상태 : ${product.productCondition} | 등록일 : ${product.productDate} |
+						제품수량 : <b>${product.productQuantity}</b> 개 | 브랜드명 :
+						${product.productBrand}
+					</h4>
+
+					<p>${product.productDesc}</p>
+
+					<c:set var="userId" value="${userlogininfo.userId}"></c:set>
+					<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
+					<c:choose>
+						<c:when test="${userLevel>2.5||userId==product.userId}">
+							<!-- 관리자나 같은 아이디일 경우 버튼이 보여서 뷰 업데이트 페이지로 갈 수 있음 -->
+							<button style="float: right;" class="btn btn-primary"
+								type="button" onclick="updateBtn(${product.productNumber})">수정</button>
+							<hr style="visibility: hidden;">
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+					</c:choose>
+
+
 				</div>
-				<hr style="clear: both;">
-				<h3>
-					<span class="label label-info">판매중</span>
-				</h3>
-				<h3>${product.productName}</h3>
-				<p>상태 : ${product.productCondition} | 등록일 :
-					${product.productDate}</p>
-				<p>시작가 : ${product.productLowestPrice} 원</p>
-				<p>${product.productDesc}</p>
-				<p>
-					제품수량 : <b>${product.productQuantity}</b> 개<br> 브랜드명 :
-					${product.productBrand}
-				</p>
-				<c:set var="userId" value="${userlogininfo.userId}"></c:set>
-				<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
-				<c:choose>
-					<c:when test="${userLevel>2.5||userId==product.userId}">
-						<!-- 관리자나 같은 아이디일 경우 버튼이 보여서 뷰 업데이트 페이지로 갈 수 있음 -->
-						<button style="float: right;" class="btn btn-primary btn-lg"
-							type="button" onclick="updateBtn(${product.productNumber})">수정</button>
-						<hr style="visibility: hidden;">
-					</c:when>
-					<c:otherwise>
-					</c:otherwise>
-				</c:choose>
+
+				<div id="bidding-div">
+					<div style="overflow: auto; margin-top: 10px;">
+						<div style="float: left;"></div>
+						<div style="margin-left: 10px; float: left;"></div>
+						<div style="float: right;"></div>
+					</div>
+
+
+				</div>
+
+				<div id="myModal" class="modal">
+
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p>아아아</p>
+						<div class="bidding">
+							<button style="float: right;" class="btn btn-primary btn-lg"
+								type="button" data-update>입찰 하기</button>
+						</div>
+					</div>
+					<!-- Modal content -->
+
+				</div>
+
 			</div>
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
@@ -162,6 +295,84 @@ h4 {
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;
 		}
+		// Get the modal
+		var modal = document.querySelector('#myModal');                                     
+
+		// When the user clicks on <span> (x), close the modal
+
+		$('.close').click(function(){
+            modal.style.display = "none";   
+        });
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
+		var bc;
+		// When the user clicks on the button, open the modal 
+		$('#myBtn').click(function(){
+			var session = "${sessionScope.userlogininfo.userLevel}"
+				if(session>0){
+			html ='';
+			$.ajax({
+				url : '/bidding/'+${product.productNumber},
+				type : 'GET',
+				dataType:"json",  
+				success : function(res){
+					var bidsDate = res.bidsDate.split(",");
+					var biddingId = res.biddingId.split(",");
+					var max =biddingId.length;
+					if(max>0){
+						html+='<div class="dd">';
+						for(var i=0;i<max;i++){
+							html+='<div><div style="width:100px;float:left;">'+bidsDate[i]+'</div><div style="width:100px;float:left;">'+biddingId[i]+'</div><br></div><br>';
+						}
+						html+='</div>';
+					}
+					
+					html+='<div class="bidCount">'+res.bidCount+'</div>';
+					html+=${product.productLowestPrice}+(biddingId.length*200);
+					document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
+					bc=$(".bidCount").text();
+					
+				}
+			}); 
+			
+		            modal.style.display = "block";
+		        
+				}else{
+					alert("로그인을 하셔야 합니다");
+					location.href = '/url/user-info:login';
+				}
+			});
+		
+		$('[data-update]').click(function(){
+			
+				$.ajax({
+					url : '/bidding/'+${product.productNumber}+'/'+bc+'/'
+					+'${product.productName}'+'/'+'${product.userId}'+'/'+'${userlogininfo.userId}',
+					type : 'POST',
+					success : function(res){
+						alert(res);
+						if(res==0){
+							alert("이가격에 입찰한사람이 있습니다");
+						}if(res==-1){
+							alert("판매자는 입찰하실수 없습니다");
+						}if(res==-2){
+							alert("맨 마지막 입찰자 입니다");
+						}else{
+							alert("입찰에성공하셨습니다");
+						}
+					}
+				});
+			
+			
+		});
+		
+
+
 	</script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import shop.dallae.service.SellerInfoService;
+import shop.dallae.vo.Product;
 import shop.dallae.vo.SellerInfo;
 
 @Controller
@@ -21,10 +23,10 @@ public class SellerInfoController {
 	@Autowired
 	private SellerInfoService sellerInfoService;
 
-	@RequestMapping(value = "/sellerinfolist", method = RequestMethod.GET)
+	@RequestMapping(value = "/sellerinfolist", method = RequestMethod.GET)//관리자페이지/검색포함
 	@ResponseBody
-	public List<SellerInfo> getSellerInfoList() {
-		return sellerInfoService.getSellerInfoList(null);
+	public List<SellerInfo> getSellerInfoList(@ModelAttribute SellerInfo sellerInfo) {
+		return sellerInfoService.getSellerInfoList(sellerInfo);
 	}
 
 	@RequestMapping(value = "/sellerinfo/{sellerInfoNumber}", method = RequestMethod.GET)
