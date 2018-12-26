@@ -82,10 +82,10 @@ h4 {
 					<li><button onclick="location.href='/url/product:list'"
 							class="btn btn-default">경매보기</button></li>
 					<li class="active"><select id="category-select-id"
-							name="categorySelect"
-							style="margin-top: 4px; width: 100px; height: 33px; display: inline !important;'"
-							class="form-control" onchange="selectCategoryAction()"
-							onclick="selectOnClickEvent()">
+						name="categorySelect"
+						style="margin-top: 4px; width: 100px; height: 33px; display: inline !important;'"
+						class="form-control" onchange="selectCategoryAction()"
+						onclick="selectOnClickEvent()">
 
 							<option value="null">선택</option>
 							<option
@@ -112,7 +112,7 @@ h4 {
 							<option
 								<c:if test="${product.productCategory eq 'toyHobby'}">selected </c:if>
 								value="toyHobby">장난감&#38;취미</option>
-						</select> <script type="text/javascript">
+					</select> <script type="text/javascript">
 							function selectCategoryAction() {
 								var categorySelectId = document
 										.getElementById("category-select-id");
@@ -223,8 +223,9 @@ h4 {
 					</h3>
 
 					<p style="font-size: 1.3em;">
-						입찰가 : ${product.productLowestPrice} 원 | 경매자ID:<b>${product.userId}</b>
-						| 경매자신용도<b>LV${product.userCreditLevel}</b>/10
+						시작가격 : ${product.productLowestPrice} 원 | 경매자ID:<b>${product.userId}</b>
+						| 경매자신용도<b>LV${product.userCreditLevel}</b>/10<br>
+						<b class="ing"></b>
 					</p>
 
 					<p>
@@ -276,8 +277,9 @@ h4 {
 
 					<div class="modal-content">
 						<span class="close">&times;</span>
-						<p>아아아</p>
+						<p>입찰 현황</p>
 						<div class="bidding">
+						<p>입찰시 200원 증가</p>
 							<button style="float: right;" class="btn btn-primary btn-lg"
 								type="button" data-update>입찰 하기</button>
 						</div>
@@ -313,40 +315,57 @@ h4 {
 		var bc;
 		// When the user clicks on the button, open the modal 
 		$('#myBtn').click(function(){
-			var session = "${sessionScope.userlogininfo.userLevel}"
-				if(session>0){
-			html ='';
-			$.ajax({
-				url : '/bidding/'+${product.productNumber},
-				type : 'GET',
-				dataType:"json",  
-				success : function(res){
-					var bidsDate = res.bidsDate.split(",");
-					var biddingId = res.biddingId.split(",");
-					var max =biddingId.length;
-					if(max>0){
-						html+='<div class="dd">';
-						for(var i=0;i<max;i++){
-							html+='<div><div style="width:100px;float:left;">'+bidsDate[i]+'</div><div style="width:100px;float:left;">'+biddingId[i]+'</div><br></div><br>';
-						}
-						html+='</div>';
-					}
-					
-					html+='<div class="bidCount">'+res.bidCount+'</div>';
-					html+=${product.productLowestPrice}+(biddingId.length*200);
-					document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
-					bc=$(".bidCount").text();
-					
-				}
-			}); 
-			
-		            modal.style.display = "block";
-		        
-				}else{
-					alert("로그인을 하셔야 합니다");
-					location.href = '/url/user-info:login';
-				}
+		
+			modal.style.display = "block";
 			});
+		
+		setTimeout(function() {
+		var session = "${sessionScope.userlogininfo.userLevel}"
+			if(session>0){
+		html ='';
+		$.ajax({
+			url : '/bidding/'+${product.productNumber},
+			type : 'GET',
+			dataType:"json",  
+			success : function(res){
+				var bidsDate = res.bidsDate.split(",");
+				var biddingId = res.biddingId.split(",");
+				var max =biddingId.length;
+				if(max>0){
+					html+='<div class="dd">';
+					for(var i=0;i<max;i++){
+						html+='<div><div style="width:100px;float:left;">'+bidsDate[i]+'</div><div style="width:100px;float:left;">'+biddingId[i]+'</div><br></div><br>';
+					}
+					html+='</div>';
+				}
+				
+				html+='<p>입찰 횟수</p>'+'<div class="bidCount">'+res.bidCount+'</div>';
+				html+='가격 : ';
+				html+=${product.productLowestPrice}+(biddingId.length*200);
+				document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
+				var ing ='현재가격 : ';
+				ing+=${product.productLowestPrice}+(biddingId.length*200)+'원 ';   
+				ing+='마지막 입찰시간 : ';
+				if(max == 1){
+					ing+='입찰자 없음';
+				}else{
+					ing+=bidsDate[max-1];
+				}
+				
+				document.querySelector('.ing').insertAdjacentHTML('afterbegin', ing);
+				bc=$(".bidCount").text();
+				
+			}
+		}); 
+			
+		
+	            
+	        
+			}else{
+				alert("로그인을 하셔야 합니다");
+				location.href = '/url/user-info:login';
+			}
+		}, 500);
 		
 		$('[data-update]').click(function(){
 			
@@ -355,15 +374,18 @@ h4 {
 					+'${product.productName}'+'/'+'${product.userId}'+'/'+'${userlogininfo.userId}',
 					type : 'POST',
 					success : function(res){
-						alert(res);
 						if(res==0){
 							alert("이가격에 입찰한사람이 있습니다");
+							location.reload();
 						}if(res==-1){
 							alert("판매자는 입찰하실수 없습니다");
+							location.reload();
 						}if(res==-2){
 							alert("맨 마지막 입찰자 입니다");
+							location.reload();
 						}else{
 							alert("입찰에성공하셨습니다");
+							location.reload();
 						}
 					}
 				});
