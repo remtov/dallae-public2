@@ -20,18 +20,11 @@ import shop.dallae.vo.ProductBidding;
 
 @Controller
 public class ProductBiddingController {
-	
-	public static int io(String pds) {
-		if (pds.indexOf(",")==-1) {
-			return 0;
-		}else {
-			return pds.indexOf(",")-1;
-		}
-	}
-	
+
+
 	@Autowired
 	private ProductBiddingService productBiddingService;
-	
+	//test
 	@Autowired
 	private ProductService productService;
 	
@@ -68,7 +61,8 @@ public class ProductBiddingController {
 			return 0;
 		}else if(pd.getUserId()==productUserId) {
 			return -1;
-		}else if(pds.getBiddingId().substring(io(pds.getBiddingId()), pds.getBiddingId().length())==userId) {
+		}else if(pds.getBiddingId().substring(pds.getBiddingId().indexOf(",")-1, pds.getBiddingId().length())==userId) {
+
 			return -2;
 		}else {
 			ProductBidding pBidding = new ProductBidding();

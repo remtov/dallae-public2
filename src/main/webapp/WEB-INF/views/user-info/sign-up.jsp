@@ -284,8 +284,9 @@ function save() {
          alert("비밀번호가 다릅니다.");
          var passFocus = document.querySelector('#Password');
          passFocus.focus();
-         return false;
-      	}
+
+         //test
+      }return false;
       })
     	
          var params = {
