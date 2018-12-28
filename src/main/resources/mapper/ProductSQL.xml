@@ -54,6 +54,7 @@
 		#{startNum} and #{endNum}
 
 	</select>
+	
 	<select id="ser" resultType="product" parameterType="product">
 		select *
 		from
@@ -64,6 +65,7 @@
 		where productname like '%'||#{ser}||'%' or productdesc like
 		'%'||#{ser}||'%'
 	</select>
+	
 	<!-- 마감일순8개조회_홈화면 -->
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">
