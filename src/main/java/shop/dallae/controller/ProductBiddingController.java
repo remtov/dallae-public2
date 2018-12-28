@@ -31,7 +31,7 @@ public class ProductBiddingController {
 	
 	@Autowired
 	private ProductBiddingService productBiddingService;
-	
+	//test
 	@Autowired
 	private ProductService productService;
 	
