@@ -113,20 +113,18 @@ h4 {
 								<c:if test="${product.productCategory eq 'toyHobby'}">selected </c:if>
 								value="toyHobby">장난감&#38;취미</option>
 					</select> <script type="text/javascript">
-							function selectCategoryAction() {
-								var categorySelectId = document
-										.getElementById("category-select-id");
-								var categorySelectValue = categorySelectId.options[categorySelectId.selectedIndex].value;
-								var categorySelectText = categorySelectId.options[categorySelectId.selectedIndex].text;
-								if (categorySelectValue != 'null') {
-									location.href = '/url/product:category:'
-											+ categorySelectValue;
-								}
-							}
-							
-							function selectOnClickEvent(){
-								$('#category-select-id').val('null').change();
-							}
+					function selectCategoryAction() {
+					    var categorySelectId = document.getElementById("category-select-id");
+					    var categorySelectValue = categorySelectId.options[categorySelectId.selectedIndex].value;
+					    var categorySelectText = categorySelectId.options[categorySelectId.selectedIndex].text;
+					    if (categorySelectValue != 'null') {
+					        location.href = '/url/product:category:' + categorySelectValue;
+					    }
+					}
+
+					function selectOnClickEvent() {
+					    $('#category-select-id').val('null').change();
+					}
 						</script></li>
 					<li><button class="btn btn-default active">자세히보기</button></li>
 				</ol>
@@ -135,77 +133,62 @@ h4 {
 
 				<script type="text/javascript">
 				function closingTimeCalculation() {
-					 var now = new Date();
-					 var dday = new Date(${endTimeNumber}); 
-
-					 if (now.getTime() > dday.getTime()) {
-					    alert('마감된 상품입니다.')
-					    location.href = '/url/product:list';				
-					  }
-					  days = (dday - now) / 1000 / 60 / 60 / 24;
-					  daysRound = Math.floor(days);
-
-					  hours = (dday - now) / 1000 / 60 / 60 - (24 * daysRound);
-					  hoursRound = Math.floor(hours);
-					  
-					  minutes = (dday - now) / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
-					  minutesRound = Math.floor(minutes);
-					  
-					  seconds = (dday - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
-					  secondsRound = Math.round(seconds);
-					  
-					  document.getElementById("days-output").innerHTML = daysRound;
-					  document.getElementById("hours-output").innerHTML = hoursRound;
-					  document.getElementById("minutes-output").innerHTML = minutesRound;
-					  document.getElementById("seconds-output").innerHTML = secondsRound;
-					  newtime = window.setTimeout("closingTimeCalculation();", 1000);
-					}
-					setTimeout(closingTimeCalculation, 100);
-					
-					window.addEventListener('load', function() {
-						var imgs = '${product.productImage}';
-						var img = imgs.split('|');
-						var html ='';
-												
-						html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
-						html += '<ol class="carousel-indicators">';
-						
-						for (var j = 0; j < img.length; j++) {
-							html += '<li data-target="#carousel-example-generic" data-slide-to="'+j+'"';
-							
-							if (j == 0) {
-								html +=	' class="active';
-								}
-							html +='"></li>';
-	
-							}
-						
-							html +='</ol>';
-							html += '<div class="carousel-inner" role="listbox">';
-							
-						for (var i = 0; i < img.length; i++) {
-							html += '<div style="max-height:500px; overflow:hidden;" class="item';
-
-							if (i == 0) {
-								html += ' active';
-								}
-								html += '">';
-								html+='<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/'+img[i]+'">';
-								html+='<div class="carousel-caption"></div></div>';
-							}
-			
-							html += '</div>';
-							html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
-							html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
-							html += '<span class="sr-only">Previous</span></a>';
-							html += '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
-							html += '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
-							html += '<span class="sr-only">Next</span></a></div>';
-						
-							document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
-							
-							
-					});
+				    var now = new Date();
+				    var dday = new Date($ {
+				        endTimeNumber
+				    });
+				    if (now.getTime() > dday.getTime()) {
+				        alert('마감된 상품입니다.')
+				        location.href = '/url/product:list';
+				    }
+				    days = (dday - now) / 1000 / 60 / 60 / 24;
+				    daysRound = Math.floor(days);
+				    hours = (dday - now) / 1000 / 60 / 60 - (24 * daysRound);
+				    hoursRound = Math.floor(hours);
+				    minutes = (dday - now) / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
+				    minutesRound = Math.floor(minutes);
+				    seconds = (dday - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+				    secondsRound = Math.round(seconds);
+				    document.getElementById("days-output").innerHTML = daysRound;
+				    document.getElementById("hours-output").innerHTML = hoursRound;
+				    document.getElementById("minutes-output").innerHTML = minutesRound;
+				    document.getElementById("seconds-output").innerHTML = secondsRound;
+				    newtime = window.setTimeout("closingTimeCalculation();", 1000);
+				}
+				setTimeout(closingTimeCalculation, 100);
+				window.addEventListener('load', function() {
+				    var imgs = '${product.productImage}';
+				    var img = imgs.split('|');
+				    var html = '';
+				    html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
+				    html += '<ol class="carousel-indicators">';
+				    for (var j = 0; j < img.length; j++) {
+				        html += '<li data-target="#carousel-example-generic" data-slide-to="' + j + '"';
+				        if (j == 0) {
+				            html += ' class="active';
+				        }
+				        html += '"></li>';
+				    }
+				    html += '</ol>';
+				    html += '<div class="carousel-inner" role="listbox">';
+				    for (var i = 0; i < img.length; i++) {
+				        html += '<div style="max-height:500px; overflow:hidden;" class="item';
+				        if (i == 0) {
+				            html += ' active';
+				        }
+				        html += '">';
+				        html += '<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/' + img[i] + '">';
+				        html += '<div class="carousel-caption"></div></div>';
+				    }
+				    html += '</div>';
+				    html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
+				    html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
+				    html += '<span class="sr-only">Previous</span></a>';
+				    html += '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
+				    html += '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+				    html += '<span class="sr-only">Next</span></a></div>';
+				    document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
+				});
 				</script>
 
 
@@ -294,107 +277,101 @@ h4 {
 	</div>
 	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 	<script>
-		function updateBtn(productNumber) {
-			location.href = '/productupdate/' + productNumber;
-		}
-		// Get the modal
-		var modal = document.querySelector('#myModal');                                     
-
-		// When the user clicks on <span> (x), close the modal
-
-		$('.close').click(function(){
-            modal.style.display = "none";   
-        });
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		    if (event.target == modal) {
-		        modal.style.display = "none";
-		    }
-		}
-		var bc;
-		// When the user clicks on the button, open the modal 
-		$('#myBtn').click(function(){
+	var modal = document.querySelector('#myModal');
+	var bc;
+	
+	function updateBtn(productNumber) {
+	    location.href = '/productupdate/' + productNumber;
+	}
 		
-			modal.style.display = "block";
-			});
-		
-		setTimeout(function() {
-		var session = "${sessionScope.userlogininfo.userLevel}"
-			if(session>0){
-		html ='';
-		$.ajax({
-			url : '/bidding/'+${product.productNumber},
-			type : 'GET',
-			dataType:"json",  
-			success : function(res){
-				var bidsDate = res.bidsDate.split(",");
-				var biddingId = res.biddingId.split(",");
-				var max =biddingId.length;
-				if(max>0){
-					html+='<div class="dd">';
-					for(var i=0;i<max;i++){
-						html+='<div><div style="width:100px;float:left;">'+bidsDate[i]+'</div><div style="width:100px;float:left;">'+biddingId[i]+'</div><br></div><br>';
-					}
-					html+='</div>';
-				}
-				
-				html+='<p>입찰 횟수</p>'+'<div class="bidCount">'+res.bidCount+'</div>';
-				html+='가격 : ';
-				html+=${product.productLowestPrice}+(biddingId.length*200);
-				document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
-				var ing ='현재가격 : ';
-				ing+=${product.productLowestPrice}+(biddingId.length*200)+'원 ';   
-				ing+='마지막 입찰시간 : ';
-				if(max == 1){
-					ing+='입찰자 없음';
-				}else{
-					ing+=bidsDate[max-1];
-				}
-				
-				document.querySelector('.ing').insertAdjacentHTML('afterbegin', ing);
-				bc=$(".bidCount").text();
-				
-			}
-		}); 
-			
-		
-	            
-	        
-			}else{
-				alert("로그인을 하셔야 합니다");
-				location.href = '/url/user-info:login';
-			}
-		}, 500);
-		
-		$('[data-update]').click(function(){
-			
-				$.ajax({
-					url : '/bidding/'+${product.productNumber}+'/'+bc+'/'
-					+'${product.productName}'+'/'+'${product.userId}'+'/'+'${userlogininfo.userId}',
-					type : 'POST',
-					success : function(res){
-						if(res==0){
-							alert("이가격에 입찰한사람이 있습니다");
-							location.reload();
-						}if(res==-1){
-							alert("판매자는 입찰하실수 없습니다");
-							location.reload();
-						}if(res==-2){
-							alert("맨 마지막 입찰자 입니다");
-							location.reload();
-						}else{
-							alert("입찰에성공하셨습니다");
-							location.reload();
-						}
-					}
-				});
-			
-			
-		});
-		
-
-
+	
+	$('.close').click(function() {
+	    modal.style.display = "none";
+	});
+	
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+	
+	
+	$('#myBtn').click(function() {
+	    modal.style.display = "block";
+	});
+	
+	setTimeout(function() {
+	    var session = "${sessionScope.userlogininfo.userLevel}"
+	    if (session > 0) {
+			        html = '';
+			        $.ajax({
+			            url: '/bidding/' + $ {
+			                product.productNumber
+			            },
+			            type: 'GET',
+			            dataType: "json",
+			            success: function(res) {
+			                var bidsDate = res.bidsDate.split(",");
+			                var biddingId = res.biddingId.split(",");
+			                var max = biddingId.length;
+			                if (max > 0) {
+			                    html += '<div class="dd">';
+			                    for (var i = 0; i < max; i++) {
+			                        html += '<div><div style="width:100px;float:left;">' + bidsDate[i] + '</div><div style="width:100px;float:left;">' + biddingId[i] + '</div><br></div><br>';
+			                    }
+			                    html += '</div>';
+			                }
+			                html += '<p>입찰 횟수</p>' + '<div class="bidCount">' + res.bidCount + '</div>';
+			                html += '가격 : ';
+			                html += $ {
+			                    product.productLowestPrice
+			                } + (biddingId.length * 200);
+			                document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
+			                var ing = '현재가격 : ';
+			                ing += $ {
+			                    product.productLowestPrice
+			                } + (biddingId.length * 200) + '원 ';
+			                ing += '마지막 입찰시간 : ';
+			                if (max == 1) {
+			                    ing += '입찰자 없음';
+			                } else {
+			                    ing += bidsDate[max - 1];
+			                }
+			                document.querySelector('.ing').insertAdjacentHTML('afterbegin', ing);
+			                bc = $(".bidCount").text();
+			            }
+			        });
+	    } else {
+			       /*  alert("로그인을 하셔야 합니다");
+			        location.href = '/url/user-info:login'; */
+	    }
+	}, 500);
+	
+	$('[data-update]').click(function() {
+	    $.ajax({
+	        url: '/bidding/' + $ {
+	            product.productNumber
+	        } + '/' + bc + '/' + '${product.productName}' + '/' + '${product.userId}' + '/' + '${userlogininfo.userId}',
+	        type: 'POST',
+	        success: function(res) {
+	            if (res == 0) {
+	                alert("이가격에 입찰한사람이 있습니다");
+	                location.reload();
+	            }
+	            if (res == -1) {
+	                alert("판매자는 입찰하실수 없습니다");
+	                location.reload();
+	            }
+	            if (res == -2) {
+	                alert("맨 마지막 입찰자 입니다");
+	                location.reload();
+	            } else {
+	                alert("입찰에성공하셨습니다");
+	                location.reload();
+	            }
+	        }
+	    });
+	});
 	</script>
 </body>
 </html>
