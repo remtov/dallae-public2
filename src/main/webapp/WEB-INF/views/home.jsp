@@ -7,7 +7,7 @@
 <head>
 <style>
 #home_container {
-	width: 100%;
+	width: 100%; 
 	background-color: #f6f6f6;
 }
 
