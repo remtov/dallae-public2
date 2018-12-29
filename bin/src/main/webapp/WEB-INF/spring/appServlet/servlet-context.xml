@@ -22,10 +22,31 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/.well-known/**" location="/.well-known/"/>
 
+<<<<<<< HEAD
 
 
 <mvc:resources mapping="/img/**" location="/resources/img/" />
 
+=======
+<<<<<<< HEAD
+
+<mvc:resources mapping="/img/**" location="/resources/img/" />
+
+=======
+<<<<<<< HEAD
+	<!--길어진 리소스생략 로직 -->
+	<mvc:resources mapping="/img/**" 
+		location="/resources/img/" />
+	<!-- 자주쓰는 이미지 폴더는 줄여서 쓰기 -->
+=======
+	<!--스프링부트에 호환이 잘안되어 꺼둠-->
+<!-- 	<mvc:resources mapping="/resources/img/**"
+		location="/resources/img/" /> -->
+<!-- 자주쓰는 이미지 폴더는 줄여서 쓰기 -->
+>>>>>>> branch 'master' of https://j1remtov@bitbucket.org/dancingvitamins/dallae.git
+	<!--길어진 리소스생략 로직 -->
+>>>>>>> branch 'master' of https://j1remtov@bitbucket.org/dancingvitamins/dallae.git
+>>>>>>> branch 'master' of https://j1remtov@bitbucket.org/dancingvitamins/dallae.git
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
