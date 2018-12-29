@@ -23,7 +23,7 @@
 	<resources mapping="/.well-known/**" location="/.well-known/"/>
 
 	<!--길어진 리소스생략 로직 -->
-	<mvc:resources mapping="/img/**"
+	<mvc:resources mapping="/img/**" 
 		location="/resources/img/" />
 	<!-- 자주쓰는 이미지 폴더는 줄여서 쓰기 -->
 	<!--길어진 리소스생략 로직 -->
