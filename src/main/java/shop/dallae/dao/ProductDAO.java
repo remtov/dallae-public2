@@ -13,8 +13,6 @@ public interface ProductDAO {
 	
 	public Product getProductImage(String productImage);
 
-	public List<Product> getSer(Product product);
-	
 	public int insertProduct(Product product);
 
 	public int updateProduct(Product product);

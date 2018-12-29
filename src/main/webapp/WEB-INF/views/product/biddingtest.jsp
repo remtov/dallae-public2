@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
 <form>
 <div class="bidding">
 <button style="float: right;" class="btn btn-primary btn-lg"
@@ -27,12 +26,12 @@ type="button" data-update>입찰 하기</button>
 			for(var i=0;i<max;i++){
 				html+='<div><div style="width:100px;float:left;">'+biddingDate[i]+'</div><div style="width:100px;float:left;">'+res.biddingId[i]+'</div><br></div><br>';
 			}
-			html+='<div class="bidCount">'+res.bidCount+'번 비딩함<div>';
+			html+='<div class="bidCount">'+res.bidCount+'번 비딩<div>';
 			html+=${product.productLowestPrice}+(biddingId.length*200);
 			document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
 		}
 	});
-	var bc =${'.bidCount'}.val();
+	var bc =${'.bidCount'};
 $('[data-update]').click(function()){
 	$.ajax({
 		url : '/biddingudt/'+${product.productNumber}+'/'+bc+'/'+${product.productName},
@@ -49,6 +48,5 @@ $('[data-update]').click(function()){
 }
 
 </script>
-<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
