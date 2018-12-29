@@ -17,10 +17,9 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/.well-known/**" location="/.well-known/" />
 
-<!-- 	<mvc:resources mapping="/resources/img/**"
-		location="/resources/img/" /> -->
+<mvc:resources mapping="/img/**"
+		location="/resources/img/" />
 	
-	<!--리소스생략 -->
 
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
