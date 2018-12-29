@@ -21,7 +21,7 @@
 
 <link href="<%=rootPath%>/resources/css/bootstrap.min.css"
 	rel="stylesheet">
-<link rel="icon" href="/resources/img/favi.png">
+<link rel="icon" href="<%=rootPath%>/resources/img/favi.png">
 <link rel="stylesheet" href="<%=rootPath%>/resources/css/style.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
