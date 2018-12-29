@@ -162,8 +162,8 @@ hr {
 										<p>
 											<label for="productImage" id="view-update_file-box--1"
 												class="btn btn-default"> <span>+</span>1<br> <img
-												name="preview" src="/resources/img/product/${productImageSplited[0]}"
-												id="preview" onError="this.src='/resources/img/icon-img.png'">
+												name="preview" src="/img/product/${productImageSplited[0]}"
+												id="preview" onError="this.src='/img/icon-img.png'">
 											</label>
 										</p>
 										<p>
@@ -176,8 +176,8 @@ hr {
 										<p>
 											<label for="productImage2" class="btn btn-default"><span>+</span>2<br>
 												<img name="preview"
-												src="/resources/img/product/${productImageSplited[1]}" id="preview2"
-												onError="this.src='/resources/img/icon-img.png'"></label>
+												src="/img/product/${productImageSplited[1]}" id="preview2"
+												onError="this.src='/img/icon-img.png'"></label>
 										</p>
 										<p>
 											<input name="productImage2" required type="file"
@@ -189,8 +189,8 @@ hr {
 										<p>
 											<label for="productImage3" class="btn btn-default"><span>+</span>3<br>
 												<img name="preview"
-												src="/resources/img/product/${productImageSplited[2]}" id="preview3"
-												onError="this.src='/resources/img/icon-img.png'"></label>
+												src="/img/product/${productImageSplited[2]}" id="preview3"
+												onError="this.src='/img/icon-img.png'"></label>
 										</p>
 										<p>
 											<input name="productImage3" required type="file"
@@ -204,8 +204,8 @@ hr {
 										<p>
 											<label for="productImage4" class="btn btn-default"><span>+</span>4<br>
 												<img name="preview"
-												src="/resources/img/product/${productImageSplited[3]}" id="preview4"
-												onError="this.src='/resources/img/icon-img.png'"></label>
+												src="/img/product/${productImageSplited[3]}" id="preview4"
+												onError="this.src='/img/icon-img.png'"></label>
 										</p>
 										<p>
 											<input name="productImage4" required type="file"
@@ -217,8 +217,8 @@ hr {
 										<p>
 											<label for="productImage5" class="btn btn-default">+
 												5<br> <img name="preview"
-												src="/resources/img/product/${productImageSplited[4]}" id="preview5"
-												onError="this.src='/resources/img/icon-img.png'">
+												src="/img/product/${productImageSplited[4]}" id="preview5"
+												onError="this.src='/img/icon-img.png'">
 											</label>
 										</p>
 										<p>
@@ -231,8 +231,8 @@ hr {
 										<p>
 											<label for="productImage6" class="btn btn-default">+
 												6<br> <img name="preview"
-												src="/resources/img/product/${productImageSplited[5]}" id="preview6"
-												onError="this.src='/resources/img/icon-img.png'">
+												src="/img/product/${productImageSplited[5]}" id="preview6"
+												onError="this.src='/img/icon-img.png'">
 											</label>
 										</p>
 										<p>
@@ -247,8 +247,8 @@ hr {
 										<p>
 											<label for="productImage7" class="btn btn-default">+
 												7<br> <img name="preview"
-												src="/resources/img/product/${productImageSplited[6]}" id="preview7"
-												onError="this.src='/resources/img/icon-img.png'">
+												src="/img/product/${productImageSplited[6]}" id="preview7"
+												onError="this.src='/img/icon-img.png'">
 											</label>
 										</p>
 										<p>
@@ -261,8 +261,8 @@ hr {
 										<p>
 											<label for="productImage8" class="btn btn-default">+
 												8<br> <img name="preview"
-												src="/resources/img/product/${productImageSplited[7]}"
-												onError="this.src='/resources/img/icon-img.png'" id="preview8"
+												src="/img/product/${productImageSplited[7]}"
+												onError="this.src='/img/icon-img.png'" id="preview8"
 												name="preview">
 											</label>
 										</p>
@@ -276,8 +276,8 @@ hr {
 										<p>
 											<label for="productImage9" class="btn btn-default">+
 												9<br> <img name="preview"
-												src="/resources/img/product/${productImageSplited[8]}"
-												onError="this.src='/resources/img/icon-img.png'" id="preview9">
+												src="/img/product/${productImageSplited[8]}"
+												onError="this.src='/img/icon-img.png'" id="preview9">
 											</label>
 										</p>
 										<p>
@@ -291,7 +291,7 @@ hr {
 
 							<div class="view-update_seller-info">
 								<div class="view-update_seller-info--pic">
-									<img src="/resources/img/icon_profile.png">
+									<img src="/img/icon_profile.png">
 								</div>
 								<div class="view-update_seller-info--id">
 									<p>
@@ -301,7 +301,7 @@ hr {
 								</div>
 								<div class="view-update_seller-info--lv">
 									<span>판매자 신용등급 (최고LV 10) : </span> <b> LV
-										${product.userCreditLevel} </b> <img src="/resources/img/icon-level-1.png">
+										${product.userCreditLevel} </b> <img src="/img/icon-level-1.png">
 								</div>
 							</div>
 							<hr>

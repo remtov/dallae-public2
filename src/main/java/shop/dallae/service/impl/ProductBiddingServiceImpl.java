@@ -1,7 +1,5 @@
 package shop.dallae.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +13,6 @@ public class ProductBiddingServiceImpl implements ProductBiddingService {
 	@Autowired
 	private ProductBiddingDAOImpl productBiddingDAOImpl;
 
-	// 관리자전체검색용
-	@Override
-	public List<ProductBidding> getBiddingList(ProductBidding productBidding) {
-		return productBiddingDAOImpl.getProductBiddingList(productBidding);
-	}
 
 	@Override
 	public ProductBidding getBidding(Integer productNumber) {

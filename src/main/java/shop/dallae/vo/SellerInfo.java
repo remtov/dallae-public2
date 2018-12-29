@@ -1,8 +1,5 @@
 package shop.dallae.vo;
 
-import org.apache.ibatis.type.Alias;
-
-@Alias("sellerInfo")
 public class SellerInfo {
 
 	private Integer sellerInfoNumber;

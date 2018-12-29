@@ -56,7 +56,7 @@ window.addEventListener('load',function(){
 			html +='<button class="btn btn-danger" onclick="location.href="">입찰</button>';
 			html +='<button class="btn btn-default"';
 			html +='onclick="goPage('+productEndDateList.productNumber+')">더보기</button></div>';
-			html +='<img style="width: 100%;" src="/resources/img/product/'+productEndDateList.productImage+'"></div></div>';
+			html +='<img style="width: 100%;" src="/img/product/'+productEndDateList.productImage+'"></div></div>';
 			}
 			document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
 	}

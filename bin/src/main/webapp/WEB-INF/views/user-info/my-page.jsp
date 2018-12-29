@@ -65,13 +65,13 @@ window.addEventListener('load', function() {
 				<!-- 세션을가진사람-->
 				<div
 					style="width: 100%; height: 500px; position: relative; z-index: 1;">
-					<img src="/resources/img/back-ground-1.jpg"
+					<img src="/img/back-ground-1.jpg"
 						style="width: auto; position: absolute; z-index: 1;">
 					<div class="my-page_in-box" style="position: absolute;">
 						<button
 							style="position: absolute; top: -30px; right: 0px; z-index: 2;"
 							class="btn btn-default btn-xs">
-							편집 <img style="width: 13px;" src="/resources/img/icon_edit.png">
+							편집 <img style="width: 13px;" src="/img/icon_edit.png">
 						</button>
 						<h2>
 							My Page>ID<b> ${userlogininfo.userId} </b><small>님의 페이지
@@ -81,7 +81,7 @@ window.addEventListener('load', function() {
 							<div class="col-md-6"
 								style="padding: 10px; border: 1px solid #f6f6f6;">
 								<div style="width: 30%; float: left;">
-									<a href="#"><img src="/resources/img/icon_profile.png"
+									<a href="#"><img src="/img/icon_profile.png"
 										style="width: 70px;"></a>
 								</div>
 								<div style="width: 70%; float: left;">
@@ -127,8 +127,8 @@ window.addEventListener('load', function() {
 										id="userAddress2">
 								</p>
 								<p style="margin-top: 30px;" class="my-page_follow-line">
-									팔로윙 0명 | 팔로워 0명 | <img src="/resources/img/kakao.png"> <img
-										src="/resources/img/facebook.png"> <img src="/resources/img/instagram.png">
+									팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
+										src="/img/facebook.png"> <img src="/img/instagram.png">
 								</p>
 								<input class="btn btn-primary btn-lg btn-block" type="button"
 									name="checkButton" value=" 수 정 " onclick="save()">

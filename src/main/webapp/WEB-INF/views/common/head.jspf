@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +20,7 @@
 
 <!-- <link rel="icon" href="/resources/img/favi.png"/> -->
 <title>달래옥션 - Dallae Auction</title>
-
+<link rel="icon" href="/resources/img/favi.png">
 <link href="<%=rootPath%>/resources/css/bootstrap.min.css"
 	rel="stylesheet">
 
@@ -222,4 +223,5 @@
 			ajaxUtil.send();
 		}
 	</script>
+
 </body>

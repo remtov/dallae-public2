@@ -156,10 +156,4 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productDAOImpl.getProductImage(productImage);
 	}
-
-	@Override
-	public List<Product> getSer(Product product) {
-		
-		return productDAOImpl.getSer(product);
-	}
 }

@@ -22,7 +22,7 @@
 					<div class="col-md-6"
 						style="padding: 10px; border: 1px solid #f6f6f6;">
 						<div style="width: 30%; float: left;">
-							<a href="#"><img src="/resources/img/icon_profile.png"
+							<a href="#"><img src="/img/icon_profile.png"
 								style="width: 70px;"></a>
 						</div>
 						<div style="width: 70%; float: left;">
@@ -41,8 +41,8 @@
 						<p style="margin-top: 5px;">폰번호 : ${userinfo.userPhoneNum} |
 							주소 : ${userinfo.userAddress}${userinfo.userAddress2}" |</p>
 						<p style="margin-top: 30px;" class="my-page_follow-line">
-							팔로윙 0명 | 팔로워 0명 | <img src="/resources/img/kakao.png"> <img
-								src="/resources/img/facebook.png"> <img src="/resources/img/instagram.png">
+							팔로윙 0명 | 팔로워 0명 | <img src="/img/kakao.png"> <img
+								src="/img/facebook.png"> <img src="/img/instagram.png">
 						</p>
 					</div>
 				</div>
