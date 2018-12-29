@@ -69,6 +69,7 @@ window.addEventListener('load', function() {
 </script>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<c:choose>
 			<c:when test="${not empty sessionScope.userlogininfo}">
@@ -85,7 +86,7 @@ window.addEventListener('load', function() {
 							<div class="col-md-6"
 								style="padding: 10px; border: 1px solid #f6f6f6;">
 								<div style="width: 30%; float: left;">
-									<a href="#"><img src="/img/icon_profile.png"
+									<a href="#"><img src="/resources/img/icon_profile.png"
 										style="width: 70px;"></a>
 								</div>
 								<div style="width: 70%; float: left;">
@@ -155,7 +156,14 @@ window.addEventListener('load', function() {
 			</c:when>
 			<c:otherwise>
 				<!-- 세션없는 사람-->
-				<%@ include file="/WEB-INF/views/product/list.jsp"%>
+				<div class="view-container">
+					<div class="container">
+						<div class="inner-box">
+							<h3>전체 경매물품 목록입니다</h3>
+							<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
+						</div>
+					</div>
+				</div>
 			</c:otherwise>
 		</c:choose>
 	</div>
@@ -209,9 +217,7 @@ function save() {
 	   }
 	   params = JSON.stringify(params);
 	   var conf = {
-	      url: '/update/' + ${
-	         userlogininfo.userNumber
-	      },
+	      url:'/update/'+${userlogininfo.userNumber},
 	      method: 'PUT',
 	      param: params,
 	      success: function(res) {
@@ -230,6 +236,7 @@ function save() {
 	   location.href = '/productupdate/' + productNumber;
 	}
 </script>
+<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
 

@@ -5,6 +5,18 @@
 <head>
 <meta charset="UTF-8" />
 <title>본인 인증</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script
+	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
+	async defer></script>
+<script type="text/javascript">
+	var onloadCallback = function() {
+		greCAPTCHA.render('html_element', {
+			'sitekey' : '6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+			'theme' : 'light'
+		});
+	};
+</script>
 <style>
 .inner-box3 {
 	border: 1px solid #d6d6d6;
@@ -19,29 +31,35 @@
 	text-align: center;
 }
 </style>
+<script
+	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
+	async defer></script>
 <script type="text/javascript">
-var newWindow;
+	var onloadCallback = function() {
+		greCAPTCHA.render('html_element', {
+			'sitekey' : '6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+			'theme' : 'light'
+		});
+	};
+</script>
+<script type="text/javascript">
+	var newWindow;
+	var newWindow2;
 
-function openNewWindow() {
-   newWindow = window.open("https://www.skbroadband.com/popup/Identify_Popup.do", "newWindow", "height=200, width=400, resizable=yes");
-}
-
-function recieve() {
-   var txt = "<font color='red'>인증창에서 받아온 값</font>";
-   document.getElementById("process").innerHTML = txt;
-   document.myform.receiver.value = $("#certificationYN", opener.document).val('Y');
-   document.myform.receiver2.value = opener.$("#name").val($("#name").val());
-   document.myform.receiver3.value = opener.$("#name").html($("#name").val());
-   document.myform.receiver4.value = opener.$("#cell_phone1").val($("#cell_phone1").val());
-   document.myform.receiver5.value = opener.$("#cell_phone2").val($("#cell_phone2").val());
-   document.myform.receiver6.value = opener.$("#cell_phone3").val($("#cell_phone3").val());
-   document.myform.receiver7.value = opener.nameCheck($("#name").val());
-}
+	function openNewWindow() {
+		newWindow = window.open("/url/user-info:seller-certification_popup",
+				"popup1", "width=360, height=640, resizable=yes");
+	}
+	function openNewWindow2() {
+		newWindow2 = window.open("/url/user-info:seller-certification_popup2",
+				"popup2", "width=360, height=640, resizable=yes");
+	}
 </script>
 
 </head>
 <body>
-	<c:set var="userid" value="${userlogininfo.userId}"></c:set>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<c:choose>
 		<c:when test="${not empty sessionScope.userlogininfo}">
 			<!-- 로그인 된사람 -->
@@ -81,22 +99,61 @@ function recieve() {
 											class="btn btn-primary" onclick="summit()">제출</button>
 									</h2>
 									<p>
-										<input class="btn btn-default" value="휴대폰 본인인증" type="button"
+										<input class="btn btn-default" value="휴대폰 인증" type="button"
 											onclick="openNewWindow()" />
 									</p>
 									<p>
-										인증 후 받아온 값 :<br> <input type="text" name="receiver"
-											size="10"><input type="text"
-											name="receiver2" size="10"> <input
-											type="text" name="receiver3" size="10"> <input
-											type="text" name="receiver4" size="10"> <input
-											type="text" name="receiver5" size="10"> <input
-											type="text" name="receiver6" size="10"> <input
-											type="text" name="receiver7" size="10"> <span
-											id="process"></span> <input class="btn btn-default"
-											type="button" value="인증창의 완료후 값 받아오기 테스트" onclick="recieve()">
-
+										<input class="btn btn-default" value="계좌 인증" type="button"
+											onclick="openNewWindow2()" />
 									</p>
+									<p>
+										휴대폰 인증<input class="form-control" type="text" disabled
+											id="certificationYN" />
+									</p>
+
+									<p>
+										이름<input class="form-control" type="text" disabled id="name" />
+									</p>
+									<p>
+										성별<input class="form-control" type="text" disabled id="gender" />
+									</p>
+
+									<p>
+										생년월일<input class="form-control" type="text" disabled
+											id="birthDay" />
+									</p>
+									<p>
+										통신사<input class="form-control" type="text" disabled
+											id="phoneCorp" />
+									</p>
+									<p>
+										식별번호<input class="form-control" type="text" disabled
+											id="cell_phone1" />
+									</p>
+									<p>
+										전화번호<input class="form-control" type="text" disabled id="tel2" />
+									</p>
+									<p>
+										계좌인증<input class="form-control" type="text" disabled
+											id="certificationYN2" />
+									</p>
+
+									<p>
+										은행<input class="form-control" type="text" disabled
+											id="sellerBank" />
+									</p>
+
+									<p>
+										계좌<input class="form-control" type="text" disabled
+											id="sellerAccountNumber" />
+									</p>
+
+									<p>
+										계좌비번<input class="form-control" type="password" disabled
+											id="accountPass" />
+									</p>
+
+
 								</div>
 							</form>
 						</c:otherwise>
@@ -119,36 +176,67 @@ function recieve() {
 			}
 		}
 
-		function summit() {
-			var test1 = document.querySelector('#test2').value
-			var test2 = document.querySelector('#test2').value
-			var params = '';
-			params = 'test1=' + test1 + '&test2=' + test2;
-			var conf = {
-				url : '/test',
-				param : params,
-				success : function(res) {
-
-					if (res != '') {
-						res = JSON.parse(res);
-						alert('본인 인증 테스트에 성공 하셨습니다.');
-						location.href = "/url/user-info:login";
-					} else {
-						alert('본인 인증에 실패 하셨습니다.');
+function summit() {
+	var sellerInfoNumber = ${userlogininfo.userNumber};
+	var sellerAccountNumber = document.querySelector('#sellerAccountNumber').value;
+	var sellerBank = document.querySelector('#sellerBank').value;
+	var certificationYN = document.querySelector('#certificationYN').value;
+	var certificationYN2 = document.querySelector('#certificationYN2').value;
+      if (certificationYN!='Y'||certificationYN2!='Y') {
+         alert('죄송합니다. 인증이 완료되지 않아 권한을 올려 드릴 수 없습니다.');
+         return false;
+      } else {
+         var params = {
+        		 sellerInfoNumber:sellerInfoNumber,
+        		 sellerAccountNumber: sellerAccountNumber,
+        		 sellerBank: sellerBank
+                 };
+         params = JSON.stringify(params);
+         
+            var conf = {
+               url: '/sellerinfo',
+               method: 'POST',
+               param: params,
+               success: function(res) {
+            		if(typeof(greCAPTCHA)!='undefined'){
+						if(greCAPTCHA.getResponse()==""){
+							alert("스팸 방지코드를 확인해주세요");
+							return;
+						}
 					}
-				}
-			}
-			var ajaxUtil = new AjaxUtil(conf);
-			ajaxUtil.send();
-		}
-		function alert1() {
-			alert('인증1 테스트');
-		}
+                  if (res == 1) {
+                     alert('${userlogininfo.userId} 님 인증에 성공하신 것을 축하드립니다.');
+                  };
+               }
+            };
+         var ajaxUtil = new AjaxUtil(conf);
+         ajaxUtil.send();
+       var userLevel = ${userlogininfo.userLevel};
+  	      var params = {
+  	      	userLevel:userLevel+1
+  	      } 
+  	      params = JSON.stringify(params);
+  	   var conf = {
+  	      url:'/update/'+${userlogininfo.userNumber},
+  	      method: 'PUT',
+  	      param: params,
+  	      success: function(res) {
+  	         /* alert(res) */
+  	         if (res == 1) {
+  	            alert('${userlogininfo.userId}의 권한이 상승되었습니다. 세션 재설정을 위하여 한번 더 로그인 부탁드립니다.');
+  	            logout();
+  	            
+  	         };
+  	      }
+  	   };
+  	   var ajaxUtil = new AjaxUtil(conf);
+  	   ajaxUtil.send();
+  	  }
+   }
 
-		function alert2() {
-			alert('인증2 테스트');
-		}
+
 	</script>
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
 

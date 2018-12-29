@@ -3,6 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SQL.BiddingSQL">
+	<select id="getProductBiddingList" resultType="bidding"
+		parameterType="bidding">
+		SELECT * FROM PRODUCTBIDDING
+		<where>
+			<if test="productNumber!=null"> and PRODUCTNUMBER like '%'||#{productNumber}||'%'</if>
+			<if test="bidCount!=null"> and BIDCOUNT like '%'||#{bidCount}||'%'</if>
+			<if test="biddingId!=null"> and BIDSDATE like '%'||#{biddingId}||'%'
+			</if>
+			<if test="bidsDate!=null"> and BIDDINGID like '%'||#{bidsDate}||'%'
+			</if>
+			<if test="biddingStatus!=null"> and BIDDINGSTATUS like '%'||#{biddingStatus}||'%'</if>
+		
+		</where>
+		order by PRODUCTNUMBER DESC
+	</select>
+	
 	<select id="getBidding" resultType="bidding"
 		parameterType="bidding">
 		select * from productbidding
@@ -21,21 +37,24 @@
 		VALUES(
 		#{productNumber},
 		0,
-		#{biddingId,jdbcType=VARCHAR},
-		to_char(SYSDATE,'YYYY-MM-DD HH24:mi:ss'),
+		'입찰한 아이디',
+		'입찰한 시간',
 		0
 		)
 		<!-- #{biddingId, jdbcType=VARCHAR}이건 null insert 하는방법 -->
 	</insert>
 	
 	<update id="updateBidding" parameterType="bidding">
-		update product
+		update productBidding
 		<set>
-			<if test="bidcount !=null">bidcount =
-				bidcount+1,
+			<if test="bidCount !=null">bidCount =
+				#{bidCount},
 			</if>
-			<if test="biddingid !=null">biddingid =
-				#{biddingid},
+			<if test="bidsDate !=null">bidsDate =
+				#{bidsDate},
+			</if>
+			<if test="biddingId !=null">biddingId =
+				#{biddingId},
 			</if>
 		</set>
 		where ProductNumber=#{productNumber}
@@ -44,8 +63,8 @@
 	<update id="updateBiddingEnd" parameterType="bidding">
 		update bidding
 		<set>
-			<if test="biddingstatus !=null">biddingstatus =
-				#{biddingstatus},
+			<if test="biddingStatus !=null">biddingStatus =
+				#{biddingStatus},
 			</if>
 		</set>
 		where ProductNumber=#{productNumber}

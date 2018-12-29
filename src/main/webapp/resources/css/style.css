@@ -27,7 +27,7 @@
 	padding: 10px;
 }
 
-body {
+body:not(.popup) {
 	background-color: white;
 	marginheight: 0px;
 	marginwidth: 0px;

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQL.SellerInfoSQL">
+	<select id="getSellerInfoList" resultType="sellerInfo" 
+		parameterType="sellerInfo"><!-- 전체검색 관리자페이지용 -->
+		select * from SellerInfo
+		<where>
+			<if test="sellerInfoNumber!=null"> and sellerInfoNumber like '%'||#{sellerInfoNumber}||'%'</if>
+			<if test="sellerAccountNumber!=null"> and sellerAccountNumber like '%'||#{sellerAccountNumber}||'%'</if>
+			<if test="sellerBank!=null"> and sellerBank like '%'||#{sellerBank}||'%'
+			</if>
+			<if test="sellerPoint!=null"> and sellerPoint like '%'||#{sellerPoint}||'%'
+			</if>
+		</where>
+		order by sellerInfoNumber DESC
+	</select>
+	
+	<select id="getSellerInfo" resultType="sellerInfo"
+		parameterType="sellerInfo">
+		select * from SellerInfo
+		where
+		ProductNumber=#{productNumber}
+	</select>
+
+
+	<insert id="insertSellerInfo" parameterType="sellerInfo">
+		INSERT INTO
+		sellerInfo
+		(
+		SELLERINFONUMBER,
+		SELLERACCOUNTNUMBER,
+		SELLERBANK,
+		SELLERPOINT
+		)
+		VALUES(
+		${sellerInfoNumber},
+		'${sellerAccountNumber}',
+		'${sellerBank}',
+		50
+		)
+	</insert>
+
+	<update id="updatesellerInfo" parameterType="sellerInfo">
+		update product
+		<set>
+			<if test="bidcount !=null">bidcount =
+				bidcount+1,
+			</if>
+			<if test="sellerInfoid !=null">sellerInfoid =
+				#{sellerInfoid},
+			</if>
+		</set>
+		where ProductNumber=#{productNumber}
+	</update>
+
+	<update id="updatesellerInfoEnd" parameterType="sellerInfo">
+		update sellerInfo
+		<set>
+			<if test="sellerInfostatus !=null">sellerInfostatus =
+				#{sellerInfostatus},
+			</if>
+		</set>
+		where ProductNumber=#{productNumber}
+	</update>
+	<delete id="deletesellerInfo" parameterType="sellerInfo">
+		delete from
+		sellerInfo
+		where ProductNumber=#{productNumber}
+	</delete>
+
+</mapper>

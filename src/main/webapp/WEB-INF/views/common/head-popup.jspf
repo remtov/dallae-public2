@@ -1,0 +1,101 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String rootPath = request.getContextPath();
+	String uri = request.getRequestURI();
+%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="description" content="환영합니다. 달래옥션 경매,중고,입찰,매물 전문 웹사이트입니다.">
+<meta name="author" content="ict1 erp5 달래">
+<meta name="keyword" content="경매,중고,입찰,매물,auction,shopping">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>달래옥션 - Dallae Auction</title>
+
+<link href="<%=rootPath%>/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="icon" href="/resources/img/favi.png">
+<link rel="stylesheet" href="<%=rootPath%>/resources/css/style.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="<%=rootPath%>/resources/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	
+	<script>
+		var AjaxUtil = function(conf) {
+			var xmlHttpRequest = new XMLHttpRequest();
+			var url = conf.url;
+			var method = conf.method ? conf.method : 'GET';
+			var param = conf.param ? conf.param : '{}';
+			var success = conf.success ? conf.success : function(res) {
+				alert(res);
+			}
+			var error = conf.error ? conf.error : function(res) {
+				alert(res);
+			}
+
+			xmlHttpRequest.onreadystatechange = function() {
+				if (xmlHttpRequest.readyState == 4) {
+					if (xmlHttpRequest.status == "200") {
+						success(xmlHttpRequest.responseText);
+					} else {
+						error(xmlHttpRequest.responseText);
+					}
+				}
+			}
+
+			if (method != 'GET') {
+				xmlHttpRequest.open(method, url);
+				xmlHttpRequest.setRequestHeader('content-Type',
+						'application/json; charset=UTF-8');
+			} else {
+				url = url + '?' + encodeURI(param);
+				xmlHttpRequest.open(method, url);
+			}
+
+			this.send = function() {
+				xmlHttpRequest.send(param);
+			}
+		};
+
+		function ser(){
+			var ser = document.querySelector('#search').value;
+			var params = {ser:ser};
+			params = JSON.stringify(params)
+			var conf={
+					url:'/productsearch',
+					param : params,
+					method : 'POST',
+					success : function(res) {
+						location.href = '/url/product:test';
+					}
+					
+			}
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
+		}
+		function logout() {
+			var conf = {
+				url : '/logout',
+				method : 'POST',
+				success : function(res) {
+
+					if (res == '1') {
+						location.href = '/url/user-info:login';
+					}
+				}
+			}
+			var ajaxUtil = new AjaxUtil(conf);
+			ajaxUtil.send();
+		}
+	</script>
+</body>

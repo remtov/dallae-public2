@@ -39,71 +39,76 @@ div>.carousel-control p {
 <script src="/resources/js/AjaxUtil.js"></script>
 <script>
 window.addEventListener('load',function(){
-	var ajaxUtil = new AjaxUtil( {
-	url : '/productlistenddate',
-	success : function(response){
-	response = JSON.parse(response);
-		
-	var html = '';
-	html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
-	html += '<ol class="carousel-indicators">';
-	for (var j = 0; j < 8; j++) {
-	html += '<li data-target="#carousel-example-generic" data-slide-to="'+j+'"';
-	if (j == 0) {
-		html +=	' class="active';
-		}
-		html +='"></li>';
-	
-	}
-	html +='</ol>';
-	html += '<div class="carousel-inner" role="listbox">';
-	var now = new Date();
-	for (var i = 0; i < 8; i++) {
-
-		var dday = new Date(response[i].productEndDate);
-		days = (dday - now) / 1000 / 60 / 60 / 24;
-		daysRound = Math.floor(days);
-		hours = (dday- now) / 1000 / 60 / 60 - (24 * daysRound); 
-		hoursRound = Math.floor(hours);
-		minutes = (dday- now) / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
-		minutesRound = Math.floor(minutes);
-		seconds = (dday- now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
-		secondsRound = Math.round(seconds);
-		
-	html += '<div style="max-height:500px; overflow:hidden;" class="item';
-	if (i == 0) {
-	html += ' active';
-	}
-	html += '">';
-	html += '<a onclick="goPage('+ response[i].productNumber+')"><img style="max-height:500px; width:auto; margin:auto;" src="/img/product/'
-	
-	var imgs = response[i].productImage;
-	var img = imgs.split('|');
-		
-	html += img[0]+'" onError="this.src=\'/img/icon-img.png\'"></a>';
-	html += '<div class="carousel-caption" >';
-	html += '<h3><span style="background-color:rgba(0,0,0,0.5);"><b> 마감임박! "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);">'
-			+ daysRound+ '일 '+hoursRound+'시 '+minutesRound+'분 '+secondsRound+'초 뒤에 경매가 종료됩니다. '
-			+ '</span></p><button class="btn btn-danger" onclick="goPage('
-			+ response[i].productNumber + ')">입찰</button><button style="margin-left:5px;" class="btn btn-default" onclick="goPage('
-			+ response[i].productNumber + ')">더보기</button></div></div>';
-	}
+	var ajaxUtil = new AjaxUtil({
+			url : '/productlistenddate',
+			success : function(response){
+			response = JSON.parse(response);
 				
-	html += '</div>';
-
-	html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
-	html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
-	html += '<span class="sr-only">Previous</span></a>';
-	html += '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
-	html += '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
-	html += '<span class="sr-only">Next</span></a></div>';
+			var html = '';
+			var now = new Date();
+			
+			html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
+			html += '<ol class="carousel-indicators">';
+				
+				for (var j = 0; j < 8; j++) {
+						html += '<li data-target="#carousel-example-generic" data-slide-to="'+j+'"';
+							if (j == 0) {html +=' class="active';}
+						html +='"></li>';
+				}
+				
+			html +='</ol>';
+			html += '<div class="carousel-inner" role="listbox">';
+			
+				for (var i = 0; i < 8; i++) {
+						var dday = new Date(response[i].productEndDate);
+						var imgs = response[i].productImage;
+						var img = imgs.split('|');
+						
+						days = (dday - now) / 1000 / 60 / 60 / 24;
+						daysRound = Math.floor(days);
+						hours = (dday- now) / 1000 / 60 / 60 - (24 * daysRound); 
+						hoursRound = Math.floor(hours);
+						minutes = (dday- now) / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
+						minutesRound = Math.floor(minutes);
+						seconds = (dday- now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+						secondsRound = Math.round(seconds);
+						
+/* 						alert('남은일자 : '+days+'남은시간 : '+hours+'남은분 : '+minutes+'남은초 : '+seconds); */
+					html += '<div style="max-height:500px; overflow:hidden;" class="item';
+						
+					if (i == 0) {html += ' active';}
+					
+					html += '">';
+					html += '<a onclick="goPage('+ response[i].productNumber+')"><img style="max-height:500px; width:auto; margin:auto;" src="/resources/img/product/'
+					html += img[0]+'" onError="this.src=\'/resources/img/icon-img.png\'"></a>';
+					html += '<div class="carousel-caption" >';
+					html += '<h3><span style="background-color:rgba(0,0,0,0.5);">';
+						if( days < 0){
+							html += '<b> 죄송합니다!</b></span></h3><p><span style="background-color:rgba(0,0,0,0.5);"><b style="font-size:1.2em;">'
+							+'마감</b>된 상품입니다.';
+						}else{
+							html += '<b> 마감임박! "' + response[i].productName +'" 이 </b>'+response[i].productLowestPrice+'원! </span></h3><p><span style="background-color:rgba(0,0,0,0.5);"><b style="font-size:1.2em;">'
+							+ daysRound+ '일 '+hoursRound+'시 '+minutesRound+'분 '+secondsRound+'초 </b>뒤에 경매가 종료됩니다. ';			
+						}
+					html += '</span></p><button class="btn btn-danger" onclick="goPage('
+							+ response[i].productNumber + ')">입찰</button><button style="margin-left:5px;" class="btn btn-default" onclick="goPage('
+							+ response[i].productNumber + ')">더보기</button></div></div>';
+				}//8개의 게시물 반복문
+						
+			html += '</div>';		
+			html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
+			html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
+			html += '<span class="sr-only">Previous</span></a>';
+			html += '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
+			html += '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+			html += '<span class="sr-only">Next</span></a></div>';
+			
+			document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
+			}//서버에서 받은 내용
 	
-		document.querySelector('#productlistEnddateDiv').insertAdjacentHTML('beforeend',html);
-	
-	}    
-});      
-ajaxUtil.send();   
-});
+	});//ajaxUtil      
+	ajaxUtil.send();   
+});//load function
 </script>
 </head>
 <body>

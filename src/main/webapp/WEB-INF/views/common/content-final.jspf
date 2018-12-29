@@ -38,7 +38,7 @@ function loadba() {
 	        };
 	        html += '<div class="col-sm-6 col-md-3">';
 	        html += '<div class="thumbnail">';
-	        html += '<a onclick="goPage(' + res[i].productNumber + ')"><img style="width:100%;" onError="this.src=\'/img/icon-img.png\'" src="/resources/img/product/';
+	        html += '<a onclick="goPage(' + res[i].productNumber + ')"><img style="width:100%;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/';
 	        
 			var imgs = res[i].productImage;
 			var img = imgs.split('|');
@@ -47,8 +47,8 @@ function loadba() {
 		    html += '"></a>';
 	        html += '<div class="caption" style="overflow: hidden; text-overflow: ellipsis;">';
 	        html += '<h3>' + res[i].productName + '</h3>';
-	        html += '<h4>시작가격 : ' + res[i].productLowestPrice + ' 원</h4>';
-	        html += '<h4>현재가격 : ' + res[i].productLowestPrice * 3 / 2 + ' 원</h4>';
+	        html += '<h4>현재가격 : ' + res[i].productLowestPrice + ' 원</h4>';
+	        
 	        html += '<p>제품브랜드 : ' + res[i].productBrand + ' | 판매자 : ' + res[i].userId + ' | 제품수량 : ' + res[i].productQuantity + ' | 분류 : ' + res[i].productCategory + ' | 신용등급 : ' + res[i].userCreditLevel + ' | 등록일 : ' + res[i].productDate + ' | 마감일 : ' + res[i].productEndDate + '</p>';
 	        html += '<div style="height:50px;overflow:hidden;">'
 	        html += '<p>' + res[i].productCondition + '</p>';

@@ -33,6 +33,8 @@ var onloadCallback=function(){
 };
 </script>
 </head>
+<body>
+<%@ include file="/WEB-INF/views/common/head.jspf"%>
 <div class="find-container">
 	<div class="container">
 		<form id="login">
@@ -73,7 +75,7 @@ var onloadCallback=function(){
 		</form>
 	</div>
 </div>
-<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
+<%@ include file="/WEB-INF/views/common/product-bottom.jspf"%>
 
 <script>
     function enter(ent) {
@@ -123,5 +125,6 @@ var onloadCallback=function(){
        ajaxUtil.send();
     }
 </script>
+<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>

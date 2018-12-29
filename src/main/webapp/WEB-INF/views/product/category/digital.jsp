@@ -51,7 +51,7 @@ hr {
 							var img = imgs.split('|');
 
 							html += img[0];
-							html += '"></a>';
+							html += '" onError="this.src=\'/resources/img/icon-img.png\'"></a>';
 							html += '<div class="caption" style="overflow: hidden; text-overflow: ellipsis;">';
 							html += '<h3>' + res[i].productName + '</h3>';
 							html += '<h4>시작가격 : ' + res[i].productLowestPrice
@@ -98,14 +98,12 @@ hr {
 </script>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
 
-				<ol class="breadcrumb2">
-					<li><a href="/">home</a></li>
-					<li class="active">digital</li>
-				</ol>
+				<%@ include file="/WEB-INF/views/common/category-handler.jspf"%>
 
 				<div id="product-div"></div>
 			</div>
@@ -119,5 +117,6 @@ hr {
 			location.href = '/product/' + productNumber;
 		}
 	</script>
-
+	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
+</html>
