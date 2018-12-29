@@ -134,9 +134,7 @@ h4 {
 				<script type="text/javascript">
 				function closingTimeCalculation() {
 				    var now = new Date();
-				    var dday = new Date($ {
-				        endTimeNumber
-				    });
+				    var dday = new Date(${endTimeNumber});
 				    if (now.getTime() > dday.getTime()) {
 				        alert('마감된 상품입니다.')
 				        location.href = '/url/product:list';
@@ -305,9 +303,7 @@ h4 {
 	    if (session > 0) {
 			        html = '';
 			        $.ajax({
-			            url: '/bidding/' + $ {
-			                product.productNumber
-			            },
+			            url: '/bidding/' + ${product.productNumber},
 			            type: 'GET',
 			            dataType: "json",
 			            success: function(res) {
@@ -323,14 +319,10 @@ h4 {
 			                }
 			                html += '<p>입찰 횟수</p>' + '<div class="bidCount">' + res.bidCount + '</div>';
 			                html += '가격 : ';
-			                html += $ {
-			                    product.productLowestPrice
-			                } + (biddingId.length * 200);
+			                html += ${product.productLowestPrice} + (biddingId.length * 200);
 			                document.querySelector('.bidding').insertAdjacentHTML('afterbegin', html);
 			                var ing = '현재가격 : ';
-			                ing += $ {
-			                    product.productLowestPrice
-			                } + (biddingId.length * 200) + '원 ';
+			                ing += ${product.productLowestPrice} + (biddingId.length * 200) + '원 ';
 			                ing += '마지막 입찰시간 : ';
 			                if (max == 1) {
 			                    ing += '입찰자 없음';
@@ -349,9 +341,7 @@ h4 {
 	
 	$('[data-update]').click(function() {
 	    $.ajax({
-	        url: '/bidding/' + $ {
-	            product.productNumber
-	        } + '/' + bc + '/' + '${product.productName}' + '/' + '${product.userId}' + '/' + '${userlogininfo.userId}',
+	        url: '/bidding/' + ${product.productNumber} + '/' + bc + '/' + '${product.productName}' + '/' + '${product.userId}' + '/' + '${userlogininfo.userId}',
 	        type: 'POST',
 	        success: function(res) {
 	            if (res == 0) {

@@ -96,36 +96,7 @@ var onloadCallback=function(){
 								</p>
 
 							</div>
-							<%-- 	<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
-						<!--주소API-->
-						<p>
-							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
-								id="postCode" placeholder="우편번호" disabled class="form-control"
-								data-vali="2" /> 
-								<input type="button" class="btn btn-default"
-								onclick="execPostCode()" value="우편번호 찾기" />
-						</p>
-						<p>
-							주소 <input style="margin-bottom: 5px;" type="text"
-								id="userAddress" placeholder="주소" class="form-control" disabled
-								data-vali="2"> 
-								<input type="text" id="userAddress2"
-								placeholder="상세주소" class="form-control" data-vc="2,33">
-						</p>
-						<p>
-							<textarea class="form-control" cols="20" rows="5"
-								style="width: 100%; height: 200px;" readonly="readonly">
-						<%@ include file="/WEB-INF/views/common/terms.jspf"%> 
-						</textarea>
-						</p>
-						<p>
-							<input type="checkbox" name="agree" id="agree"
-								onClick="agreeCheck(this.form)"> 약관 동의 체크하시고 가입을 완료하세요.
-						</p>
-						<input class="btn btn-primary btn-block" type="button"
-							name="checkButton" onclick="save()" disabled value="확인">
-					</div> --%>
-							<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
+								<div class="col-md-6" style="margin-top: 10px; padding: 10px;">
 								<!--주소API-->
 								<p>
 									우편번호<br> <input style="width: 200px; margin-bottom: 5px;"
@@ -171,33 +142,7 @@ var onloadCallback=function(){
 	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 	<script>
-/* 주소API */
-/* function execPostCode() {
-   new daum.Postcode({
-      oncomplete: function(data) {
-         var fullAddr = ''; // 최종 주소 변수
-         var extraAddr = ''; // 조합형 주소 변수
-         if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-            fullAddr = data.roadAddress;
-         } else { // 사용자가 지번 주소를 선택했을 경우(J)
-            fullAddr = data.jibunAddress;
-         }
-         if (data.userSelectedType === 'R') {
-            if (data.bname !== '') {
-               extraAddr += data.bname;
-            }
-            if (data.buildingName !== '') {
-               extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-            }
-            fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
-         }
-         document.getElementById('postCode').value = data.zonecode; //5자리 새우편번호 사용
-         document.getElementById('userAddress').value = fullAddr;
-         document.getElementById('userAddress2').focus();
-      }
-   }).open();
-}
- */
+
 var idDuplicationCheck = 0
 function checkId2() {
    var userId = document.querySelector('#userId').value;

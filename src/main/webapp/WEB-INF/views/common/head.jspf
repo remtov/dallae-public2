@@ -58,6 +58,10 @@
 </script>
 </head>
 <body>
+
+<a href="https://docs.google.com/spreadsheets/d/1UPb42ql--ErA--0e_5bZaJvZhBUwHQ2bwfKDGsG-kR4/edit" style="z-index:5; position:fixed; right:0px; bottom:0px;">작업용테스트문서</a>
+
+
 	<div id="navi">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
