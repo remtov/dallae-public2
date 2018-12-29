@@ -138,7 +138,7 @@ window.addEventListener('load', function() {
 							<h2>판매 품목</h2>
 							<div id="product-div"></div>
 							<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-							<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+							
 						</div>
 					</div>
 				</div>

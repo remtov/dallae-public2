@@ -65,7 +65,7 @@ h4 {
 </head>
 <body>
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -273,7 +273,7 @@ h4 {
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 	<script>
 	var modal = document.querySelector('#myModal');
 	var bc;

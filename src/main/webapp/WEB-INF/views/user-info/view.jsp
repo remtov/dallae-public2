@@ -16,7 +16,7 @@
 
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	
 	<div class="view-container">
 
 		<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
@@ -240,7 +240,7 @@ function save() {
 	   location.href = '/productupdate/' + productNumber;
 	}
 </script>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 </body>
 </html>
 

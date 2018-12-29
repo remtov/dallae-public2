@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 <form>
 <div class="bidding">
 <button style="float: right;" class="btn btn-primary btn-lg"
@@ -49,6 +49,6 @@ $('[data-update]').click(function()){
 }
 
 </script>
-<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+
 </body>
 </html>

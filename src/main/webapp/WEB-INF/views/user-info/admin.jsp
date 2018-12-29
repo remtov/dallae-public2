@@ -360,7 +360,7 @@ div {
 			<%@ include file="/WEB-INF/views/common/no-session.jspf"%>
 		</c:otherwise>
 	</c:choose>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 	<script>
 	
 function enter(ent) {

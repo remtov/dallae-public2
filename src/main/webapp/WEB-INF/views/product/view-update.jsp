@@ -136,7 +136,7 @@ hr {
 </style>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<div class="view-container">
 		<c:set var="userId" value="${userlogininfo.userId}"></c:set>
 		<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
@@ -367,7 +367,7 @@ hr {
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 	<script>
 window.addEventListener('load', function() {
 	var fileInputs = document.querySelectorAll('.uploadBtn');

@@ -11,7 +11,7 @@
 </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<div class="view-container">
 		<c:set value="${getUserInfo}" var="userinfo" />
 		<c:choose>
@@ -140,7 +140,7 @@
 		alert('낙찰된 경우에 한해서 070번호로 통화나 달래톡을 통하여 연락이 가능하십니다.');
 	}
 	</script>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 </body>
 </html>
 

@@ -69,7 +69,7 @@ window.addEventListener('load', function() {
 </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<div class="view-container">
 		<c:choose>
 			<c:when test="${not empty sessionScope.userlogininfo}">
@@ -236,7 +236,7 @@ function save() {
 	   location.href = '/productupdate/' + productNumber;
 	}
 </script>
-<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+
 </body>
 </html>
 

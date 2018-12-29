@@ -58,7 +58,7 @@
 
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	
 
 	<c:choose>
 		<c:when test="${not empty sessionScope.userlogininfo}">
@@ -236,7 +236,7 @@ function summit() {
 
 
 	</script>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 </body>
 </html>
 

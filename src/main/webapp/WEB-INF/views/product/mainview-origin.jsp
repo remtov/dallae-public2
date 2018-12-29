@@ -17,7 +17,7 @@ h4 {
 </style>l
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -157,7 +157,7 @@ h4 {
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 	<script>
 		function updateBtn(productNumber) {
 			location.href = '/productupdate/' + productNumber;

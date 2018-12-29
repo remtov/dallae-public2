@@ -32,7 +32,7 @@ var onloadCallback=function(){
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	
 	<div class="view-container">
 		<div class="container">
 			<c:choose>
@@ -272,6 +272,6 @@ function save() {
    
 
 </script>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 </body>
 </html>

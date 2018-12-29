@@ -44,7 +44,7 @@ div {
 <script src="//code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	
 	<div id="home_container">
 		<%@ include file="/WEB-INF/views/common/home_img-slide.jspf"%>
 		<div class="container">
@@ -522,6 +522,6 @@ div {
 		</div>
 		<%@ include file="/WEB-INF/views/common/footer.jspf"%>
 	</div>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 </body>
 </html>

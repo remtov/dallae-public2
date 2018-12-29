@@ -17,7 +17,7 @@ var onloadCallback=function(){
 };
 </script>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<div class="find-container">
 		<div class="container">
 			<c:choose>
@@ -63,7 +63,7 @@ var onloadCallback=function(){
 			</c:choose>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 <script>
 		function enter(ent) {
 			var code = ent.which ? ent.which : event.keyCode;

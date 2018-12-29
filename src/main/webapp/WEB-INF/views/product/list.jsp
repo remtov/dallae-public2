@@ -19,7 +19,7 @@
 
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
+	
 	<div class="view-container">
 		<div class="container">
 			<div class="inner-box">
@@ -65,6 +65,6 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/common/footer.jspf"%>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+	
 </body>
 </html>

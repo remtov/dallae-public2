@@ -77,7 +77,7 @@ file-box-container {
 </script>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/head.jspf"%>
+
 	<div class="view-container">
 		<div class="container">
 			<c:set var="userLevel" value="${userlogininfo}"></c:set>
@@ -335,6 +335,6 @@ file-box-container {
 		}
 
 	</script>
-<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
+
 </body>
 </html>
