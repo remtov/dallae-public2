@@ -7,6 +7,8 @@
 		parameterType="product">
 		select * from product
 		<where>
+			productEnddate
+			>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
 			<if test="productNumber!=null"> and productNumber like '%'||#{productNumber}||'%'</if>
 			<if test="productName!=null"> and productName like '%'||#{productName}||'%'</if>
 			<if test="productCategory!=null"> and productCategory like '%'||#{productCategory}||'%'
@@ -27,45 +29,27 @@
 			</if>
 			<if test="userNumber!=null"> and userNumber like '%'||#{userNumber}||'%'</if>
 		</where>
-		order by productnumber
+		order by productEnddate asc
 	</select>
-
 	<select id="getproductImage" resultType="product"
 		parameterType="product">
 		select * from product
-		where productImage =
-		#{productImage}
+		where productImage = #{productImage}
 	</select>
-
 	<select id="getNum" resultType="product" parameterType="product">
-		select a.* from
+		select rnum,a.*
+		from
 		(select ROWNUM AS rnum,b.*
-		from (select * from product
-		<if test="ser!=null">where productname like '%'||#{ser}||'%'
-			or productdesc like
-			'%'||#{ser}||'%' </if>
-		order by productnumber
-		desc) b
+		from product b
 		where
 		productEnddate
 		>=to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
-		)
-		a where rnum BETWEEN
-		#{startNum} and #{endNum}
-
+		order by
+		productEnddate asc) a
+		<where>
+			rnum BETWEEN #{startNum} and #{endNum}
+		</where>
 	</select>
-	
-	<select id="ser" resultType="product" parameterType="product">
-		select *
-		from
-		(SELECT * FROM PRODUCT WHERE productEnddate >=
-		to_char(sysdate,'yyyy-mm-dd
-		hh24:mi:ss')
-		order by productEnddate asc)
-		where productname like '%'||#{ser}||'%' or productdesc like
-		'%'||#{ser}||'%'
-	</select>
-	
 	<!-- 마감일순8개조회_홈화면 -->
 	<select id="getProductListEndDate" resultType="product"
 		parameterType="product">

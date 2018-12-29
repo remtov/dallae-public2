@@ -7,7 +7,7 @@
 <title>here</title>
 <style>
 </style>
-<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 	/* 필수체크동의 */
 	function agreeCheck(frm) {
@@ -17,7 +17,7 @@
 			frm.checkButton.disabled = true
 		}
 	}
-</script> -->
+</script>
 </head>
 <body>
 	<div class="view-container">
@@ -74,18 +74,15 @@
 						<!--주소API-->
 						<p>
 							우편번호<input style="width: 200px; margin-bottom: 5px;" type="text"
-								id="postCode" placeholder="우편번호" disabled class="postcodify_postcode5"
-								data-vali="2" /> <input type="button" id="postcodify_search_button" class="btn btn-default"
+								id="postCode" placeholder="우편번호" disabled class="form-control"
+								data-vali="2" /> <input type="button" class="btn btn-default"
 								onclick="execPostCode()" value="우편번호 찾기" />
 						</p>
 						<p>
 							주소 <input style="margin-bottom: 5px;" type="text"
-								id="userAddress" placeholder="주소" class="postcodify_address" disabled
-								data-vali="2"> 
-								<input type="text" id="userAddress2"
-								placeholder="상세주소" class="postcodify_details" data-vc="2,33">
-								<input type="text" name="" class="postcodify_extra_info" value="" /><br />
-								
+								id="userAddress" placeholder="주소" class="form-control" disabled
+								data-vali="2"> <input type="text" id="userAddress2"
+								placeholder="상세주소" class="form-control" data-vc="2,33">
 						</p>
 						<p>
 							<textarea class="form-control" cols="20" rows="5"
@@ -105,20 +102,9 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/product/product-bottom.jspf"%>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-
-	
 <script>
-<!-- jQuery와 Postcodify를 로딩한다 -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-
-<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
-
 /* 주소API */
-/* function execPostCode() {
+function execPostCode() {
    new daum.Postcode({
       oncomplete: function(data) {
          var fullAddr = ''; // 최종 주소 변수
@@ -142,7 +128,7 @@
          document.getElementById('userAddress2').focus();
       }
    }).open();
-} */
+}
 
 var idDuplicationCheck = 0
 function checkId2() {

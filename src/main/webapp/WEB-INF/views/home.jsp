@@ -44,7 +44,6 @@ div {
 <script src="//code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div id="home_container">
 		<%@ include file="/WEB-INF/views/common/home_img-slide.jspf"%>
 		<div class="container">
@@ -74,40 +73,39 @@ div {
 			<c:set var="lifeSplitedImg"
 				value="${fn:split(life.productImage,'|')}" />
 
-			<h3 style="margin-left: 20px;">
-				<b>카테고리</b>별 경매품<small> 최고가격</small>
-			</h3>
+			<h2 style="margin-left: 20px;">
+				카테고리별 최고가격 매물<small>카테고리별 인기 매물로 바꿀 예정 (비딩 카운터나 조회수로 하면 될 듯)</small>
+			</h2>
 			<div class="row">
 				<!-- 카테고리 1열 -->
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a href="/url/product:category:fashion"><button
-										class="btn btn-default">패션 경매품 보러가기</button></a></b></li>
-
+						<li><b><a href="/url/product:category:fashion">${fashion.productCategory}</a></b></li>
+						<li class="active">${fashion.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${fashion.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${fashionSplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${fashionSplitedImg[0]}"></a>
 							</div>
 
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${fashion.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${fashionSplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${fashionSplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${fashion.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${fashionSplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${fashionSplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${fashion.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${fashionSplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${fashionSplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -134,35 +132,33 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${digital.productCategory}"><button
-										class="btn btn-default">디지털 경매품 보러가기</button></a></b></li>
-						
+						<li><b><a href="/url/product:category:${digital.productCategory}">${digital.productCategory}</a></b></li>
+						<li class="active">${digital.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 
 							<div class="home-content_img-big">
 								<a href="/product/${digital.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${digitalSplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${digitalSplitedImg[0]}"></a>
 							</div>
 
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${digital.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${digitalSplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${digitalSplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${digital.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${digitalSplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${digitalSplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${digital.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${digitalSplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${digitalSplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -193,33 +189,31 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${rareCollection.productCategory}"><button
-										class="btn btn-default">희귀품 경매품 보러가기</button></a></b></li>
-
+						<li><b><a href="/url/product:category:${rareCollection.productCategory}">${rareCollection.productCategory}</a></b></li>
+						<li class="active">${rareCollection.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${rareCollection.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${rareCollectionSplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${rareCollectionSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${rareCollection.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${rareCollectionSplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${rareCollectionSplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${rareCollection.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${rareCollectionSplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${rareCollectionSplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${rareCollection.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${rareCollectionSplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${rareCollectionSplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -245,33 +239,31 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${healthBeauty.productCategory}"><button
-										class="btn btn-default">건강&#38;뷰티 경매품 보러가기</button></a></b></li>
-
+						<li><b><a href="/url/product:category:${healthBeauty.productCategory}">${healthBeauty.productCategory}</a></b></li>
+						<li class="active">${healthBeauty.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${healthBeauty.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${healthBeautySplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${healthBeautySplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${healthBeauty.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${healthBeautySplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${healthBeautySplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${healthBeauty.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${healthBeautySplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${healthBeautySplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${healthBeauty.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${healthBeautySplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${healthBeautySplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -301,33 +293,31 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${motorPartz.productCategory}"><button
-										class="btn btn-default">모터파츠 경매품 보러가기</button></a></b></li>
-						
+						<li><b><a href="/url/product:category:${motorPartz.productCategory}">${motorPartz.productCategory}</a></b></li>
+						<li class="active">${motorPartz.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${motorPartz.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${motorPartzSplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${motorPartzSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${motorPartz.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${motorPartzSplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${motorPartzSplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${motorPartz.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${motorPartzSplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${motorPartzSplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${motorPartz.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${motorPartzSplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${motorPartzSplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -353,33 +343,31 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${toyHobby.productCategory}"><button
-										class="btn btn-default">장난감&#38;취미 경매품 보러가기</button></a></b></li>
-						
+						<li><b><a href="/url/product:category:${toyHobby.productCategory}">${toyHobby.productCategory}</a></b></li>
+						<li class="active">${toyHobby.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${toyHobby.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${toyHobbySplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${toyHobbySplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${toyHobby.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${toyHobbySplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${toyHobbySplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${toyHobby.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${toyHobbySplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${toyHobbySplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${toyHobby.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${toyHobbySplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${toyHobbySplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -409,33 +397,31 @@ div {
 			<div class="row">
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${sports.productCategory}"><button
-										class="btn btn-default">스포츠 경매품 보러가기</button></a></b></li>
-						
+						<li><b><a href="/url/product:category:${sports.productCategory}">${sports.productCategory}</a></b></li>
+						<li class="active">${sports.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${sports.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${sportsSplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${sportsSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${sports.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${sportsSplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${sportsSplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${sports.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${sportsSplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${sportsSplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${sports.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${sportsSplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${sportsSplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -461,33 +447,31 @@ div {
 				</div>
 				<div class="col-md-6">
 					<ol class="breadcrumb2">
-						<li><b><a
-								href="/url/product:category:${life.productCategory}"><button
-										class="btn btn-default">생활 경매품 보러가기</button></a></b></li>
-						
+						<li><b><a href="/url/product:category:${life.productCategory}">${life.productCategory}</a></b></li>
+						<li class="active">${life.productName}</li>
 					</ol>
 					<div style="background-color: white;">
 						<div style="padding: 20px; height: 100%; overflow: hidden;">
 							<div class="home-content_img-big">
 								<a href="/product/${life.productNumber}"><img
-									onError="this.src='/resources/img/icon-img.png'"
-									src="/resources/img/product/${lifeSplitedImg[0]}"></a>
+									onError="this.src='/img/icon-img.png'"
+									src="/img/product/${lifeSplitedImg[0]}"></a>
 							</div>
 							<div class="home-content_img-small">
 								<div>
 									<a href="/product/${life.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${lifeSplitedImg[1]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${lifeSplitedImg[1]}"></a>
 								</div>
 								<div>
 									<a href="/product/${life.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${lifeSplitedImg[2]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${lifeSplitedImg[2]}"></a>
 								</div>
 								<div>
 									<a href="/product/${life.productNumber}"><img
-										onError="this.src='/resources/img/icon-img.png'"
-										src="/resources/img/product/${lifeSplitedImg[3]}"></a>
+										onError="this.src='/img/icon-img.png'"
+										src="/img/product/${lifeSplitedImg[3]}"></a>
 								</div>
 							</div>
 						</div>
@@ -515,13 +499,12 @@ div {
 			</div>
 
 			<hr>
-			<h3>
-				<b>경매품</b> 리스트<small> 최신 매물 순</small>
-			</h3>
+			<h2>
+				전체 매물들<small>최신 매물 순</small>
+			</h2>
 			<%@ include file="/WEB-INF/views/common/content-final.jspf"%>
 		</div>
 		<%@ include file="/WEB-INF/views/common/footer.jspf"%>
 	</div>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>

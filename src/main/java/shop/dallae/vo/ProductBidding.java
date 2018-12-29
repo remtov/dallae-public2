@@ -7,17 +7,17 @@ public class ProductBidding {
 	private Integer productNumber;
 	private Integer bidCount;
 	private String biddingId;
-	private String bidsDate;
+	private String biddingDate;
 	private Integer biddingStatus;
 	
 	public ProductBidding() {};
-	public ProductBidding(Integer productNumber, Integer bidCount, String biddingId, String bidsDate,
+	public ProductBidding(Integer productNumber, Integer bidCount, String biddingId, String biddingDate,
 			Integer biddingStatus) {
 		super();
 		this.productNumber = productNumber;
 		this.bidCount = bidCount;
 		this.biddingId = biddingId;
-		this.bidsDate = bidsDate;
+		this.biddingDate = biddingDate;
 		this.biddingStatus = biddingStatus;
 	}
 	public Integer getProductNumber() {
@@ -38,11 +38,11 @@ public class ProductBidding {
 	public void setBiddingId(String biddingId) {
 		this.biddingId = biddingId;
 	}
-	public String getBidsDate() {
-		return bidsDate;
+	public String getBiddingDate() {
+		return biddingDate;
 	}
-	public void setBidsDate(String bidsDate) {
-		this.bidsDate = bidsDate;
+	public void setBiddingDate(String biddingDate) {
+		this.biddingDate = biddingDate;
 	}
 	public Integer getBiddingStatus() {
 		return biddingStatus;
@@ -53,10 +53,8 @@ public class ProductBidding {
 	@Override
 	public String toString() {
 		return "ProductBidding [productNumber=" + productNumber + ", bidCount=" + bidCount + ", biddingId=" + biddingId
-				+ ", bidsDate=" + bidsDate + ", biddingStatus=" + biddingStatus + "]";
+				+ ", biddingDate=" + biddingDate + ", biddingStatus=" + biddingStatus + "]";
 	}
-	
-	
 
 
 }

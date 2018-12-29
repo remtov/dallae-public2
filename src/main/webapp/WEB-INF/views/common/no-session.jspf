@@ -16,7 +16,7 @@
 				<h2>
 					<button type="button" class="btn btn-default"
 						onclick="history.back()">X</button>
-					<b>권한</b>이 필요
+					<b>권한이</b>필요합니다.
 					<button class="btn btn-primary" type="button"
 						onclick="location.href='/url/user-info:seller-certification'">인증</button>
 				</h2>
@@ -29,7 +29,7 @@
 				<h2>
 					<button type="button" class="btn btn-default"
 						onclick="history.back()">X</button>
-					<b>권한</b>이 필요
+					<b>권한이</b>필요합니다.
 					<button type="button" class="btn btn-primary"
 						onclick="location.href='/url/user-info:login'">로그인</button>
 				</h2>

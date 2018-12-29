@@ -14,6 +14,4 @@ public interface SellerInfoDAO {
 	public int updateSellerInfo(SellerInfo sellerInfo);
 
 	public int deleteSellerInfo(Integer sellerInfoNumber);
-	
-	
 }

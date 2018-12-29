@@ -6,26 +6,51 @@
 <head>
 <meta charset="UTF-8" />
 <title>Login</title>
-<script
-	src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m"
-	async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m" async defer></script>
 <script type="text/javascript">
-	var onloadCallback = function() {
-		greCAPTCHA.render('html_element', {
-			'sitekey' : '6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
-			'theme' : 'light'
-		});
-	};
+var onloadCallback=function(){
+	greCAPTCHA.render('html_element',{
+		'sitekey':'6LcP_H0UAAAAADv-pGEDjJQdbkF80KgS8xSXiQ0m',
+		'theme':'light'
+	});
+};
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head.jspf"%>
 	<div class="find-container">
 		<div class="container">
 			<c:choose>
 				<c:when test="${not empty sessionScope.userlogininfo}">
 					<!-- 로그인된 상태-->
-					<%@ include file="/WEB-INF/views/common/logged-status.jspf"%>
+					<div
+						style="border: 1px solid #d6d6d6; margin: auto; margin-top: 30px; margin-bottom: 100px; max-width: 500px; padding: 20px;">
+						<h2 style="text-align: center;">
+							<button style="float: left;" type="button"
+								class="btn btn-default" onclick="history.back()">X</button>
+							<b style="float: center;">로그인</b> <small>된 상태</small>
+							<button style="float: right;" type="button"
+								class="btn btn-primary" onclick="loging()">로그인</button>
+						</h2>
+						<p>
+							"<b>${sessionScope.userlogininfo.userId}</b>"님 반갑습니다. <br> <b>
+								<c:out value="${sessionScope.userlogininfo.userEmail}" />
+							</b>
+						</p>
+						<p>
+							다른 아이디로 로그인 하시겠습니까?
+							<button class="btn btn-default btn-xs" onclick="logout()">로그아웃</button>
+						</p>
+						<p>
+							개인 페이지로 가시겠습니까?
+							<button class="btn btn-default btn-xs" type="button"
+								onclick="location.href='/url/user-info:my-page'">마이페이지</button>
+						</p>
+						<p>
+							판매자 인증을 받으시겠습니까?
+							<button class="btn btn-primary btn-xs" type="button"
+								onclick="location.href='/url/user-info:seller-certification'">인증</button>
+						</p>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<form id="login" class="form-horizontal">
@@ -97,8 +122,8 @@
 					method : 'POST',
 					param : params,
 					success : function(res) {
-						if (typeof (greCAPTCHA) != 'undefined') {
-							if (greCAPTCHA.getResponse() == "") {
+						if(typeof(greCAPTCHA)!='undefined'){
+							if(greCAPTCHA.getResponse()==""){
 								alert("스팸 방지코드를 확인해주세요");
 								return;
 							}
@@ -106,8 +131,7 @@
 
 						if (res != '') {
 							alert('로그인이 완료되셨습니다.');
-							location.href = document.referrer;//이동해 온 페이지경로를 로드한다.
-
+							location.href = "/";
 						} else {
 							logout();
 							location.href = "/url/user-info:login";
@@ -135,7 +159,6 @@
 			location.href = "/url/user-info:update-password"
 		}
 	</script>
-	<%@ include file="/WEB-INF/views/common/bottom.jspf"%>
 </body>
 </html>
 

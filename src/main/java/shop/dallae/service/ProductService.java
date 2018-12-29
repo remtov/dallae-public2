@@ -12,8 +12,6 @@ public interface ProductService {
 	
 	public Product getProductImage(String productImage);
 	
-	public List<Product> getSer(Product product);
-	
 	public Product getProduct(Integer productNumber);
 
 	public int insertProduct(Product product);

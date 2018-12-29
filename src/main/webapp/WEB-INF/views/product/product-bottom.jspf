@@ -24,3 +24,5 @@ function valiCheck(){
 	return true;
 }		
 </script>
+</body>
+</html>
