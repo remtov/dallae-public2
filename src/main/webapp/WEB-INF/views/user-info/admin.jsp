@@ -47,7 +47,7 @@ div {
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/head-admin.jspf"%>
+	
 	<c:set var="userLevel" value="${userlogininfo.userLevel}"></c:set>
 	<c:choose>
 		<c:when test="${userLevel>2.5}">

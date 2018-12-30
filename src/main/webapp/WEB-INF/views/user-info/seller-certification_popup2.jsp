@@ -241,7 +241,7 @@ hr {
 	}
 </script>
 <body class="popup">
-	<%@ include file="/WEB-INF/views/common/head-popup.jspf"%>
+	
 	<div class="find-container">
 		<div class="container">
 			<div class="inner-box">
