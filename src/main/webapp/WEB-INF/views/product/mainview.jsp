@@ -70,12 +70,7 @@ h4 {
 		<div class="container">
 			<div class="inner-box">
 				<!-- 데이터베이스 날짜 형 변환 -->
-				<c:set var="endTime" value="${product.productEndDate}" />
-				<fmt:parseDate var="endTimeDate" value="${endTime}"
-					pattern="yyyy-MM-dd HH:mm:ss" />
-				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}"
-					integerOnly="true" />
-
+			
 				<ol class="breadcrumb2">
 					<li><button onclick="location.href='/'"
 							class="btn btn-default">홈으로</button></li>
@@ -133,13 +128,15 @@ h4 {
 
 				<script type="text/javascript">
 				function closingTimeCalculation() {
-				    var now = new Date();
-				    var dday = new Date(${endTimeNumber});
-				    if (now.getTime() > dday.getTime()) {
-				        alert('마감된 상품입니다.')
-				        location.href = '/url/product:list';
-				    }
-				    days = (dday - now) / 1000 / 60 / 60 / 24;
+					var testTime = document.getElementById("testTime");
+					var now = new Date();
+				    var dday = new Date('${product.productEndDate}');
+					    if (now.getTime() > dday.getTime()) {
+					        alert('마감된 상품입니다.')
+					        location.href = '/url/product:list';
+					    }
+									    
+					days = (dday - now) / 1000 / 60 / 60 / 24;
 				    daysRound = Math.floor(days);
 				    hours = (dday - now) / 1000 / 60 / 60 - (24 * daysRound);
 				    hoursRound = Math.floor(hours);
@@ -152,6 +149,9 @@ h4 {
 				    document.getElementById("minutes-output").innerHTML = minutesRound;
 				    document.getElementById("seconds-output").innerHTML = secondsRound;
 				    newtime = window.setTimeout("closingTimeCalculation();", 1000);
+				    
+					
+					testTime.innerHTML += "<p><b><font color='red'>데이터베이스에서 받아온 데이터 : ${product.productEndDate} , 마감일자 값 : "+ dday + ' , 현재일자 값 : ' + now + ' , 남은일자 : '+days+' , 남은시간 : '+hours+' , 남은분 : '+minutes+' , 남은초 : '+seconds +"</font></b></p>";
 				}
 				setTimeout(closingTimeCalculation, 100);
 				window.addEventListener('load', function() {
@@ -160,24 +160,24 @@ h4 {
 				    var html = '';
 				    html += '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
 				    html += '<ol class="carousel-indicators">';
-				    for (var j = 0; j < img.length; j++) {
-				        html += '<li data-target="#carousel-example-generic" data-slide-to="' + j + '"';
-				        if (j == 0) {
-				            html += ' class="active';
-				        }
-				        html += '"></li>';
-				    }
+					    for (var j = 0; j < img.length; j++) {
+					        html += '<li data-target="#carousel-example-generic" data-slide-to="' + j + '"';
+					        if (j == 0) {
+					            html += ' class="active';
+					        }
+					        html += '"></li>';
+					    }
 				    html += '</ol>';
 				    html += '<div class="carousel-inner" role="listbox">';
-				    for (var i = 0; i < img.length; i++) {
-				        html += '<div style="max-height:500px; overflow:hidden;" class="item';
-				        if (i == 0) {
-				            html += ' active';
-				        }
-				        html += '">';
-				        html += '<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/' + img[i] + '">';
-				        html += '<div class="carousel-caption"></div></div>';
-				    }
+					    for (var i = 0; i < img.length; i++) {
+					        html += '<div style="max-height:500px; overflow:hidden;" class="item';
+					        if (i == 0) {
+					            html += ' active';
+					        }
+					        html += '">';
+					        html += '<img style="max-height:500px; width:auto; margin:auto;" onError="this.src=\'/resources/img/icon-img.png\'" src="/resources/img/product/' + img[i] + '">';
+					        html += '<div class="carousel-caption"></div></div>';
+					    }
 				    html += '</div>';
 				    html += '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
 				    html += '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
@@ -188,8 +188,8 @@ h4 {
 				    document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
 				});
 				</script>
-
-
+test: ${product.productEndDate}
+<div id ="testTime"></div>
 				<div class='view'></div>
 				<div id="seller-div">
 
