@@ -70,6 +70,12 @@ h4 {
 		<div class="container">
 			<div class="inner-box">
 				<!-- 데이터베이스 날짜 형 변환 -->
+				
+				<%-- 			
+				<c:set var="endTime" value="${product.productEndDate}" />
+				<fmt:parseDate var="endTimeDate" value="${endTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+				<fmt:parseNumber var="endTimeNumber" value="${endTimeDate.time}" integerOnly="true" />
+				 --%>
 			
 				<ol class="breadcrumb2">
 					<li><button onclick="location.href='/'"
@@ -128,7 +134,7 @@ h4 {
 
 				<script type="text/javascript">
 				function closingTimeCalculation() {
-					var testTime = document.getElementById("testTime");
+					/* var testTime = document.getElementById("testTime"); */
 					var now = new Date();
 				    var dday = new Date('${product.productEndDate}');
 					    if (now.getTime() > dday.getTime()) {
@@ -151,7 +157,7 @@ h4 {
 				    newtime = window.setTimeout("closingTimeCalculation();", 1000);
 				    
 					
-					testTime.innerHTML += "<p><b><font color='red'>데이터베이스에서 받아온 데이터 : ${product.productEndDate} , 마감일자 값 : "+ dday + ' , 현재일자 값 : ' + now + ' , 남은일자 : '+days+' , 남은시간 : '+hours+' , 남은분 : '+minutes+' , 남은초 : '+seconds +"</font></b></p>";
+				/* 	testTime.innerHTML += "<p><b><font color='red'>데이터베이스에서 받아온 데이터 : ${product.productEndDate} , 마감일자 값 : "+ dday + ' , 현재일자 값 : ' + now + ' , 남은일자 : '+days+' , 남은시간 : '+hours+' , 남은분 : '+minutes+' , 남은초 : '+seconds +"</font></b></p>"; */
 				}
 				setTimeout(closingTimeCalculation, 100);
 				window.addEventListener('load', function() {
@@ -188,8 +194,8 @@ h4 {
 				    document.querySelector('.view').insertAdjacentHTML('beforeEnd', html);
 				});
 				</script>
-test: ${product.productEndDate}
-<div id ="testTime"></div>
+<%-- test: ${product.productEndDate}
+<div id ="testTime"></div> --%>
 				<div class='view'></div>
 				<div id="seller-div">
 
